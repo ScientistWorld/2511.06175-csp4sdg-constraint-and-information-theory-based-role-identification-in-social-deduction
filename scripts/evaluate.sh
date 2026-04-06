@@ -1,30 +1,46 @@
 #!/bin/bash
 # Evaluation script — the standard way to evaluate work in this environment.
 #
-# This script must be SELF-CONTAINED using only code in eval/.
-# Do NOT import from method/ — evaluate.sh must work even when the
-# paper's method code is hidden from a scientist agent.
+# This script evaluates CSP solver results against the paper's reported numbers.
 #
-# Design it so that anyone following the same output format can run
-# this script to evaluate their results.
+# Usage:
+#   ./evaluate.sh [dataset] [results_dir] [output_path]
 #
-# OUTPUT CONTRACT: This script MUST write scoring/scores.json containing
-# a JSON dict nested by experiment, e.g.:
-#   {"imagenet_classification": {"top1_accuracy": 82.1, "top5_accuracy": 94.8}}
-# Experiment and metric names must match the keys in scoring/reference.json.
-# This file is read by the system for automated comparison.
+# Arguments (all optional, with defaults):
+#   dataset     — "avalonlogs" (default), "avalonnlu", "mafia"
+#   results_dir — Directory containing solver output JSON files
+#   output_path — Where to write scores.json (default: scoring/scores.json)
 #
-# Example usage:
-#   ./evaluate.sh <method_and_run_name>                             # evaluate with defaults
-#   ./evaluate.sh <method_and_run_name> checkpoints/epoch_10.pt     # evaluate a specific checkpoint
-#
-# Called from run.sh after training, or independently.
+# Environment:
+#   PYTHONPATH should include /home/user
 
 set -e
 
 cd /home/user
 
+# Default paths
+DATASET="${1:-avalonlogs}"
+RESULTS_DIR="${2:-data/avalonlogs_solve}"
+OUTPUT="${3:-scoring/scores.json}"
+
 mkdir -p scoring
 
-# TODO: implement evaluation using code in eval/
-# Must write scoring/scores.json at the end
+echo "Evaluating: dataset=$DATASET, results=$RESULTS_DIR, output=$OUTPUT"
+
+python3 -c "
+import sys
+sys.path.insert(0, '/home/user')
+from eval.evaluator import evaluate
+from pathlib import Path
+
+scores = evaluate(
+    results_dir=Path('$RESULTS_DIR'),
+    output_path=Path('$OUTPUT'),
+    dataset='$DATASET',
+    condition='Truth',
+)
+print('Evaluation complete.')
+print('Experiments:', list(scores.get('experiments', {}).keys()))
+"
+
+echo "Scores written to $OUTPUT"

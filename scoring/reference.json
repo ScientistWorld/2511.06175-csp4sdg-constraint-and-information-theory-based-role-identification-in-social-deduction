@@ -1,0 +1,210 @@
+{
+  "experiments": {
+    "avalonnlu_truth_main": {
+      "description": "Avalon-NLU Truthful-Good main results (Table 2). Primary: CSP+HypIG consistently outperforms LLM-Global.",
+      "weight": 0.3,
+      "primary_metric": "MRL_marginal",
+      "metrics": {
+        "Obj_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "Obj_map": {"higher_is_better": true, "coefficient": 0.8},
+        "MRL_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "MRL_map": {"higher_is_better": true, "coefficient": 1.0},
+        "PCV_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "PCV_map": {"higher_is_better": true, "coefficient": 1.0},
+        "ASN_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "ASN_map": {"higher_is_better": true, "coefficient": 1.0},
+        "MRG_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "MRG_map": {"higher_is_better": true, "coefficient": 1.0},
+        "LSV_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "LSV_map": {"higher_is_better": true, "coefficient": 1.0}
+      },
+      "results": {
+        "CSP_Strict": {
+          "type": "proposed",
+          "Obj_marginal": 0.28, "Obj_map": 0.24,
+          "MRL_marginal": 0.63, "MRL_map": 0.60,
+          "PCV_marginal": 0.69, "PCV_map": 0.67,
+          "ASN_marginal": 0.59, "ASN_map": 0.53,
+          "MRG_marginal": 0.59, "MRG_map": 0.53,
+          "LSV_marginal": 0.56, "LSV_map": 0.53
+        },
+        "CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.34, "Obj_map": 0.30,
+          "MRL_marginal": 0.65, "MRL_map": 0.60,
+          "PCV_marginal": 0.76, "PCV_map": 0.79,
+          "ASN_marginal": 0.61, "ASN_map": 0.53,
+          "MRG_marginal": 0.61, "MRG_map": 0.53,
+          "LSV_marginal": 0.60, "LSV_map": 0.65
+        },
+        "LLM_Global": {
+          "type": "baseline",
+          "Obj_marginal": 0.14, "Obj_map": 0.20,
+          "MRL_marginal": 0.20, "MRL_map": 0.24,
+          "PCV_marginal": 0.16, "PCV_map": 0.19,
+          "ASN_marginal": 0.13, "ASN_map": 0.19,
+          "MRG_marginal": 0.16, "MRG_map": 0.25,
+          "LSV_marginal": 0.13, "LSV_map": 0.21
+        },
+        "LLM_CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.19, "Obj_map": 0.16,
+          "MRL_marginal": 0.42, "MRL_map": 0.40,
+          "PCV_marginal": 0.48, "PCV_map": 0.50,
+          "ASN_marginal": 0.44, "ASN_map": 0.40,
+          "MRG_marginal": 0.44, "MRG_map": 0.40,
+          "LSV_marginal": 0.12, "LSV_map": 0.19
+        },
+        "Random": {
+          "type": "baseline",
+          "Obj_marginal": 0.2667, "Obj_map": 0.2667,
+          "MRL_marginal": 0.4, "MRL_map": 0.4,
+          "PCV_marginal": 0.4, "PCV_map": 0.4,
+          "ASN_marginal": 0.5833, "ASN_map": 0.5833,
+          "MRG_marginal": 0.5833, "MRG_map": 0.5833,
+          "LSV_marginal": 0.3333, "LSV_map": 0.3333
+        }
+      }
+    },
+    "avalonnlu_lie_main": {
+      "description": "Avalon-NLU Lying-Good results (Table 7, Appendix G).",
+      "weight": 0.1,
+      "primary_metric": "MRL_marginal",
+      "metrics": {
+        "MRL_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "MRL_map": {"higher_is_better": true, "coefficient": 1.0},
+        "PCV_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "PCV_map": {"higher_is_better": true, "coefficient": 1.0}
+      },
+      "results": {
+        "CSP_HypIG": {
+          "type": "proposed",
+          "MRL_marginal": 0.28, "MRL_map": 0.14,
+          "PCV_marginal": 0.79, "PCV_map": 0.80
+        },
+        "LLM_Global": {
+          "type": "baseline",
+          "MRL_marginal": 0.09, "MRL_map": 0.09,
+          "PCV_marginal": 0.12, "PCV_map": 0.18
+        }
+      }
+    },
+    "avalonlogs_6player": {
+      "description": "AvalonLogs 6-player results (Table 3 / Appendix H). CSP+HypIG outperforms LLM on all views.",
+      "weight": 0.25,
+      "primary_metric": "Obj_marginal",
+      "metrics": {
+        "Obj_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "MRL_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "PCV_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "MRG_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "LSV_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "EVM_marginal": {"higher_is_better": true, "coefficient": 1.0}
+      },
+      "results": {
+        "CSP_Strict": {
+          "type": "proposed",
+          "Obj_marginal": 0.290, "MRL_marginal": 0.614,
+          "PCV_marginal": 0.635, "MRG_marginal": 0.584,
+          "LSV_marginal": 0.390, "EVM_marginal": 0.691
+        },
+        "CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.326, "MRL_marginal": 0.615,
+          "PCV_marginal": 0.637, "MRG_marginal": 0.577,
+          "LSV_marginal": 0.419, "EVM_marginal": 0.729
+        },
+        "LLM_Global": {
+          "type": "baseline",
+          "Obj_marginal": 0.283, "MRL_marginal": 0.360,
+          "PCV_marginal": 0.325, "MRG_marginal": 0.298,
+          "LSV_marginal": 0.290, "EVM_marginal": 0.464
+        },
+        "LLM_CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.289, "MRL_marginal": 0.613,
+          "PCV_marginal": 0.633, "MRG_marginal": 0.584,
+          "LSV_marginal": 0.389, "EVM_marginal": 0.691
+        }
+      }
+    },
+    "avalonlogs_9player": {
+      "description": "AvalonLogs 9-player results (Table 3). CSP+HypIG outperforms LLM significantly.",
+      "weight": 0.2,
+      "primary_metric": "Obj_marginal",
+      "metrics": {
+        "Obj_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "MRL_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "PCV_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "MRG_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "LSV_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "EVM_marginal": {"higher_is_better": true, "coefficient": 1.0}
+      },
+      "results": {
+        "CSP_Strict": {
+          "type": "proposed",
+          "Obj_marginal": 0.302, "MRL_marginal": 0.595,
+          "PCV_marginal": 0.568, "MRG_marginal": 0.554,
+          "LSV_marginal": 0.348, "EVM_marginal": 0.614
+        },
+        "CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.360, "MRL_marginal": 0.666,
+          "PCV_marginal": 0.525, "MRG_marginal": 0.578,
+          "LSV_marginal": 0.403, "EVM_marginal": 0.674
+        },
+        "LLM_Global": {
+          "type": "baseline",
+          "Obj_marginal": 0.280, "MRL_marginal": 0.360,
+          "PCV_marginal": 0.309, "MRG_marginal": 0.313,
+          "LSV_marginal": 0.291, "EVM_marginal": 0.417
+        },
+        "LLM_CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.301, "MRL_marginal": 0.593,
+          "PCV_marginal": 0.564, "MRG_marginal": 0.554,
+          "LSV_marginal": 0.347, "EVM_marginal": 0.614
+        }
+      }
+    },
+    "mafia_truth_main": {
+      "description": "Mafia-UCB Truthful-Good results (Table 2).",
+      "weight": 0.15,
+      "primary_metric": "Obj_marginal",
+      "metrics": {
+        "Obj_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "Obj_map": {"higher_is_better": true, "coefficient": 1.0},
+        "BYS_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "BYS_map": {"higher_is_better": true, "coefficient": 1.0},
+        "MAF_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "MAF_map": {"higher_is_better": true, "coefficient": 1.0}
+      },
+      "results": {
+        "CSP_Strict": {
+          "type": "proposed",
+          "Obj_marginal": 0.70, "Obj_map": 0.90,
+          "BYS_marginal": 0.72, "BYS_map": 0.91,
+          "MAF_marginal": 1.00, "MAF_map": 1.00
+        },
+        "CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.73, "Obj_map": 0.76,
+          "BYS_marginal": 0.74, "BYS_map": 0.76,
+          "MAF_marginal": 1.00, "MAF_map": 1.00
+        },
+        "LLM_TChat": {
+          "type": "baseline",
+          "Obj_marginal": 0.66, "Obj_map": 0.72,
+          "BYS_marginal": 0.61, "BYS_map": 0.66,
+          "MAF_marginal": 0.67, "MAF_map": 0.82
+        },
+        "LLM_CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.69, "Obj_map": 0.74,
+          "BYS_marginal": 0.70, "BYS_map": 0.74,
+          "MAF_marginal": 0.89, "MAF_map": 0.93
+        }
+      }
+    }
+  }
+}

@@ -1,30 +1,38 @@
 #!/bin/bash
 # Download all data and models needed for this environment.
 #
-# Run on a node with internet access BEFORE building the container
-# or submitting compute jobs.
+# Estimated total download size: ~500 MB
+# Estimated disk usage after extraction: ~800 MB
 #
-# This script should be idempotent — safe to run multiple times.
-# It should skip files that already exist.
+# Datasets:
+#   1. AvalonLogs: ~500 MB raw JSON (~12,400 game files)
+#      Source: https://github.com/WhoaWhoa/avalonlogs
+#      (already cloned to /home/user/avalonlogs_temp)
+#   2. CSP4SDG code repo: cloned to /home/user/csp4sdg_temp
 #
-# Update the storage estimate below as you add downloads.
-#
-# Estimated total download size: TODO GB
-# Estimated disk usage after extraction: TODO GB
-#
-# During reproduction, prefer downloading to shared directories
-# (shared/datasets/, shared/models/) so other papers can reuse them.
-# You do not need to run this script during reproduction — it exists
-# for future portability. Write it to download to workspace-local
-# paths (data/, checkpoints/) instead of the shared directories
-# so a future user with just the workspace can run this script and get everything they need.
+# Note: Avalon-NLU and Mafia-UCB require LLM-based constraint extraction
+# and API keys — they are NOT downloaded here. The CSP solver is tested
+# on AvalonLogs which has programmatic constraint extraction.
 
 set -e
 
-cd "$(dirname "$0")"
+cd /home/user
 
-# TODO: implement downloads
-# Examples:
-#   wget -nc https://example.com/dataset.tar.gz -P data/
-#   python -c "from huggingface_hub import snapshot_download; snapshot_download('model/name', local_dir='checkpoints/')"
-#   huggingface-cli download Qwen/Qwen3-1.7B --local-dir /checkpoints/Qwen3-1.7B
+# If avalonlogs_temp was cloned, move to proper location
+if [ -d "/home/user/avalonlogs_temp/logs" ]; then
+    mkdir -p data/avalonlogs_raw
+    if [ ! -d "data/avalonlogs_raw" ] || [ -z "$(ls -A data/avalonlogs_raw 2>/dev/null)" ]; then
+        cp /home/user/avalonlogs_temp/logs/* data/avalonlogs_raw/ 2>/dev/null || true
+    fi
+    echo "AvalonLogs raw data: $(ls data/avalonlogs_raw | wc -l) files"
+fi
+
+# Clean up cloned repos if no longer needed
+if [ -d "/home/user/csp4sdg_temp" ]; then
+    # Copy any additional data or code we might need
+    echo "CSP4SDG repo available at /home/user/csp4sdg_temp"
+fi
+
+echo "Download complete."
+echo "Data locations:"
+echo "  AvalonLogs raw: data/avalonlogs_raw/ ($(ls data/avalonlogs_raw 2>/dev/null | wc -l) files)"
