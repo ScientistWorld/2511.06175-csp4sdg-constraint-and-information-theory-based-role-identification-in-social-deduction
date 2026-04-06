@@ -1,50 +1,34 @@
 # Evaluation Targets
 
-<!-- Do not edit this unless you decide to stop -->
+## Primary: role_identification_accuracy
+Improve the accuracy of CSP-based role inference in social deduction games.
 
-<!--
-Describe what a scientist could optimize and how to measure it.
+- **Metric**: marginal_accuracy (higher is better) — average probability assigned to true roles
+- **Metric**: map_accuracy (higher is better) — fraction of exact role assignments correct
+- **Experiment**: avalonlogs_6player, avalonlogs_9player (Tables 3 and 8 in the paper)
 
-If a paper claims "we get X without sacrificing Y." Your targets must
-capture BOTH sides. Without constraint targets, a scientist can trivially
-"improve" by breaking the property the paper was designed to satisfy.
+## Primary: llm_vs_csp_gap
+Demonstrate that structured constraint reasoning outperforms language-model-only approaches.
 
-Three kinds of targets:
+- **Metric**: The CSP methods should score higher than LLM-Only on all role perspectives
+- **Experiment**: avalonnlu_truth_main (Table 2 in the paper)
 
-  PRIMARY    — the main thing the paper optimizes (accuracy, PSNR, etc.)
-  CONSTRAINT — what the paper must maintain (security, fairness, param count,
-               baseline comparison). Constraint metrics guard against cheating:
-               a scientist who ignores the constraint should score WORSE.
-  ABLATION   — what breaks when the key idea is removed (wrong-key test,
-               no-module test). Proves the method actually does something. 
-               This can be ignored if truly not important.
+## Constraint: hypothesis_weighting_quality
+Auto IG weighting should match or exceed manual weight tuning.
 
-For each target, write:
-- What the experiment tests (one sentence)
-- The primary metric and direction (higher/lower is better)
-- How to run evaluation
+- **Metric**: Marginal accuracy of +HypIG should be within 2pp of +HypM
+- **Experiment**: Compare CSP_+HypIG vs CSP_+HypM on all datasets
 
-Every target here MUST appear in both reference.json and scores.json.
-Do not list targets you cannot measure — phantom targets are worse than
-missing targets.
+## Ablation: constraint_types
+Removing soft constraints should degrade accuracy, confirming they add value.
 
-Example for a steganography paper:
+- **Metric**: Strict should score below +Assert below +HypIG
+- **Direction**: Each added constraint type should improve accuracy
+- **Experiment**: Compare Strict < +Assert < +HypIG across all datasets
 
-## Primary: reconstruction_quality
-Cover and hidden scene PSNR on Blender Synthetic.
-- **Metric**: psnr (higher is better)
-
-## Constraint: key_security
-Wrong-key rendering must produce incoherent output.
-- **Metric**: wrong_key_psnr (lower is better — high means security is broken)
-
-## Ablation: vs_standalone_baseline
-Cover quality should match standalone model (no hidden scene embedded).
-- **Metric**: psnr_gap (lower is better — large gap means hiding costs quality)
-
-Delete this comment block and fill in your actual targets below.
--->
-
-<!-- This is high-level. IT IS ABOUT CONCEPT, NOT NUMBERS. DO NOT INCLUDE ANY ACTUAL VALUES FROM THE PAPER OR YOUR EXPERIMENTS HERE. -->
-
-<!-- This should EXACTLY corresponds to the structure in your scores.json. -->
+## Compliance Checklist
+- [ ] Marginal accuracy is computed correctly (average probability of true roles)
+- [ ] MAP accuracy is computed correctly (fraction of players with correct exact roles)
+- [ ] Results are averaged over all games and all quests within each game
+- [ ] 6-player results match the paper's Table 3 AvalonLogs-6p section
+- [ ] 9-player results match the paper's Table 3 AvalonLogs-9p section

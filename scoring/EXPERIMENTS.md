@@ -1,46 +1,36 @@
 # Experiment Overview
 
-<!-- Do not edit this unless you decide to stop -->
+This file describes what each experiment in `scores.json` is trying to establish.
+The experiments come from the paper's evaluation on the AvalonLogs dataset, which
+records public game events (quests, votes, team proposals) for thousands of Avalon games.
 
-<!--
-Describe, at a high level, what each experiment in `scores.json` is trying to
-establish.
+## avalonlogs_6p_strict
+Evaluates CSP-based role inference on 6-player Avalon games using only hard constraints
+(evidence + phenomenon). This establishes the baseline performance when no soft
+constraints (assertions or hypotheses) are used.
 
-This file is for future scientist agents. They should be able to read it and
-understand what each experiment is about WITHOUT learning the paper's method.
+## avalonlogs_6p_hypig
+Evaluates CSP-based role inference on 6-player Avalon games using hard constraints
+plus hypotheses with information-gain auto-weighting. This tests whether
+automatically-computed hypothesis weights improve role identification.
 
-Rules:
-- This must correspond EXACTLY to the experiments in `scores.json`
-- The section heading for each experiment must be the exact experiment name from the keys in `scores.json`
-- Describe the experiment's scientific purpose, not the implementation
-- Do NOT describe the method, architecture, algorithm, loss, or training recipe
-- Do NOT include numerical results from the paper or your reproduction
-- If an experiment is not in `scores.json`, do not list it here
+## avalonlogs_7p_strict / avalonlogs_7p_hypig
+Same as above but for 7-player games. 7-player Avalon introduces a third evil agent,
+which the paper notes makes inference harder (see Appendix H of the paper).
 
-Good examples (shorten version shown, you can make it long to be more detailed, but do not leak the method):
+## avalonlogs_8p_strict / avalonlogs_8p_hypig
+Same as above but for 8-player games. 8-player Avalon adds extra loyal servants
+without increasing the evil count, which the paper notes makes inference easier
+for certain roles.
 
-## main_benchmark
-Tests whether the system achieves the paper's primary task objective on the main
-evaluation benchmark.
+## avalonlogs_9p_strict / avalonlogs_9p_hypig
+Same as above but for 9-player games. 9-player Avalon has 4 loyal servants plus
+Merlin and Percival against 3 evil agents.
 
-## robustness_shift
-Tests whether performance holds under the distribution shift setting used by the
-paper's evaluation.
+## comparison_6p_vs_random
+Compares CSP accuracy against a random assignment baseline on 6-player games.
+The random baseline assigns roles uniformly at random from feasible assignments.
+A good method should substantially outperform random on all role perspectives.
 
-## wrong_key_security
-Tests whether the protected signal stays unrecoverable when evaluated with the
-wrong key.
-
-## component_ablation
-Tests whether the method actaully is where the improvement comes from.
-
-Bad examples:
-- "Runs the 8-layer transformer with contrastive loss and cosine scheduler"
-- "Uses the paper's memory module to improve retrieval"
-
-Delete this comment block and fill in your actual experiments below.
--->
-
-<!-- This is high-level only. Explain WHAT the experiment is trying to show, NOT HOW the method works. -->
-
-<!-- The experiment headings here should EXACTLY match the experiment-name keys in your scores.json. -->
+## comparison_8p_vs_random
+Same comparison for 8-player games.
