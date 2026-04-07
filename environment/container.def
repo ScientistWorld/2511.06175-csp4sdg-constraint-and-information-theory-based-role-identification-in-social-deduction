@@ -1,13 +1,13 @@
 # Apptainer definition file for CSP4SDG environment.
+# Uses yum bootstrap to avoid Docker Hub rate limiting entirely.
 # CSP4SDG is a pure Python CSP solver. No external packages needed.
 
-Bootstrap: docker
-From: debian:bookworm-slim
+Bootstrap: yum
+OSVersion: 9
+Include: yum
 
 %post
-    apt-get update && apt-get install -y --no-install-recommends \
-        python3 python3-pip nano less curl wget git vim bash procps && \
-    rm -rf /var/lib/apt/lists/*
+    dnf install -y python3 python3-pip nano less curl wget git vim bash procps-ng && dnf clean all
 
     mkdir -p /home/user/data
     chmod 755 /home/user
