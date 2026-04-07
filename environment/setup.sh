@@ -6,9 +6,11 @@
 
 set -e
 
-# No external Python packages required.
-# The method uses only Python's built-in libraries:
-#   itertools, math, collections, json, random, pathlib
-# The eval module also uses only standard library.
+# Install uv for future package needs (pre-installed on many base images)
+if command -v uv &>/dev/null; then
+    echo "uv already available"
+elif command -v pip3 &>/dev/null; then
+    pip3 install uv --quiet 2>/dev/null || true
+fi
 
 echo "CSP4SDG environment setup complete (no external packages needed)."

@@ -7,13 +7,10 @@
 # which requires no GPU and runs purely on CPU.
 
 Bootstrap: docker
-From: python:3.11-slim
+From: alpine:3.19
 
 %post
-    apt-get update && apt-get install -y --no-install-recommends \
-        tmux nano vim-tiny less curl wget git && \
-    ln -sf /usr/bin/vim.tiny /usr/bin/vim && \
-    rm -rf /var/lib/apt/lists/*
+    apk add --no-cache python3 py3-pip bash nano less curl wget git vim
 
     mkdir -p /home/user/data
     chmod 755 /home/user
