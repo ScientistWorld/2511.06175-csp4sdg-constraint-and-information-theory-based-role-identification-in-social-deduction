@@ -1,16 +1,13 @@
 # Apptainer definition file for CSP4SDG environment.
-#
-# Build:  apptainer build container.sif container.def
-#
-# Packages Python-level dependencies via setup.sh (not here).
-# This image is for running the CSP4SDG constraint-satisfaction solver,
-# which requires no GPU and runs purely on CPU.
+# CSP4SDG is a pure Python CSP solver. No external packages needed.
 
 Bootstrap: docker
-From: alpine:3.19
+From: debian:bookworm-slim
 
 %post
-    apk add --no-cache python3 py3-pip bash nano less curl wget git vim
+    apt-get update && apt-get install -y --no-install-recommends \
+        python3 python3-pip nano less curl wget git vim bash procps && \
+    rm -rf /var/lib/apt/lists/*
 
     mkdir -p /home/user/data
     chmod 755 /home/user
