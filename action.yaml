@@ -27,8 +27,8 @@
 #   milestone: core_claim
 #   notes: "Reproduced the core claim. Environment packaged."
 
-action: pending
-gpus: 1
+action: submit
+gpus: 0
 test: false
-milestone: none
-notes: ""
+milestone: method_runs
+notes: "Process AvalonLogs (6-8 player games), run CSP solver, evaluate results, compare with paper reference. CPU-only job - no GPU needed for CSP solver."
