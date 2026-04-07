@@ -1,9 +1,5 @@
 # Problem Definition
 
-What problem does this paper address? Write this so that someone with no knowledge of the paper can understand what needs to be solved and how success is measured.
-
-Do NOT describe the paper's method or solution here — only the problem itself. Think about if a future scientist agent try to solve this problem from scratch without knowing what approach the paper took. If you leak the solution, you compromise the benchmark.
-
 ## Research Question
 
 In Social Deduction Games (SDGs) like Avalon, Mafia, and Werewolf, players are secretly assigned roles and must deduce each other's hidden identities through game events (votes, quests, eliminations) and dialogue. The core challenge is **role identification**: given partial, noisy, and often deceptive information, what is the most likely role assignment for each player?
@@ -11,7 +7,7 @@ In Social Deduction Games (SDGs) like Avalon, Mafia, and Werewolf, players are s
 The problem is hard because:
 - Information is incomplete and distributed across players
 - Players deliberately deceive each other
-- The combinatorial space of possible role assignments grows factorially with player count
+- The combinatorial space of possible role assignments grows factorially with player count (90 worlds for 6 players, ~78,000 for 10 players)
 - Some roles have special knowledge (e.g., Merlin knows who is evil) that provides asymmetric information
 - Dialogue contains both honest claims and strategic lies
 
@@ -22,8 +18,26 @@ Accurate role identification is the foundation of decision-making in SDGs — fo
 ## Success Criteria
 
 A successful role identification system should:
-1. **Maximise marginal accuracy**: assign high probability to the true role of each player
+1. **Maximise marginal accuracy**: assign high probability to the true role of each player (1/P for random)
 2. **Maximise MAP (maximum-a-posteriori) accuracy**: correctly recover the exact full role assignment
 3. **Be interpretable**: provide calibrated probabilities and explain why certain roles are likely
 4. **Be game-agnostic**: work across different social deduction games without per-game tuning
-5. **Be trainable-free**: not require learning from game data (the combinatorial structure is known)
+5. **Be training-free**: not require learning from game data (the combinatorial structure is known from game rules)
+
+## Task Definition
+
+**Input**: Game history consisting of:
+- Player list and known role composition (e.g., "6 players: 3 good, 2 evil, 1 special")
+- Public events: team proposals, votes, quest outcomes, night eliminations
+- Private dialogue (optional, not always available)
+- Role perspective (optional): the viewpoint from which reasoning is performed
+
+**Output**: For each player, a probability distribution over possible roles, plus a MAP assignment.
+
+## Difficulty
+
+- 6 players: 90 possible role assignments (choose 3 good from 6, then assign special roles)
+- 8 players: ~2,800 assignments
+- 10 players: ~78,000 assignments
+
+The challenge is not just enumeration but also appropriately weighting different evidence sources — votes may indicate suspicion but a player could be lying; quest failures indicate evil presence but don't identify who.

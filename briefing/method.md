@@ -1,6 +1,4 @@
-# Paper's Method
-
-How the paper approaches the problem, i.e. the paper's core contributions.
+# Paper's Method: CSP4SDG
 
 ## Key Contribution
 
@@ -13,7 +11,7 @@ CSP4SDG: A **Constraint Satisfaction Problem (CSP)** framework for role inferenc
 1. **Evidence (hard)**: Absolutely true facts — e.g., the assassin's target was Merlin, a night-kill victim is bystander
 2. **Phenomenon (hard)**: Aggregate constraints from game events — e.g., at least one evil on a failed quest team
 3. **Assertions (soft, high weight)**: Player claims treated as likely true — e.g., "I am Percival", "this team is clean"
-4. **Hypotheses (soft, low weight)**: Weaker speculative statements — e.g., "X looks evil" (from votes or chat)
+4. **Hypotheses (soft, low weight)**: Weaker speculative statements — e.g., "X looks evil" from votes or chat
 
 ### CSP-Based Inference
 
