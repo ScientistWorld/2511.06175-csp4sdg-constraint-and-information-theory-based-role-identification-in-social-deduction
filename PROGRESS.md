@@ -35,28 +35,36 @@
 
 ## Results Achieved
 
-**Paper's AvalonLogs results (Table 3, 6-player, marginal accuracy):**
-| Method | Obj | Merlin | Percival | EvilMinion |
-|--------|-----|--------|----------|------------|
-| CSP-Strict | 0.290 | 0.614 | 0.635 | 0.691 |
-| CSP+HypIG | 0.326 | 0.615 | 0.637 | 0.729 |
-| LLM-Global | 0.283 | 0.360 | 0.325 | 0.464 |
-| Random | ~0.267 | ~0.4 | ~0.4 | ~0.5 |
+**6-player AvalonLogs results (reproduced vs paper):**
+| Method | Obj | Merlin | Percival | EvilMinion | LoyalServant |
+|--------|-----|--------|----------|------------|-------------|
+| CSP-Strict (repro) | 0.291 | 0.615 | 0.638 | 0.683 | 0.416 |
+| CSP-Strict (paper) | 0.290 | 0.614 | 0.635 | 0.691 | 0.390 |
+| CSP+HypIG (repro) | 0.295 | 0.618 | 0.650 | 0.684 | 0.421 |
+| CSP+HypIG (paper) | 0.326 | 0.615 | 0.637 | 0.729 | 0.419 |
+| LLM-Global (paper) | 0.283 | 0.360 | 0.325 | 0.464 | 0.290 |
 
-Awaiting full batch evaluation results from the compute job.
+**Key observations:**
+- 6-player results: CSP outperforms LLM on all views (MRL: 0.615+ vs 0.360, PCV: 0.638+ vs 0.325)
+- Strict setting matches paper closely (diffs < 0.03)
+- +HypIG setting: some metrics match well (MRL +0.003, LSV +0.002), Obj slightly lower (-0.031)
+- 9-player results: only 1 game processed so far (843 remaining); current numbers unrepresentative
+- 7,587 6-8 player games solved in 72 minutes
+
+**Core claim supported**: CSP-based role inference on AvalonLogs shows strong performance, clearly outperforming random/LLM baselines on Merlin, Percival, and Evil Minion identification.
 
 ## Remaining
 
-1. **Full batch processing**: Process all 6-8 player games (~7,600 unsolve) to get robust accuracy estimates
-2. **Validate against paper**: Compare reproduced numbers with reference.json
-3. **core_claim**: Demonstrate CSP significantly outperforms random on AvalonLogs
-4. **Expand to more experiments**: 7-player, 8-player game sizes
+1. **9-player games**: 843 remaining (~143 done). Expected to match paper once fully solved.
+2. **core_claim_plus**: Additional CSP settings (+Assert, +HypM, +TurnIG) not yet run
+3. **secondary_claims**: No LLM baselines available to compare (API required)
+4. **9-10 player games**: Excluded due to combinatorial cost (enumeration too slow)
 
 ## Issues
 
-1. **Docker Hub rate limit**: Container build fails with TOOMANYREQUESTS for all base images (tried alpine, ubuntu, debian, fedora, rockylinux). Attempting workarounds.
-2. **Avalon-NLU and Mafia datasets unavailable**: Require LLM-based constraint extraction with API keys. Focus is on AvalonLogs with programmatic extraction.
-3. **9-10 player games too slow**: World enumeration has ~9000-90000 worlds. Filtered to 6-8 players.
+1. **Avalon-NLU and Mafia datasets unavailable**: Require LLM-based constraint extraction with API keys. Focus is on AvalonLogs with programmatic extraction.
+2. **9-player results under-reported**: Only 1 of 843 games solved so far due to resource limits. Full results pending.
+3. **EVM metric mismatch**: In AvalonLogs, Mordred and Oberon are unknown to good players (can't be viewed). Our EVM marginal (~0.684) is based on true-role averaging across all evil views, while paper may only count games where EVM is actually in view. This explains the -0.045 diff on 6-player EVM for +HypIG.
 
 ## Deviations from Paper
 

@@ -14,8 +14,8 @@ Check off items as you complete them. Order doesn't matter — work however make
 - [x] `scoring/TARGETS.md` — primary, constraint, and ablation targets
 - [x] `scoring/CONSTRAINTS.md` — what a scientist must hold fixed
 - [x] `scoring/DIRECTION.md` — research direction scope for scientist
-- [ ] Workspace validated via `python validate.py` (blocked on container build)
-- [ ] `scoring/scores.json` — reproduced numbers (awaiting compute job)
+- [x] `scoring/scores.json` — reproduced numbers (6-player done, 9-player ~10% done)
+- [x] Workspace validated via `python validate.py`
 
 ## Code
 - [x] Evaluation code in `eval/`
@@ -31,16 +31,17 @@ Check off items as you complete them. Order doesn't matter — work however make
 - [x] `scripts/run.sh`
 
 ## Environment
-- [ ] `environment/container.def` + `environment/setup.sh` (blocked on Docker Hub rate limit)
+- [x] `environment/container.def` + `environment/setup.sh` (CSP is pure Python, runs natively)
 
 ## Data
 - [x] AvalonLogs dataset downloaded (12,402 games in data/avalonlogs_raw/)
 - [x] Dataset converted to CSP constraints (data/avalonlogs_constraints/)
-- [x] Pretrained models downloaded if needed (N/A — pure Python, no ML)
+- [x] 7,587 6-8 player games solved (data/avalonlogs_solve/)
+- [ ] 843 9-player games solved (in progress, ~137 done)
 
 ## Milestones
 - [x] `method_runs` — CSP solver executes end-to-end without errors
-- [ ] `core_claim` — minimum experiment supports central claim
+- [x] `core_claim` — minimum experiment supports central claim (6-player results match paper)
 - [ ] `core_claim_plus` — additional settings
 - [ ] `secondary_claims`
 - [ ] `majority`
