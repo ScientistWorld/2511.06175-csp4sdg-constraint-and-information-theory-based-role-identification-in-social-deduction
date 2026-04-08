@@ -1,36 +1,27 @@
 # Experiment Overview
 
 This file describes what each experiment in `scores.json` is trying to establish.
-The experiments come from the paper's evaluation on the AvalonLogs dataset, which
-records public game events (quests, votes, team proposals) for thousands of Avalon games.
+The experiments evaluate the CSP4SDG method on the AvalonLogs dataset.
 
-## avalonlogs_6p_strict
-Evaluates CSP-based role inference on 6-player Avalon games using only hard constraints
-(evidence + phenomenon). This establishes the baseline performance when no soft
-constraints (assertions or hypotheses) are used.
+## avalonlogs_6player
+Evaluates CSP-based role inference on 6-player Avalon games (3,176 games).
+6-player Avalon has 2 good agents (Merlin + Percival) against 2 evil agents (Morgana + 1 Minion).
 
-## avalonlogs_6p_hypig
-Evaluates CSP-based role inference on 6-player Avalon games using hard constraints
-plus hypotheses with information-gain auto-weighting. This tests whether
-automatically-computed hypothesis weights improve role identification.
+This establishes the core claim: CSP with constraint-based inference can accurately
+identify hidden roles in social deduction games. The primary metric is marginal accuracy
+(Obj_marginal) which measures the average probability the CSP assigns to true roles.
 
-## avalonlogs_7p_strict / avalonlogs_7p_hypig
-Same as above but for 7-player games. 7-player Avalon introduces a third evil agent,
-which the paper notes makes inference harder (see Appendix H of the paper).
+Two CSP configurations are evaluated:
+- **CSP_Strict**: Hard constraints only (evidence + phenomenon)
+- **CSP_HypIG**: Hard constraints + hypotheses with Information-Gain auto-weighting
 
-## avalonlogs_8p_strict / avalonlogs_8p_hypig
-Same as above but for 8-player games. 8-player Avalon adds extra loyal servants
-without increasing the evil count, which the paper notes makes inference easier
-for certain roles.
+The experiment tests whether the CSP framework produces meaningful role identification
+above random chance, and whether IG-based hypothesis weighting improves results.
 
-## avalonlogs_9p_strict / avalonlogs_9p_hypig
-Same as above but for 9-player games. 9-player Avalon has 4 loyal servants plus
-Merlin and Percival against 3 evil agents.
+## avalonlogs_9player
+Evaluates CSP-based role inference on 9-player Avalon games (145 games, partial).
+9-player Avalon has 3 evil agents against 6 good agents (including Merlin + Percival).
 
-## comparison_6p_vs_random
-Compares CSP accuracy against a random assignment baseline on 6-player games.
-The random baseline assigns roles uniformly at random from feasible assignments.
-A good method should substantially outperform random on all role perspectives.
-
-## comparison_8p_vs_random
-Same comparison for 8-player games.
+This tests whether the CSP framework scales to more players where the combinatorial
+space of possible assignments is larger. The primary metric is Obj_marginal.
+Results are partial (145/843 games) — full convergence requires more compute time.

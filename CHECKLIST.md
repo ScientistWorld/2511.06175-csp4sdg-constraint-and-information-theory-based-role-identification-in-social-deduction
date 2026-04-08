@@ -14,19 +14,19 @@ Check off items as you complete them. Order doesn't matter — work however make
 - [x] `scoring/TARGETS.md` — primary, constraint, and ablation targets
 - [x] `scoring/CONSTRAINTS.md` — what a scientist must hold fixed
 - [x] `scoring/DIRECTION.md` — research direction scope for scientist
-- [x] `scoring/scores.json` — reproduced numbers (6-player done, 9-player ~10% done)
+- [x] `scoring/scores.json` — reproduced numbers (6-player: 3,176 games, 9-player: 145 games)
 - [x] Workspace validated via `python validate.py`
 
 ## Code
 - [x] Evaluation code in `eval/`
 - [x] Method implementation in `method/`
-- [ ] Baseline implementation in `baseline/` (optional — AvalonLogs has no LLM baseline)
+- [ ] Baseline implementation in `baseline/` (optional — no LLM available for this paper)
 
 ## Scripts
 - [x] `scripts/evaluate.sh`
-- [ ] `scripts/reproduce.sh`
+- [x] `scripts/reproduce.sh`
 - [x] `scripts/download.sh` (idempotent, size comment at top)
-- [ ] `scripts/baseline.sh` (optional)
+- [ ] `scripts/baseline.sh` (optional — no LLM available)
 - [x] `scripts/method.sh`
 - [x] `scripts/run.sh`
 
@@ -37,7 +37,7 @@ Check off items as you complete them. Order doesn't matter — work however make
 - [x] AvalonLogs dataset downloaded (12,402 games in data/avalonlogs_raw/)
 - [x] Dataset converted to CSP constraints (data/avalonlogs_constraints/)
 - [x] 7,587 6-8 player games solved (data/avalonlogs_solve/)
-- [ ] 843 9-player games solved (in progress, ~137 done)
+- [ ] 843 9-player games solved (~145 done)
 
 ## Milestones
 - [x] `method_runs` — CSP solver executes end-to-end without errors
