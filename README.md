@@ -268,6 +268,10 @@ Improvements over baselines should use paired tests (Wilcoxon, paired t-test) ac
 - **Milestone**: `core_claim` | **Status**: done
 - **GPU**: 0.0h
 
+### Iteration 3: gpt-5.4
+- **Milestone**: `method_runs` | **Status**: done
+- **GPU**: 0.0h
+
 
 ---
 
