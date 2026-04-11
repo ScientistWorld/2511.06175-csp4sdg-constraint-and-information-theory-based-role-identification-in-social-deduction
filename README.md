@@ -264,6 +264,10 @@ Improvements over baselines should use paired tests (Wilcoxon, paired t-test) ac
 
 </details>
 
+### Iteration 2: glm-5.1
+- **Milestone**: `core_claim` | **Status**: done
+- **GPU**: 0.0h
+
 
 ---
 

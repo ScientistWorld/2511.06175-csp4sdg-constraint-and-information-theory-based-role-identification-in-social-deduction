@@ -17,12 +17,12 @@
     ]
   },
   "reproduction": {
-    "milestone": "core_claim_plus",
+    "milestone": "core_claim",
     "status": "done",
     "error": null,
     "scaffold": "claude-code",
-    "model": "MiniMax-M2.7",
-    "profile": "minimax-medium",
+    "model": "glm-5.1",
+    "profile": "glm-5-medium",
     "effort": "medium",
     "gpu_hours_used": 0.0,
     "current_iteration_gpu_budget": 30,
@@ -31,7 +31,7 @@
     "current_iteration_cpu_hours_used": 0.0,
     "total_cpu_hours_used": 0,
     "gpu_budget": 30,
-    "duration_sec": 1368.3,
+    "duration_sec": 1402.5,
     "cost_usd": 80.426,
     "input_tokens": 5503699,
     "output_tokens": 31398,
@@ -41,14 +41,12 @@
     "total_input_tokens": 8618655,
     "num_turns": 117,
     "duration_api_ms": 2863002,
-    "num_runs": 4,
-    "iteration_count": 0,
+    "num_runs": 5,
+    "iteration_count": 1,
     "workflow": "standard",
-    "workflow_step": 0,
+    "workflow_step": 1,
     "total_gpu_jobs": 0,
-    "time_breakdown": {
-      "working": 1364.708106994629
-    }
+    "time_breakdown": {}
   },
   "agents": [
     {
@@ -217,6 +215,41 @@
       },
       "gpu_jobs": [],
       "progress_log": "### [2026-04-11] - core_claim\n- Fixed evaluator.py to handle numbered role views (loyal_follower1\u2192LSV, evil_minion1\u2192EVM)\n- Regenerated scores.json from all 7,741 solved games\n- Both avalonlogs_6player (3,176 games) and avalonlogs_9player (145 games) experiments present\n- Validator passes with no errors\n- **6-player CSP results closely match paper values:**\n  - CSP_Strict: Obj=0.291 vs 0.290, MRL=0.615 vs 0.614, PCV=0.638 vs 0.635, MRG=0.584 vs 0.584, LSV=0.416 vs 0.390, EVM=0.684 vs 0.691\n  - CSP_HypIG: Obj=0.291 vs 0.326, MRL=0.618 vs 0.615, PCV=0.650 vs 0.637, MRG=0.584 vs 0.577, LSV=0.421 vs 0.419, EVM=0.684 vs 0.729\n- **Core claim validated**: CSP significantly outperforms LLM_Global (MRL: 0.618 vs 0.360, PCV: 0.650 vs 0.325)\n- EVM shows ~0.005-0.045 gap from paper \u2014 likely from role aggregation differences in data converter\n- Fixed container.def to use python:3.11-slim base image\n- Updated evaluate.sh and run.sh evaluation pipelines\n\n### [2026-04-08] - method_runs\n- CSP solver (sdg_framework.py) implements paper's algorithm correctly\n- AvalonLogs solver (avalon_logs_solver.py) processes games at ~700ms/game\n- Data conversion (convert_avalonlogs.py) extracts CSP constraints from game logs\n- First 3,176 6-player games solved successfully"
+    },
+    {
+      "scaffold": "claude-code",
+      "model": "glm-5.1",
+      "profile": "glm-5-medium",
+      "effort": "medium",
+      "role": "reproducer",
+      "is_iteration": true,
+      "iteration": 2,
+      "workflow": "standard",
+      "workflow_step": 1,
+      "started_at": 1775874581.3456306,
+      "finished_at": 1775874615.544341,
+      "duration_sec": 34.2,
+      "blocked_sec": 0.0,
+      "status": "done",
+      "error": null,
+      "milestone": "core_claim",
+      "gpu_budget": 30,
+      "gpu_hours_used": 0.0,
+      "total_gpu_hours_used": 0.0,
+      "cpu_hours_used": 0.0,
+      "time_breakdown": {},
+      "cost_usd": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cached_input_tokens": 0,
+      "cache_creation_tokens": 0,
+      "reasoning_tokens": null,
+      "total_input_tokens": 0,
+      "num_turns": 0,
+      "duration_api_ms": 0,
+      "tool_uses": {},
+      "gpu_jobs": [],
+      "progress_log": ""
     }
   ],
   "components": {
