@@ -8,7 +8,7 @@
 #
 # Arguments (all optional, with defaults):
 #   dataset     — "avalonlogs" (default), "avalonnlu", "mafia"
-#   results_dir — Directory containing solver output JSON files
+#   results_dir — Directory containing solver output JSON files (default: data/avalonlogs_solve)
 #   output_path — Where to write scores.json (default: scoring/scores.json)
 #
 # Environment:

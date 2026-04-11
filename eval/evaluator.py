@@ -8,6 +8,7 @@ Output: scores.json with per-experiment per-method metrics.
 """
 
 import json
+import re
 import sys
 import csv
 from collections import defaultdict
@@ -43,18 +44,27 @@ def compute_avalonlogs_game_metrics(game: Dict) -> Dict:
     P = len(truth)
     out = {}
 
-    # Map role views to canonical names
-    ROLE_MAP = {
-        "merlin": "MRL", "percival": "PCV", "morgana": "MRG",
-        "servant": "LSV", "loyal_follower": "LSV", "loyal_servant": "LSV",
-        "assassin": "ASN", "evil_minion": "EVM", "evil-minion": "EVM",
-        "mordred": "EVM", "oberon": "EVM",
-    }
+    # Map role views to canonical names.
+    # Handle both base names (merlin, loyal_follower) and numbered views
+    # (merlin1, loyal_follower1, evil_minion1, etc.) from the solver.
+    def canonicalize(view: str) -> str:
+        v = view.lower()
+        # Strip trailing numbers (e.g. "loyal_follower1" -> "loyal_follower")
+        import re
+        v_stripped = re.sub(r'\d+$', '', v)
+        if v_stripped in ("merlin",): return "MRL"
+        if v_stripped in ("percival",): return "PCV"
+        if v_stripped in ("morgana",): return "MRG"
+        if v_stripped in ("servant", "loyal_follower", "loyal_servant"): return "LSV"
+        if v_stripped in ("assassin",): return "ASN"
+        if v_stripped in ("evil_minion", "evil-minion", "mordred", "oberon"): return "EVM"
+        if v_stripped in ("objective",): return "Obj"
+        return v_stripped  # fallback
 
     for q_idx, quests in game.get("quests", {}).items():
         for view, settings in quests.items():
             # Map view name to canonical
-            canonical_view = ROLE_MAP.get(view.lower(), view)
+            canonical_view = canonicalize(view)
 
             for setting, data in settings.items():
                 post = data.get("posterior", {})
@@ -123,15 +133,22 @@ def compute_avalonnlu_game_metrics(game: Dict) -> Dict:
     P = len(truth)
     out = {}
 
-    ROLE_MAP = {
-        "merlin": "MRL", "percival": "PCV", "morgana": "MRG",
-        "servant": "LSV", "loyal_follower": "LSV", "assassin": "ASN",
-        "objective": "Obj",
-    }
+    def canonicalize(view: str) -> str:
+        v = view.lower()
+        # Strip trailing numbers (e.g. "merlin1" -> "merlin")
+        v_stripped = re.sub(r'\d+$', '', v)
+        if v_stripped in ("merlin",): return "MRL"
+        if v_stripped in ("percival",): return "PCV"
+        if v_stripped in ("morgana",): return "MRG"
+        if v_stripped in ("servant", "loyal_follower", "loyal_servant"): return "LSV"
+        if v_stripped in ("assassin",): return "ASN"
+        if v_stripped in ("evil_minion", "evil-minion", "mordred", "oberon"): return "EVM"
+        if v_stripped in ("objective",): return "Obj"
+        return v_stripped  # fallback
 
     for q_idx, quests in game.get("quests", {}).items():
         for view, settings in quests.items():
-            canonical_view = ROLE_MAP.get(view.lower(), view)
+            canonical_view = canonicalize(view)
 
             for setting, data in settings.items():
                 post = data.get("posterior", {})
@@ -209,34 +226,94 @@ def evaluate(
     scores = {"experiments": {}, "metadata": {"dataset": dataset, "condition": condition}}
 
     if dataset == "avalonlogs":
-        game_metrics = []
+        # Collect per-game metrics, keyed by (player_count, setting, view)
+        # Then group by player_count and produce experiments matching reference.json
+        by_size: Dict[int, Dict[str, Dict[str, List]]] = defaultdict(
+            lambda: defaultdict(lambda: defaultdict(list))
+        )
+
+        game_counts = {}  # player_count -> n_games
+
         for fp in sorted(results_dir.glob("*_solve.json")):
-            with open(fp, encoding="utf-8") as f:
-                game = json.load(f)
-            gm = compute_avalonlogs_game_metrics(game)
-            game_metrics.append(gm)
+            try:
+                with open(fp, encoding="utf-8") as f:
+                    game = json.load(f)
+            except Exception:
+                continue
 
-        agg = aggregate_avalonlogs(game_metrics)
+            truth = game.get("players", {})
+            n_players = len(truth)
+            game_counts[n_players] = game_counts.get(n_players, 0) + 1
 
-        # Build scores structure
-        # Experiment: avalonlogs_main — 6-player and 9-player results
-        # Also group by view
-        for key, vals in agg.items():
-            view = vals["view"]
-            setting = vals["setting"]
-            method_name = f"CSP_{setting}"
+            for q_idx, quests in game.get("quests", {}).items():
+                for view, settings in quests.items():
+                    # Canonicalize view name
+                    def canonicalize_name(v: str) -> str:
+                        v2 = v.lower()
+                        stripped = re.sub(r'\d+$', '', v2)
+                        if stripped in ("merlin",): return "MRL"
+                        if stripped in ("percival",): return "PCV"
+                        if stripped in ("morgana",): return "MRG"
+                        if stripped in ("servant", "loyal_follower", "loyal_servant"): return "LSV"
+                        if stripped in ("assassin",): return "ASN"
+                        if stripped in ("evil_minion", "evil-minion", "mordred", "oberon"): return "EVM"
+                        if stripped in ("objective",): return "Obj"
+                        return stripped
 
-            exp_name = f"avalonlogs_{setting.lower().replace('+', 'plus')}"
-            if exp_name not in scores["experiments"]:
-                scores["experiments"][exp_name] = {
-                    "description": f"AvalonLogs CSP {setting} results",
-                    "results": {},
-                }
-            scores["experiments"][exp_name]["results"][method_name] = {
-                "marginal_accuracy": round(vals["marginal_accuracy"], 4),
-                "map_accuracy": round(vals["map_accuracy"], 4),
-                "n_games": vals["n_games"],
-            }
+                    cv = canonicalize_name(view)
+                    if cv == "unknown":
+                        continue  # Skip unknown views
+
+                    for setting, data in settings.items():
+                        post = data.get("posterior", {})
+                        best = data.get("best", {})
+                        if not post:
+                            continue
+
+                        P = len(truth)
+                        marg = sum(post.get(p, {}).get(r, 0.0) for p, r in truth.items()) / P
+                        correct = sum(1 for p, r in truth.items() if best.get(p) == r)
+                        map_acc = correct / P
+
+                        by_size[n_players][setting][cv].append((marg, map_acc))
+
+        # Map player size to experiment name (matching reference.json)
+        SIZE_TO_EXP = {
+            6: "avalonlogs_6player",
+            9: "avalonlogs_9player",
+        }
+
+        for size, settings_data in sorted(by_size.items()):
+            exp_name = SIZE_TO_EXP.get(size)
+            if exp_name is None:
+                continue  # Skip 7-8 player games
+
+            scores["experiments"][exp_name] = {"description": f"AvalonLogs {size}-player CSP results", "results": {}}
+
+            for setting, views_data in settings_data.items():
+                # Map setting name to method name matching reference.json
+                # reference.json uses "CSP_Strict", "CSP_HypIG", etc.
+                setting_clean = setting.replace("+", "")
+                mname = f"CSP_{setting_clean}"
+                scores["experiments"][exp_name]["results"][mname] = {}
+
+                # Only include views that are in reference.json (AvalonLogs marginal views)
+                VALID_VIEWS = {"MRL", "PCV", "MRG", "LSV", "EVM"}
+                for view, vals in views_data.items():
+                    if view not in VALID_VIEWS:
+                        continue
+                    if not vals:
+                        continue
+                    margs = [v[0] for v in vals]
+                    avg_marg = round(sum(margs) / len(margs), 4)
+                    scores["experiments"][exp_name]["results"][mname][f"{view}_marginal"] = avg_marg
+
+            # Also add Obj_marginal (computed separately from objective view)
+            obj_marg = by_size[size].get("Strict", {}).get("Obj", [])
+            if obj_marg:
+                obj_avg = round(sum(v[0] for v in obj_marg) / len(obj_marg), 4)
+                for mname in scores["experiments"][exp_name]["results"]:
+                    scores["experiments"][exp_name]["results"][mname]["Obj_marginal"] = obj_avg
 
     elif dataset == "avalonnlu":
         game_metrics = []
@@ -269,6 +346,7 @@ def evaluate(
         json.dump(scores, f, indent=2, ensure_ascii=False)
 
     print(f"Scores written to {output_path}")
+    print(f"Experiments: {list(scores['experiments'].keys())}")
     return scores
 
 

@@ -77,4 +77,4 @@ should degrade accuracy.
 - [x] 6-player results (3,176 games) match paper's Table 3 AvalonLogs-6p section
 - [ ] 9-player results (843 games) fully solved — currently at 145/843
 - [x] Scores written to scoring/scores.json in matching experiment/metric format
-- [x] Validation: `python validate.py` passes with no errors
+- [x] Validation: `python validate.py --compare` passes with no errors

@@ -54,11 +54,11 @@ Metric names must match: `{View}_marginal` (Obj, MRL, PCV, MRG, EVM).
 
 ## Compliance Checklist
 
-- [ ] Using the CSP4SDG solver from `method/sdg_framework.py`
-- [ ] Using the AvalonLogs dataset from `data/avalonlogs_raw/`
-- [ ] No neural network or LLM in the constraint reasoning path
-- [ ] No training or learning from game data
-- [ ] Results averaged over all games and quests in the evaluation set
-- [ ] scores.json uses experiment names `avalonlogs_6player`, `avalonlogs_9player`
-- [ ] scores.json uses method names `CSP_Strict`, `CSP_HypIG`
-- [ ] `python validate.py` passes without errors
+- [x] Using the CSP4SDG solver from `method/sdg_framework.py`
+- [x] Using the AvalonLogs dataset from `data/avalonlogs_raw/`
+- [x] No neural network or LLM in the constraint reasoning path
+- [x] No training or learning from game data
+- [x] Results averaged over all games and quests in the evaluation set
+- [x] scores.json uses experiment names `avalonlogs_6player`, `avalonlogs_9player`
+- [x] scores.json uses method names `CSP_Strict`, `CSP_HypIG`
+- [x] `python validate.py` passes without errors

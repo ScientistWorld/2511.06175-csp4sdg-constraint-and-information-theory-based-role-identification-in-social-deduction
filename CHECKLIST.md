@@ -14,8 +14,8 @@ Check off items as you complete them. Order doesn't matter — work however make
 - [x] `scoring/TARGETS.md` — primary, constraint, and ablation targets
 - [x] `scoring/CONSTRAINTS.md` — what a scientist must hold fixed
 - [x] `scoring/DIRECTION.md` — research direction scope for scientist
-- [x] `scoring/scores.json` — reproduced numbers (6-player: 3,176 games, 9-player: 145 games)
-- [x] Workspace validated via `python validate.py`
+- [x] `scoring/scores.json` — reproduced numbers (6-player: 3,176 games with all views including LSV; 9-player: 145 games)
+- [x] Workspace validated via `python validate.py --compare` (all checks pass)
 
 ## Code
 - [x] Evaluation code in `eval/`

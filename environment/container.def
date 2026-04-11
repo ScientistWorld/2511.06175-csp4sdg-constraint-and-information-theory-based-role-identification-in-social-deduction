@@ -1,15 +1,16 @@
 # Apptainer definition file for CSP4SDG environment.
-# CSP4SDG is a pure Python CSP solver. No external packages needed.
+# Pure Python CSP solver — only standard library needed.
+# CSP4SDG: Constraint-Satisfaction Framework for Social Deduction Games
 
 Bootstrap: docker
-From: alpine:3.19
+From: python:3.11-slim
 
 %post
-    apk add --no-cache python3 py3-pip bash nano less curl wget git vim
-
-    mkdir -p /home/user/data
-    chmod 755 /home/user
+    apt-get update && apt-get install -y --no-install-recommends \
+        procps vim less curl git \
+    && rm -rf /var/lib/apt/lists/*
 
 %environment
     export HOME=/home/user
     export PYTHONUNBUFFERED=1
+    export PYTHONPATH=/home/user
