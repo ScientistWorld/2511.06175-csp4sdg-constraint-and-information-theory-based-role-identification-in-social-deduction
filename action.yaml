@@ -1,6 +1,8 @@
 # IMPORTANT: Once you set action to 'submit' or 'done', STOP immediately.
 # Do NOT sleep, poll, or wait for jobs. The system reads this file
 # only after your turn ends. Sleeping blocks the entire pipeline.
-action: done
-milestone: core_claim_plus
-notes: "core_claim_plus: Fixed evaluator (numbered role views → LSV/EVM), regenerated scores from all 7,741 solved games. 6-player results within 0.013 of paper. Validator passes. Remaining: 9-player (145/843), additional CSP settings, Avalon-NLU/Mafia (no LLM API)."
+action: pending
+gpus: 1
+test: false
+milestone: core_claim
+notes: ""
