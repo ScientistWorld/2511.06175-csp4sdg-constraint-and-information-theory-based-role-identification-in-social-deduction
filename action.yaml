@@ -5,4 +5,4 @@ action: submit
 gpus: 0
 test: false
 milestone: core_claim_plus
-notes: "Solve remaining AvalonLogs games (all sizes, quick settings) and update scores to include all player sizes 5-10. 7741 already solved, ~4653 remaining."
+notes: "Parallel solve of remaining ~4305 AvalonLogs games using multiprocessing.Pool across all CPU cores. Previous sequential job was too slow (~1.5 games/min, ~48h ETA). Parallel version with 80 cores should complete in ~5-10 minutes."
