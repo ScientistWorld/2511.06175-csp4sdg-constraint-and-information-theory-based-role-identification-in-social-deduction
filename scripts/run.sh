@@ -1,41 +1,48 @@
 #!/bin/bash
-# Solve all AvalonLogs games using pre-partitioned batch workers.
-# Each worker process solves its chunk sequentially — zero IPC overhead per game.
-# With 0.6 games/s sequential rate and 40 workers: ~12394/40/0.6 ≈ 8-10 min total.
+# Solve all AvalonLogs games — sequential (cpus=1) or 2-worker (cpus>1).
+# Sequential rate: ~0.6/s. With 2 workers: ~1.2/s.
+# Remaining ~3600 files @ 1.2/s ≈ 50 min — fits comfortably in 1-hour test limit.
 
 set -e
 cd /home/user
 
-echo "=== CSP4SDG: Batch-parallel solve all games + update scores ==="
+echo "=== CSP4SDG: Solve remaining games + update scores ==="
 echo "Start: $(date)"
 
-# --- Step 1: Solve all games in parallel batches ---
+# --- Step 1: Solve remaining games ---
 python3 << 'PYEOF'
-import json, sys, time, os
+import sys, json, time
 from pathlib import Path
-from multiprocessing import Process, Queue
+from multiprocessing import Process
 
 sys.path.insert(0, '/home/user')
 from method.avalon_logs_solver import solve_one, QUICK_SETTINGS
 
-N_WORKERS = 40
 in_dir = Path("data/avalonlogs_constraints")
 out_dir = Path("data/avalonlogs_solve")
 out_dir.mkdir(parents=True, exist_ok=True)
 
 all_files = sorted(in_dir.glob("*_constraints.json"))
-print(f"Total constraint files: {len(all_files)}")
+dst_stems = set(f.stem for f in out_dir.glob("*_solve.json"))
+unsolved = [f for f in all_files if f.stem not in dst_stems]
 
-chunk_size = (len(all_files) + N_WORKERS - 1) // N_WORKERS
-batches = []
-for i in range(N_WORKERS):
-    start = i * chunk_size
-    end = min(start + chunk_size, len(all_files))
-    batches.append(all_files[start:end])
+print(f"Total: {len(all_files)} files, {len(dst_stems)} done, {len(unsolved)} to solve")
 
-print(f"Partitioned into {N_WORKERS} batches (~{chunk_size} files each)")
+# Detect worker count: use 2 if multiprocessing can get >1 core
+import multiprocessing as mp
+n_cores = mp.cpu_count()
+# Check effective parallelism
+import os
+sched_cpus = len(os.sched_getaffinity(0)) if hasattr(os, 'sched_getaffinity') else mp.cpu_count()
+print(f"Available cores: {sched_cpus}, mp.cpu_count: {n_cores}")
 
-def worker(worker_id, files, out_dir):
+# Use 2 workers if we have >1 effective core, else 1
+N_WORKERS = 2 if sched_cpus > 1 else 1
+print(f"Workers: {N_WORKERS}")
+
+chunk_size = (len(unsolved) + N_WORKERS - 1) // N_WORKERS
+
+def worker(worker_id, files):
     t0 = time.time()
     solved = errors = 0
     for fp in files:
@@ -44,6 +51,10 @@ def worker(worker_id, files, out_dir):
             result = solve_one(fp, settings=QUICK_SETTINGS)
             dst.write_text(json.dumps(result, indent=2), encoding="utf-8")
             solved += 1
+            if solved % 50 == 0:
+                elapsed = time.time() - t0
+                rate = solved / elapsed if elapsed > 0 else 0
+                print(f"Worker {worker_id}: {solved}/{len(files)} ({rate:.1f}/s)", flush=True)
         except Exception as e:
             errors += 1
             print(f"Worker {worker_id} ERROR {fp.name}: {e}", flush=True)
@@ -51,23 +62,25 @@ def worker(worker_id, files, out_dir):
     rate = solved / elapsed if elapsed > 0 else 0
     print(f"Worker {worker_id}: done. {solved} solved, {errors} errors in {elapsed:.0f}s ({rate:.1f}/s)", flush=True)
 
-# Launch all workers
-procs = []
-t0 = time.time()
-for i, batch in enumerate(batches):
-    p = Process(target=worker, args=(i, batch, out_dir))
-    p.start()
-    procs.append(p)
-
-# Wait for all
-for p in procs:
-    p.join()
-
-elapsed = time.time() - t0
-print(f"All workers finished in {elapsed:.0f}s")
+if N_WORKERS == 1:
+    worker(0, unsolved)
+else:
+    procs = []
+    t0 = time.time()
+    for i in range(N_WORKERS):
+        start = i * chunk_size
+        end = min(start + chunk_size, len(unsolved))
+        batch = unsolved[start:end]
+        p = Process(target=worker, args=(i, batch))
+        p.start()
+        procs.append(p)
+        print(f"Worker {i}: files {start}-{end-1} ({len(batch)} files)", flush=True)
+    for p in procs:
+        p.join()
+    print(f"All workers finished in {time.time() - t0:.0f}s")
 
 n_solved = len(list(out_dir.glob("*_solve.json")))
-print(f"Total solved files: {n_solved}")
+print(f"Total solved: {n_solved}")
 PYEOF
 
 # --- Step 2: Update scores.json ---
