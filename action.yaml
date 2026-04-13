@@ -2,7 +2,7 @@
 # Do NOT sleep, poll, or wait for jobs. The system reads this file
 # only after your turn ends. Sleeping blocks the entire pipeline.
 action: submit
-gpus: 0
+gpus: 1
 test: false
 milestone: core_claim_plus
-notes: "Submit batch-parallel solve. 8696/12394 done, ~3698 remaining. Uses multiprocessing.Process workers solving ONLY unsolved files in pre-partitioned batches (~310 each). Sequential rate 0.6/s, 40 workers = ~24/s effective. Expected total time: ~8-10 min."
+notes: "Adaptive 2-worker solve. 9279/12394 done, 3115 remaining. Sequential rate 0.6/s. With 2 workers: ~1.2/s = ~43min remaining. Fits in 1-hour limit. Uses os.sched_getaffinity to detect available cores."
