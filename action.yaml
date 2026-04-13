@@ -5,4 +5,4 @@ action: submit
 gpus: 0
 test: false
 milestone: core_claim_plus
-notes: "Parallel solve of remaining ~4305 AvalonLogs games using multiprocessing.Pool across all CPU cores. Previous sequential job was too slow (~1.5 games/min, ~48h ETA). Parallel version with 80 cores should complete in ~5-10 minutes."
+notes: "Submit batch-parallel solve. 8696/12394 done, ~3698 remaining. Uses multiprocessing.Process workers solving ONLY unsolved files in pre-partitioned batches (~310 each). Sequential rate 0.6/s, 40 workers = ~24/s effective. Expected total time: ~8-10 min."
