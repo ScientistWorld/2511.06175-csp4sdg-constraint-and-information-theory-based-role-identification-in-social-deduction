@@ -89,6 +89,45 @@
         }
       }
     },
+    "avalonlogs_5player": {
+      "description": "AvalonLogs 5-player results (Table 8, Appendix H). CSP+HypIG outperforms LLM.",
+      "weight": 0.05,
+      "primary_metric": "Obj_marginal",
+      "metrics": {
+        "Obj_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "MRL_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "PCV_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "MRG_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "LSV_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "EVM_marginal": {"higher_is_better": true, "coefficient": 1.0}
+      },
+      "results": {
+        "CSP_Strict": {
+          "type": "proposed",
+          "Obj_marginal": 0.278, "MRL_marginal": 0.630,
+          "PCV_marginal": 0.641, "MRG_marginal": 0.601,
+          "LSV_marginal": 0.456, "EVM_marginal": 0.696
+        },
+        "CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.258, "MRL_marginal": 0.634,
+          "PCV_marginal": 0.661, "MRG_marginal": 0.600,
+          "LSV_marginal": 0.450, "EVM_marginal": 0.653
+        },
+        "LLM_Global": {
+          "type": "baseline",
+          "Obj_marginal": 0.272, "MRL_marginal": 0.378,
+          "PCV_marginal": 0.326, "MRG_marginal": 0.302,
+          "LSV_marginal": 0.272, "EVM_marginal": 0.462
+        },
+        "LLM_CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.276, "MRL_marginal": 0.630,
+          "PCV_marginal": 0.640, "MRG_marginal": 0.601,
+          "LSV_marginal": 0.455, "EVM_marginal": 0.696
+        }
+      }
+    },
     "avalonlogs_6player": {
       "description": "AvalonLogs 6-player results (Table 3 / Appendix H). CSP+HypIG outperforms LLM on all views.",
       "weight": 0.25,
@@ -164,6 +203,123 @@
           "Obj_marginal": 0.301, "MRL_marginal": 0.593,
           "PCV_marginal": 0.564, "MRG_marginal": 0.554,
           "LSV_marginal": 0.347, "EVM_marginal": 0.614
+        }
+      }
+    },
+    "avalonlogs_7player": {
+      "description": "AvalonLogs 7-player results (Table 8, Appendix H).",
+      "weight": 0.05,
+      "primary_metric": "Obj_marginal",
+      "metrics": {
+        "Obj_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "MRL_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "PCV_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "MRG_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "LSV_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "EVM_marginal": {"higher_is_better": true, "coefficient": 1.0}
+      },
+      "results": {
+        "CSP_Strict": {
+          "type": "proposed",
+          "Obj_marginal": 0.240, "MRL_marginal": 0.559,
+          "PCV_marginal": 0.546, "MRG_marginal": 0.519,
+          "LSV_marginal": 0.342, "EVM_marginal": 0.555
+        },
+        "CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.243, "MRL_marginal": 0.591,
+          "PCV_marginal": 0.561, "MRG_marginal": 0.520,
+          "LSV_marginal": 0.347, "EVM_marginal": 0.545
+        },
+        "LLM_Global": {
+          "type": "baseline",
+          "Obj_marginal": 0.237, "MRL_marginal": 0.338,
+          "PCV_marginal": 0.291, "MRG_marginal": 0.285,
+          "LSV_marginal": 0.243, "EVM_marginal": 0.391
+        },
+        "LLM_CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.239, "MRL_marginal": 0.559,
+          "PCV_marginal": 0.542, "MRG_marginal": 0.518,
+          "LSV_marginal": 0.341, "EVM_marginal": 0.555
+        }
+      }
+    },
+    "avalonlogs_8player": {
+      "description": "AvalonLogs 8-player results (Table 8, Appendix H).",
+      "weight": 0.05,
+      "primary_metric": "Obj_marginal",
+      "metrics": {
+        "Obj_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "MRL_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "PCV_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "MRG_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "LSV_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "EVM_marginal": {"higher_is_better": true, "coefficient": 1.0}
+      },
+      "results": {
+        "CSP_Strict": {
+          "type": "proposed",
+          "Obj_marginal": 0.256, "MRL_marginal": 0.565,
+          "PCV_marginal": 0.546, "MRG_marginal": 0.524,
+          "LSV_marginal": 0.324, "EVM_marginal": 0.569
+        },
+        "CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.244, "MRL_marginal": 0.571,
+          "PCV_marginal": 0.552, "MRG_marginal": 0.495,
+          "LSV_marginal": 0.311, "EVM_marginal": 0.527
+        },
+        "LLM_Global": {
+          "type": "baseline",
+          "Obj_marginal": 0.253, "MRL_marginal": 0.349,
+          "PCV_marginal": 0.315, "MRG_marginal": 0.304,
+          "LSV_marginal": 0.264, "EVM_marginal": 0.402
+        },
+        "LLM_CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.255, "MRL_marginal": 0.564,
+          "PCV_marginal": 0.543, "MRG_marginal": 0.523,
+          "LSV_marginal": 0.323, "EVM_marginal": 0.568
+        }
+      }
+    },
+    "avalonlogs_10player": {
+      "description": "AvalonLogs 10-player results (Table 8, Appendix H).",
+      "weight": 0.05,
+      "primary_metric": "Obj_marginal",
+      "metrics": {
+        "Obj_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "MRL_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "PCV_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "MRG_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "LSV_marginal": {"higher_is_better": true, "coefficient": 1.0},
+        "EVM_marginal": {"higher_is_better": true, "coefficient": 1.0}
+      },
+      "results": {
+        "CSP_Strict": {
+          "type": "proposed",
+          "Obj_marginal": 0.256, "MRL_marginal": 0.545,
+          "PCV_marginal": 0.496, "MRG_marginal": 0.495,
+          "LSV_marginal": 0.304, "EVM_marginal": 0.498
+        },
+        "CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.240, "MRL_marginal": 0.567,
+          "PCV_marginal": 0.504, "MRG_marginal": 0.519,
+          "LSV_marginal": 0.289, "EVM_marginal": 0.452
+        },
+        "LLM_Global": {
+          "type": "baseline",
+          "Obj_marginal": 0.248, "MRL_marginal": 0.341,
+          "PCV_marginal": 0.289, "MRG_marginal": 0.306,
+          "LSV_marginal": 0.255, "EVM_marginal": 0.345
+        },
+        "LLM_CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.255, "MRL_marginal": 0.544,
+          "PCV_marginal": 0.495, "MRG_marginal": 0.495,
+          "LSV_marginal": 0.303, "EVM_marginal": 0.499
         }
       }
     },

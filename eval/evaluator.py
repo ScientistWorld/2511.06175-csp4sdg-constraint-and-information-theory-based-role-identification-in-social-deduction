@@ -261,7 +261,7 @@ def evaluate(
                         return stripped
 
                     cv = canonicalize_name(view)
-                    if cv == "unknown":
+                    if cv in ("unknown", "obj") and view.lower() != "objective":
                         continue  # Skip unknown views
 
                     for setting, data in settings.items():
@@ -279,8 +279,12 @@ def evaluate(
 
         # Map player size to experiment name (matching reference.json)
         SIZE_TO_EXP = {
+            5: "avalonlogs_5player",
             6: "avalonlogs_6player",
+            7: "avalonlogs_7player",
+            8: "avalonlogs_8player",
             9: "avalonlogs_9player",
+            10: "avalonlogs_10player",
         }
 
         for size, settings_data in sorted(by_size.items()):
