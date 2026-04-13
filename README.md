@@ -279,6 +279,5 @@ Improvements over baselines should use paired tests (Wilcoxon, paired t-test) ac
 
 **Current: method_runs**
 
-## Progress Log
-
 ## Stop Justification
+- Completed at milestone `none`.
