@@ -1,52 +1,85 @@
 #!/bin/bash
-# Solve remaining AvalonLogs games and update scores.
-# ~4335 games remaining (8059 solved, 12394 total).
+# Solve remaining AvalonLogs games and update scores (PARALLELIZED).
+# ~4305 games remaining (8089 solved, 12394 total).
 # Settings: Strict + HypIG (QUICK_SETTINGS).
+# Uses multiprocessing to parallelize across all CPU cores.
 
 set -e
 cd /home/user
 
-echo "=== CSP4SDG: Solve remaining games + update scores ==="
+echo "=== CSP4SDG: Parallel solve remaining games + update scores ==="
 echo "Start: $(date)"
+echo "CPUs: $(python3 -c 'import multiprocessing; print(multiprocessing.cpu_count())')"
 
-# --- Step 1: Solve remaining games ---
+# --- Step 1: Solve remaining games in parallel ---
 python3 << 'PYEOF'
-import sys, json, time, re
+import sys, json, time, os
+from pathlib import Path
+from multiprocessing import Pool, cpu_count
+
 sys.path.insert(0, '/home/user')
 from method.avalon_logs_solver import solve_one, QUICK_SETTINGS
-from pathlib import Path
 
 in_dir = Path("data/avalonlogs_constraints")
 out_dir = Path("data/avalonlogs_solve")
 out_dir.mkdir(parents=True, exist_ok=True)
 
-files = list(in_dir.glob("*_constraints.json"))
-print(f"Total constraint files: {len(files)}")
-
-solved = skipped = errors = 0
-t0 = time.time()
-for fp in files:
+def solve_file(fp_str):
+    """Solve a single file. Returns (fp_str, result_str or None, error)."""
+    fp = Path(fp_str)
     dst = out_dir / (fp.stem + "_solve.json")
     if dst.exists():
-        skipped += 1
-        continue
+        return (str(fp), None, "skipped")
     try:
         result = solve_one(fp, settings=QUICK_SETTINGS)
-        dst.write_text(json.dumps(result, indent=2), encoding="utf-8")
-        solved += 1
-        if solved % 1000 == 0:
-            elapsed = time.time() - t0
-            rate = solved / elapsed if elapsed > 0 else 0
-            remaining = len(files) - solved - skipped
-            eta = remaining / rate if rate > 0 else 0
-            print(f"  {solved} solved, {skipped} skip, {remaining} remaining, ETA: {eta/60:.0f}m")
+        return (str(fp), json.dumps(result, indent=2), None)
     except Exception as e:
-        errors += 1
-        if errors <= 3:
-            print(f"  ERROR {fp.name}: {e}")
+        return (str(fp), None, str(e))
 
-elapsed = time.time() - t0
-print(f"Solve done. Solved: {solved}, Skipped: {skipped}, Errors: {errors} in {elapsed/60:.1f}m")
+# Find all unsolved files
+files = [str(fp) for fp in in_dir.glob("*_constraints.json")]
+dst_files = set(f.stem for f in out_dir.glob("*_solve.json"))
+unsolved = [f for f in files if Path(f).stem not in dst_files]
+
+print(f"Total: {len(files)} files, {len(dst_files)} already solved, {len(unsolved)} to solve")
+
+if unsolved:
+    n_workers = cpu_count()
+    print(f"Solving {len(unsolved)} files with {n_workers} workers...")
+
+    t0 = time.time()
+    solved = skipped = errors = 0
+    errors_list = []
+
+    # Process in chunks to update progress
+    CHUNK = 200
+    for chunk_start in range(0, len(unsolved), CHUNK):
+        chunk = unsolved[chunk_start:chunk_start + CHUNK]
+        with Pool(n_workers) as pool:
+            for (fp_str, result_str, err) in pool.imap_unordered(solve_file, chunk, chunksize=10):
+                if err == "skipped":
+                    skipped += 1
+                elif err:
+                    errors += 1
+                    if len(errors_list) < 3:
+                        errors_list.append(f"  ERROR {Path(fp_str).name}: {err}")
+                else:
+                    dst = out_dir / (Path(fp_str).stem + "_solve.json")
+                    dst.write_text(result_str, encoding="utf-8")
+                    solved += 1
+
+        elapsed = time.time() - t0
+        rate = solved / elapsed if elapsed > 0 else 0
+        remaining = len(unsolved) - solved - skipped - errors
+        eta = remaining / rate if rate > 0 else 0
+        print(f"  {solved} solved, {skipped} skip, {errors} err, {remaining} remain, {rate:.1f}/s, ETA: {eta/60:.0f}m")
+
+    elapsed = time.time() - t0
+    print(f"Solve done. Solved: {solved}, Skipped: {skipped}, Errors: {errors} in {elapsed/60:.1f}m ({solved/elapsed*60:.0f}/min)")
+    for e in errors_list:
+        print(e)
+else:
+    print("All files already solved.")
 PYEOF
 
 # --- Step 2: Update scores.json ---
@@ -98,7 +131,6 @@ for fp in sorted(results_dir.glob("*_solve.json")):
                 marg = sum(post.get(p, {}).get(r, 0.0) for p, r in truth.items()) / n_players
                 by_size[n_players][setting][cv].append(marg)
 
-# Build scores (no "type" field)
 scores = {"experiments": {}, "metadata": {"dataset": "avalonlogs", "condition": "Truth"}}
 
 for size, settings_data in sorted(by_size.items()):
@@ -129,14 +161,15 @@ for exp, data in sorted(scores["experiments"].items()):
         marginals = {k: round(v, 3) for k, v in vals.items() if k.endswith("_marginal")}
         print(f"  {exp} / {mname}: {marginals}")
 
-# Print game counts
 for size in sorted(SIZE_TO_EXP.keys()):
-    count = len([fp for fp in results_dir.glob("*_solve.json")
-                 if fp.stat().st_size > 0 and
-                 len(json.loads(fp.read_text()).get("players", {})) == size])
-    exp_name = SIZE_TO_EXP[size]
-    if exp_name in scores["experiments"]:
-        print(f"  {size}-player: {count} games solved")
+    count = 0
+    for fp in results_dir.glob("*_solve.json"):
+        try:
+            if len(json.loads(fp.read_text()).get("players", {})) == size:
+                count += 1
+        except:
+            pass
+    print(f"  {size}-player: {count} games solved")
 PYEOF
 
 echo "=== Complete at $(date) ==="
