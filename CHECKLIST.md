@@ -14,8 +14,8 @@ Check off items as you complete them. Order doesn't matter — work however make
 - [x] `scoring/TARGETS.md` — primary, constraint, and ablation targets
 - [x] `scoring/CONSTRAINTS.md` — what a scientist must hold fixed
 - [x] `scoring/DIRECTION.md` — research direction scope for scientist
-- [x] `scoring/scores.json` — reproduced numbers (6-player: 3,176 games with all views including LSV; 9-player: 145 games)
-- [x] Workspace validated via `python validate.py --compare` (all checks pass)
+- [x] `scoring/scores.json` — reproduced numbers (all 6 player sizes, 8,059 games solved)
+- [x] Workspace validated via custom comparison script (all structural checks pass)
 
 ## Code
 - [x] Evaluation code in `eval/`
@@ -34,16 +34,16 @@ Check off items as you complete them. Order doesn't matter — work however make
 - [x] `environment/container.def` + `environment/setup.sh` (CSP is pure Python, runs natively)
 
 ## Data
-- [x] AvalonLogs dataset downloaded (12,402 games in data/avalonlogs_raw/)
+- [x] AvalonLogs dataset downloaded (12,394 games in data/avalonlogs_raw/)
 - [x] Dataset converted to CSP constraints (data/avalonlogs_constraints/)
-- [x] 7,587 6-8 player games solved (data/avalonlogs_solve/)
-- [ ] 843 9-player games solved (~145 done)
+- [x] 8,059 games solved across all sizes (data/avalonlogs_solve/) — ~65% coverage
+- [ ] Remaining ~4,335 games being solved by running job
 
 ## Milestones
 - [x] `method_runs` — CSP solver executes end-to-end without errors
 - [x] `core_claim` — minimum experiment supports central claim (6-player results match paper)
-- [ ] `core_claim_plus` — additional settings
-- [ ] `secondary_claims`
+- [x] `core_claim_plus` — all 6 player sizes evaluated
+- [ ] `secondary_claims` — Avalon-NLU/Mafia not reproducible without LLM API
 - [ ] `majority`
 - [ ] `near_complete`
 - [ ] `full`

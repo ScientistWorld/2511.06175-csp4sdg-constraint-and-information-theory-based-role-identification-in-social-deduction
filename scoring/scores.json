@@ -1,44 +1,122 @@
 {
   "experiments": {
-    "avalonlogs_6player": {
-      "description": "AvalonLogs 6-player CSP results",
+    "avalonlogs_5player": {
       "results": {
-        "CSP_Strict": {
+        "CSP_HypIG": {
+          "LSV_marginal": 0.4977,
+          "EVM_marginal": 0.7017,
           "PCV_marginal": 0.6383,
-          "MRG_marginal": 0.584,
-          "LSV_marginal": 0.4163,
-          "MRL_marginal": 0.6153,
-          "EVM_marginal": 0.6839,
+          "MRG_marginal": 0.6048,
+          "MRL_marginal": 0.6431,
+          "Obj_marginal": 0.2824
+        },
+        "CSP_Strict": {
+          "LSV_marginal": 0.4918,
+          "EVM_marginal": 0.7011,
+          "PCV_marginal": 0.6286,
+          "MRG_marginal": 0.6047,
+          "MRL_marginal": 0.6417,
+          "Obj_marginal": 0.2824
+        }
+      }
+    },
+    "avalonlogs_6player": {
+      "results": {
+        "CSP_HypIG": {
+          "MRL_marginal": 0.6178,
+          "LSV_marginal": 0.4209,
+          "EVM_marginal": 0.6843,
+          "MRG_marginal": 0.5841,
+          "PCV_marginal": 0.65,
           "Obj_marginal": 0.2911
         },
-        "CSP_HypIG": {
-          "PCV_marginal": 0.65,
-          "MRG_marginal": 0.5841,
-          "LSV_marginal": 0.4209,
-          "MRL_marginal": 0.6178,
-          "EVM_marginal": 0.6843,
+        "CSP_Strict": {
+          "MRL_marginal": 0.6153,
+          "LSV_marginal": 0.4163,
+          "EVM_marginal": 0.6839,
+          "MRG_marginal": 0.584,
+          "PCV_marginal": 0.6383,
           "Obj_marginal": 0.2911
         }
       }
     },
-    "avalonlogs_9player": {
-      "description": "AvalonLogs 9-player CSP results",
+    "avalonlogs_7player": {
       "results": {
-        "CSP_Strict": {
-          "EVM_marginal": 0.5969,
-          "LSV_marginal": 0.3564,
-          "MRL_marginal": 0.5926,
-          "MRG_marginal": 0.5561,
-          "PCV_marginal": 0.57,
-          "Obj_marginal": 0.3015
-        },
         "CSP_HypIG": {
+          "PCV_marginal": 0.5497,
+          "EVM_marginal": 0.5348,
+          "LSV_marginal": 0.3618,
+          "MRG_marginal": 0.5171,
+          "MRL_marginal": 0.5603,
+          "Obj_marginal": 0.2419
+        },
+        "CSP_Strict": {
+          "PCV_marginal": 0.5465,
+          "EVM_marginal": 0.5341,
+          "LSV_marginal": 0.3605,
+          "MRG_marginal": 0.5161,
+          "MRL_marginal": 0.5592,
+          "Obj_marginal": 0.2419
+        }
+      }
+    },
+    "avalonlogs_8player": {
+      "results": {
+        "CSP_HypIG": {
+          "PCV_marginal": 0.5491,
+          "MRG_marginal": 0.5273,
+          "EVM_marginal": 0.5412,
+          "MRL_marginal": 0.5694,
+          "LSV_marginal": 0.3374,
+          "Obj_marginal": 0.2596
+        },
+        "CSP_Strict": {
+          "PCV_marginal": 0.5475,
+          "MRG_marginal": 0.5262,
+          "EVM_marginal": 0.5405,
+          "MRL_marginal": 0.5679,
+          "LSV_marginal": 0.3365,
+          "Obj_marginal": 0.2596
+        }
+      }
+    },
+    "avalonlogs_9player": {
+      "results": {
+        "CSP_HypIG": {
+          "MRG_marginal": 0.557,
           "EVM_marginal": 0.5977,
+          "PCV_marginal": 0.5729,
           "LSV_marginal": 0.3581,
           "MRL_marginal": 0.5945,
-          "MRG_marginal": 0.557,
-          "PCV_marginal": 0.5729,
           "Obj_marginal": 0.3015
+        },
+        "CSP_Strict": {
+          "MRG_marginal": 0.5561,
+          "EVM_marginal": 0.5969,
+          "PCV_marginal": 0.57,
+          "LSV_marginal": 0.3564,
+          "MRL_marginal": 0.5926,
+          "Obj_marginal": 0.3015
+        }
+      }
+    },
+    "avalonlogs_10player": {
+      "results": {
+        "CSP_HypIG": {
+          "EVM_marginal": 0.5052,
+          "LSV_marginal": 0.3206,
+          "MRL_marginal": 0.5436,
+          "MRG_marginal": 0.4925,
+          "PCV_marginal": 0.497,
+          "Obj_marginal": 0.265
+        },
+        "CSP_Strict": {
+          "EVM_marginal": 0.5046,
+          "LSV_marginal": 0.3205,
+          "MRL_marginal": 0.5415,
+          "MRG_marginal": 0.4917,
+          "PCV_marginal": 0.4967,
+          "Obj_marginal": 0.265
         }
       }
     }

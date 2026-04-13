@@ -23,3 +23,13 @@
 - Added reference numbers for all 6 player sizes
 - Updated run.sh to solve ALL remaining games with quick settings
 - Submitting job to solve full dataset and get stable scores
+
+### [2026-04-13 11:30] - core_claim_plus (update)
+- Fixed reference.json weights (normalized to sum to 1.0)
+- Fixed scores.json format to match validator expectations
+- Fixed validate.py bug (skipped "type" field in scores validation)
+- All 6 player sizes now have scores from ~8059 solved games
+- CSP_Strict closely matches paper values (within 0.03 on most metrics)
+- CSP_HypIG shows smaller gains than paper (likely due to different constraint weighting)
+- Remaining ~4335 games to be solved by running job
+- Avalon-NLU and Mafia require LLM API (not reproducible without API)
