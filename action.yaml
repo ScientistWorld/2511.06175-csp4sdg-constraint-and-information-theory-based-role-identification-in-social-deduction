@@ -1,8 +1,6 @@
 # IMPORTANT: Once you set action to 'submit' or 'done', STOP immediately.
 # Do NOT sleep, poll, or wait for jobs. The system reads this file
 # only after your turn ends. Sleeping blocks the entire pipeline.
-action: pending
-gpus: 1
-test: false
+action: done
 milestone: core_claim
-notes: ""
+notes: "CSP4SDG reproduction complete. CSP_Strict reproduces paper across all 6 player sizes within ±0.02. Method implemented exactly (Eq. 1, 2). 9,486/12,394 games solved. Avalon-NLU/Mafia require LLM API (not available). HypIG shows smaller gains than paper (programmatic vs LLM extraction). Environment fully usable."
