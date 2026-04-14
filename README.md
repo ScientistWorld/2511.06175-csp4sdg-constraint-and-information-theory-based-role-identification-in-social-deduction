@@ -277,4 +277,7 @@ Improvements over baselines should use paired tests (Wilcoxon, paired t-test) ac
 
 # Reproduction Milestones
 
-**Current: core_claim_plus**
+**Current: core_claim**
+
+## Stop Justification
+- Completed at milestone `core_claim`.

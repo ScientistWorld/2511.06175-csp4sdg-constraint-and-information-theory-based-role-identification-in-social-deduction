@@ -1,8 +1,8 @@
 # IMPORTANT: Once you set action to 'submit' or 'done', STOP immediately.
 # Do NOT sleep, poll, or wait for jobs. The system reads this file
 # only after your turn ends. Sleeping blocks the entire pipeline.
-action: submit
+action: pending
 gpus: 1
 test: false
-milestone: core_claim_plus
-notes: "Adaptive 2-worker solve. 9279/12394 done, 3115 remaining. Sequential rate 0.6/s. With 2 workers: ~1.2/s = ~43min remaining. Fits in 1-hour limit. Uses os.sched_getaffinity to detect available cores."
+milestone: core_claim
+notes: ""
