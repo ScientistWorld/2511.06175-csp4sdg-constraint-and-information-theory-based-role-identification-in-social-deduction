@@ -1,8 +1,8 @@
 # IMPORTANT: Once you set action to 'submit' or 'done', STOP immediately.
 # Do NOT sleep, poll, or wait for jobs. The system reads this file
 # only after your turn ends. Sleeping blocks the entire pipeline.
-action: pending
+action: submit
 gpus: 1
 test: false
-milestone: method_runs
-notes: ""
+milestone: core_claim
+notes: "Audit confirmed core_claim: real CSP solver, honest eval, CSP_Strict matches paper ±0.03 across all sizes. Submitting job to solve remaining 2,908 games (smallest first) with ALL_SETTINGS to push toward core_claim_plus."

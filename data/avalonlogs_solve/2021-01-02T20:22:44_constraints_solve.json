@@ -1,0 +1,1452 @@
+{
+  "file": "2021-01-02T20:22:44_constraints.json",
+  "players": {
+    "BRIAN": "evil_minion",
+    "BRUCE": "loyal_follower",
+    "JOE": "loyal_follower",
+    "HU": "evil_minion",
+    "MAYKO": "loyal_follower"
+  },
+  "quests": {
+    "1": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.6,
+              "evil_minion": 0.4
+            },
+            "BRUCE": {
+              "loyal_follower": 0.6,
+              "evil_minion": 0.4
+            },
+            "JOE": {
+              "loyal_follower": 0.6,
+              "evil_minion": 0.4
+            },
+            "HU": {
+              "evil_minion": 0.4,
+              "loyal_follower": 0.6
+            },
+            "MAYKO": {
+              "evil_minion": 0.4,
+              "loyal_follower": 0.6
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "HU": "evil_minion",
+            "MAYKO": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.5828160087726499,
+              "evil_minion": 0.41718399122735
+            },
+            "BRUCE": {
+              "loyal_follower": 0.5740557711822766,
+              "evil_minion": 0.4259442288177235
+            },
+            "JOE": {
+              "loyal_follower": 0.6559694795831699,
+              "evil_minion": 0.3440305204168302
+            },
+            "HU": {
+              "evil_minion": 0.4086106891666415,
+              "loyal_follower": 0.5913893108333586
+            },
+            "MAYKO": {
+              "evil_minion": 0.4042305703714549,
+              "loyal_follower": 0.5957694296285452
+            }
+          },
+          "best": {
+            "JOE": "loyal_follower",
+            "HU": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "BRUCE": "evil_minion"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "evil_minion": 1.0
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 1.0
+            },
+            "MAYKO": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "evil_minion": 1.0
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 1.0
+            },
+            "MAYKO": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "BRUCE": {
+              "loyal_follower": 0.9999999999999999
+            },
+            "JOE": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "HU": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "MAYKO": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "HU": "evil_minion",
+            "MAYKO": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.4358974358974359,
+              "evil_minion": 0.5641025641025641
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 0.6410256410256411,
+              "evil_minion": 0.358974358974359
+            },
+            "HU": {
+              "evil_minion": 0.5128205128205128,
+              "loyal_follower": 0.4871794871794872
+            },
+            "MAYKO": {
+              "evil_minion": 0.5641025641025641,
+              "loyal_follower": 0.4358974358974359
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "HU": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "MAYKO": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "BRUCE": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "JOE": {
+              "loyal_follower": 0.9999999999999999
+            },
+            "HU": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "MAYKO": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "HU": "evil_minion",
+            "MAYKO": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.4912274890334845,
+              "evil_minion": 0.5087725109665154
+            },
+            "BRUCE": {
+              "loyal_follower": 0.4838422906597994,
+              "evil_minion": 0.5161577093402007
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 0.4847644052974042,
+              "loyal_follower": 0.5152355947025957
+            },
+            "MAYKO": {
+              "evil_minion": 0.4903053743958797,
+              "loyal_follower": 0.5096946256041204
+            }
+          },
+          "best": {
+            "JOE": "loyal_follower",
+            "HU": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "BRUCE": "evil_minion"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "evil_minion": 1.0
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 1.0
+            },
+            "MAYKO": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "evil_minion": 1.0
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 1.0
+            },
+            "MAYKO": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower3": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "BRUCE": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "JOE": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "HU": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "MAYKO": {
+              "loyal_follower": 0.9999999999999999
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "BRUCE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "JOE": "evil_minion",
+            "HU": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.482641202636072,
+              "evil_minion": 0.517358797363928
+            },
+            "BRUCE": {
+              "loyal_follower": 0.4658465781359204,
+              "evil_minion": 0.5341534218640797
+            },
+            "JOE": {
+              "evil_minion": 0.4524068612615487,
+              "loyal_follower": 0.5475931387384513
+            },
+            "HU": {
+              "evil_minion": 0.49608091951044375,
+              "loyal_follower": 0.5039190804895562
+            },
+            "MAYKO": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "JOE": "loyal_follower",
+            "HU": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "BRUCE": "evil_minion"
+          }
+        }
+      }
+    },
+    "2": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.6666666666666667,
+              "evil_minion": 0.3333333333333333
+            },
+            "BRUCE": {
+              "loyal_follower": 0.5555555555555556,
+              "evil_minion": 0.4444444444444444
+            },
+            "JOE": {
+              "loyal_follower": 0.5555555555555556,
+              "evil_minion": 0.4444444444444444
+            },
+            "HU": {
+              "evil_minion": 0.4444444444444444,
+              "loyal_follower": 0.5555555555555556
+            },
+            "MAYKO": {
+              "evil_minion": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666667
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "HU": "evil_minion",
+            "MAYKO": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.66363632716396,
+              "evil_minion": 0.33636367283604
+            },
+            "BRUCE": {
+              "loyal_follower": 0.5407006608411452,
+              "evil_minion": 0.4592993391588547
+            },
+            "JOE": {
+              "loyal_follower": 0.5894642367976647,
+              "evil_minion": 0.41053576320233537
+            },
+            "HU": {
+              "evil_minion": 0.4438303256528257,
+              "loyal_follower": 0.5561696743471742
+            },
+            "MAYKO": {
+              "evil_minion": 0.34997089914994406,
+              "loyal_follower": 0.6500291008500559
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "JOE": "loyal_follower",
+            "HU": "loyal_follower",
+            "BRUCE": "evil_minion",
+            "MAYKO": "evil_minion"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "evil_minion": 1.0
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 1.0
+            },
+            "MAYKO": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "evil_minion": 1.0
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 1.0
+            },
+            "MAYKO": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.6000000000000001,
+              "evil_minion": 0.4
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 0.4,
+              "evil_minion": 0.6000000000000001
+            },
+            "HU": {
+              "evil_minion": 0.6000000000000001,
+              "loyal_follower": 0.4
+            },
+            "MAYKO": {
+              "evil_minion": 0.4,
+              "loyal_follower": 0.6000000000000001
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "HU": "evil_minion",
+            "MAYKO": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.5882868295197821,
+              "evil_minion": 0.4117131704802179
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 0.49956194908185236,
+              "evil_minion": 0.5004380509181475
+            },
+            "HU": {
+              "evil_minion": 0.6468526819208716,
+              "loyal_follower": 0.35314731807912825
+            },
+            "MAYKO": {
+              "evil_minion": 0.44099609668076273,
+              "loyal_follower": 0.5590039033192371
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "HU": "evil_minion",
+            "MAYKO": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.6000000000000001,
+              "evil_minion": 0.4
+            },
+            "BRUCE": {
+              "loyal_follower": 0.4,
+              "evil_minion": 0.6000000000000001
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 0.6000000000000001,
+              "loyal_follower": 0.4
+            },
+            "MAYKO": {
+              "evil_minion": 0.4,
+              "loyal_follower": 0.6000000000000001
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "HU": "evil_minion",
+            "MAYKO": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.5746310559994892,
+              "evil_minion": 0.42536894400051084
+            },
+            "BRUCE": {
+              "loyal_follower": 0.3986909966188993,
+              "evil_minion": 0.6013090033811007
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 0.5691855185750595,
+              "loyal_follower": 0.43081448142494055
+            },
+            "MAYKO": {
+              "evil_minion": 0.40413653404332894,
+              "loyal_follower": 0.5958634659566711
+            }
+          },
+          "best": {
+            "JOE": "loyal_follower",
+            "HU": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "BRUCE": "evil_minion"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "evil_minion": 1.0
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 1.0
+            },
+            "MAYKO": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "evil_minion": 1.0
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 1.0
+            },
+            "MAYKO": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower3": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "BRUCE": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "JOE": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "HU": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "MAYKO": {
+              "loyal_follower": 0.9999999999999999
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "BRUCE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "JOE": "evil_minion",
+            "HU": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.49422716143543427,
+              "evil_minion": 0.5057728385645657
+            },
+            "BRUCE": {
+              "loyal_follower": 0.4784899005372956,
+              "evil_minion": 0.5215100994627043
+            },
+            "JOE": {
+              "evil_minion": 0.48688247895749087,
+              "loyal_follower": 0.5131175210425091
+            },
+            "HU": {
+              "evil_minion": 0.48583458301523913,
+              "loyal_follower": 0.5141654169847609
+            },
+            "MAYKO": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "JOE": "loyal_follower",
+            "HU": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "BRUCE": "evil_minion"
+          }
+        }
+      }
+    },
+    "3": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.6666666666666667,
+              "evil_minion": 0.3333333333333333
+            },
+            "BRUCE": {
+              "loyal_follower": 0.5555555555555556,
+              "evil_minion": 0.4444444444444444
+            },
+            "JOE": {
+              "loyal_follower": 0.5555555555555556,
+              "evil_minion": 0.4444444444444444
+            },
+            "HU": {
+              "evil_minion": 0.4444444444444444,
+              "loyal_follower": 0.5555555555555556
+            },
+            "MAYKO": {
+              "evil_minion": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666667
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "HU": "evil_minion",
+            "MAYKO": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.6424979466854468,
+              "evil_minion": 0.3575020533145532
+            },
+            "BRUCE": {
+              "loyal_follower": 0.5761734846147473,
+              "evil_minion": 0.42382651538525273
+            },
+            "JOE": {
+              "loyal_follower": 0.5698887910922564,
+              "evil_minion": 0.4301112089077435
+            },
+            "HU": {
+              "evil_minion": 0.48000626253839485,
+              "loyal_follower": 0.519993737461605
+            },
+            "MAYKO": {
+              "evil_minion": 0.3085539598540557,
+              "loyal_follower": 0.6914460401459442
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "BRUCE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "JOE": "evil_minion",
+            "HU": "evil_minion"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "evil_minion": 1.0
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 1.0
+            },
+            "MAYKO": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "evil_minion": 1.0
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 1.0
+            },
+            "MAYKO": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.6000000000000001,
+              "evil_minion": 0.4
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 0.4,
+              "evil_minion": 0.6000000000000001
+            },
+            "HU": {
+              "evil_minion": 0.6000000000000001,
+              "loyal_follower": 0.4
+            },
+            "MAYKO": {
+              "evil_minion": 0.4,
+              "loyal_follower": 0.6000000000000001
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "HU": "evil_minion",
+            "MAYKO": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.5561094353227604,
+              "evil_minion": 0.4438905646772397
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 0.4609064116471957,
+              "evil_minion": 0.5390935883528045
+            },
+            "HU": {
+              "evil_minion": 0.6575032422532046,
+              "loyal_follower": 0.3424967577467956
+            },
+            "MAYKO": {
+              "evil_minion": 0.3595126047167516,
+              "loyal_follower": 0.6404873952832485
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.6000000000000001,
+              "evil_minion": 0.4
+            },
+            "BRUCE": {
+              "loyal_follower": 0.4,
+              "evil_minion": 0.6000000000000001
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 0.6000000000000001,
+              "loyal_follower": 0.4
+            },
+            "MAYKO": {
+              "evil_minion": 0.4,
+              "loyal_follower": 0.6000000000000001
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "HU": "evil_minion",
+            "MAYKO": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.5778133053795566,
+              "evil_minion": 0.4221866946204434
+            },
+            "BRUCE": {
+              "loyal_follower": 0.41899790396464787,
+              "evil_minion": 0.5810020960353521
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 0.6147911297469623,
+              "loyal_follower": 0.38520887025303774
+            },
+            "MAYKO": {
+              "evil_minion": 0.38202007959724227,
+              "loyal_follower": 0.6179799204027577
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "evil_minion": 1.0
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 1.0
+            },
+            "MAYKO": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "evil_minion": 1.0
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 1.0
+            },
+            "MAYKO": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower3": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "BRUCE": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "JOE": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "HU": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "MAYKO": {
+              "loyal_follower": 0.9999999999999999
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "BRUCE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "JOE": "evil_minion",
+            "HU": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.4874562462421556,
+              "evil_minion": 0.5125437537578444
+            },
+            "BRUCE": {
+              "loyal_follower": 0.5391049210008854,
+              "evil_minion": 0.46089507899911475
+            },
+            "JOE": {
+              "evil_minion": 0.503688560837218,
+              "loyal_follower": 0.49631143916278186
+            },
+            "HU": {
+              "evil_minion": 0.5228726064058227,
+              "loyal_follower": 0.4771273935941773
+            },
+            "MAYKO": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "BRUCE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "JOE": "evil_minion",
+            "HU": "evil_minion"
+          }
+        }
+      }
+    },
+    "4": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.6666666666666667,
+              "evil_minion": 0.3333333333333333
+            },
+            "BRUCE": {
+              "loyal_follower": 0.5555555555555556,
+              "evil_minion": 0.4444444444444444
+            },
+            "JOE": {
+              "loyal_follower": 0.5555555555555556,
+              "evil_minion": 0.4444444444444444
+            },
+            "HU": {
+              "evil_minion": 0.4444444444444444,
+              "loyal_follower": 0.5555555555555556
+            },
+            "MAYKO": {
+              "evil_minion": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666667
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "HU": "evil_minion",
+            "MAYKO": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.6540007053733713,
+              "evil_minion": 0.34599929462662865
+            },
+            "BRUCE": {
+              "loyal_follower": 0.5732727076241002,
+              "evil_minion": 0.4267272923758998
+            },
+            "JOE": {
+              "loyal_follower": 0.5610139280656119,
+              "evil_minion": 0.43898607193438804
+            },
+            "HU": {
+              "evil_minion": 0.4688812891536246,
+              "loyal_follower": 0.5311187108463754
+            },
+            "MAYKO": {
+              "evil_minion": 0.3194060519094588,
+              "loyal_follower": 0.6805939480905411
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "BRUCE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "JOE": "evil_minion",
+            "HU": "evil_minion"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "evil_minion": 1.0
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 1.0
+            },
+            "MAYKO": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "evil_minion": 1.0
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 1.0
+            },
+            "MAYKO": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.6000000000000001,
+              "evil_minion": 0.4
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 0.4,
+              "evil_minion": 0.6000000000000001
+            },
+            "HU": {
+              "evil_minion": 0.6000000000000001,
+              "loyal_follower": 0.4
+            },
+            "MAYKO": {
+              "evil_minion": 0.4,
+              "loyal_follower": 0.6000000000000001
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "HU": "evil_minion",
+            "MAYKO": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.5627717921408065,
+              "evil_minion": 0.4372282078591933
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 0.44462687367180925,
+              "evil_minion": 0.5553731263281906
+            },
+            "HU": {
+              "evil_minion": 0.6441336292843015,
+              "loyal_follower": 0.3558663707156984
+            },
+            "MAYKO": {
+              "evil_minion": 0.36326503652831427,
+              "loyal_follower": 0.6367349634716856
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.6000000000000001,
+              "evil_minion": 0.4
+            },
+            "BRUCE": {
+              "loyal_follower": 0.4,
+              "evil_minion": 0.6000000000000001
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 0.6000000000000001,
+              "loyal_follower": 0.4
+            },
+            "MAYKO": {
+              "evil_minion": 0.4,
+              "loyal_follower": 0.6000000000000001
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "HU": "evil_minion",
+            "MAYKO": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.5992578979123454,
+              "evil_minion": 0.4007421020876547
+            },
+            "BRUCE": {
+              "loyal_follower": 0.41041778856559274,
+              "evil_minion": 0.5895822114344074
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 0.6062015147706057,
+              "loyal_follower": 0.39379848522939437
+            },
+            "MAYKO": {
+              "evil_minion": 0.40347417170733246,
+              "loyal_follower": 0.5965258282926676
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "evil_minion": 1.0
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 1.0
+            },
+            "MAYKO": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "evil_minion": 1.0
+            },
+            "BRUCE": {
+              "loyal_follower": 1.0
+            },
+            "JOE": {
+              "loyal_follower": 1.0
+            },
+            "HU": {
+              "evil_minion": 1.0
+            },
+            "MAYKO": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower3": {
+        "Strict": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "BRUCE": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "JOE": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "HU": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "MAYKO": {
+              "loyal_follower": 0.9999999999999999
+            }
+          },
+          "best": {
+            "BRIAN": "loyal_follower",
+            "BRUCE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "JOE": "evil_minion",
+            "HU": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "BRIAN": {
+              "loyal_follower": 0.48129293130732,
+              "evil_minion": 0.5187070686926801
+            },
+            "BRUCE": {
+              "loyal_follower": 0.5346846032902103,
+              "evil_minion": 0.4653153967097898
+            },
+            "JOE": {
+              "evil_minion": 0.49921988346102525,
+              "loyal_follower": 0.5007801165389749
+            },
+            "HU": {
+              "evil_minion": 0.5167576511365051,
+              "loyal_follower": 0.483242348863495
+            },
+            "MAYKO": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "BRUCE": "loyal_follower",
+            "JOE": "loyal_follower",
+            "MAYKO": "loyal_follower",
+            "BRIAN": "evil_minion",
+            "HU": "evil_minion"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,122 +1,176 @@
 {
   "experiments": {
     "avalonlogs_5player": {
+      "description": "AvalonLogs 5-player CSP results",
       "results": {
-        "CSP_HypIG": {
-          "LSV_marginal": 0.4977,
-          "EVM_marginal": 0.7017,
-          "PCV_marginal": 0.6383,
-          "MRG_marginal": 0.6048,
-          "MRL_marginal": 0.6431,
-          "Obj_marginal": 0.2824
-        },
         "CSP_Strict": {
-          "LSV_marginal": 0.4918,
-          "EVM_marginal": 0.7011,
-          "PCV_marginal": 0.6286,
-          "MRG_marginal": 0.6047,
-          "MRL_marginal": 0.6417,
-          "Obj_marginal": 0.2824
+          "Obj_marginal": 0.2804,
+          "MRL_marginal": 0.626,
+          "PCV_marginal": 0.6388,
+          "LSV_marginal": 0.4911,
+          "EVM_marginal": 0.7003,
+          "MRG_marginal": 0.6004
+        },
+        "CSP_HypIG": {
+          "Obj_marginal": 0.2841,
+          "MRL_marginal": 0.628,
+          "PCV_marginal": 0.6488,
+          "LSV_marginal": 0.4969,
+          "EVM_marginal": 0.701,
+          "MRG_marginal": 0.6006
+        },
+        "CSP_Assert": {
+          "Obj_marginal": 0.2801,
+          "EVM_marginal": 0.6966,
+          "LSV_marginal": 0.49,
+          "MRL_marginal": 0.633,
+          "MRG_marginal": 0.6003,
+          "PCV_marginal": 0.637
+        },
+        "CSP_HypM": {
+          "Obj_marginal": 0.2834,
+          "EVM_marginal": 0.6969,
+          "LSV_marginal": 0.4948,
+          "MRL_marginal": 0.6342,
+          "MRG_marginal": 0.6004,
+          "PCV_marginal": 0.6454
+        },
+        "CSP_TurnIG": {
+          "Obj_marginal": 0.2834,
+          "EVM_marginal": 0.6972,
+          "LSV_marginal": 0.4955,
+          "MRL_marginal": 0.6351,
+          "MRG_marginal": 0.6005,
+          "PCV_marginal": 0.6474
         }
       }
     },
     "avalonlogs_6player": {
+      "description": "AvalonLogs 6-player CSP results",
       "results": {
-        "CSP_HypIG": {
-          "MRL_marginal": 0.6178,
-          "LSV_marginal": 0.4209,
-          "EVM_marginal": 0.6843,
-          "MRG_marginal": 0.5841,
-          "PCV_marginal": 0.65,
-          "Obj_marginal": 0.2911
-        },
         "CSP_Strict": {
-          "MRL_marginal": 0.6153,
-          "LSV_marginal": 0.4163,
-          "EVM_marginal": 0.6839,
-          "MRG_marginal": 0.584,
+          "Obj_marginal": 0.2911,
           "PCV_marginal": 0.6383,
-          "Obj_marginal": 0.2911
+          "MRG_marginal": 0.584,
+          "LSV_marginal": 0.4163,
+          "MRL_marginal": 0.6153,
+          "EVM_marginal": 0.6839
+        },
+        "CSP_HypIG": {
+          "Obj_marginal": 0.2951,
+          "PCV_marginal": 0.65,
+          "MRG_marginal": 0.5841,
+          "LSV_marginal": 0.4209,
+          "MRL_marginal": 0.6178,
+          "EVM_marginal": 0.6843
         }
       }
     },
     "avalonlogs_7player": {
+      "description": "AvalonLogs 7-player CSP results",
       "results": {
-        "CSP_HypIG": {
-          "PCV_marginal": 0.5497,
-          "EVM_marginal": 0.5348,
-          "LSV_marginal": 0.3618,
-          "MRG_marginal": 0.5171,
-          "MRL_marginal": 0.5603,
-          "Obj_marginal": 0.2419
-        },
         "CSP_Strict": {
+          "Obj_marginal": 0.2419,
           "PCV_marginal": 0.5465,
-          "EVM_marginal": 0.5341,
           "LSV_marginal": 0.3605,
-          "MRG_marginal": 0.5161,
+          "EVM_marginal": 0.5341,
           "MRL_marginal": 0.5592,
-          "Obj_marginal": 0.2419
+          "MRG_marginal": 0.5161
+        },
+        "CSP_HypIG": {
+          "Obj_marginal": 0.2429,
+          "PCV_marginal": 0.5497,
+          "LSV_marginal": 0.3618,
+          "EVM_marginal": 0.5348,
+          "MRL_marginal": 0.5603,
+          "MRG_marginal": 0.5171
         }
       }
     },
     "avalonlogs_8player": {
+      "description": "AvalonLogs 8-player CSP results",
       "results": {
-        "CSP_HypIG": {
-          "PCV_marginal": 0.5491,
-          "MRG_marginal": 0.5273,
-          "EVM_marginal": 0.5412,
-          "MRL_marginal": 0.5694,
-          "LSV_marginal": 0.3374,
-          "Obj_marginal": 0.2596
-        },
         "CSP_Strict": {
-          "PCV_marginal": 0.5475,
+          "Obj_marginal": 0.2596,
           "MRG_marginal": 0.5262,
-          "EVM_marginal": 0.5405,
-          "MRL_marginal": 0.5679,
           "LSV_marginal": 0.3365,
-          "Obj_marginal": 0.2596
+          "MRL_marginal": 0.5679,
+          "EVM_marginal": 0.5405,
+          "PCV_marginal": 0.5475
+        },
+        "CSP_HypIG": {
+          "Obj_marginal": 0.2601,
+          "MRG_marginal": 0.5273,
+          "LSV_marginal": 0.3374,
+          "MRL_marginal": 0.5694,
+          "EVM_marginal": 0.5412,
+          "PCV_marginal": 0.5491
         }
       }
     },
     "avalonlogs_9player": {
+      "description": "AvalonLogs 9-player CSP results",
       "results": {
-        "CSP_HypIG": {
-          "MRG_marginal": 0.557,
-          "EVM_marginal": 0.5977,
-          "PCV_marginal": 0.5729,
-          "LSV_marginal": 0.3581,
-          "MRL_marginal": 0.5945,
-          "Obj_marginal": 0.3015
-        },
         "CSP_Strict": {
-          "MRG_marginal": 0.5561,
-          "EVM_marginal": 0.5969,
-          "PCV_marginal": 0.57,
-          "LSV_marginal": 0.3564,
-          "MRL_marginal": 0.5926,
-          "Obj_marginal": 0.3015
+          "Obj_marginal": 0.3021,
+          "LSV_marginal": 0.3558,
+          "EVM_marginal": 0.5897,
+          "MRL_marginal": 0.6044,
+          "PCV_marginal": 0.5663,
+          "MRG_marginal": 0.5493
+        },
+        "CSP_HypIG": {
+          "Obj_marginal": 0.3034,
+          "LSV_marginal": 0.3575,
+          "EVM_marginal": 0.5904,
+          "MRL_marginal": 0.606,
+          "PCV_marginal": 0.5688,
+          "MRG_marginal": 0.55
+        },
+        "CSP_Assert": {
+          "Obj_marginal": 0.3002,
+          "LSV_marginal": 0.353,
+          "EVM_marginal": 0.5864,
+          "PCV_marginal": 0.5583,
+          "MRL_marginal": 0.6018,
+          "MRG_marginal": 0.5501
+        },
+        "CSP_HypM": {
+          "Obj_marginal": 0.3014,
+          "LSV_marginal": 0.3544,
+          "EVM_marginal": 0.5868,
+          "PCV_marginal": 0.5612,
+          "MRL_marginal": 0.6029,
+          "MRG_marginal": 0.5507
+        },
+        "CSP_TurnIG": {
+          "Obj_marginal": 0.301,
+          "LSV_marginal": 0.3538,
+          "EVM_marginal": 0.587,
+          "PCV_marginal": 0.5596,
+          "MRL_marginal": 0.6036,
+          "MRG_marginal": 0.5507
         }
       }
     },
     "avalonlogs_10player": {
+      "description": "AvalonLogs 10-player CSP results",
       "results": {
-        "CSP_HypIG": {
-          "EVM_marginal": 0.5052,
-          "LSV_marginal": 0.3206,
-          "MRL_marginal": 0.5436,
-          "MRG_marginal": 0.4925,
-          "PCV_marginal": 0.497,
-          "Obj_marginal": 0.265
-        },
         "CSP_Strict": {
-          "EVM_marginal": 0.5046,
-          "LSV_marginal": 0.3205,
-          "MRL_marginal": 0.5415,
-          "MRG_marginal": 0.4917,
-          "PCV_marginal": 0.4967,
-          "Obj_marginal": 0.265
+          "Obj_marginal": 0.2697,
+          "MRL_marginal": 0.5691,
+          "LSV_marginal": 0.3258,
+          "EVM_marginal": 0.5213,
+          "PCV_marginal": 0.5015,
+          "MRG_marginal": 0.506
+        },
+        "CSP_HypIG": {
+          "Obj_marginal": 0.2697,
+          "MRL_marginal": 0.5699,
+          "LSV_marginal": 0.3258,
+          "EVM_marginal": 0.5219,
+          "PCV_marginal": 0.5016,
+          "MRG_marginal": 0.5068
         }
       }
     }

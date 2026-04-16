@@ -1,0 +1,1572 @@
+{
+  "file": "2020-05-29T20:08:52_constraints.json",
+  "players": {
+    "MAISIE": "evil_minion",
+    "IMELDA": "merlin",
+    "ALOCE": "loyal_follower",
+    "ALIHA": "loyal_follower",
+    "SNL": "evil_minion"
+  },
+  "quests": {
+    "1": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.39999999999999997,
+              "evil_minion": 0.39999999999999997,
+              "merlin": 0.19999999999999998
+            },
+            "IMELDA": {
+              "loyal_follower": 0.39999999999999997,
+              "evil_minion": 0.39999999999999997,
+              "merlin": 0.19999999999999998
+            },
+            "ALOCE": {
+              "evil_minion": 0.39999999999999997,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.39999999999999997
+            },
+            "ALIHA": {
+              "evil_minion": 0.39999999999999997,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.39999999999999997
+            },
+            "SNL": {
+              "merlin": 0.19999999999999998,
+              "evil_minion": 0.39999999999999997,
+              "loyal_follower": 0.39999999999999997
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "IMELDA": "loyal_follower",
+            "ALOCE": "evil_minion",
+            "ALIHA": "evil_minion",
+            "SNL": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.44099038780583044,
+              "evil_minion": 0.3385144182912543,
+              "merlin": 0.22049519390291525
+            },
+            "IMELDA": {
+              "loyal_follower": 0.3771122678042695,
+              "evil_minion": 0.4343315982935958,
+              "merlin": 0.18855613390213477
+            },
+            "ALOCE": {
+              "evil_minion": 0.4343315982935958,
+              "merlin": 0.18855613390213477,
+              "loyal_follower": 0.3771122678042695
+            },
+            "ALIHA": {
+              "evil_minion": 0.3544261241467797,
+              "merlin": 0.21519129195107345,
+              "loyal_follower": 0.4303825839021469
+            },
+            "SNL": {
+              "merlin": 0.18720124634174184,
+              "evil_minion": 0.4383962609747744,
+              "loyal_follower": 0.37440249268348375
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "IMELDA": "loyal_follower",
+            "ALOCE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALOCE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALIHA": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "IMELDA": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALOCE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALIHA": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "IMELDA": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "merlin": 1.0
+            },
+            "ALOCE": {
+              "loyal_follower": 1.0
+            },
+            "ALIHA": {
+              "loyal_follower": 1.0
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "ALOCE": "loyal_follower",
+            "ALIHA": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "IMELDA": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "merlin": 1.0
+            },
+            "ALOCE": {
+              "loyal_follower": 1.0
+            },
+            "ALIHA": {
+              "loyal_follower": 1.0
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "ALOCE": "loyal_follower",
+            "ALIHA": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "IMELDA": "merlin"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25
+            },
+            "IMELDA": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "ALOCE": {
+              "loyal_follower": 1.0
+            },
+            "ALIHA": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "SNL": {
+              "merlin": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "loyal_follower": 0.25
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "IMELDA": "evil_minion",
+            "ALIHA": "evil_minion",
+            "SNL": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.2686923231703365,
+              "evil_minion": 0.462615353659327,
+              "merlin": 0.2686923231703365
+            },
+            "IMELDA": {
+              "evil_minion": 0.537384646340673,
+              "merlin": 0.23130767682966352,
+              "loyal_follower": 0.23130767682966352
+            },
+            "ALOCE": {
+              "loyal_follower": 1.0
+            },
+            "ALIHA": {
+              "evil_minion": 0.4766359056908461,
+              "merlin": 0.26168204715457694,
+              "loyal_follower": 0.261682047154577
+            },
+            "SNL": {
+              "merlin": 0.23831795284542306,
+              "evil_minion": 0.5233640943091539,
+              "loyal_follower": 0.23831795284542306
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "IMELDA": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25
+            },
+            "IMELDA": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "ALOCE": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "ALIHA": {
+              "loyal_follower": 1.0
+            },
+            "SNL": {
+              "merlin": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "loyal_follower": 0.25
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "ALIHA": "loyal_follower",
+            "IMELDA": "evil_minion",
+            "ALOCE": "evil_minion",
+            "SNL": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.3225806451612903,
+              "evil_minion": 0.35483870967741926,
+              "merlin": 0.3225806451612903
+            },
+            "IMELDA": {
+              "evil_minion": 0.5483870967741936,
+              "merlin": 0.22580645161290322,
+              "loyal_follower": 0.22580645161290322
+            },
+            "ALOCE": {
+              "evil_minion": 0.5483870967741936,
+              "merlin": 0.22580645161290322,
+              "loyal_follower": 0.22580645161290322
+            },
+            "ALIHA": {
+              "loyal_follower": 1.0
+            },
+            "SNL": {
+              "merlin": 0.22580645161290322,
+              "evil_minion": 0.5483870967741936,
+              "loyal_follower": 0.22580645161290322
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "ALIHA": "loyal_follower",
+            "IMELDA": "evil_minion",
+            "SNL": "evil_minion",
+            "ALOCE": "merlin"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALOCE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALIHA": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "IMELDA": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALOCE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALIHA": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "IMELDA": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        }
+      }
+    },
+    "2": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.37037037037037035,
+              "evil_minion": 0.4444444444444444,
+              "merlin": 0.18518518518518517
+            },
+            "IMELDA": {
+              "loyal_follower": 0.37037037037037035,
+              "evil_minion": 0.4444444444444444,
+              "merlin": 0.18518518518518517
+            },
+            "ALOCE": {
+              "evil_minion": 0.3333333333333333,
+              "merlin": 0.2222222222222222,
+              "loyal_follower": 0.4444444444444444
+            },
+            "ALIHA": {
+              "merlin": 0.2222222222222222,
+              "evil_minion": 0.3333333333333333,
+              "loyal_follower": 0.4444444444444444
+            },
+            "SNL": {
+              "evil_minion": 0.4444444444444444,
+              "merlin": 0.18518518518518517,
+              "loyal_follower": 0.37037037037037035
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "IMELDA": "loyal_follower",
+            "ALOCE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.43103330970466663,
+              "evil_minion": 0.3534500354430001,
+              "merlin": 0.21551665485233332
+            },
+            "IMELDA": {
+              "loyal_follower": 0.32821973651628944,
+              "evil_minion": 0.5076703952255659,
+              "merlin": 0.16410986825814472
+            },
+            "ALOCE": {
+              "evil_minion": 0.38429525686576954,
+              "merlin": 0.2052349143780768,
+              "loyal_follower": 0.41046982875615357
+            },
+            "ALIHA": {
+              "merlin": 0.23980268081537073,
+              "evil_minion": 0.2805919575538878,
+              "loyal_follower": 0.47960536163074147
+            },
+            "SNL": {
+              "evil_minion": 0.47399235491177655,
+              "merlin": 0.17533588169607447,
+              "loyal_follower": 0.3506717633921489
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "IMELDA": "loyal_follower",
+            "ALOCE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALOCE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALIHA": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "IMELDA": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALOCE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALIHA": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "IMELDA": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "merlin": 1.0
+            },
+            "ALOCE": {
+              "loyal_follower": 1.0
+            },
+            "ALIHA": {
+              "loyal_follower": 1.0
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "ALOCE": "loyal_follower",
+            "ALIHA": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "IMELDA": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "merlin": 1.0
+            },
+            "ALOCE": {
+              "loyal_follower": 1.0
+            },
+            "ALIHA": {
+              "loyal_follower": 1.0
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "ALOCE": "loyal_follower",
+            "ALIHA": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "IMELDA": "merlin"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25
+            },
+            "IMELDA": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "ALOCE": {
+              "loyal_follower": 1.0
+            },
+            "ALIHA": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "SNL": {
+              "merlin": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "loyal_follower": 0.25
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "IMELDA": "evil_minion",
+            "ALIHA": "evil_minion",
+            "SNL": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.2806126339958136,
+              "evil_minion": 0.43877473200837275,
+              "merlin": 0.2806126339958136
+            },
+            "IMELDA": {
+              "evil_minion": 0.5952384583960928,
+              "merlin": 0.20238077080195366,
+              "loyal_follower": 0.20238077080195363
+            },
+            "ALOCE": {
+              "loyal_follower": 1.0
+            },
+            "ALIHA": {
+              "evil_minion": 0.4489802143933018,
+              "merlin": 0.27550989280334914,
+              "loyal_follower": 0.27550989280334914
+            },
+            "SNL": {
+              "merlin": 0.24149670239888363,
+              "evil_minion": 0.5170065952022327,
+              "loyal_follower": 0.24149670239888366
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "IMELDA": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25
+            },
+            "IMELDA": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "ALOCE": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "ALIHA": {
+              "loyal_follower": 1.0
+            },
+            "SNL": {
+              "merlin": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "loyal_follower": 0.25
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "ALIHA": "loyal_follower",
+            "IMELDA": "evil_minion",
+            "ALOCE": "evil_minion",
+            "SNL": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.3170731707317073,
+              "evil_minion": 0.36585365853658536,
+              "merlin": 0.3170731707317073
+            },
+            "IMELDA": {
+              "evil_minion": 0.5609756097560975,
+              "merlin": 0.21951219512195125,
+              "loyal_follower": 0.21951219512195125
+            },
+            "ALOCE": {
+              "evil_minion": 0.5365853658536585,
+              "merlin": 0.23170731707317074,
+              "loyal_follower": 0.23170731707317074
+            },
+            "ALIHA": {
+              "loyal_follower": 1.0
+            },
+            "SNL": {
+              "merlin": 0.23170731707317074,
+              "evil_minion": 0.5365853658536586,
+              "loyal_follower": 0.23170731707317074
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "ALIHA": "loyal_follower",
+            "IMELDA": "evil_minion",
+            "SNL": "evil_minion",
+            "ALOCE": "merlin"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALOCE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALIHA": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "IMELDA": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALOCE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALIHA": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "IMELDA": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        }
+      }
+    },
+    "3": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.37037037037037035,
+              "evil_minion": 0.4444444444444444,
+              "merlin": 0.18518518518518517
+            },
+            "IMELDA": {
+              "loyal_follower": 0.37037037037037035,
+              "evil_minion": 0.4444444444444444,
+              "merlin": 0.18518518518518517
+            },
+            "ALOCE": {
+              "evil_minion": 0.3333333333333333,
+              "merlin": 0.2222222222222222,
+              "loyal_follower": 0.4444444444444444
+            },
+            "ALIHA": {
+              "merlin": 0.2222222222222222,
+              "evil_minion": 0.3333333333333333,
+              "loyal_follower": 0.4444444444444444
+            },
+            "SNL": {
+              "evil_minion": 0.4444444444444444,
+              "merlin": 0.18518518518518517,
+              "loyal_follower": 0.37037037037037035
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "IMELDA": "loyal_follower",
+            "ALOCE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.35261228900512637,
+              "evil_minion": 0.4710815664923105,
+              "merlin": 0.17630614450256318
+            },
+            "IMELDA": {
+              "loyal_follower": 0.38969186340018264,
+              "evil_minion": 0.41546220489972585,
+              "merlin": 0.19484593170009132
+            },
+            "ALOCE": {
+              "evil_minion": 0.3787829956382486,
+              "merlin": 0.20707233478725046,
+              "loyal_follower": 0.4141446695745009
+            },
+            "ALIHA": {
+              "merlin": 0.24298041748401675,
+              "evil_minion": 0.2710587475479497,
+              "loyal_follower": 0.4859608349680335
+            },
+            "SNL": {
+              "evil_minion": 0.46361448542176525,
+              "merlin": 0.17879517152607824,
+              "loyal_follower": 0.3575903430521565
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "IMELDA": "loyal_follower",
+            "ALOCE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALOCE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALIHA": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "IMELDA": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALOCE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALIHA": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "IMELDA": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "merlin": 1.0
+            },
+            "ALOCE": {
+              "loyal_follower": 1.0
+            },
+            "ALIHA": {
+              "loyal_follower": 1.0
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "ALOCE": "loyal_follower",
+            "ALIHA": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "IMELDA": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "merlin": 1.0
+            },
+            "ALOCE": {
+              "loyal_follower": 1.0
+            },
+            "ALIHA": {
+              "loyal_follower": 1.0
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "ALOCE": "loyal_follower",
+            "ALIHA": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "IMELDA": "merlin"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25
+            },
+            "IMELDA": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "ALOCE": {
+              "loyal_follower": 1.0
+            },
+            "ALIHA": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "SNL": {
+              "merlin": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "loyal_follower": 0.25
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "IMELDA": "evil_minion",
+            "ALIHA": "evil_minion",
+            "SNL": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.22324879099969805,
+              "evil_minion": 0.553502418000604,
+              "merlin": 0.22324879099969805
+            },
+            "IMELDA": {
+              "evil_minion": 0.5026941676927722,
+              "merlin": 0.24865291615361387,
+              "loyal_follower": 0.24865291615361387
+            },
+            "ALOCE": {
+              "loyal_follower": 1.0
+            },
+            "ALIHA": {
+              "evil_minion": 0.43648968711521036,
+              "merlin": 0.2817551564423948,
+              "loyal_follower": 0.2817551564423948
+            },
+            "SNL": {
+              "merlin": 0.24634313640429328,
+              "evil_minion": 0.5073137271914133,
+              "loyal_follower": 0.24634313640429328
+            }
+          },
+          "best": {
+            "IMELDA": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25
+            },
+            "IMELDA": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "ALOCE": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "ALIHA": {
+              "loyal_follower": 1.0
+            },
+            "SNL": {
+              "merlin": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "loyal_follower": 0.25
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "ALIHA": "loyal_follower",
+            "IMELDA": "evil_minion",
+            "ALOCE": "evil_minion",
+            "SNL": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.24835502054185143,
+              "evil_minion": 0.503289958916297,
+              "merlin": 0.24835502054185143
+            },
+            "IMELDA": {
+              "evil_minion": 0.45285047822437785,
+              "merlin": 0.273574760887811,
+              "loyal_follower": 0.273574760887811
+            },
+            "ALOCE": {
+              "evil_minion": 0.5219297814296624,
+              "merlin": 0.23903510928516875,
+              "loyal_follower": 0.23903510928516875
+            },
+            "ALIHA": {
+              "loyal_follower": 1.0
+            },
+            "SNL": {
+              "merlin": 0.23903510928516875,
+              "evil_minion": 0.5219297814296624,
+              "loyal_follower": 0.23903510928516875
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "ALIHA": "loyal_follower",
+            "ALOCE": "evil_minion",
+            "SNL": "evil_minion",
+            "IMELDA": "merlin"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALOCE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALIHA": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "IMELDA": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALOCE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALIHA": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "IMELDA": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        }
+      }
+    },
+    "4": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.37037037037037035,
+              "evil_minion": 0.4444444444444444,
+              "merlin": 0.18518518518518517
+            },
+            "IMELDA": {
+              "loyal_follower": 0.37037037037037035,
+              "evil_minion": 0.4444444444444444,
+              "merlin": 0.18518518518518517
+            },
+            "ALOCE": {
+              "evil_minion": 0.3333333333333333,
+              "merlin": 0.2222222222222222,
+              "loyal_follower": 0.4444444444444444
+            },
+            "ALIHA": {
+              "merlin": 0.2222222222222222,
+              "evil_minion": 0.3333333333333333,
+              "loyal_follower": 0.4444444444444444
+            },
+            "SNL": {
+              "evil_minion": 0.4444444444444444,
+              "merlin": 0.18518518518518517,
+              "loyal_follower": 0.37037037037037035
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "IMELDA": "loyal_follower",
+            "ALOCE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.34954946709072354,
+              "evil_minion": 0.4756757993639148,
+              "merlin": 0.17477473354536177
+            },
+            "IMELDA": {
+              "loyal_follower": 0.3936752476004226,
+              "evil_minion": 0.40948712859936626,
+              "merlin": 0.1968376238002113
+            },
+            "ALOCE": {
+              "evil_minion": 0.38383375828554983,
+              "merlin": 0.20538874723815007,
+              "loyal_follower": 0.41077749447630013
+            },
+            "ALIHA": {
+              "merlin": 0.24523123372484595,
+              "evil_minion": 0.26430629882546225,
+              "loyal_follower": 0.4904624674496919
+            },
+            "SNL": {
+              "evil_minion": 0.466697014925707,
+              "merlin": 0.177767661691431,
+              "loyal_follower": 0.35553532338286203
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "IMELDA": "loyal_follower",
+            "ALOCE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALOCE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALIHA": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "IMELDA": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALOCE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALIHA": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "IMELDA": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "merlin": 1.0
+            },
+            "ALOCE": {
+              "loyal_follower": 1.0
+            },
+            "ALIHA": {
+              "loyal_follower": 1.0
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "ALOCE": "loyal_follower",
+            "ALIHA": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "IMELDA": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "merlin": 1.0
+            },
+            "ALOCE": {
+              "loyal_follower": 1.0
+            },
+            "ALIHA": {
+              "loyal_follower": 1.0
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "ALOCE": "loyal_follower",
+            "ALIHA": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "IMELDA": "merlin"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25
+            },
+            "IMELDA": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "ALOCE": {
+              "loyal_follower": 1.0
+            },
+            "ALIHA": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "SNL": {
+              "merlin": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "loyal_follower": 0.25
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "IMELDA": "evil_minion",
+            "ALIHA": "evil_minion",
+            "SNL": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.2241145787521139,
+              "evil_minion": 0.5517708424957721,
+              "merlin": 0.2241145787521139
+            },
+            "IMELDA": {
+              "evil_minion": 0.4891003929480116,
+              "merlin": 0.2554498035259941,
+              "loyal_follower": 0.25544980352599417
+            },
+            "ALOCE": {
+              "loyal_follower": 1.0
+            },
+            "ALIHA": {
+              "evil_minion": 0.4305176778782755,
+              "merlin": 0.2847411610608622,
+              "loyal_follower": 0.2847411610608622
+            },
+            "SNL": {
+              "merlin": 0.23569445666102964,
+              "evil_minion": 0.5286110866779407,
+              "loyal_follower": 0.2356944566610297
+            }
+          },
+          "best": {
+            "IMELDA": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25
+            },
+            "IMELDA": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "ALOCE": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "ALIHA": {
+              "loyal_follower": 1.0
+            },
+            "SNL": {
+              "merlin": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "loyal_follower": 0.25
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "ALIHA": "loyal_follower",
+            "IMELDA": "evil_minion",
+            "ALOCE": "evil_minion",
+            "SNL": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "loyal_follower": 0.2462474633927298,
+              "evil_minion": 0.5075050732145404,
+              "merlin": 0.2462474633927298
+            },
+            "IMELDA": {
+              "evil_minion": 0.4427761829893231,
+              "merlin": 0.27861190850533846,
+              "loyal_follower": 0.27861190850533846
+            },
+            "ALOCE": {
+              "evil_minion": 0.5234520392119978,
+              "merlin": 0.2382739803940011,
+              "loyal_follower": 0.2382739803940011
+            },
+            "ALIHA": {
+              "loyal_follower": 1.0
+            },
+            "SNL": {
+              "merlin": 0.23686664770793064,
+              "evil_minion": 0.5262667045841387,
+              "loyal_follower": 0.23686664770793064
+            }
+          },
+          "best": {
+            "MAISIE": "loyal_follower",
+            "ALIHA": "loyal_follower",
+            "ALOCE": "evil_minion",
+            "SNL": "evil_minion",
+            "IMELDA": "merlin"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALOCE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALIHA": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "IMELDA": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "MAISIE": {
+              "evil_minion": 1.0
+            },
+            "IMELDA": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALOCE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ALIHA": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            },
+            "SNL": {
+              "evil_minion": 1.0
+            }
+          },
+          "best": {
+            "IMELDA": "loyal_follower",
+            "ALOCE": "loyal_follower",
+            "MAISIE": "evil_minion",
+            "SNL": "evil_minion",
+            "ALIHA": "merlin"
+          }
+        }
+      }
+    }
+  }
+}

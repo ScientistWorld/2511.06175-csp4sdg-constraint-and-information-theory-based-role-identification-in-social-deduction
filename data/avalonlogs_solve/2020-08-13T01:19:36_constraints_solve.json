@@ -1,0 +1,1798 @@
+{
+  "file": "2020-08-13T01:19:36_constraints.json",
+  "players": {
+    "DYLAN": "evil_minion",
+    "ANNA": "loyal_follower",
+    "LKL": "evil_minion",
+    "SARAH": "loyal_follower",
+    "ASTA": "loyal_follower"
+  },
+  "quests": {
+    "1": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.6,
+              "evil_minion": 0.4
+            },
+            "ANNA": {
+              "loyal_follower": 0.6,
+              "evil_minion": 0.4
+            },
+            "LKL": {
+              "loyal_follower": 0.6,
+              "evil_minion": 0.4
+            },
+            "SARAH": {
+              "evil_minion": 0.4,
+              "loyal_follower": 0.6
+            },
+            "ASTA": {
+              "evil_minion": 0.4,
+              "loyal_follower": 0.6
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "ANNA": "loyal_follower",
+            "LKL": "loyal_follower",
+            "SARAH": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.5656684017064041,
+              "evil_minion": 0.4343315982935957
+            },
+            "ANNA": {
+              "loyal_follower": 0.5656684017064041,
+              "evil_minion": 0.4343315982935957
+            },
+            "LKL": {
+              "loyal_follower": 0.6015564760986335,
+              "evil_minion": 0.3984435239013664
+            },
+            "SARAH": {
+              "evil_minion": 0.2944970185366675,
+              "loyal_follower": 0.7055029814633325
+            },
+            "ASTA": {
+              "evil_minion": 0.4383962609747744,
+              "loyal_follower": 0.5616037390252254
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "LKL": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ANNA": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "evil_minion": 1.0
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "evil_minion": 1.0
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "ANNA": {
+              "loyal_follower": 0.9999999999999999
+            },
+            "LKL": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "SARAH": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "ASTA": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "ANNA": "loyal_follower",
+            "LKL": "loyal_follower",
+            "SARAH": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.46261535365932704,
+              "evil_minion": 0.5373846463406731
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "loyal_follower": 0.4766359056908462,
+              "evil_minion": 0.5233640943091539
+            },
+            "SARAH": {
+              "evil_minion": 0.4158871650410193,
+              "loyal_follower": 0.5841128349589807
+            },
+            "ASTA": {
+              "evil_minion": 0.523364094309154,
+              "loyal_follower": 0.47663590569084613
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "LKL": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "evil_minion": 1.0
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "evil_minion": 1.0
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "ANNA": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "LKL": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "SARAH": {
+              "loyal_follower": 0.9999999999999999
+            },
+            "ASTA": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "LKL": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.4705882352941176,
+              "evil_minion": 0.5294117647058824
+            },
+            "ANNA": {
+              "loyal_follower": 0.4705882352941176,
+              "evil_minion": 0.5294117647058824
+            },
+            "LKL": {
+              "evil_minion": 0.4117647058823529,
+              "loyal_follower": 0.588235294117647
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "evil_minion": 0.5294117647058822,
+              "loyal_follower": 0.4705882352941176
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "LKL": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ANNA": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower3": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "ANNA": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "LKL": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "SARAH": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "ASTA": {
+              "loyal_follower": 0.9999999999999999
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "ANNA": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "LKL": "evil_minion",
+            "SARAH": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.4927526813185799,
+              "evil_minion": 0.5072473186814201
+            },
+            "ANNA": {
+              "loyal_follower": 0.4927526813185799,
+              "evil_minion": 0.5072473186814201
+            },
+            "LKL": {
+              "evil_minion": 0.5724623553112033,
+              "loyal_follower": 0.42753764468879696
+            },
+            "SARAH": {
+              "evil_minion": 0.4130430073259567,
+              "loyal_follower": 0.5869569926740434
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "LKL": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "ANNA": "evil_minion"
+          }
+        }
+      }
+    },
+    "2": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.6,
+              "evil_minion": 0.4
+            },
+            "ANNA": {
+              "loyal_follower": 0.6,
+              "evil_minion": 0.4
+            },
+            "LKL": {
+              "loyal_follower": 0.6,
+              "evil_minion": 0.4
+            },
+            "SARAH": {
+              "evil_minion": 0.4,
+              "loyal_follower": 0.6
+            },
+            "ASTA": {
+              "evil_minion": 0.4,
+              "loyal_follower": 0.6
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "ANNA": "loyal_follower",
+            "LKL": "loyal_follower",
+            "SARAH": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.5614558824749791,
+              "evil_minion": 0.43854411752502087
+            },
+            "ANNA": {
+              "loyal_follower": 0.5614558824749791,
+              "evil_minion": 0.43854411752502087
+            },
+            "LKL": {
+              "loyal_follower": 0.6161288965085835,
+              "evil_minion": 0.38387110349141645
+            },
+            "SARAH": {
+              "evil_minion": 0.3354751459127942,
+              "loyal_follower": 0.6645248540872059
+            },
+            "ASTA": {
+              "evil_minion": 0.4035655155457475,
+              "loyal_follower": 0.5964344844542524
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "LKL": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ANNA": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "evil_minion": 1.0
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "evil_minion": 1.0
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "ANNA": {
+              "loyal_follower": 0.9999999999999999
+            },
+            "LKL": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "SARAH": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "ASTA": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "ANNA": "loyal_follower",
+            "LKL": "loyal_follower",
+            "SARAH": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.47945280277574026,
+              "evil_minion": 0.5205471972242596
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "loyal_follower": 0.4901063994602727,
+              "evil_minion": 0.5098936005397273
+            },
+            "SARAH": {
+              "evil_minion": 0.47945280277574026,
+              "loyal_follower": 0.5205471972242596
+            },
+            "ASTA": {
+              "evil_minion": 0.4901063994602727,
+              "loyal_follower": 0.5098936005397273
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "LKL": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "evil_minion": 1.0
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "evil_minion": 1.0
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "ANNA": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "LKL": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "SARAH": {
+              "loyal_follower": 0.9999999999999999
+            },
+            "ASTA": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "LKL": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.45454545454545453,
+              "evil_minion": 0.5454545454545454
+            },
+            "ANNA": {
+              "loyal_follower": 0.45454545454545453,
+              "evil_minion": 0.5454545454545454
+            },
+            "LKL": {
+              "evil_minion": 0.40909090909090906,
+              "loyal_follower": 0.5909090909090908
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "evil_minion": 0.5000000000000001,
+              "loyal_follower": 0.4999999999999999
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "LKL": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ANNA": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower3": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "ANNA": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "LKL": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "SARAH": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "ASTA": {
+              "loyal_follower": 0.9999999999999999
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "ANNA": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "LKL": "evil_minion",
+            "SARAH": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.5040327927375338,
+              "evil_minion": 0.4959672072624662
+            },
+            "ANNA": {
+              "loyal_follower": 0.5040327927375338,
+              "evil_minion": 0.4959672072624662
+            },
+            "LKL": {
+              "evil_minion": 0.5309140595056869,
+              "loyal_follower": 0.469085940494313
+            },
+            "SARAH": {
+              "evil_minion": 0.47715152596938054,
+              "loyal_follower": 0.5228484740306194
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "ANNA": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        }
+      }
+    },
+    "3": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.42857142857142855,
+              "evil_minion": 0.5714285714285714
+            },
+            "ANNA": {
+              "evil_minion": 0.5714285714285714,
+              "loyal_follower": 0.42857142857142855
+            },
+            "LKL": {
+              "loyal_follower": 0.7142857142857142,
+              "evil_minion": 0.2857142857142857
+            },
+            "SARAH": {
+              "loyal_follower": 0.7142857142857142,
+              "evil_minion": 0.2857142857142857
+            },
+            "ASTA": {
+              "evil_minion": 0.2857142857142857,
+              "loyal_follower": 0.7142857142857142
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "LKL": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ANNA": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.42034932150736526,
+              "evil_minion": 0.5796506784926347
+            },
+            "ANNA": {
+              "evil_minion": 0.5746633163989716,
+              "loyal_follower": 0.4253366836010284
+            },
+            "LKL": {
+              "loyal_follower": 0.7224759990819981,
+              "evil_minion": 0.27752400091800195
+            },
+            "SARAH": {
+              "loyal_follower": 0.7716813523952597,
+              "evil_minion": 0.22831864760474024
+            },
+            "ASTA": {
+              "evil_minion": 0.3398433565856516,
+              "loyal_follower": 0.6601566434143484
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "LKL": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ANNA": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "evil_minion": 1.0
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "evil_minion": 1.0
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "loyal_follower": 0.6666666666666666,
+              "evil_minion": 0.3333333333333333
+            },
+            "SARAH": {
+              "loyal_follower": 0.6666666666666666,
+              "evil_minion": 0.3333333333333333
+            },
+            "ASTA": {
+              "evil_minion": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "LKL": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "loyal_follower": 0.65397643424216,
+              "evil_minion": 0.3460235657578401
+            },
+            "SARAH": {
+              "loyal_follower": 0.7301178287892001,
+              "evil_minion": 0.2698821712108
+            },
+            "ASTA": {
+              "evil_minion": 0.38409426303135996,
+              "loyal_follower": 0.61590573696864
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "LKL": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "evil_minion": 1.0
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "evil_minion": 1.0
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.4,
+              "evil_minion": 0.6000000000000001
+            },
+            "ANNA": {
+              "evil_minion": 0.6000000000000001,
+              "loyal_follower": 0.4
+            },
+            "LKL": {
+              "loyal_follower": 0.6000000000000001,
+              "evil_minion": 0.4
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "evil_minion": 0.4,
+              "loyal_follower": 0.6000000000000001
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "LKL": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ANNA": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.41024155321856315,
+              "evil_minion": 0.5897584467814369
+            },
+            "ANNA": {
+              "evil_minion": 0.6112055033035019,
+              "loyal_follower": 0.3887944966964981
+            },
+            "LKL": {
+              "loyal_follower": 0.6409662128742525,
+              "evil_minion": 0.35903378712574746
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "evil_minion": 0.44000226278931376,
+              "loyal_follower": 0.5599977372106862
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "LKL": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ANNA": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower3": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.4,
+              "evil_minion": 0.6000000000000001
+            },
+            "ANNA": {
+              "evil_minion": 0.6000000000000001,
+              "loyal_follower": 0.4
+            },
+            "LKL": {
+              "loyal_follower": 0.6000000000000001,
+              "evil_minion": 0.4
+            },
+            "SARAH": {
+              "evil_minion": 0.4,
+              "loyal_follower": 0.6000000000000001
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "LKL": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "ANNA": "evil_minion",
+            "SARAH": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.37034320103226576,
+              "evil_minion": 0.6296567989677343
+            },
+            "ANNA": {
+              "evil_minion": 0.5855091243531644,
+              "loyal_follower": 0.4144908756468357
+            },
+            "LKL": {
+              "loyal_follower": 0.569096627769801,
+              "evil_minion": 0.430903372230199
+            },
+            "SARAH": {
+              "evil_minion": 0.35393070444890234,
+              "loyal_follower": 0.6460692955510976
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        }
+      }
+    },
+    "4": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "ANNA": {
+              "evil_minion": 0.6666666666666666,
+              "loyal_follower": 0.3333333333333333
+            },
+            "LKL": {
+              "loyal_follower": 0.6666666666666666,
+              "evil_minion": 0.3333333333333333
+            },
+            "SARAH": {
+              "loyal_follower": 0.6666666666666666,
+              "evil_minion": 0.3333333333333333
+            },
+            "ASTA": {
+              "evil_minion": 0.16666666666666666,
+              "loyal_follower": 0.8333333333333333
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "LKL": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ANNA": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.5046787576658261,
+              "evil_minion": 0.4953212423341738
+            },
+            "ANNA": {
+              "evil_minion": 0.6742210197503731,
+              "loyal_follower": 0.325778980249627
+            },
+            "LKL": {
+              "loyal_follower": 0.6665698094185599,
+              "evil_minion": 0.33343019058144013
+            },
+            "SARAH": {
+              "loyal_follower": 0.708852638801905,
+              "evil_minion": 0.29114736119809503
+            },
+            "ASTA": {
+              "evil_minion": 0.205880186135918,
+              "loyal_follower": 0.7941198138640819
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "LKL": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ANNA": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "evil_minion": 1.0
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "evil_minion": 1.0
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "SARAH": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "LKL": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "SARAH": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "loyal_follower": 0.5454545454545455,
+              "evil_minion": 0.45454545454545453
+            },
+            "SARAH": {
+              "evil_minion": 0.5454545454545455,
+              "loyal_follower": 0.45454545454545453
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "LKL": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "SARAH": "evil_minion"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "evil_minion": 1.0
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "evil_minion": 1.0
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "ANNA": {
+              "evil_minion": 0.75,
+              "loyal_follower": 0.25
+            },
+            "LKL": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "evil_minion": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "LKL": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ANNA": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.5099210260924838,
+              "evil_minion": 0.4900789739075162
+            },
+            "ANNA": {
+              "evil_minion": 0.7493470952132871,
+              "loyal_follower": 0.2506529047867129
+            },
+            "LKL": {
+              "loyal_follower": 0.5237594809052453,
+              "evil_minion": 0.4762405190947546
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "evil_minion": 0.284333411784442,
+              "loyal_follower": 0.715666588215558
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "LKL": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ANNA": "evil_minion",
+            "ASTA": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower3": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.4,
+              "evil_minion": 0.6000000000000001
+            },
+            "ANNA": {
+              "evil_minion": 0.6000000000000001,
+              "loyal_follower": 0.4
+            },
+            "LKL": {
+              "loyal_follower": 0.6000000000000001,
+              "evil_minion": 0.4
+            },
+            "SARAH": {
+              "evil_minion": 0.4,
+              "loyal_follower": 0.6000000000000001
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "LKL": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "ANNA": "evil_minion",
+            "SARAH": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.3939694105129715,
+              "evil_minion": 0.6060305894870285
+            },
+            "ANNA": {
+              "evil_minion": 0.6029211223492605,
+              "loyal_follower": 0.39707887765073957
+            },
+            "LKL": {
+              "loyal_follower": 0.5939066289168021,
+              "evil_minion": 0.4060933710831978
+            },
+            "SARAH": {
+              "evil_minion": 0.3849549170805132,
+              "loyal_follower": 0.6150450829194868
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "ANNA": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        }
+      }
+    },
+    "5": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.4,
+              "evil_minion": 0.6000000000000001
+            },
+            "ANNA": {
+              "evil_minion": 0.6000000000000001,
+              "loyal_follower": 0.4
+            },
+            "LKL": {
+              "loyal_follower": 0.6000000000000001,
+              "evil_minion": 0.4
+            },
+            "SARAH": {
+              "evil_minion": 0.4,
+              "loyal_follower": 0.6000000000000001
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "LKL": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "ANNA": "evil_minion",
+            "SARAH": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.4136460471720535,
+              "evil_minion": 0.5863539528279464
+            },
+            "ANNA": {
+              "evil_minion": 0.6090097056788941,
+              "loyal_follower": 0.3909902943211058
+            },
+            "LKL": {
+              "loyal_follower": 0.5788020352109638,
+              "evil_minion": 0.4211979647890361
+            },
+            "SARAH": {
+              "evil_minion": 0.3834383767041233,
+              "loyal_follower": 0.6165616232958766
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "ANNA": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "evil_minion": 1.0
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "evil_minion": 1.0
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "SARAH": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "LKL": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "SARAH": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "loyal_follower": 0.5714285714285714,
+              "evil_minion": 0.42857142857142866
+            },
+            "SARAH": {
+              "evil_minion": 0.5714285714285714,
+              "loyal_follower": 0.42857142857142866
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "LKL": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "SARAH": "evil_minion"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "evil_minion": 1.0
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "evil_minion": 1.0
+            },
+            "ANNA": {
+              "loyal_follower": 1.0
+            },
+            "LKL": {
+              "evil_minion": 1.0
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ANNA": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "DYLAN": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.3333333333333333,
+              "evil_minion": 0.6666666666666666
+            },
+            "ANNA": {
+              "evil_minion": 0.6666666666666666,
+              "loyal_follower": 0.3333333333333333
+            },
+            "LKL": {
+              "evil_minion": 0.6666666666666666,
+              "loyal_follower": 0.3333333333333333
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "ANNA": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.36193732744068335,
+              "evil_minion": 0.6380626725593166
+            },
+            "ANNA": {
+              "evil_minion": 0.6723874654881367,
+              "loyal_follower": 0.3276125345118633
+            },
+            "LKL": {
+              "evil_minion": 0.6895498619525466,
+              "loyal_follower": 0.3104501380474533
+            },
+            "SARAH": {
+              "loyal_follower": 1.0
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "ANNA": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower3": {
+        "Strict": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.4,
+              "evil_minion": 0.6000000000000001
+            },
+            "ANNA": {
+              "evil_minion": 0.6000000000000001,
+              "loyal_follower": 0.4
+            },
+            "LKL": {
+              "loyal_follower": 0.6000000000000001,
+              "evil_minion": 0.4
+            },
+            "SARAH": {
+              "evil_minion": 0.4,
+              "loyal_follower": 0.6000000000000001
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "LKL": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "ANNA": "evil_minion",
+            "SARAH": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "DYLAN": {
+              "loyal_follower": 0.4136460471720535,
+              "evil_minion": 0.5863539528279464
+            },
+            "ANNA": {
+              "evil_minion": 0.6090097056788941,
+              "loyal_follower": 0.3909902943211058
+            },
+            "LKL": {
+              "loyal_follower": 0.5788020352109638,
+              "evil_minion": 0.4211979647890361
+            },
+            "SARAH": {
+              "evil_minion": 0.3834383767041233,
+              "loyal_follower": 0.6165616232958766
+            },
+            "ASTA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "DYLAN": "loyal_follower",
+            "SARAH": "loyal_follower",
+            "ASTA": "loyal_follower",
+            "ANNA": "evil_minion",
+            "LKL": "evil_minion"
+          }
+        }
+      }
+    }
+  }
+}

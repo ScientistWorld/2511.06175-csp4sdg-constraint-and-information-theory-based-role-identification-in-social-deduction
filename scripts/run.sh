@@ -1,8 +1,6 @@
 #!/bin/bash
-# Solve remaining AvalonLogs games + update scores.
-# Processing order: smallest games first (fastest).
-# Uses ALL_SETTINGS (5 CSP settings) for complete evaluation.
-
+# Solve remaining AvalonLogs games using the original (correct) solver.
+# Processes smallest games first for maximum coverage within time budget.
 set -e
 cd /home/user
 
@@ -13,7 +11,6 @@ echo "Start: $(date)"
 python3 << 'PYEOF'
 import sys, json, time
 from pathlib import Path
-import multiprocessing as mp
 
 sys.path.insert(0, '/home/user')
 from method.avalon_logs_solver import solve_one, ALL_SETTINGS
@@ -22,11 +19,13 @@ in_dir = Path("data/avalonlogs_constraints")
 out_dir = Path("data/avalonlogs_solve")
 out_dir.mkdir(parents=True, exist_ok=True)
 
+# Find unsolved files
 all_files = sorted(in_dir.glob("*_constraints.json"))
-dst_stems = {f.stem for f in out_dir.glob("*_constraints_solve.json")}
-unsolved = [f for f in all_files if f.stem not in dst_stems]
+# Output naming: fp.stem + "_solve.json" (matching original solver convention)
+solved_stems = {f.stem.replace("_solve", "") for f in out_dir.glob("*_solve.json")}
+unsolved = [f for f in all_files if f.stem not in solved_stems]
 
-print(f"Total: {len(all_files)} files, {len(dst_stems)} done, {len(unsolved)} to solve")
+print(f"Total: {len(all_files)} files, {len(solved_stems)} done, {len(unsolved)} to solve")
 
 # Sort by player count (smallest first = fastest)
 def get_n_players(fp):
@@ -36,30 +35,15 @@ def get_n_players(fp):
         return 99
 
 unsolved.sort(key=get_n_players)
-print(f"Sorted by size (smallest first)")
 
-# Time estimate
-def estimate_time(fps):
-    if not fps: return 0
-    sample = fps[:min(10, len(fps))]
-    total = 0
-    for fp in sample:
-        t0 = time.time()
-        try:
-            solve_one(fp, settings=ALL_SETTINGS[:2])
-            total += time.time() - t0
-        except:
-            pass
-    if not total: return 0
-    avg = total / len(sample)
-    return avg * len(fps)
+# Count by size
+from collections import Counter
+sizes = Counter(get_n_players(f) for f in unsolved)
+for sz in sorted(sizes):
+    print(f"  {sz}p: {sizes[sz]} games")
 
-if unsolved:
-    est = estimate_time(unsolved)
-    print(f"Estimated time: {est/60:.0f} min for remaining games")
-
-# Time budget: run for up to 50 minutes
-TIME_BUDGET = 50 * 60  # 50 minutes
+# Time budget: 50 minutes
+TIME_BUDGET = 50 * 60
 
 t0_total = time.time()
 solved = errors = 0
@@ -69,25 +53,25 @@ for fp in unsolved:
         print(f"Time budget exhausted ({elapsed/60:.0f}m), stopping")
         break
 
-    dst = out_dir / (fp.stem + "_constraints_solve.json")
+    dst = out_dir / (fp.stem + "_solve.json")
     if dst.exists():
         solved += 1
         continue
 
     try:
         result = solve_one(fp, settings=ALL_SETTINGS)
-        # Write compact (no indentation) for speed
         dst.write_text(json.dumps(result), encoding="utf-8")
         solved += 1
         elapsed = time.time() - t0_total
-        rate = solved / elapsed if elapsed > 0 else 0
-        if solved % 100 == 0:
+        if solved % 50 == 0:
+            rate = solved / elapsed if elapsed > 0 else 0
             remaining = len(unsolved) - solved
             eta = remaining / rate / 60 if rate > 0 else 0
             print(f"  {solved}/{len(unsolved)} ({rate:.1f}/s, ETA: {eta:.0f}m, elapsed: {elapsed/60:.0f}m)")
     except Exception as e:
         errors += 1
-        print(f"  ERROR {fp.name}: {e}")
+        if errors <= 5:
+            print(f"  ERROR {fp.name}: {e}")
 
 elapsed = time.time() - t0_total
 print(f"Solved {solved} games, {errors} errors in {elapsed/60:.1f}m")
@@ -112,4 +96,4 @@ print('Scores updated.')
 print('Experiments:', list(scores.get('experiments', {}).keys()))
 "
 
-echo "=== Complete at \$(date) ==="
+echo "=== Complete at $(date) ==="

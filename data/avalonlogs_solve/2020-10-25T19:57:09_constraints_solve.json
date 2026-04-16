@@ -1,0 +1,1861 @@
+{
+  "file": "2020-10-25T19:57:09_constraints.json",
+  "players": {
+    "YAMIN": "merlin",
+    "HAELIN": "loyal_follower",
+    "LUKE": "evil_minion",
+    "PATRICK": "morgana",
+    "DOR": "percival",
+    "MIA": "loyal_follower"
+  },
+  "quests": {
+    "1": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "evil_minion": 0.16666666666666657,
+              "loyal_follower": 0.33333333333333265,
+              "merlin": 0.16666666666666657,
+              "morgana": 0.16666666666666657,
+              "percival": 0.16666666666666657
+            },
+            "HAELIN": {
+              "loyal_follower": 0.33333333333333265,
+              "merlin": 0.16666666666666657,
+              "morgana": 0.16666666666666657,
+              "percival": 0.16666666666666657,
+              "evil_minion": 0.16666666666666657
+            },
+            "LUKE": {
+              "loyal_follower": 0.33333333333333265,
+              "merlin": 0.16666666666666657,
+              "morgana": 0.16666666666666657,
+              "percival": 0.16666666666666657,
+              "evil_minion": 0.16666666666666657
+            },
+            "PATRICK": {
+              "merlin": 0.16666666666666657,
+              "morgana": 0.16666666666666657,
+              "percival": 0.16666666666666657,
+              "loyal_follower": 0.33333333333333265,
+              "evil_minion": 0.16666666666666657
+            },
+            "DOR": {
+              "morgana": 0.16666666666666657,
+              "percival": 0.16666666666666657,
+              "merlin": 0.16666666666666657,
+              "loyal_follower": 0.33333333333333265,
+              "evil_minion": 0.16666666666666657
+            },
+            "MIA": {
+              "percival": 0.16666666666666657,
+              "morgana": 0.16666666666666657,
+              "merlin": 0.16666666666666657,
+              "loyal_follower": 0.33333333333333265,
+              "evil_minion": 0.16666666666666657
+            }
+          },
+          "best": {
+            "YAMIN": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "LUKE": "loyal_follower",
+            "PATRICK": "merlin",
+            "DOR": "morgana",
+            "MIA": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "evil_minion": 0.1775606734432053,
+              "loyal_follower": 0.3224393265567956,
+              "merlin": 0.16121966327839798,
+              "morgana": 0.17756067344320525,
+              "percival": 0.16121966327839798
+            },
+            "HAELIN": {
+              "loyal_follower": 0.37253400104964524,
+              "merlin": 0.1862670005248226,
+              "morgana": 0.12746599895035604,
+              "percival": 0.1862670005248226,
+              "evil_minion": 0.12746599895035596
+            },
+            "LUKE": {
+              "loyal_follower": 0.3479858815383418,
+              "merlin": 0.17399294076917102,
+              "morgana": 0.1520141184616592,
+              "percival": 0.17399294076917102,
+              "evil_minion": 0.15201411846165916
+            },
+            "PATRICK": {
+              "merlin": 0.16121966327839796,
+              "morgana": 0.1775606734432053,
+              "percival": 0.16121966327839796,
+              "loyal_follower": 0.32243932655679575,
+              "evil_minion": 0.17756067344320534
+            },
+            "DOR": {
+              "morgana": 0.18269926785078838,
+              "percival": 0.15865036607460642,
+              "merlin": 0.15865036607460642,
+              "loyal_follower": 0.31730073214921295,
+              "evil_minion": 0.18269926785078822
+            },
+            "MIA": {
+              "percival": 0.15865036607460636,
+              "morgana": 0.1826992678507883,
+              "merlin": 0.15865036607460636,
+              "loyal_follower": 0.31730073214921284,
+              "evil_minion": 0.1826992678507883
+            }
+          },
+          "best": {
+            "DOR": "evil_minion",
+            "YAMIN": "loyal_follower",
+            "HAELIN": "loyal_follower",
+            "LUKE": "merlin",
+            "MIA": "morgana",
+            "PATRICK": "percival"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "merlin": 0.9999999999999999
+            },
+            "HAELIN": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "LUKE": {
+              "evil_minion": 0.5,
+              "morgana": 0.5
+            },
+            "PATRICK": {
+              "morgana": 0.5,
+              "evil_minion": 0.5
+            },
+            "DOR": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "MIA": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "LUKE": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "DOR": "loyal_follower",
+            "YAMIN": "merlin",
+            "PATRICK": "morgana",
+            "MIA": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "merlin": 1.0
+            },
+            "HAELIN": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "LUKE": {
+              "evil_minion": 0.5,
+              "morgana": 0.5
+            },
+            "PATRICK": {
+              "morgana": 0.5,
+              "evil_minion": 0.5
+            },
+            "DOR": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "MIA": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "LUKE": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "DOR": "loyal_follower",
+            "YAMIN": "merlin",
+            "PATRICK": "morgana",
+            "MIA": "percival"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "evil_minion": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998
+            },
+            "HAELIN": {
+              "loyal_follower": 0.9999999999999989
+            },
+            "LUKE": {
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "PATRICK": {
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "DOR": {
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "MIA": {
+              "percival": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            }
+          },
+          "best": {
+            "YAMIN": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "LUKE": "loyal_follower",
+            "PATRICK": "merlin",
+            "DOR": "morgana",
+            "MIA": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "evil_minion": 0.21047135308858417,
+              "loyal_follower": 0.1930190979409439,
+              "merlin": 0.1930190979409439,
+              "morgana": 0.21047135308858417,
+              "percival": 0.1930190979409439
+            },
+            "HAELIN": {
+              "loyal_follower": 1.0
+            },
+            "LUKE": {
+              "loyal_follower": 0.22792360823622446,
+              "merlin": 0.22792360823622446,
+              "morgana": 0.15811458764566338,
+              "percival": 0.22792360823622446,
+              "evil_minion": 0.15811458764566344
+            },
+            "PATRICK": {
+              "merlin": 0.1930190979409439,
+              "morgana": 0.21047135308858417,
+              "percival": 0.1930190979409439,
+              "loyal_follower": 0.1930190979409439,
+              "evil_minion": 0.21047135308858417
+            },
+            "DOR": {
+              "morgana": 0.21919748066240435,
+              "percival": 0.18720167955839712,
+              "merlin": 0.18720167955839712,
+              "loyal_follower": 0.18720167955839712,
+              "evil_minion": 0.2191974806624043
+            },
+            "MIA": {
+              "percival": 0.19883651632349067,
+              "morgana": 0.20174522551476404,
+              "merlin": 0.19883651632349067,
+              "loyal_follower": 0.19883651632349067,
+              "evil_minion": 0.20174522551476404
+            }
+          },
+          "best": {
+            "YAMIN": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "LUKE": "loyal_follower",
+            "PATRICK": "merlin",
+            "DOR": "morgana",
+            "MIA": "percival"
+          }
+        }
+      },
+      "evil_minion": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HAELIN": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUKE": {
+              "evil_minion": 1.0
+            },
+            "PATRICK": {
+              "morgana": 1.0
+            },
+            "DOR": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.49999999999999994
+            },
+            "MIA": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.49999999999999994
+            }
+          },
+          "best": {
+            "LUKE": "evil_minion",
+            "YAMIN": "loyal_follower",
+            "HAELIN": "loyal_follower",
+            "DOR": "merlin",
+            "PATRICK": "morgana",
+            "MIA": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HAELIN": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUKE": {
+              "evil_minion": 1.0
+            },
+            "PATRICK": {
+              "morgana": 1.0
+            },
+            "DOR": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.5
+            },
+            "MIA": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "LUKE": "evil_minion",
+            "YAMIN": "loyal_follower",
+            "HAELIN": "loyal_follower",
+            "DOR": "merlin",
+            "PATRICK": "morgana",
+            "MIA": "percival"
+          }
+        }
+      },
+      "morgana": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HAELIN": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUKE": {
+              "evil_minion": 1.0
+            },
+            "PATRICK": {
+              "morgana": 1.0
+            },
+            "DOR": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.49999999999999994
+            },
+            "MIA": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.49999999999999994
+            }
+          },
+          "best": {
+            "LUKE": "evil_minion",
+            "YAMIN": "loyal_follower",
+            "HAELIN": "loyal_follower",
+            "DOR": "merlin",
+            "PATRICK": "morgana",
+            "MIA": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HAELIN": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUKE": {
+              "evil_minion": 1.0
+            },
+            "PATRICK": {
+              "morgana": 1.0
+            },
+            "DOR": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.5
+            },
+            "MIA": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "LUKE": "evil_minion",
+            "YAMIN": "loyal_follower",
+            "HAELIN": "loyal_follower",
+            "DOR": "merlin",
+            "PATRICK": "morgana",
+            "MIA": "percival"
+          }
+        }
+      },
+      "percival": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "merlin": 0.5,
+              "morgana": 0.5
+            },
+            "HAELIN": {
+              "evil_minion": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            },
+            "LUKE": {
+              "loyal_follower": 0.6666666666666666,
+              "evil_minion": 0.3333333333333333
+            },
+            "PATRICK": {
+              "morgana": 0.5,
+              "merlin": 0.5
+            },
+            "DOR": {
+              "percival": 0.9999999999999999
+            },
+            "MIA": {
+              "loyal_follower": 0.6666666666666666,
+              "evil_minion": 0.3333333333333333
+            }
+          },
+          "best": {
+            "HAELIN": "evil_minion",
+            "LUKE": "loyal_follower",
+            "MIA": "loyal_follower",
+            "YAMIN": "merlin",
+            "PATRICK": "morgana",
+            "DOR": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "merlin": 0.5,
+              "morgana": 0.5
+            },
+            "HAELIN": {
+              "evil_minion": 0.25136740208069214,
+              "loyal_follower": 0.748632597919308
+            },
+            "LUKE": {
+              "loyal_follower": 0.6871581494798271,
+              "evil_minion": 0.31284185052017305
+            },
+            "PATRICK": {
+              "morgana": 0.5,
+              "merlin": 0.5
+            },
+            "DOR": {
+              "percival": 1.0
+            },
+            "MIA": {
+              "loyal_follower": 0.5642092526008652,
+              "evil_minion": 0.4357907473991349
+            }
+          },
+          "best": {
+            "MIA": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "LUKE": "loyal_follower",
+            "YAMIN": "merlin",
+            "PATRICK": "morgana",
+            "DOR": "percival"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "evil_minion": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998
+            },
+            "HAELIN": {
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "LUKE": {
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "PATRICK": {
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "DOR": {
+              "percival": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "MIA": {
+              "loyal_follower": 0.9999999999999989
+            }
+          },
+          "best": {
+            "YAMIN": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "MIA": "loyal_follower",
+            "LUKE": "merlin",
+            "PATRICK": "morgana",
+            "DOR": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "evil_minion": 0.20970850306293054,
+              "loyal_follower": 0.19352766462471296,
+              "merlin": 0.19352766462471296,
+              "morgana": 0.20970850306293062,
+              "percival": 0.19352766462471296
+            },
+            "HAELIN": {
+              "loyal_follower": 0.2161398335732135,
+              "merlin": 0.2161398335732135,
+              "morgana": 0.17579024964017984,
+              "percival": 0.2161398335732135,
+              "evil_minion": 0.17579024964017986
+            },
+            "LUKE": {
+              "merlin": 0.20452243378970014,
+              "morgana": 0.19321634931544987,
+              "percival": 0.20452243378970014,
+              "loyal_follower": 0.20452243378970014,
+              "evil_minion": 0.19321634931544987
+            },
+            "PATRICK": {
+              "morgana": 0.20970850306293054,
+              "percival": 0.19352766462471302,
+              "merlin": 0.19352766462471302,
+              "loyal_follower": 0.19352766462471302,
+              "evil_minion": 0.2097085030629306
+            },
+            "DOR": {
+              "percival": 0.19228240338766045,
+              "morgana": 0.21157639491850933,
+              "merlin": 0.1922824033876605,
+              "loyal_follower": 0.1922824033876605,
+              "evil_minion": 0.2115763949185093
+            },
+            "MIA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "YAMIN": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "MIA": "loyal_follower",
+            "LUKE": "merlin",
+            "DOR": "morgana",
+            "PATRICK": "percival"
+          }
+        }
+      }
+    },
+    "2": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "evil_minion": 0.16666666666666657,
+              "loyal_follower": 0.33333333333333265,
+              "merlin": 0.16666666666666657,
+              "morgana": 0.16666666666666657,
+              "percival": 0.16666666666666657
+            },
+            "HAELIN": {
+              "loyal_follower": 0.33333333333333265,
+              "merlin": 0.16666666666666657,
+              "morgana": 0.16666666666666657,
+              "percival": 0.16666666666666657,
+              "evil_minion": 0.16666666666666657
+            },
+            "LUKE": {
+              "loyal_follower": 0.33333333333333265,
+              "merlin": 0.16666666666666657,
+              "morgana": 0.16666666666666657,
+              "percival": 0.16666666666666657,
+              "evil_minion": 0.16666666666666657
+            },
+            "PATRICK": {
+              "merlin": 0.16666666666666657,
+              "morgana": 0.16666666666666657,
+              "percival": 0.16666666666666657,
+              "loyal_follower": 0.33333333333333265,
+              "evil_minion": 0.16666666666666657
+            },
+            "DOR": {
+              "morgana": 0.16666666666666657,
+              "percival": 0.16666666666666657,
+              "merlin": 0.16666666666666657,
+              "loyal_follower": 0.33333333333333265,
+              "evil_minion": 0.16666666666666657
+            },
+            "MIA": {
+              "percival": 0.16666666666666657,
+              "morgana": 0.16666666666666657,
+              "merlin": 0.16666666666666657,
+              "loyal_follower": 0.33333333333333265,
+              "evil_minion": 0.16666666666666657
+            }
+          },
+          "best": {
+            "YAMIN": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "LUKE": "loyal_follower",
+            "PATRICK": "merlin",
+            "DOR": "morgana",
+            "MIA": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "evil_minion": 0.1782471620384282,
+              "loyal_follower": 0.32175283796157045,
+              "merlin": 0.16087641898078522,
+              "morgana": 0.17824716203842808,
+              "percival": 0.16087641898078522
+            },
+            "HAELIN": {
+              "loyal_follower": 0.35534949006007566,
+              "merlin": 0.17767474503003777,
+              "morgana": 0.14465050993992296,
+              "percival": 0.17767474503003775,
+              "evil_minion": 0.14465050993992304
+            },
+            "LUKE": {
+              "loyal_follower": 0.33711031237670847,
+              "merlin": 0.16855515618835423,
+              "morgana": 0.16288968762329006,
+              "percival": 0.16855515618835423,
+              "evil_minion": 0.16288968762329004
+            },
+            "PATRICK": {
+              "merlin": 0.16295545324211466,
+              "morgana": 0.17408909351576926,
+              "percival": 0.16295545324211466,
+              "loyal_follower": 0.32591090648422943,
+              "evil_minion": 0.17408909351576915
+            },
+            "DOR": {
+              "morgana": 0.16673258827706736,
+              "percival": 0.16663370586146564,
+              "merlin": 0.16663370586146564,
+              "loyal_follower": 0.3332674117229309,
+              "evil_minion": 0.1667325882770673
+            },
+            "MIA": {
+              "percival": 0.16330452069723958,
+              "morgana": 0.17339095860551937,
+              "merlin": 0.16330452069723958,
+              "loyal_follower": 0.3266090413944795,
+              "evil_minion": 0.1733909586055194
+            }
+          },
+          "best": {
+            "DOR": "evil_minion",
+            "YAMIN": "loyal_follower",
+            "HAELIN": "loyal_follower",
+            "LUKE": "merlin",
+            "MIA": "morgana",
+            "PATRICK": "percival"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "merlin": 0.9999999999999999
+            },
+            "HAELIN": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "LUKE": {
+              "evil_minion": 0.5,
+              "morgana": 0.5
+            },
+            "PATRICK": {
+              "morgana": 0.5,
+              "evil_minion": 0.5
+            },
+            "DOR": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "MIA": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "LUKE": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "DOR": "loyal_follower",
+            "YAMIN": "merlin",
+            "PATRICK": "morgana",
+            "MIA": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "merlin": 1.0
+            },
+            "HAELIN": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "LUKE": {
+              "evil_minion": 0.5,
+              "morgana": 0.5
+            },
+            "PATRICK": {
+              "morgana": 0.5,
+              "evil_minion": 0.5
+            },
+            "DOR": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "MIA": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "LUKE": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "DOR": "loyal_follower",
+            "YAMIN": "merlin",
+            "PATRICK": "morgana",
+            "MIA": "percival"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "evil_minion": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998
+            },
+            "HAELIN": {
+              "loyal_follower": 0.9999999999999989
+            },
+            "LUKE": {
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "PATRICK": {
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "DOR": {
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "MIA": {
+              "percival": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            }
+          },
+          "best": {
+            "YAMIN": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "LUKE": "loyal_follower",
+            "PATRICK": "merlin",
+            "DOR": "morgana",
+            "MIA": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "evil_minion": 0.21585508789607996,
+              "loyal_follower": 0.18942994140261374,
+              "merlin": 0.18942994140261374,
+              "morgana": 0.21585508789607985,
+              "percival": 0.18942994140261374
+            },
+            "HAELIN": {
+              "loyal_follower": 1.0
+            },
+            "LUKE": {
+              "loyal_follower": 0.20961308706097018,
+              "merlin": 0.20961308706097018,
+              "morgana": 0.18558036940854525,
+              "percival": 0.20961308706097018,
+              "evil_minion": 0.18558036940854528
+            },
+            "PATRICK": {
+              "merlin": 0.1947720299255183,
+              "morgana": 0.2078419551117231,
+              "percival": 0.19477202992551826,
+              "loyal_follower": 0.1947720299255183,
+              "evil_minion": 0.20784195511172313
+            },
+            "DOR": {
+              "morgana": 0.19381720890919132,
+              "percival": 0.2041218607272061,
+              "merlin": 0.2041218607272061,
+              "loyal_follower": 0.2041218607272061,
+              "evil_minion": 0.19381720890919135
+            },
+            "MIA": {
+              "percival": 0.20206308088369263,
+              "morgana": 0.19690537867446153,
+              "merlin": 0.20206308088369265,
+              "loyal_follower": 0.20206308088369265,
+              "evil_minion": 0.19690537867446142
+            }
+          },
+          "best": {
+            "YAMIN": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "LUKE": "loyal_follower",
+            "DOR": "merlin",
+            "PATRICK": "morgana",
+            "MIA": "percival"
+          }
+        }
+      },
+      "evil_minion": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HAELIN": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUKE": {
+              "evil_minion": 1.0
+            },
+            "PATRICK": {
+              "morgana": 1.0
+            },
+            "DOR": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.49999999999999994
+            },
+            "MIA": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.49999999999999994
+            }
+          },
+          "best": {
+            "LUKE": "evil_minion",
+            "YAMIN": "loyal_follower",
+            "HAELIN": "loyal_follower",
+            "DOR": "merlin",
+            "PATRICK": "morgana",
+            "MIA": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HAELIN": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUKE": {
+              "evil_minion": 1.0
+            },
+            "PATRICK": {
+              "morgana": 1.0
+            },
+            "DOR": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.5
+            },
+            "MIA": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "LUKE": "evil_minion",
+            "YAMIN": "loyal_follower",
+            "HAELIN": "loyal_follower",
+            "DOR": "merlin",
+            "PATRICK": "morgana",
+            "MIA": "percival"
+          }
+        }
+      },
+      "morgana": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HAELIN": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUKE": {
+              "evil_minion": 1.0
+            },
+            "PATRICK": {
+              "morgana": 1.0
+            },
+            "DOR": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.49999999999999994
+            },
+            "MIA": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.49999999999999994
+            }
+          },
+          "best": {
+            "LUKE": "evil_minion",
+            "YAMIN": "loyal_follower",
+            "HAELIN": "loyal_follower",
+            "DOR": "merlin",
+            "PATRICK": "morgana",
+            "MIA": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HAELIN": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUKE": {
+              "evil_minion": 1.0
+            },
+            "PATRICK": {
+              "morgana": 1.0
+            },
+            "DOR": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.5
+            },
+            "MIA": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "LUKE": "evil_minion",
+            "YAMIN": "loyal_follower",
+            "HAELIN": "loyal_follower",
+            "DOR": "merlin",
+            "PATRICK": "morgana",
+            "MIA": "percival"
+          }
+        }
+      },
+      "percival": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "merlin": 0.5,
+              "morgana": 0.5
+            },
+            "HAELIN": {
+              "evil_minion": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            },
+            "LUKE": {
+              "loyal_follower": 0.6666666666666666,
+              "evil_minion": 0.3333333333333333
+            },
+            "PATRICK": {
+              "morgana": 0.5,
+              "merlin": 0.5
+            },
+            "DOR": {
+              "percival": 0.9999999999999999
+            },
+            "MIA": {
+              "loyal_follower": 0.6666666666666666,
+              "evil_minion": 0.3333333333333333
+            }
+          },
+          "best": {
+            "HAELIN": "evil_minion",
+            "LUKE": "loyal_follower",
+            "MIA": "loyal_follower",
+            "YAMIN": "merlin",
+            "PATRICK": "morgana",
+            "DOR": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "merlin": 0.48808846408886963,
+              "morgana": 0.5119115359111305
+            },
+            "HAELIN": {
+              "evil_minion": 0.2756873127287395,
+              "loyal_follower": 0.7243126872712606
+            },
+            "LUKE": {
+              "loyal_follower": 0.6226089676741923,
+              "evil_minion": 0.3773910323258079
+            },
+            "PATRICK": {
+              "morgana": 0.48808846408886963,
+              "merlin": 0.5119115359111305
+            },
+            "DOR": {
+              "percival": 1.0
+            },
+            "MIA": {
+              "loyal_follower": 0.6530783450545474,
+              "evil_minion": 0.3469216549454527
+            }
+          },
+          "best": {
+            "LUKE": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "MIA": "loyal_follower",
+            "PATRICK": "merlin",
+            "YAMIN": "morgana",
+            "DOR": "percival"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "evil_minion": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998
+            },
+            "HAELIN": {
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "LUKE": {
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "PATRICK": {
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "DOR": {
+              "percival": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "MIA": {
+              "loyal_follower": 0.9999999999999989
+            }
+          },
+          "best": {
+            "YAMIN": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "MIA": "loyal_follower",
+            "LUKE": "merlin",
+            "PATRICK": "morgana",
+            "DOR": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "evil_minion": 0.2156760496075267,
+              "loyal_follower": 0.1895493002616487,
+              "merlin": 0.1895493002616487,
+              "morgana": 0.2156760496075268,
+              "percival": 0.18954930026164873
+            },
+            "HAELIN": {
+              "loyal_follower": 0.21709850854250304,
+              "merlin": 0.21709850854250304,
+              "morgana": 0.17435223718624535,
+              "percival": 0.21709850854250304,
+              "evil_minion": 0.17435223718624535
+            },
+            "LUKE": {
+              "merlin": 0.19481591622917865,
+              "morgana": 0.2077761256562319,
+              "percival": 0.19481591622917868,
+              "loyal_follower": 0.19481591622917865,
+              "evil_minion": 0.2077761256562319
+            },
+            "PATRICK": {
+              "morgana": 0.2140740256177394,
+              "percival": 0.19061731625484024,
+              "merlin": 0.19061731625484027,
+              "loyal_follower": 0.19061731625484027,
+              "evil_minion": 0.21407402561773944
+            },
+            "DOR": {
+              "percival": 0.20791895871182897,
+              "morgana": 0.18812156193225626,
+              "merlin": 0.20791895871182903,
+              "loyal_follower": 0.20791895871182903,
+              "evil_minion": 0.18812156193225635
+            },
+            "MIA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "YAMIN": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "MIA": "loyal_follower",
+            "LUKE": "merlin",
+            "PATRICK": "morgana",
+            "DOR": "percival"
+          }
+        }
+      }
+    },
+    "3": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "evil_minion": 0.16666666666666657,
+              "loyal_follower": 0.33333333333333265,
+              "merlin": 0.16666666666666657,
+              "morgana": 0.16666666666666657,
+              "percival": 0.16666666666666657
+            },
+            "HAELIN": {
+              "loyal_follower": 0.33333333333333265,
+              "merlin": 0.16666666666666657,
+              "morgana": 0.16666666666666657,
+              "percival": 0.16666666666666657,
+              "evil_minion": 0.16666666666666657
+            },
+            "LUKE": {
+              "loyal_follower": 0.33333333333333265,
+              "merlin": 0.16666666666666657,
+              "morgana": 0.16666666666666657,
+              "percival": 0.16666666666666657,
+              "evil_minion": 0.16666666666666657
+            },
+            "PATRICK": {
+              "merlin": 0.16666666666666657,
+              "morgana": 0.16666666666666657,
+              "percival": 0.16666666666666657,
+              "loyal_follower": 0.33333333333333265,
+              "evil_minion": 0.16666666666666657
+            },
+            "DOR": {
+              "morgana": 0.16666666666666657,
+              "percival": 0.16666666666666657,
+              "merlin": 0.16666666666666657,
+              "loyal_follower": 0.33333333333333265,
+              "evil_minion": 0.16666666666666657
+            },
+            "MIA": {
+              "percival": 0.16666666666666657,
+              "morgana": 0.16666666666666657,
+              "merlin": 0.16666666666666657,
+              "loyal_follower": 0.33333333333333265,
+              "evil_minion": 0.16666666666666657
+            }
+          },
+          "best": {
+            "YAMIN": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "LUKE": "loyal_follower",
+            "PATRICK": "merlin",
+            "DOR": "morgana",
+            "MIA": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "evil_minion": 0.17429700686043154,
+              "loyal_follower": 0.3257029931395685,
+              "merlin": 0.1628514965697842,
+              "morgana": 0.17429700686043148,
+              "percival": 0.1628514965697842
+            },
+            "HAELIN": {
+              "loyal_follower": 0.3538636330614758,
+              "merlin": 0.17693181653073792,
+              "morgana": 0.14613636693852403,
+              "percival": 0.17693181653073792,
+              "evil_minion": 0.14613636693852414
+            },
+            "LUKE": {
+              "loyal_follower": 0.3260716016311617,
+              "merlin": 0.16303580081558094,
+              "morgana": 0.1739283983688379,
+              "percival": 0.16303580081558094,
+              "evil_minion": 0.17392839836883808
+            },
+            "PATRICK": {
+              "merlin": 0.16473855172330729,
+              "morgana": 0.1705228965533853,
+              "percival": 0.16473855172330729,
+              "loyal_follower": 0.3294771034466147,
+              "evil_minion": 0.17052289655338523
+            },
+            "DOR": {
+              "morgana": 0.1633065308795888,
+              "percival": 0.16834673456020555,
+              "merlin": 0.16834673456020555,
+              "loyal_follower": 0.33669346912041087,
+              "evil_minion": 0.1633065308795888
+            },
+            "MIA": {
+              "percival": 0.16409559980038385,
+              "morgana": 0.17180880039923216,
+              "merlin": 0.16409559980038385,
+              "loyal_follower": 0.3281911996007679,
+              "evil_minion": 0.17180880039923216
+            }
+          },
+          "best": {
+            "YAMIN": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "PATRICK": "loyal_follower",
+            "DOR": "merlin",
+            "LUKE": "morgana",
+            "MIA": "percival"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "merlin": 0.9999999999999999
+            },
+            "HAELIN": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "LUKE": {
+              "evil_minion": 0.5,
+              "morgana": 0.5
+            },
+            "PATRICK": {
+              "morgana": 0.5,
+              "evil_minion": 0.5
+            },
+            "DOR": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "MIA": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "LUKE": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "DOR": "loyal_follower",
+            "YAMIN": "merlin",
+            "PATRICK": "morgana",
+            "MIA": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "merlin": 1.0
+            },
+            "HAELIN": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "LUKE": {
+              "evil_minion": 0.5,
+              "morgana": 0.5
+            },
+            "PATRICK": {
+              "morgana": 0.5,
+              "evil_minion": 0.5
+            },
+            "DOR": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "MIA": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "LUKE": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "DOR": "loyal_follower",
+            "YAMIN": "merlin",
+            "PATRICK": "morgana",
+            "MIA": "percival"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "evil_minion": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998
+            },
+            "HAELIN": {
+              "loyal_follower": 0.9999999999999989
+            },
+            "LUKE": {
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "PATRICK": {
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "DOR": {
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "MIA": {
+              "percival": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            }
+          },
+          "best": {
+            "YAMIN": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "LUKE": "loyal_follower",
+            "PATRICK": "merlin",
+            "DOR": "morgana",
+            "MIA": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "evil_minion": 0.21089726558403982,
+              "loyal_follower": 0.19273515627730622,
+              "merlin": 0.19273515627730622,
+              "morgana": 0.21089726558403973,
+              "percival": 0.19273515627730625
+            },
+            "HAELIN": {
+              "loyal_follower": 1.0
+            },
+            "LUKE": {
+              "loyal_follower": 0.1997860775995956,
+              "merlin": 0.1997860775995956,
+              "morgana": 0.20032088360060568,
+              "percival": 0.1997860775995956,
+              "evil_minion": 0.20032088360060568
+            },
+            "PATRICK": {
+              "merlin": 0.19700026085942576,
+              "morgana": 0.2044996087108605,
+              "percival": 0.19700026085942576,
+              "loyal_follower": 0.19700026085942576,
+              "evil_minion": 0.20449960871086043
+            },
+            "DOR": {
+              "morgana": 0.19077764387331528,
+              "percival": 0.20614823741778923,
+              "merlin": 0.20614823741778923,
+              "loyal_follower": 0.20614823741778923,
+              "evil_minion": 0.19077764387331525
+            },
+            "MIA": {
+              "percival": 0.20433026784588137,
+              "morgana": 0.19350459823117697,
+              "merlin": 0.20433026784588137,
+              "loyal_follower": 0.20433026784588137,
+              "evil_minion": 0.19350459823117705
+            }
+          },
+          "best": {
+            "YAMIN": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "PATRICK": "loyal_follower",
+            "DOR": "merlin",
+            "LUKE": "morgana",
+            "MIA": "percival"
+          }
+        }
+      },
+      "evil_minion": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HAELIN": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUKE": {
+              "evil_minion": 1.0
+            },
+            "PATRICK": {
+              "morgana": 1.0
+            },
+            "DOR": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.49999999999999994
+            },
+            "MIA": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.49999999999999994
+            }
+          },
+          "best": {
+            "LUKE": "evil_minion",
+            "YAMIN": "loyal_follower",
+            "HAELIN": "loyal_follower",
+            "DOR": "merlin",
+            "PATRICK": "morgana",
+            "MIA": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HAELIN": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUKE": {
+              "evil_minion": 1.0
+            },
+            "PATRICK": {
+              "morgana": 1.0
+            },
+            "DOR": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.5
+            },
+            "MIA": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "LUKE": "evil_minion",
+            "YAMIN": "loyal_follower",
+            "HAELIN": "loyal_follower",
+            "DOR": "merlin",
+            "PATRICK": "morgana",
+            "MIA": "percival"
+          }
+        }
+      },
+      "morgana": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HAELIN": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUKE": {
+              "evil_minion": 1.0
+            },
+            "PATRICK": {
+              "morgana": 1.0
+            },
+            "DOR": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.49999999999999994
+            },
+            "MIA": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.49999999999999994
+            }
+          },
+          "best": {
+            "LUKE": "evil_minion",
+            "YAMIN": "loyal_follower",
+            "HAELIN": "loyal_follower",
+            "DOR": "merlin",
+            "PATRICK": "morgana",
+            "MIA": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HAELIN": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUKE": {
+              "evil_minion": 1.0
+            },
+            "PATRICK": {
+              "morgana": 1.0
+            },
+            "DOR": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.5
+            },
+            "MIA": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "LUKE": "evil_minion",
+            "YAMIN": "loyal_follower",
+            "HAELIN": "loyal_follower",
+            "DOR": "merlin",
+            "PATRICK": "morgana",
+            "MIA": "percival"
+          }
+        }
+      },
+      "percival": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "merlin": 0.5,
+              "morgana": 0.5
+            },
+            "HAELIN": {
+              "evil_minion": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            },
+            "LUKE": {
+              "loyal_follower": 0.6666666666666666,
+              "evil_minion": 0.3333333333333333
+            },
+            "PATRICK": {
+              "morgana": 0.5,
+              "merlin": 0.5
+            },
+            "DOR": {
+              "percival": 0.9999999999999999
+            },
+            "MIA": {
+              "loyal_follower": 0.6666666666666666,
+              "evil_minion": 0.3333333333333333
+            }
+          },
+          "best": {
+            "HAELIN": "evil_minion",
+            "LUKE": "loyal_follower",
+            "MIA": "loyal_follower",
+            "YAMIN": "merlin",
+            "PATRICK": "morgana",
+            "DOR": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "merlin": 0.48661588166330977,
+              "morgana": 0.5133841183366903
+            },
+            "HAELIN": {
+              "evil_minion": 0.2760741233833123,
+              "loyal_follower": 0.7239258766166878
+            },
+            "LUKE": {
+              "loyal_follower": 0.6027563273289962,
+              "evil_minion": 0.39724367267100386
+            },
+            "PATRICK": {
+              "morgana": 0.48661588166330977,
+              "merlin": 0.5133841183366903
+            },
+            "DOR": {
+              "percival": 1.0
+            },
+            "MIA": {
+              "loyal_follower": 0.6733177960543162,
+              "evil_minion": 0.3266822039456839
+            }
+          },
+          "best": {
+            "LUKE": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "MIA": "loyal_follower",
+            "PATRICK": "merlin",
+            "YAMIN": "morgana",
+            "DOR": "percival"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "YAMIN": {
+              "evil_minion": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998
+            },
+            "HAELIN": {
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "LUKE": {
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "PATRICK": {
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "DOR": {
+              "percival": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "MIA": {
+              "loyal_follower": 0.9999999999999989
+            }
+          },
+          "best": {
+            "YAMIN": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "MIA": "loyal_follower",
+            "LUKE": "merlin",
+            "PATRICK": "morgana",
+            "DOR": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "YAMIN": {
+              "evil_minion": 0.20747291661546813,
+              "loyal_follower": 0.19501805558968796,
+              "merlin": 0.19501805558968796,
+              "morgana": 0.20747291661546804,
+              "percival": 0.19501805558968793
+            },
+            "HAELIN": {
+              "loyal_follower": 0.21490299034787305,
+              "merlin": 0.21490299034787305,
+              "morgana": 0.17764551447819044,
+              "percival": 0.21490299034787305,
+              "evil_minion": 0.1776455144781904
+            },
+            "LUKE": {
+              "merlin": 0.18841602576339556,
+              "morgana": 0.21737596135490664,
+              "percival": 0.18841602576339556,
+              "loyal_follower": 0.18841602576339556,
+              "evil_minion": 0.21737596135490672
+            },
+            "PATRICK": {
+              "morgana": 0.20656517643692685,
+              "percival": 0.1956232157087154,
+              "merlin": 0.1956232157087154,
+              "loyal_follower": 0.1956232157087154,
+              "evil_minion": 0.20656517643692687
+            },
+            "DOR": {
+              "percival": 0.20603971259032802,
+              "morgana": 0.19094043111450798,
+              "merlin": 0.20603971259032802,
+              "loyal_follower": 0.20603971259032802,
+              "evil_minion": 0.19094043111450798
+            },
+            "MIA": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "YAMIN": "evil_minion",
+            "HAELIN": "loyal_follower",
+            "MIA": "loyal_follower",
+            "PATRICK": "merlin",
+            "LUKE": "morgana",
+            "DOR": "percival"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,3818 @@
+{
+  "file": "2020-04-10T13:29:32_constraints.json",
+  "players": {
+    "VETO": "evil_minion",
+    "JINGLES": "loyal_follower",
+    "VENICE": "evil_minion",
+    "KIM": "merlin",
+    "ZAC": "mordred",
+    "GCAR": "loyal_follower",
+    "FAV": "loyal_follower"
+  },
+  "quests": {
+    "1": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.4285714285714276,
+              "merlin": 0.1428571428571429,
+              "evil_minion": 0.28571428571428525,
+              "mordred": 0.1428571428571429
+            },
+            "JINGLES": {
+              "loyal_follower": 0.4285714285714276,
+              "merlin": 0.1428571428571429,
+              "evil_minion": 0.28571428571428525,
+              "mordred": 0.1428571428571429
+            },
+            "VENICE": {
+              "loyal_follower": 0.4285714285714276,
+              "merlin": 0.1428571428571429,
+              "evil_minion": 0.28571428571428525,
+              "mordred": 0.1428571428571429
+            },
+            "KIM": {
+              "merlin": 0.1428571428571429,
+              "evil_minion": 0.28571428571428525,
+              "mordred": 0.1428571428571429,
+              "loyal_follower": 0.4285714285714276
+            },
+            "ZAC": {
+              "evil_minion": 0.28571428571428525,
+              "mordred": 0.1428571428571429,
+              "merlin": 0.1428571428571429,
+              "loyal_follower": 0.4285714285714276
+            },
+            "GCAR": {
+              "evil_minion": 0.28571428571428525,
+              "mordred": 0.1428571428571429,
+              "merlin": 0.1428571428571429,
+              "loyal_follower": 0.4285714285714276
+            },
+            "FAV": {
+              "mordred": 0.1428571428571429,
+              "evil_minion": 0.28571428571428525,
+              "merlin": 0.1428571428571429,
+              "loyal_follower": 0.4285714285714276
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "KIM": "merlin",
+            "ZAC": "evil_minion",
+            "GCAR": "evil_minion",
+            "FAV": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.46834346379438396,
+              "merlin": 0.15611448793146143,
+              "evil_minion": 0.2503613655161023,
+              "mordred": 0.1251806827580514
+            },
+            "JINGLES": {
+              "loyal_follower": 0.410411916925765,
+              "merlin": 0.13680397230858862,
+              "evil_minion": 0.30185607384376306,
+              "mordred": 0.15092803692188175
+            },
+            "VENICE": {
+              "loyal_follower": 0.410411916925765,
+              "merlin": 0.13680397230858862,
+              "evil_minion": 0.30185607384376306,
+              "mordred": 0.15092803692188175
+            },
+            "KIM": {
+              "merlin": 0.13697568458010795,
+              "evil_minion": 0.30139817445304484,
+              "mordred": 0.15069908722652253,
+              "loyal_follower": 0.41092705374032296
+            },
+            "ZAC": {
+              "evil_minion": 0.30185607384376306,
+              "mordred": 0.15092803692188175,
+              "merlin": 0.1368039723085886,
+              "loyal_follower": 0.410411916925765
+            },
+            "GCAR": {
+              "evil_minion": 0.30185607384376306,
+              "mordred": 0.15092803692188175,
+              "merlin": 0.1368039723085886,
+              "loyal_follower": 0.410411916925765
+            },
+            "FAV": {
+              "mordred": 0.12040808232789867,
+              "evil_minion": 0.24081616465579686,
+              "merlin": 0.15969393825407588,
+              "loyal_follower": 0.4790818147622266
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "FAV": "merlin",
+            "KIM": "evil_minion",
+            "ZAC": "evil_minion",
+            "GCAR": "mordred"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 1.0
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 0.5,
+              "mordred": 0.5
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 0.5,
+              "evil_minion": 0.5
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 1.0
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 0.5,
+              "mordred": 0.5
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 0.5,
+              "evil_minion": 0.5
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.33333333333333315,
+              "merlin": 0.16666666666666666,
+              "evil_minion": 0.33333333333333315,
+              "mordred": 0.16666666666666666
+            },
+            "JINGLES": {
+              "loyal_follower": 0.9999999999999974
+            },
+            "VENICE": {
+              "loyal_follower": 0.33333333333333315,
+              "merlin": 0.16666666666666666,
+              "evil_minion": 0.33333333333333315,
+              "mordred": 0.16666666666666666
+            },
+            "KIM": {
+              "merlin": 0.16666666666666666,
+              "evil_minion": 0.33333333333333315,
+              "mordred": 0.16666666666666666,
+              "loyal_follower": 0.33333333333333315
+            },
+            "ZAC": {
+              "evil_minion": 0.33333333333333315,
+              "mordred": 0.16666666666666666,
+              "merlin": 0.16666666666666666,
+              "loyal_follower": 0.33333333333333315
+            },
+            "GCAR": {
+              "evil_minion": 0.33333333333333315,
+              "mordred": 0.16666666666666666,
+              "merlin": 0.16666666666666666,
+              "loyal_follower": 0.33333333333333315
+            },
+            "FAV": {
+              "mordred": 0.16666666666666666,
+              "evil_minion": 0.33333333333333315,
+              "merlin": 0.16666666666666666,
+              "loyal_follower": 0.33333333333333315
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "KIM": "merlin",
+            "ZAC": "evil_minion",
+            "GCAR": "evil_minion",
+            "FAV": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.35860590062470016,
+              "merlin": 0.17930295031235013,
+              "evil_minion": 0.30806076604196636,
+              "mordred": 0.15403038302098318
+            },
+            "JINGLES": {
+              "loyal_follower": 1.0
+            },
+            "VENICE": {
+              "loyal_follower": 0.3172193889953309,
+              "merlin": 0.15860969449766552,
+              "evil_minion": 0.34944727767133543,
+              "mordred": 0.17472363883566777
+            },
+            "KIM": {
+              "merlin": 0.1607940267015665,
+              "evil_minion": 0.3450786132635335,
+              "mordred": 0.17253930663176678,
+              "loyal_follower": 0.3215880534031327
+            },
+            "ZAC": {
+              "evil_minion": 0.34944727767133515,
+              "mordred": 0.17472363883566777,
+              "merlin": 0.15860969449766552,
+              "loyal_follower": 0.3172193889953309
+            },
+            "GCAR": {
+              "evil_minion": 0.34944727767133515,
+              "mordred": 0.17472363883566777,
+              "merlin": 0.15860969449766552,
+              "loyal_follower": 0.3172193889953309
+            },
+            "FAV": {
+              "mordred": 0.1492593938402466,
+              "evil_minion": 0.2985187876804932,
+              "merlin": 0.18407393949308665,
+              "loyal_follower": 0.3681478789861732
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "FAV": "merlin",
+            "KIM": "evil_minion",
+            "ZAC": "evil_minion",
+            "GCAR": "mordred"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 0.5,
+              "mordred": 0.5
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 1.0
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 0.5,
+              "evil_minion": 0.5
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 0.5,
+              "mordred": 0.5
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 1.0
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 0.5,
+              "evil_minion": 0.5
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 0.6666666666666666,
+              "mordred": 0.3333333333333333
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "evil_minion": 0.16666666666666666,
+              "mordred": 0.08333333333333333
+            },
+            "VENICE": {
+              "evil_minion": 0.6666666666666666,
+              "mordred": 0.3333333333333333
+            },
+            "KIM": {
+              "merlin": 1.0
+            },
+            "ZAC": {
+              "loyal_follower": 0.75,
+              "mordred": 0.08333333333333333,
+              "evil_minion": 0.16666666666666666
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "mordred": 0.08333333333333333,
+              "evil_minion": 0.16666666666666666
+            },
+            "FAV": {
+              "mordred": 0.08333333333333333,
+              "evil_minion": 0.16666666666666666,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "ZAC": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "KIM": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "FAV": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 0.6666666666666666,
+              "mordred": 0.3333333333333333
+            },
+            "JINGLES": {
+              "loyal_follower": 0.7921550211540896,
+              "evil_minion": 0.13856331923060697,
+              "mordred": 0.06928165961530348
+            },
+            "VENICE": {
+              "evil_minion": 0.6666666666666666,
+              "mordred": 0.3333333333333333
+            },
+            "KIM": {
+              "merlin": 1.0
+            },
+            "ZAC": {
+              "loyal_follower": 0.7921550211540896,
+              "mordred": 0.06928165961530348,
+              "evil_minion": 0.13856331923060697
+            },
+            "GCAR": {
+              "loyal_follower": 0.7921550211540896,
+              "mordred": 0.06928165961530348,
+              "evil_minion": 0.13856331923060697
+            },
+            "FAV": {
+              "mordred": 0.12548835448742293,
+              "evil_minion": 0.25097670897484586,
+              "loyal_follower": 0.6235349365377313
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "ZAC": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "KIM": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "FAV": "mordred"
+          }
+        }
+      },
+      "mordred": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 1.0
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 1.0
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 1.0
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 1.0
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 1.0
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 1.0
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.33333333333333315,
+              "merlin": 0.16666666666666666,
+              "evil_minion": 0.33333333333333315,
+              "mordred": 0.16666666666666666
+            },
+            "JINGLES": {
+              "loyal_follower": 0.33333333333333315,
+              "merlin": 0.16666666666666666,
+              "evil_minion": 0.33333333333333315,
+              "mordred": 0.16666666666666666
+            },
+            "VENICE": {
+              "merlin": 0.16666666666666666,
+              "evil_minion": 0.33333333333333315,
+              "mordred": 0.16666666666666666,
+              "loyal_follower": 0.33333333333333315
+            },
+            "KIM": {
+              "evil_minion": 0.33333333333333315,
+              "mordred": 0.16666666666666666,
+              "merlin": 0.16666666666666666,
+              "loyal_follower": 0.33333333333333315
+            },
+            "ZAC": {
+              "evil_minion": 0.33333333333333315,
+              "mordred": 0.16666666666666666,
+              "merlin": 0.16666666666666666,
+              "loyal_follower": 0.33333333333333315
+            },
+            "GCAR": {
+              "loyal_follower": 0.9999999999999974
+            },
+            "FAV": {
+              "mordred": 0.16666666666666666,
+              "evil_minion": 0.33333333333333315,
+              "merlin": 0.16666666666666666,
+              "loyal_follower": 0.33333333333333315
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "VENICE": "merlin",
+            "KIM": "evil_minion",
+            "ZAC": "evil_minion",
+            "FAV": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.35860590062470016,
+              "merlin": 0.17930295031235013,
+              "evil_minion": 0.3080607660419662,
+              "mordred": 0.15403038302098318
+            },
+            "JINGLES": {
+              "loyal_follower": 0.3172193889953309,
+              "merlin": 0.15860969449766552,
+              "evil_minion": 0.34944727767133515,
+              "mordred": 0.17472363883566777
+            },
+            "VENICE": {
+              "merlin": 0.15860969449766552,
+              "evil_minion": 0.34944727767133515,
+              "mordred": 0.17472363883566777,
+              "loyal_follower": 0.3172193889953309
+            },
+            "KIM": {
+              "evil_minion": 0.3450786132635335,
+              "mordred": 0.17253930663176678,
+              "merlin": 0.1607940267015665,
+              "loyal_follower": 0.3215880534031327
+            },
+            "ZAC": {
+              "evil_minion": 0.34944727767133515,
+              "mordred": 0.17472363883566777,
+              "merlin": 0.15860969449766552,
+              "loyal_follower": 0.3172193889953309
+            },
+            "GCAR": {
+              "loyal_follower": 1.0
+            },
+            "FAV": {
+              "mordred": 0.1492593938402466,
+              "evil_minion": 0.2985187876804932,
+              "merlin": 0.18407393949308665,
+              "loyal_follower": 0.368147878986173
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VENICE": "evil_minion",
+            "KIM": "evil_minion",
+            "ZAC": "mordred"
+          }
+        }
+      },
+      "loyal_follower3": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.33333333333333315,
+              "merlin": 0.16666666666666666,
+              "evil_minion": 0.33333333333333315,
+              "mordred": 0.16666666666666666
+            },
+            "JINGLES": {
+              "loyal_follower": 0.33333333333333315,
+              "merlin": 0.16666666666666666,
+              "evil_minion": 0.33333333333333315,
+              "mordred": 0.16666666666666666
+            },
+            "VENICE": {
+              "merlin": 0.16666666666666666,
+              "evil_minion": 0.33333333333333315,
+              "mordred": 0.16666666666666666,
+              "loyal_follower": 0.33333333333333315
+            },
+            "KIM": {
+              "evil_minion": 0.33333333333333315,
+              "mordred": 0.16666666666666666,
+              "merlin": 0.16666666666666666,
+              "loyal_follower": 0.33333333333333315
+            },
+            "ZAC": {
+              "evil_minion": 0.33333333333333315,
+              "mordred": 0.16666666666666666,
+              "merlin": 0.16666666666666666,
+              "loyal_follower": 0.33333333333333315
+            },
+            "GCAR": {
+              "mordred": 0.16666666666666666,
+              "evil_minion": 0.33333333333333315,
+              "merlin": 0.16666666666666666,
+              "loyal_follower": 0.33333333333333315
+            },
+            "FAV": {
+              "loyal_follower": 0.9999999999999974
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "FAV": "loyal_follower",
+            "VENICE": "merlin",
+            "KIM": "evil_minion",
+            "ZAC": "evil_minion",
+            "GCAR": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.42328042328042326,
+              "merlin": 0.21164021164021163,
+              "evil_minion": 0.24338624338624337,
+              "mordred": 0.12169312169312169
+            },
+            "JINGLES": {
+              "loyal_follower": 0.31216931216931215,
+              "merlin": 0.15608465608465608,
+              "evil_minion": 0.3544973544973545,
+              "mordred": 0.17724867724867724
+            },
+            "VENICE": {
+              "merlin": 0.15608465608465608,
+              "evil_minion": 0.3544973544973545,
+              "mordred": 0.17724867724867724,
+              "loyal_follower": 0.31216931216931215
+            },
+            "KIM": {
+              "evil_minion": 0.3386243386243386,
+              "mordred": 0.1693121693121693,
+              "merlin": 0.164021164021164,
+              "loyal_follower": 0.328042328042328
+            },
+            "ZAC": {
+              "evil_minion": 0.3544973544973545,
+              "mordred": 0.17724867724867724,
+              "merlin": 0.15608465608465608,
+              "loyal_follower": 0.31216931216931215
+            },
+            "GCAR": {
+              "mordred": 0.17724867724867724,
+              "evil_minion": 0.3544973544973545,
+              "merlin": 0.15608465608465608,
+              "loyal_follower": 0.31216931216931215
+            },
+            "FAV": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "FAV": "loyal_follower",
+            "VENICE": "merlin",
+            "KIM": "evil_minion",
+            "ZAC": "evil_minion",
+            "GCAR": "mordred"
+          }
+        }
+      }
+    },
+    "2": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.3870967741935481,
+              "merlin": 0.12903225806451607,
+              "evil_minion": 0.3225806451612901,
+              "mordred": 0.16129032258064507
+            },
+            "JINGLES": {
+              "loyal_follower": 0.3870967741935481,
+              "merlin": 0.12903225806451607,
+              "evil_minion": 0.3225806451612901,
+              "mordred": 0.16129032258064507
+            },
+            "VENICE": {
+              "loyal_follower": 0.45967741935483836,
+              "merlin": 0.15322580645161282,
+              "evil_minion": 0.2580645161290321,
+              "mordred": 0.12903225806451607
+            },
+            "KIM": {
+              "merlin": 0.15322580645161282,
+              "evil_minion": 0.2580645161290321,
+              "mordred": 0.12903225806451607,
+              "loyal_follower": 0.45967741935483836
+            },
+            "ZAC": {
+              "evil_minion": 0.2580645161290321,
+              "mordred": 0.12903225806451607,
+              "merlin": 0.15322580645161282,
+              "loyal_follower": 0.45967741935483836
+            },
+            "GCAR": {
+              "evil_minion": 0.2580645161290321,
+              "mordred": 0.12903225806451607,
+              "merlin": 0.15322580645161282,
+              "loyal_follower": 0.45967741935483836
+            },
+            "FAV": {
+              "mordred": 0.16129032258064507,
+              "evil_minion": 0.3225806451612901,
+              "merlin": 0.12903225806451607,
+              "loyal_follower": 0.3870967741935481
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "KIM": "merlin",
+            "ZAC": "evil_minion",
+            "GCAR": "evil_minion",
+            "FAV": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.39580282046802595,
+              "merlin": 0.13193427348934214,
+              "evil_minion": 0.3148419373617532,
+              "mordred": 0.15742096868087657
+            },
+            "JINGLES": {
+              "loyal_follower": 0.3467217387490794,
+              "merlin": 0.11557391291635985,
+              "evil_minion": 0.35846956555637244,
+              "mordred": 0.17923478277818627
+            },
+            "VENICE": {
+              "loyal_follower": 0.4480603956694726,
+              "merlin": 0.14935346522315768,
+              "evil_minion": 0.26839075940491197,
+              "mordred": 0.13419537970245585
+            },
+            "KIM": {
+              "merlin": 0.14930676564327977,
+              "evil_minion": 0.2685152916179191,
+              "mordred": 0.13425764580895974,
+              "loyal_follower": 0.44792029692983965
+            },
+            "ZAC": {
+              "evil_minion": 0.25030190970000216,
+              "mordred": 0.125150954850001,
+              "merlin": 0.15613678386249882,
+              "loyal_follower": 0.46841035158749605
+            },
+            "GCAR": {
+              "evil_minion": 0.25030190970000216,
+              "mordred": 0.125150954850001,
+              "merlin": 0.15613678386249882,
+              "loyal_follower": 0.46841035158749605
+            },
+            "FAV": {
+              "mordred": 0.14458931332951777,
+              "evil_minion": 0.2891786266590357,
+              "merlin": 0.14155801500286117,
+              "loyal_follower": 0.4246740450085834
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "ZAC": "loyal_follower",
+            "FAV": "merlin",
+            "JINGLES": "evil_minion",
+            "KIM": "evil_minion",
+            "GCAR": "mordred"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 1.0
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 0.5,
+              "mordred": 0.5
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 0.5,
+              "evil_minion": 0.5
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 1.0
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 0.5,
+              "mordred": 0.5
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 0.5,
+              "evil_minion": 0.5
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.25000000000000006,
+              "merlin": 0.12500000000000003,
+              "evil_minion": 0.41666666666666613,
+              "mordred": 0.2083333333333334
+            },
+            "JINGLES": {
+              "loyal_follower": 0.9999999999999974
+            },
+            "VENICE": {
+              "loyal_follower": 0.3749999999999996,
+              "merlin": 0.18750000000000006,
+              "evil_minion": 0.2916666666666666,
+              "mordred": 0.14583333333333337
+            },
+            "KIM": {
+              "merlin": 0.18750000000000006,
+              "evil_minion": 0.2916666666666666,
+              "mordred": 0.14583333333333337,
+              "loyal_follower": 0.3749999999999996
+            },
+            "ZAC": {
+              "evil_minion": 0.2916666666666666,
+              "mordred": 0.14583333333333337,
+              "merlin": 0.18750000000000006,
+              "loyal_follower": 0.3749999999999996
+            },
+            "GCAR": {
+              "evil_minion": 0.2916666666666666,
+              "mordred": 0.14583333333333337,
+              "merlin": 0.18750000000000006,
+              "loyal_follower": 0.3749999999999996
+            },
+            "FAV": {
+              "mordred": 0.2083333333333334,
+              "evil_minion": 0.41666666666666613,
+              "merlin": 0.12500000000000003,
+              "loyal_follower": 0.25000000000000006
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "KIM": "merlin",
+            "ZAC": "evil_minion",
+            "GCAR": "evil_minion",
+            "FAV": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.2383078848459487,
+              "merlin": 0.11915394242297435,
+              "evil_minion": 0.42835878182071796,
+              "mordred": 0.21417939091035898
+            },
+            "JINGLES": {
+              "loyal_follower": 1.0
+            },
+            "VENICE": {
+              "loyal_follower": 0.39643554444909407,
+              "merlin": 0.19821777222454703,
+              "evil_minion": 0.2702311222175726,
+              "mordred": 0.1351155611087863
+            },
+            "KIM": {
+              "merlin": 0.1670387984804102,
+              "evil_minion": 0.3325890697058463,
+              "mordred": 0.16629453485292314,
+              "loyal_follower": 0.3340775969608204
+            },
+            "ZAC": {
+              "evil_minion": 0.2702311222175726,
+              "mordred": 0.1351155611087863,
+              "merlin": 0.19821777222454703,
+              "loyal_follower": 0.39643554444909407
+            },
+            "GCAR": {
+              "evil_minion": 0.2702311222175726,
+              "mordred": 0.1351155611087863,
+              "merlin": 0.19821777222454703,
+              "loyal_follower": 0.39643554444909407
+            },
+            "FAV": {
+              "mordred": 0.21417939091035898,
+              "evil_minion": 0.42835878182071796,
+              "merlin": 0.11915394242297435,
+              "loyal_follower": 0.2383078848459487
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "ZAC": "merlin",
+            "KIM": "evil_minion",
+            "GCAR": "evil_minion",
+            "FAV": "mordred"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 0.5,
+              "mordred": 0.5
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 1.0
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 0.5,
+              "evil_minion": 0.5
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 0.5,
+              "mordred": 0.5
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 1.0
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 0.5,
+              "evil_minion": 0.5
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 0.6666666666666666,
+              "mordred": 0.3333333333333333
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "evil_minion": 0.16666666666666666,
+              "mordred": 0.08333333333333333
+            },
+            "VENICE": {
+              "evil_minion": 0.6666666666666666,
+              "mordred": 0.3333333333333333
+            },
+            "KIM": {
+              "merlin": 1.0
+            },
+            "ZAC": {
+              "loyal_follower": 0.75,
+              "mordred": 0.08333333333333333,
+              "evil_minion": 0.16666666666666666
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "mordred": 0.08333333333333333,
+              "evil_minion": 0.16666666666666666
+            },
+            "FAV": {
+              "mordred": 0.08333333333333333,
+              "evil_minion": 0.16666666666666666,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "ZAC": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "KIM": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "FAV": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 0.6666666666666666,
+              "mordred": 0.3333333333333334
+            },
+            "JINGLES": {
+              "loyal_follower": 0.775174987239756,
+              "evil_minion": 0.1498833418401627,
+              "mordred": 0.07494167092008135
+            },
+            "VENICE": {
+              "evil_minion": 0.6666666666666666,
+              "mordred": 0.3333333333333334
+            },
+            "KIM": {
+              "merlin": 1.0
+            },
+            "ZAC": {
+              "loyal_follower": 0.775174987239756,
+              "mordred": 0.07494167092008135,
+              "evil_minion": 0.1498833418401627
+            },
+            "GCAR": {
+              "loyal_follower": 0.775174987239756,
+              "mordred": 0.07494167092008135,
+              "evil_minion": 0.1498833418401627
+            },
+            "FAV": {
+              "mordred": 0.10850832057308935,
+              "evil_minion": 0.2170166411461787,
+              "loyal_follower": 0.674475038280732
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "ZAC": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "KIM": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "FAV": "mordred"
+          }
+        }
+      },
+      "mordred": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 1.0
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 1.0
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 1.0
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 1.0
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 1.0
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 1.0
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.3157894736842105,
+              "merlin": 0.15789473684210525,
+              "evil_minion": 0.3508771929824561,
+              "mordred": 0.17543859649122806
+            },
+            "JINGLES": {
+              "loyal_follower": 0.3157894736842105,
+              "merlin": 0.15789473684210525,
+              "evil_minion": 0.3508771929824561,
+              "mordred": 0.17543859649122806
+            },
+            "VENICE": {
+              "merlin": 0.17543859649122806,
+              "evil_minion": 0.3157894736842105,
+              "mordred": 0.15789473684210525,
+              "loyal_follower": 0.3508771929824561
+            },
+            "KIM": {
+              "evil_minion": 0.3157894736842105,
+              "mordred": 0.15789473684210525,
+              "merlin": 0.17543859649122806,
+              "loyal_follower": 0.3508771929824561
+            },
+            "ZAC": {
+              "evil_minion": 0.3157894736842105,
+              "mordred": 0.15789473684210525,
+              "merlin": 0.17543859649122806,
+              "loyal_follower": 0.3508771929824561
+            },
+            "GCAR": {
+              "loyal_follower": 0.9999999999999953
+            },
+            "FAV": {
+              "mordred": 0.17543859649122806,
+              "evil_minion": 0.3508771929824561,
+              "merlin": 0.15789473684210525,
+              "loyal_follower": 0.3157894736842105
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "VENICE": "merlin",
+            "KIM": "evil_minion",
+            "ZAC": "evil_minion",
+            "FAV": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.32114341231844357,
+              "merlin": 0.16057170615922164,
+              "evil_minion": 0.34552325434822373,
+              "mordred": 0.17276162717411186
+            },
+            "JINGLES": {
+              "loyal_follower": 0.29041534724064677,
+              "merlin": 0.14520767362032336,
+              "evil_minion": 0.3762513194260204,
+              "mordred": 0.18812565971301018
+            },
+            "VENICE": {
+              "merlin": 0.17084112310674957,
+              "evil_minion": 0.32498442045316794,
+              "mordred": 0.16249221022658394,
+              "loyal_follower": 0.34168224621349913
+            },
+            "KIM": {
+              "evil_minion": 0.3240551091793775,
+              "mordred": 0.16202755458968873,
+              "merlin": 0.1713057787436448,
+              "loyal_follower": 0.3426115574872897
+            },
+            "ZAC": {
+              "evil_minion": 0.3067086910533357,
+              "mordred": 0.15335434552666774,
+              "merlin": 0.1799789878066658,
+              "loyal_follower": 0.3599579756133315
+            },
+            "GCAR": {
+              "loyal_follower": 1.0
+            },
+            "FAV": {
+              "mordred": 0.16123860276993812,
+              "evil_minion": 0.3224772055398766,
+              "merlin": 0.17209473056339544,
+              "loyal_follower": 0.3441894611267907
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "JINGLES": "evil_minion",
+            "KIM": "evil_minion",
+            "ZAC": "mordred"
+          }
+        }
+      },
+      "loyal_follower3": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.25000000000000006,
+              "evil_minion": 0.41666666666666613,
+              "mordred": 0.2083333333333334,
+              "merlin": 0.12500000000000003
+            },
+            "JINGLES": {
+              "evil_minion": 0.41666666666666613,
+              "mordred": 0.2083333333333334,
+              "loyal_follower": 0.25000000000000006,
+              "merlin": 0.12500000000000003
+            },
+            "VENICE": {
+              "loyal_follower": 0.3749999999999996,
+              "merlin": 0.18750000000000006,
+              "evil_minion": 0.2916666666666666,
+              "mordred": 0.14583333333333337
+            },
+            "KIM": {
+              "merlin": 0.18750000000000006,
+              "evil_minion": 0.2916666666666666,
+              "mordred": 0.14583333333333337,
+              "loyal_follower": 0.3749999999999996
+            },
+            "ZAC": {
+              "evil_minion": 0.2916666666666666,
+              "mordred": 0.14583333333333337,
+              "merlin": 0.18750000000000006,
+              "loyal_follower": 0.3749999999999996
+            },
+            "GCAR": {
+              "mordred": 0.14583333333333337,
+              "evil_minion": 0.2916666666666666,
+              "merlin": 0.18750000000000006,
+              "loyal_follower": 0.3749999999999996
+            },
+            "FAV": {
+              "loyal_follower": 0.9999999999999974
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "FAV": "loyal_follower",
+            "KIM": "merlin",
+            "JINGLES": "evil_minion",
+            "ZAC": "evil_minion",
+            "GCAR": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.31624498307259696,
+              "evil_minion": 0.350421683594071,
+              "mordred": 0.17521084179703542,
+              "merlin": 0.15812249153629848
+            },
+            "JINGLES": {
+              "evil_minion": 0.466350403971115,
+              "mordred": 0.23317520198555744,
+              "loyal_follower": 0.20031626269555303,
+              "merlin": 0.1001581313477765
+            },
+            "VENICE": {
+              "loyal_follower": 0.3611989618598765,
+              "merlin": 0.18059948092993824,
+              "evil_minion": 0.3054677048067916,
+              "mordred": 0.15273385240339574
+            },
+            "KIM": {
+              "merlin": 0.18888010381401285,
+              "evil_minion": 0.28890645903864237,
+              "mordred": 0.14445322951932119,
+              "loyal_follower": 0.37776020762802587
+            },
+            "ZAC": {
+              "evil_minion": 0.29442687429469216,
+              "mordred": 0.147213437147346,
+              "merlin": 0.18611989618598795,
+              "loyal_follower": 0.37223979237197585
+            },
+            "GCAR": {
+              "mordred": 0.147213437147346,
+              "evil_minion": 0.29442687429469216,
+              "merlin": 0.18611989618598795,
+              "loyal_follower": 0.37223979237197585
+            },
+            "FAV": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "FAV": "loyal_follower",
+            "ZAC": "merlin",
+            "JINGLES": "evil_minion",
+            "KIM": "evil_minion",
+            "GCAR": "mordred"
+          }
+        }
+      }
+    },
+    "3": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.34821428571428503,
+              "merlin": 0.11607142857142866,
+              "evil_minion": 0.35714285714285643,
+              "mordred": 0.17857142857142846
+            },
+            "JINGLES": {
+              "loyal_follower": 0.4285714285714276,
+              "merlin": 0.14285714285714288,
+              "evil_minion": 0.28571428571428525,
+              "mordred": 0.14285714285714288
+            },
+            "VENICE": {
+              "loyal_follower": 0.482142857142856,
+              "merlin": 0.16071428571428567,
+              "evil_minion": 0.23809523809523778,
+              "mordred": 0.11904761904761914
+            },
+            "KIM": {
+              "merlin": 0.16071428571428567,
+              "evil_minion": 0.23809523809523778,
+              "mordred": 0.11904761904761914,
+              "loyal_follower": 0.482142857142856
+            },
+            "ZAC": {
+              "evil_minion": 0.23809523809523778,
+              "mordred": 0.11904761904761914,
+              "merlin": 0.16071428571428567,
+              "loyal_follower": 0.482142857142856
+            },
+            "GCAR": {
+              "evil_minion": 0.28571428571428525,
+              "mordred": 0.14285714285714288,
+              "merlin": 0.14285714285714288,
+              "loyal_follower": 0.4285714285714276
+            },
+            "FAV": {
+              "mordred": 0.17857142857142846,
+              "evil_minion": 0.35714285714285643,
+              "merlin": 0.11607142857142866,
+              "loyal_follower": 0.34821428571428503
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "KIM": "merlin",
+            "ZAC": "evil_minion",
+            "GCAR": "evil_minion",
+            "FAV": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.3531833087257849,
+              "merlin": 0.11772776957526165,
+              "evil_minion": 0.35272594779930194,
+              "mordred": 0.17636297389965078
+            },
+            "JINGLES": {
+              "loyal_follower": 0.43209458251511884,
+              "merlin": 0.14403152750503972,
+              "evil_minion": 0.2825825933198936,
+              "mordred": 0.14129129665994664
+            },
+            "VENICE": {
+              "loyal_follower": 0.4618169973399418,
+              "merlin": 0.15393899911331388,
+              "evil_minion": 0.2561626690311623,
+              "mordred": 0.12808133451558115
+            },
+            "KIM": {
+              "merlin": 0.16308372324346873,
+              "evil_minion": 0.23177673801741605,
+              "mordred": 0.11588836900870798,
+              "loyal_follower": 0.4892511697304064
+            },
+            "ZAC": {
+              "evil_minion": 0.22387151105850214,
+              "mordred": 0.11193575552925107,
+              "merlin": 0.16604818335306143,
+              "loyal_follower": 0.4981445500591841
+            },
+            "GCAR": {
+              "evil_minion": 0.28867858523546774,
+              "mordred": 0.14433929261773376,
+              "merlin": 0.14174553053669936,
+              "loyal_follower": 0.4252365916100982
+            },
+            "FAV": {
+              "mordred": 0.18210097776912765,
+              "evil_minion": 0.3642019555382549,
+              "merlin": 0.11342426667315414,
+              "loyal_follower": 0.3402728000194624
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "ZAC": "loyal_follower",
+            "GCAR": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "FAV": "mordred"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 1.0
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 0.5,
+              "mordred": 0.5
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 0.5,
+              "evil_minion": 0.5
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 1.0
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 0.5,
+              "mordred": 0.5
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 0.5,
+              "evil_minion": 0.5
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.25000000000000006,
+              "merlin": 0.12500000000000003,
+              "evil_minion": 0.41666666666666613,
+              "mordred": 0.2083333333333334
+            },
+            "JINGLES": {
+              "loyal_follower": 0.9999999999999974
+            },
+            "VENICE": {
+              "loyal_follower": 0.3749999999999996,
+              "merlin": 0.18750000000000006,
+              "evil_minion": 0.2916666666666666,
+              "mordred": 0.14583333333333337
+            },
+            "KIM": {
+              "merlin": 0.18750000000000006,
+              "evil_minion": 0.2916666666666666,
+              "mordred": 0.14583333333333337,
+              "loyal_follower": 0.3749999999999996
+            },
+            "ZAC": {
+              "evil_minion": 0.2916666666666666,
+              "mordred": 0.14583333333333337,
+              "merlin": 0.18750000000000006,
+              "loyal_follower": 0.3749999999999996
+            },
+            "GCAR": {
+              "evil_minion": 0.2916666666666666,
+              "mordred": 0.14583333333333337,
+              "merlin": 0.18750000000000006,
+              "loyal_follower": 0.3749999999999996
+            },
+            "FAV": {
+              "mordred": 0.2083333333333334,
+              "evil_minion": 0.41666666666666613,
+              "merlin": 0.12500000000000003,
+              "loyal_follower": 0.25000000000000006
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "KIM": "merlin",
+            "ZAC": "evil_minion",
+            "GCAR": "evil_minion",
+            "FAV": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.25747775374506626,
+              "merlin": 0.12873887687253316,
+              "evil_minion": 0.4091889129216001,
+              "mordred": 0.20459445646080002
+            },
+            "JINGLES": {
+              "loyal_follower": 1.0
+            },
+            "VENICE": {
+              "loyal_follower": 0.36561072633008357,
+              "merlin": 0.18280536316504176,
+              "evil_minion": 0.30105594033658284,
+              "mordred": 0.1505279701682914
+            },
+            "KIM": {
+              "merlin": 0.1894004601423683,
+              "evil_minion": 0.28786574638192974,
+              "mordred": 0.14393287319096484,
+              "loyal_follower": 0.3788009202847365
+            },
+            "ZAC": {
+              "evil_minion": 0.2847642138350341,
+              "mordred": 0.14238210691751702,
+              "merlin": 0.19095122641581613,
+              "loyal_follower": 0.3819024528316322
+            },
+            "GCAR": {
+              "evil_minion": 0.28817874235418645,
+              "mordred": 0.14408937117709328,
+              "merlin": 0.18924396215623987,
+              "loyal_follower": 0.37848792431247985
+            },
+            "FAV": {
+              "mordred": 0.2144732220853329,
+              "evil_minion": 0.42894644417066574,
+              "merlin": 0.11886011124800024,
+              "loyal_follower": 0.23772022249600055
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "ZAC": "loyal_follower",
+            "GCAR": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "FAV": "mordred"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 0.5,
+              "mordred": 0.5
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 1.0
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 0.5,
+              "evil_minion": 0.5
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 0.5,
+              "mordred": 0.5
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 1.0
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 0.5,
+              "evil_minion": 0.5
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 0.6666666666666666,
+              "mordred": 0.3333333333333333
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "evil_minion": 0.16666666666666666,
+              "mordred": 0.08333333333333333
+            },
+            "VENICE": {
+              "evil_minion": 0.6666666666666666,
+              "mordred": 0.3333333333333333
+            },
+            "KIM": {
+              "merlin": 1.0
+            },
+            "ZAC": {
+              "loyal_follower": 0.75,
+              "mordred": 0.08333333333333333,
+              "evil_minion": 0.16666666666666666
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "mordred": 0.08333333333333333,
+              "evil_minion": 0.16666666666666666
+            },
+            "FAV": {
+              "mordred": 0.08333333333333333,
+              "evil_minion": 0.16666666666666666,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "ZAC": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "KIM": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "FAV": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 0.6666666666666669,
+              "mordred": 0.3333333333333334
+            },
+            "JINGLES": {
+              "loyal_follower": 0.7460751123549885,
+              "evil_minion": 0.16928325843000766,
+              "mordred": 0.08464162921500383
+            },
+            "VENICE": {
+              "evil_minion": 0.6666666666666669,
+              "mordred": 0.3333333333333334
+            },
+            "KIM": {
+              "merlin": 1.0
+            },
+            "ZAC": {
+              "loyal_follower": 0.8192932931298621,
+              "mordred": 0.060235568956712664,
+              "evil_minion": 0.12047113791342533
+            },
+            "GCAR": {
+              "loyal_follower": 0.7884962739610346,
+              "mordred": 0.07050124201298853,
+              "evil_minion": 0.14100248402597707
+            },
+            "FAV": {
+              "mordred": 0.11795489314862838,
+              "evil_minion": 0.23590978629725676,
+              "loyal_follower": 0.646135320554115
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "ZAC": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "KIM": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "FAV": "mordred"
+          }
+        }
+      },
+      "mordred": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 1.0
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 1.0
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 1.0
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 1.0
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 1.0
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 1.0
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.25000000000000006,
+              "merlin": 0.12500000000000003,
+              "evil_minion": 0.41666666666666613,
+              "mordred": 0.2083333333333334
+            },
+            "JINGLES": {
+              "loyal_follower": 0.3749999999999996,
+              "merlin": 0.18750000000000006,
+              "evil_minion": 0.2916666666666666,
+              "mordred": 0.14583333333333337
+            },
+            "VENICE": {
+              "merlin": 0.18750000000000006,
+              "evil_minion": 0.2916666666666666,
+              "mordred": 0.14583333333333337,
+              "loyal_follower": 0.3749999999999996
+            },
+            "KIM": {
+              "evil_minion": 0.2916666666666666,
+              "mordred": 0.14583333333333337,
+              "merlin": 0.18750000000000006,
+              "loyal_follower": 0.3749999999999996
+            },
+            "ZAC": {
+              "evil_minion": 0.2916666666666666,
+              "mordred": 0.14583333333333337,
+              "merlin": 0.18750000000000006,
+              "loyal_follower": 0.3749999999999996
+            },
+            "GCAR": {
+              "loyal_follower": 0.9999999999999974
+            },
+            "FAV": {
+              "mordred": 0.2083333333333334,
+              "evil_minion": 0.41666666666666613,
+              "merlin": 0.12500000000000003,
+              "loyal_follower": 0.25000000000000006
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "VENICE": "merlin",
+            "KIM": "evil_minion",
+            "ZAC": "evil_minion",
+            "FAV": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.25819643570793993,
+              "merlin": 0.12909821785397002,
+              "evil_minion": 0.40847023095872775,
+              "mordred": 0.20423511547936365
+            },
+            "JINGLES": {
+              "loyal_follower": 0.3813588862630312,
+              "merlin": 0.1906794431315156,
+              "evil_minion": 0.28530778040363625,
+              "mordred": 0.14265389020181815
+            },
+            "VENICE": {
+              "merlin": 0.18323273411867025,
+              "evil_minion": 0.300201198429327,
+              "mordred": 0.15010059921466348,
+              "loyal_follower": 0.36646546823734066
+            },
+            "KIM": {
+              "evil_minion": 0.2903390116304743,
+              "mordred": 0.1451695058152371,
+              "merlin": 0.1881638275180966,
+              "loyal_follower": 0.3763276550361935
+            },
+            "ZAC": {
+              "evil_minion": 0.2778041058168233,
+              "mordred": 0.13890205290841154,
+              "merlin": 0.19443128042492208,
+              "loyal_follower": 0.38886256084984455
+            },
+            "GCAR": {
+              "loyal_follower": 1.0
+            },
+            "FAV": {
+              "mordred": 0.2189388363805071,
+              "evil_minion": 0.43787767276101464,
+              "merlin": 0.11439449695282662,
+              "loyal_follower": 0.22878899390565316
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "ZAC": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "FAV": "mordred"
+          }
+        }
+      },
+      "loyal_follower3": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.15384615384615383,
+              "evil_minion": 0.5128205128205134,
+              "mordred": 0.2564102564102564,
+              "merlin": 0.07692307692307691
+            },
+            "JINGLES": {
+              "evil_minion": 0.35897435897435925,
+              "mordred": 0.17948717948717946,
+              "loyal_follower": 0.3076923076923078,
+              "merlin": 0.15384615384615383
+            },
+            "VENICE": {
+              "loyal_follower": 0.4102564102564107,
+              "merlin": 0.2051282051282051,
+              "evil_minion": 0.2564102564102564,
+              "mordred": 0.1282051282051282
+            },
+            "KIM": {
+              "merlin": 0.2051282051282051,
+              "evil_minion": 0.2564102564102564,
+              "mordred": 0.1282051282051282,
+              "loyal_follower": 0.4102564102564107
+            },
+            "ZAC": {
+              "evil_minion": 0.2564102564102564,
+              "mordred": 0.1282051282051282,
+              "merlin": 0.2051282051282051,
+              "loyal_follower": 0.4102564102564107
+            },
+            "GCAR": {
+              "mordred": 0.17948717948717946,
+              "evil_minion": 0.35897435897435925,
+              "merlin": 0.15384615384615383,
+              "loyal_follower": 0.3076923076923078
+            },
+            "FAV": {
+              "loyal_follower": 0.9999999999999989
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "FAV": "loyal_follower",
+            "KIM": "merlin",
+            "JINGLES": "evil_minion",
+            "ZAC": "evil_minion",
+            "GCAR": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.17313309835491753,
+              "evil_minion": 0.4935335683117488,
+              "mordred": 0.24676678415587447,
+              "merlin": 0.08656654917745876
+            },
+            "JINGLES": {
+              "evil_minion": 0.3647451783428748,
+              "mordred": 0.1823725891714375,
+              "loyal_follower": 0.30192148832379156,
+              "merlin": 0.15096074416189575
+            },
+            "VENICE": {
+              "loyal_follower": 0.38741442676032517,
+              "merlin": 0.19370721338016253,
+              "evil_minion": 0.2792522399063414,
+              "mordred": 0.13962611995317065
+            },
+            "KIM": {
+              "merlin": 0.21661105319782092,
+              "evil_minion": 0.2334445602710246,
+              "mordred": 0.11672228013551236,
+              "loyal_follower": 0.43322210639564157
+            },
+            "ZAC": {
+              "evil_minion": 0.2582735681707083,
+              "mordred": 0.12913678408535414,
+              "merlin": 0.20419654924797911,
+              "loyal_follower": 0.4083930984959581
+            },
+            "GCAR": {
+              "mordred": 0.1853754424986506,
+              "evil_minion": 0.37075088499730097,
+              "merlin": 0.14795789083468266,
+              "loyal_follower": 0.29591578166936533
+            },
+            "FAV": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "FAV": "loyal_follower",
+            "KIM": "merlin",
+            "JINGLES": "evil_minion",
+            "ZAC": "evil_minion",
+            "GCAR": "mordred"
+          }
+        }
+      }
+    },
+    "4": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.36111111111111216,
+              "merlin": 0.12037037037037036,
+              "evil_minion": 0.34567901234568,
+              "mordred": 0.17283950617283972
+            },
+            "JINGLES": {
+              "loyal_follower": 0.41666666666666796,
+              "merlin": 0.13888888888888895,
+              "evil_minion": 0.29629629629629706,
+              "mordred": 0.14814814814814825
+            },
+            "VENICE": {
+              "loyal_follower": 0.5000000000000017,
+              "merlin": 0.16666666666666685,
+              "evil_minion": 0.22222222222222265,
+              "mordred": 0.1111111111111111
+            },
+            "KIM": {
+              "merlin": 0.15740740740740755,
+              "evil_minion": 0.24691358024691412,
+              "mordred": 0.12345679012345678,
+              "loyal_follower": 0.47222222222222376
+            },
+            "ZAC": {
+              "evil_minion": 0.24691358024691412,
+              "mordred": 0.12345679012345678,
+              "merlin": 0.15740740740740755,
+              "loyal_follower": 0.47222222222222376
+            },
+            "GCAR": {
+              "evil_minion": 0.29629629629629706,
+              "mordred": 0.14814814814814825,
+              "merlin": 0.13888888888888895,
+              "loyal_follower": 0.41666666666666796
+            },
+            "FAV": {
+              "mordred": 0.17283950617283972,
+              "evil_minion": 0.34567901234568,
+              "merlin": 0.12037037037037036,
+              "loyal_follower": 0.36111111111111216
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "KIM": "merlin",
+            "ZAC": "evil_minion",
+            "GCAR": "evil_minion",
+            "FAV": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.3723478519924396,
+              "merlin": 0.12411595066414663,
+              "evil_minion": 0.33569079822894266,
+              "mordred": 0.16784539911447133
+            },
+            "JINGLES": {
+              "loyal_follower": 0.42083966088248564,
+              "merlin": 0.1402798869608286,
+              "evil_minion": 0.2925869681044572,
+              "mordred": 0.14629348405222872
+            },
+            "VENICE": {
+              "loyal_follower": 0.4862215227362315,
+              "merlin": 0.16207384091207716,
+              "evil_minion": 0.23446975756779453,
+              "mordred": 0.1172348787838973
+            },
+            "KIM": {
+              "merlin": 0.15761761266560395,
+              "evil_minion": 0.2463530328917233,
+              "mordred": 0.1231765164458616,
+              "loyal_follower": 0.4728528379968112
+            },
+            "ZAC": {
+              "evil_minion": 0.2343935665730927,
+              "mordred": 0.11719678328654642,
+              "merlin": 0.16210241253509033,
+              "loyal_follower": 0.4863072376052704
+            },
+            "GCAR": {
+              "evil_minion": 0.30004546998561804,
+              "mordred": 0.15002273499280902,
+              "merlin": 0.13748294875539332,
+              "loyal_follower": 0.4124488462661799
+            },
+            "FAV": {
+              "mordred": 0.1782302033241861,
+              "evil_minion": 0.35646040664837203,
+              "merlin": 0.11632734750686051,
+              "loyal_follower": 0.3489820425205816
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "ZAC": "loyal_follower",
+            "FAV": "merlin",
+            "JINGLES": "evil_minion",
+            "KIM": "evil_minion",
+            "GCAR": "mordred"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 1.0
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 0.5,
+              "mordred": 0.5
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 0.5,
+              "evil_minion": 0.5
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 1.0
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 0.5,
+              "mordred": 0.5
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 0.5,
+              "evil_minion": 0.5
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.26666666666666683,
+              "merlin": 0.1333333333333333,
+              "evil_minion": 0.40000000000000036,
+              "mordred": 0.20000000000000007
+            },
+            "JINGLES": {
+              "loyal_follower": 1.000000000000001
+            },
+            "VENICE": {
+              "loyal_follower": 0.40000000000000036,
+              "merlin": 0.20000000000000007,
+              "evil_minion": 0.26666666666666683,
+              "mordred": 0.1333333333333333
+            },
+            "KIM": {
+              "merlin": 0.1777777777777778,
+              "evil_minion": 0.31111111111111134,
+              "mordred": 0.15555555555555556,
+              "loyal_follower": 0.35555555555555585
+            },
+            "ZAC": {
+              "evil_minion": 0.31111111111111134,
+              "mordred": 0.15555555555555556,
+              "merlin": 0.1777777777777778,
+              "loyal_follower": 0.35555555555555585
+            },
+            "GCAR": {
+              "evil_minion": 0.31111111111111134,
+              "mordred": 0.15555555555555556,
+              "merlin": 0.1777777777777778,
+              "loyal_follower": 0.35555555555555585
+            },
+            "FAV": {
+              "mordred": 0.20000000000000007,
+              "evil_minion": 0.40000000000000036,
+              "merlin": 0.1333333333333333,
+              "loyal_follower": 0.26666666666666683
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "KIM": "merlin",
+            "ZAC": "evil_minion",
+            "GCAR": "evil_minion",
+            "FAV": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.28057847241961653,
+              "merlin": 0.14028923620980827,
+              "evil_minion": 0.38608819424704977,
+              "mordred": 0.193044097123525
+            },
+            "JINGLES": {
+              "loyal_follower": 1.0
+            },
+            "VENICE": {
+              "loyal_follower": 0.3939770857500452,
+              "merlin": 0.1969885428750226,
+              "evil_minion": 0.27268958091662127,
+              "mordred": 0.13634479045831074
+            },
+            "KIM": {
+              "merlin": 0.17945887588912943,
+              "evil_minion": 0.30774891488840767,
+              "mordred": 0.15387445744420375,
+              "loyal_follower": 0.3589177517782589
+            },
+            "ZAC": {
+              "evil_minion": 0.3088428473085319,
+              "mordred": 0.15442142365426598,
+              "merlin": 0.1789119096790672,
+              "loyal_follower": 0.35782381935813445
+            },
+            "GCAR": {
+              "evil_minion": 0.3068502322753969,
+              "mordred": 0.1534251161376984,
+              "merlin": 0.1799082171956348,
+              "loyal_follower": 0.3598164343912696
+            },
+            "FAV": {
+              "mordred": 0.20889011518199588,
+              "evil_minion": 0.4177802303639919,
+              "merlin": 0.12444321815133734,
+              "loyal_follower": 0.24888643630267465
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "merlin",
+            "VENICE": "evil_minion",
+            "ZAC": "evil_minion",
+            "FAV": "mordred"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 0.5,
+              "mordred": 0.5
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 1.0
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 0.5,
+              "evil_minion": 0.5
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 0.5,
+              "mordred": 0.5
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 1.0
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 0.5,
+              "evil_minion": 0.5
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 0.6666666666666667,
+              "mordred": 0.3333333333333333
+            },
+            "JINGLES": {
+              "loyal_follower": 0.6666666666666667,
+              "evil_minion": 0.2222222222222222,
+              "mordred": 0.1111111111111111
+            },
+            "VENICE": {
+              "evil_minion": 0.6666666666666667,
+              "mordred": 0.3333333333333333
+            },
+            "KIM": {
+              "merlin": 1.0000000000000002
+            },
+            "ZAC": {
+              "loyal_follower": 0.6666666666666667,
+              "mordred": 0.1111111111111111,
+              "evil_minion": 0.2222222222222222
+            },
+            "GCAR": {
+              "mordred": 0.1111111111111111,
+              "evil_minion": 0.2222222222222222,
+              "loyal_follower": 0.6666666666666667
+            },
+            "FAV": {
+              "loyal_follower": 1.0000000000000002
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "ZAC": "loyal_follower",
+            "FAV": "loyal_follower",
+            "KIM": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "GCAR": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 0.6666666666666667,
+              "mordred": 0.33333333333333337
+            },
+            "JINGLES": {
+              "loyal_follower": 0.6093607029824755,
+              "evil_minion": 0.26042619801168304,
+              "mordred": 0.13021309900584152
+            },
+            "VENICE": {
+              "evil_minion": 0.6666666666666667,
+              "mordred": 0.33333333333333337
+            },
+            "KIM": {
+              "merlin": 1.0
+            },
+            "ZAC": {
+              "loyal_follower": 0.6953196485087623,
+              "mordred": 0.10156011716374591,
+              "evil_minion": 0.20312023432749182
+            },
+            "GCAR": {
+              "mordred": 0.10156011716374591,
+              "evil_minion": 0.20312023432749182,
+              "loyal_follower": 0.6953196485087623
+            },
+            "FAV": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "ZAC": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "loyal_follower",
+            "KIM": "merlin",
+            "VETO": "evil_minion",
+            "JINGLES": "evil_minion",
+            "VENICE": "mordred"
+          }
+        }
+      },
+      "mordred": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 1.0
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 1.0
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 1.0
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 1.0
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 1.0
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 1.0
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.26666666666666683,
+              "merlin": 0.1333333333333333,
+              "evil_minion": 0.40000000000000036,
+              "mordred": 0.20000000000000007
+            },
+            "JINGLES": {
+              "loyal_follower": 0.35555555555555585,
+              "merlin": 0.1777777777777778,
+              "evil_minion": 0.31111111111111134,
+              "mordred": 0.15555555555555556
+            },
+            "VENICE": {
+              "merlin": 0.20000000000000007,
+              "evil_minion": 0.26666666666666683,
+              "mordred": 0.1333333333333333,
+              "loyal_follower": 0.40000000000000036
+            },
+            "KIM": {
+              "evil_minion": 0.31111111111111134,
+              "mordred": 0.15555555555555556,
+              "merlin": 0.1777777777777778,
+              "loyal_follower": 0.35555555555555585
+            },
+            "ZAC": {
+              "evil_minion": 0.31111111111111134,
+              "mordred": 0.15555555555555556,
+              "merlin": 0.1777777777777778,
+              "loyal_follower": 0.35555555555555585
+            },
+            "GCAR": {
+              "loyal_follower": 1.000000000000001
+            },
+            "FAV": {
+              "mordred": 0.20000000000000007,
+              "evil_minion": 0.40000000000000036,
+              "merlin": 0.1333333333333333,
+              "loyal_follower": 0.26666666666666683
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "VENICE": "merlin",
+            "KIM": "evil_minion",
+            "ZAC": "evil_minion",
+            "FAV": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.28294749838903027,
+              "merlin": 0.1414737491945151,
+              "evil_minion": 0.38371916827763586,
+              "mordred": 0.19185958413881812
+            },
+            "JINGLES": {
+              "loyal_follower": 0.36184255821214645,
+              "merlin": 0.18092127910607333,
+              "evil_minion": 0.3048241084545199,
+              "mordred": 0.15241205422725998
+            },
+            "VENICE": {
+              "merlin": 0.19976636364095623,
+              "evil_minion": 0.26713393938475416,
+              "mordred": 0.13356696969237702,
+              "loyal_follower": 0.39953272728191225
+            },
+            "KIM": {
+              "evil_minion": 0.31838193590649866,
+              "mordred": 0.15919096795324933,
+              "merlin": 0.17414236538008393,
+              "loyal_follower": 0.3482847307601675
+            },
+            "ZAC": {
+              "evil_minion": 0.3011474298095672,
+              "mordred": 0.15057371490478363,
+              "merlin": 0.18275961842854965,
+              "loyal_follower": 0.365519236857099
+            },
+            "GCAR": {
+              "loyal_follower": 1.0
+            },
+            "FAV": {
+              "mordred": 0.21239670908351158,
+              "evil_minion": 0.42479341816702315,
+              "merlin": 0.12093662424982163,
+              "loyal_follower": 0.24187324849964334
+            }
+          },
+          "best": {
+            "VENICE": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "ZAC": "merlin",
+            "VETO": "evil_minion",
+            "JINGLES": "evil_minion",
+            "FAV": "mordred"
+          }
+        }
+      },
+      "loyal_follower3": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.15384615384615383,
+              "evil_minion": 0.5128205128205134,
+              "mordred": 0.2564102564102564,
+              "merlin": 0.07692307692307691
+            },
+            "JINGLES": {
+              "evil_minion": 0.35897435897435925,
+              "mordred": 0.17948717948717946,
+              "loyal_follower": 0.3076923076923078,
+              "merlin": 0.15384615384615383
+            },
+            "VENICE": {
+              "loyal_follower": 0.4102564102564107,
+              "merlin": 0.2051282051282051,
+              "evil_minion": 0.2564102564102564,
+              "mordred": 0.1282051282051282
+            },
+            "KIM": {
+              "merlin": 0.2051282051282051,
+              "evil_minion": 0.2564102564102564,
+              "mordred": 0.1282051282051282,
+              "loyal_follower": 0.4102564102564107
+            },
+            "ZAC": {
+              "evil_minion": 0.2564102564102564,
+              "mordred": 0.1282051282051282,
+              "merlin": 0.2051282051282051,
+              "loyal_follower": 0.4102564102564107
+            },
+            "GCAR": {
+              "mordred": 0.17948717948717946,
+              "evil_minion": 0.35897435897435925,
+              "merlin": 0.15384615384615383,
+              "loyal_follower": 0.3076923076923078
+            },
+            "FAV": {
+              "loyal_follower": 0.9999999999999989
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "FAV": "loyal_follower",
+            "KIM": "merlin",
+            "JINGLES": "evil_minion",
+            "ZAC": "evil_minion",
+            "GCAR": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.17206262932681207,
+              "evil_minion": 0.4946040373398554,
+              "mordred": 0.24730201866992776,
+              "merlin": 0.08603131466340604
+            },
+            "JINGLES": {
+              "evil_minion": 0.362107222842004,
+              "mordred": 0.181053611421002,
+              "loyal_follower": 0.30455944382466366,
+              "merlin": 0.15227972191233188
+            },
+            "VENICE": {
+              "loyal_follower": 0.3913391150095338,
+              "merlin": 0.19566955750476697,
+              "evil_minion": 0.27532755165713363,
+              "mordred": 0.1376637758285668
+            },
+            "KIM": {
+              "merlin": 0.21078500313275486,
+              "evil_minion": 0.24509666040115802,
+              "mordred": 0.122548330200579,
+              "loyal_follower": 0.42157000626550956
+            },
+            "ZAC": {
+              "evil_minion": 0.2549131299448767,
+              "mordred": 0.12745656497243835,
+              "merlin": 0.20587676836089552,
+              "loyal_follower": 0.411753536721791
+            },
+            "GCAR": {
+              "mordred": 0.18397569890748752,
+              "evil_minion": 0.367951397814975,
+              "merlin": 0.14935763442584624,
+              "loyal_follower": 0.2987152688516926
+            },
+            "FAV": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "FAV": "loyal_follower",
+            "ZAC": "merlin",
+            "JINGLES": "evil_minion",
+            "KIM": "evil_minion",
+            "GCAR": "mordred"
+          }
+        }
+      }
+    },
+    "5": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.5156249999999993,
+              "merlin": 0.17187500000000003,
+              "evil_minion": 0.20833333333333343,
+              "mordred": 0.10416666666666663
+            },
+            "JINGLES": {
+              "loyal_follower": 0.5156249999999993,
+              "merlin": 0.17187500000000003,
+              "evil_minion": 0.20833333333333343,
+              "mordred": 0.10416666666666663
+            },
+            "VENICE": {
+              "loyal_follower": 0.42187499999999956,
+              "merlin": 0.14062499999999997,
+              "evil_minion": 0.2916666666666667,
+              "mordred": 0.14583333333333331
+            },
+            "KIM": {
+              "merlin": 0.20312500000000008,
+              "evil_minion": 0.12499999999999994,
+              "mordred": 0.0625,
+              "loyal_follower": 0.609375
+            },
+            "ZAC": {
+              "evil_minion": 0.3333333333333332,
+              "mordred": 0.16666666666666669,
+              "merlin": 0.12499999999999994,
+              "loyal_follower": 0.3749999999999997
+            },
+            "GCAR": {
+              "evil_minion": 0.3749999999999997,
+              "mordred": 0.18750000000000006,
+              "merlin": 0.10937499999999996,
+              "loyal_follower": 0.3281249999999999
+            },
+            "FAV": {
+              "mordred": 0.2291666666666668,
+              "evil_minion": 0.45833333333333276,
+              "merlin": 0.07812499999999999,
+              "loyal_follower": 0.23437500000000014
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "KIM": "merlin",
+            "ZAC": "evil_minion",
+            "GCAR": "evil_minion",
+            "FAV": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.519001968792292,
+              "merlin": 0.17300065626409736,
+              "evil_minion": 0.2053315832957412,
+              "mordred": 0.10266579164787054
+            },
+            "JINGLES": {
+              "loyal_follower": 0.5150080551072822,
+              "merlin": 0.17166935170242748,
+              "evil_minion": 0.20888172879352762,
+              "mordred": 0.10444086439676384
+            },
+            "VENICE": {
+              "loyal_follower": 0.40542616754501565,
+              "merlin": 0.13514205584833866,
+              "evil_minion": 0.3062878510710978,
+              "mordred": 0.153143925535549
+            },
+            "KIM": {
+              "merlin": 0.20446635203506677,
+              "evil_minion": 0.12142306123982306,
+              "mordred": 0.06071153061991151,
+              "loyal_follower": 0.6133990561051995
+            },
+            "ZAC": {
+              "evil_minion": 0.32839399411870895,
+              "mordred": 0.16419699705935448,
+              "merlin": 0.12685225220548452,
+              "loyal_follower": 0.3805567566164532
+            },
+            "GCAR": {
+              "evil_minion": 0.3690256052221295,
+              "mordred": 0.18451280261106484,
+              "merlin": 0.11161539804170176,
+              "loyal_follower": 0.33484619412510513
+            },
+            "FAV": {
+              "mordred": 0.2303280881294872,
+              "evil_minion": 0.4606561762589743,
+              "merlin": 0.07725393390288492,
+              "loyal_follower": 0.23176180170865482
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "merlin",
+            "VENICE": "evil_minion",
+            "ZAC": "evil_minion",
+            "FAV": "mordred"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 1.0
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 0.5,
+              "mordred": 0.5
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 0.5,
+              "evil_minion": 0.5
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 1.0
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 0.5,
+              "mordred": 0.5
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 0.5,
+              "evil_minion": 0.5
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.3636363636363638,
+              "merlin": 0.18181818181818185,
+              "evil_minion": 0.30303030303030315,
+              "mordred": 0.15151515151515152
+            },
+            "JINGLES": {
+              "loyal_follower": 0.999999999999998
+            },
+            "VENICE": {
+              "loyal_follower": 0.3636363636363638,
+              "merlin": 0.18181818181818185,
+              "evil_minion": 0.30303030303030315,
+              "mordred": 0.15151515151515152
+            },
+            "KIM": {
+              "merlin": 0.24242424242424251,
+              "evil_minion": 0.18181818181818185,
+              "mordred": 0.09090909090909091,
+              "loyal_follower": 0.48484848484848514
+            },
+            "ZAC": {
+              "evil_minion": 0.3636363636363638,
+              "mordred": 0.18181818181818185,
+              "merlin": 0.15151515151515152,
+              "loyal_follower": 0.30303030303030315
+            },
+            "GCAR": {
+              "evil_minion": 0.3636363636363638,
+              "mordred": 0.18181818181818185,
+              "merlin": 0.15151515151515152,
+              "loyal_follower": 0.30303030303030315
+            },
+            "FAV": {
+              "mordred": 0.24242424242424251,
+              "evil_minion": 0.48484848484848514,
+              "merlin": 0.09090909090909091,
+              "loyal_follower": 0.18181818181818185
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "KIM": "merlin",
+            "ZAC": "evil_minion",
+            "GCAR": "evil_minion",
+            "FAV": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.37345745412758524,
+              "merlin": 0.18672872706379262,
+              "evil_minion": 0.2932092125390811,
+              "mordred": 0.14660460626954055
+            },
+            "JINGLES": {
+              "loyal_follower": 1.0
+            },
+            "VENICE": {
+              "loyal_follower": 0.3571269247117648,
+              "merlin": 0.17856346235588236,
+              "evil_minion": 0.3095397419549016,
+              "mordred": 0.15476987097745082
+            },
+            "KIM": {
+              "merlin": 0.24281949597521668,
+              "evil_minion": 0.18102767471623282,
+              "mordred": 0.09051383735811645,
+              "loyal_follower": 0.48563899195043364
+            },
+            "ZAC": {
+              "evil_minion": 0.36978884712644616,
+              "mordred": 0.18489442356322303,
+              "merlin": 0.14843890977011018,
+              "loyal_follower": 0.2968778195402202
+            },
+            "GCAR": {
+              "evil_minion": 0.3490168996301455,
+              "mordred": 0.17450844981507277,
+              "merlin": 0.1588248835182604,
+              "loyal_follower": 0.3176497670365208
+            },
+            "FAV": {
+              "mordred": 0.2487088120165959,
+              "evil_minion": 0.4974176240331916,
+              "merlin": 0.08462452131673728,
+              "loyal_follower": 0.16924904263347457
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "merlin",
+            "VENICE": "evil_minion",
+            "ZAC": "evil_minion",
+            "FAV": "mordred"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 0.5,
+              "mordred": 0.5
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 1.0
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 0.5,
+              "evil_minion": 0.5
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 0.5,
+              "mordred": 0.5
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 1.0
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 0.5,
+              "evil_minion": 0.5
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 0.6666666666666666,
+              "mordred": 0.3333333333333333
+            },
+            "JINGLES": {
+              "loyal_follower": 0.9999999999999999
+            },
+            "VENICE": {
+              "evil_minion": 0.6666666666666666,
+              "mordred": 0.3333333333333333
+            },
+            "KIM": {
+              "merlin": 0.9999999999999999
+            },
+            "ZAC": {
+              "loyal_follower": 0.5,
+              "mordred": 0.16666666666666666,
+              "evil_minion": 0.3333333333333333
+            },
+            "GCAR": {
+              "mordred": 0.16666666666666666,
+              "evil_minion": 0.3333333333333333,
+              "loyal_follower": 0.5
+            },
+            "FAV": {
+              "loyal_follower": 0.9999999999999999
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "ZAC": "loyal_follower",
+            "FAV": "loyal_follower",
+            "KIM": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "GCAR": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 0.6666666666666666,
+              "mordred": 0.3333333333333333
+            },
+            "JINGLES": {
+              "loyal_follower": 1.0
+            },
+            "VENICE": {
+              "evil_minion": 0.6666666666666666,
+              "mordred": 0.3333333333333333
+            },
+            "KIM": {
+              "merlin": 1.0
+            },
+            "ZAC": {
+              "loyal_follower": 0.42857142857142866,
+              "mordred": 0.19047619047619047,
+              "evil_minion": 0.38095238095238093
+            },
+            "GCAR": {
+              "mordred": 0.14285714285714288,
+              "evil_minion": 0.28571428571428575,
+              "loyal_follower": 0.5714285714285714
+            },
+            "FAV": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "loyal_follower",
+            "KIM": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        }
+      },
+      "mordred": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 1.0
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 1.0
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 1.0
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "evil_minion": 1.0
+            },
+            "JINGLES": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "VENICE": {
+              "evil_minion": 1.0
+            },
+            "KIM": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "ZAC": {
+              "mordred": 1.0
+            },
+            "GCAR": {
+              "loyal_follower": 0.75,
+              "merlin": 0.25
+            },
+            "FAV": {
+              "merlin": 0.25,
+              "loyal_follower": 0.75
+            }
+          },
+          "best": {
+            "JINGLES": "loyal_follower",
+            "KIM": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "FAV": "merlin",
+            "VETO": "evil_minion",
+            "VENICE": "evil_minion",
+            "ZAC": "mordred"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.47619047619047616,
+              "merlin": 0.23809523809523808,
+              "evil_minion": 0.19047619047619047,
+              "mordred": 0.09523809523809523
+            },
+            "JINGLES": {
+              "loyal_follower": 0.47619047619047616,
+              "merlin": 0.23809523809523808,
+              "evil_minion": 0.19047619047619047,
+              "mordred": 0.09523809523809523
+            },
+            "VENICE": {
+              "merlin": 0.14285714285714285,
+              "evil_minion": 0.38095238095238093,
+              "mordred": 0.19047619047619047,
+              "loyal_follower": 0.2857142857142857
+            },
+            "KIM": {
+              "evil_minion": 0.19047619047619047,
+              "mordred": 0.09523809523809523,
+              "merlin": 0.23809523809523808,
+              "loyal_follower": 0.47619047619047616
+            },
+            "ZAC": {
+              "evil_minion": 0.47619047619047616,
+              "mordred": 0.23809523809523808,
+              "merlin": 0.09523809523809523,
+              "loyal_follower": 0.19047619047619047
+            },
+            "GCAR": {
+              "loyal_follower": 0.9999999999999982
+            },
+            "FAV": {
+              "mordred": 0.2857142857142857,
+              "evil_minion": 0.5714285714285712,
+              "merlin": 0.047619047619047616,
+              "loyal_follower": 0.09523809523809523
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "VENICE": "merlin",
+            "KIM": "evil_minion",
+            "ZAC": "evil_minion",
+            "FAV": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.48310600656143154,
+              "merlin": 0.24155300328071577,
+              "evil_minion": 0.183560660105235,
+              "mordred": 0.09178033005261749
+            },
+            "JINGLES": {
+              "loyal_follower": 0.48088908293526444,
+              "merlin": 0.2404445414676322,
+              "evil_minion": 0.1857775837314021,
+              "mordred": 0.09288879186570105
+            },
+            "VENICE": {
+              "merlin": 0.14507272469951893,
+              "evil_minion": 0.3765212172676286,
+              "mordred": 0.18826060863381433,
+              "loyal_follower": 0.2901454493990378
+            },
+            "KIM": {
+              "evil_minion": 0.19520003923053972,
+              "mordred": 0.09760001961526986,
+              "merlin": 0.23573331371806336,
+              "loyal_follower": 0.4714666274361268
+            },
+            "ZAC": {
+              "evil_minion": 0.48109327120290796,
+              "mordred": 0.24054663560145398,
+              "merlin": 0.09278669773187924,
+              "loyal_follower": 0.18557339546375848
+            },
+            "GCAR": {
+              "loyal_follower": 1.0
+            },
+            "FAV": {
+              "mordred": 0.288923614231143,
+              "evil_minion": 0.577847228462286,
+              "merlin": 0.044409719102190215,
+              "loyal_follower": 0.08881943820438044
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "JINGLES": "loyal_follower",
+            "GCAR": "loyal_follower",
+            "VENICE": "merlin",
+            "KIM": "evil_minion",
+            "ZAC": "evil_minion",
+            "FAV": "mordred"
+          }
+        }
+      },
+      "loyal_follower3": {
+        "Strict": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.26666666666666666,
+              "evil_minion": 0.39999999999999986,
+              "mordred": 0.2,
+              "merlin": 0.13333333333333333
+            },
+            "JINGLES": {
+              "evil_minion": 0.26666666666666666,
+              "mordred": 0.13333333333333333,
+              "loyal_follower": 0.39999999999999986,
+              "merlin": 0.2
+            },
+            "VENICE": {
+              "loyal_follower": 0.26666666666666666,
+              "merlin": 0.13333333333333333,
+              "evil_minion": 0.39999999999999986,
+              "mordred": 0.2
+            },
+            "KIM": {
+              "merlin": 0.33333333333333326,
+              "loyal_follower": 0.6666666666666666
+            },
+            "ZAC": {
+              "evil_minion": 0.39999999999999986,
+              "mordred": 0.2,
+              "merlin": 0.13333333333333333,
+              "loyal_follower": 0.26666666666666666
+            },
+            "GCAR": {
+              "mordred": 0.26666666666666666,
+              "evil_minion": 0.5333333333333331,
+              "merlin": 0.06666666666666667,
+              "loyal_follower": 0.13333333333333333
+            },
+            "FAV": {
+              "loyal_follower": 1.0000000000000004
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "VENICE": "loyal_follower",
+            "FAV": "loyal_follower",
+            "KIM": "merlin",
+            "JINGLES": "evil_minion",
+            "ZAC": "evil_minion",
+            "GCAR": "mordred"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "VETO": {
+              "loyal_follower": 0.2781066972105588,
+              "evil_minion": 0.3885599694561079,
+              "mordred": 0.19427998472805394,
+              "merlin": 0.1390533486052794
+            },
+            "JINGLES": {
+              "evil_minion": 0.2781066972105588,
+              "mordred": 0.1390533486052794,
+              "loyal_follower": 0.3885599694561079,
+              "merlin": 0.19427998472805394
+            },
+            "VENICE": {
+              "loyal_follower": 0.25359234604507563,
+              "merlin": 0.12679617302253782,
+              "evil_minion": 0.413074320621591,
+              "mordred": 0.2065371603107955
+            },
+            "KIM": {
+              "merlin": 0.33333333333333337,
+              "loyal_follower": 0.6666666666666666
+            },
+            "ZAC": {
+              "evil_minion": 0.39673141984460225,
+              "mordred": 0.19836570992230113,
+              "merlin": 0.13496762341103222,
+              "loyal_follower": 0.2699352468220645
+            },
+            "GCAR": {
+              "mordred": 0.26176379643357006,
+              "evil_minion": 0.5235275928671401,
+              "merlin": 0.0715695368997633,
+              "loyal_follower": 0.1431390737995266
+            },
+            "FAV": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "VETO": "loyal_follower",
+            "KIM": "loyal_follower",
+            "FAV": "loyal_follower",
+            "ZAC": "merlin",
+            "JINGLES": "evil_minion",
+            "VENICE": "evil_minion",
+            "GCAR": "mordred"
+          }
+        }
+      }
+    }
+  }
+}

@@ -301,7 +301,7 @@ def evaluate(
                 mname = f"CSP_{setting_clean}"
                 scores["experiments"][exp_name]["results"][mname] = {}
 
-                # Include all views (MRL, PCV, MRG, LSV, EVM, Obj) and both marginal + MAP
+                # Include views matching reference.json metrics (marginal only for AvalonLogs)
                 VALID_VIEWS = {"MRL", "PCV", "MRG", "LSV", "EVM", "Obj"}
                 for view, vals in views_data.items():
                     if view not in VALID_VIEWS:
@@ -309,11 +309,8 @@ def evaluate(
                     if not vals:
                         continue
                     margs = [v[0] for v in vals]
-                    mapss = [v[1] for v in vals]
                     avg_marg = round(sum(margs) / len(margs), 4)
-                    avg_map = round(sum(mapss) / len(mapss), 4)
                     scores["experiments"][exp_name]["results"][mname][f"{view}_marginal"] = avg_marg
-                    scores["experiments"][exp_name]["results"][mname][f"{view}_map"] = avg_map
 
     elif dataset == "avalonnlu":
         game_metrics = []
