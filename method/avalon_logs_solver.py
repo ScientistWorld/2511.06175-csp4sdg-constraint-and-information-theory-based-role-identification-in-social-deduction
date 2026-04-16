@@ -127,13 +127,32 @@ def _build_hypo_predicate(c: Dict):
     return lambda w: True
 
 
+def _build_conditional_hypo_predicate(c: Dict, schema):
+    """Build a conditional predicate matching sdg_framework.add_hypothesis behavior.
+
+    The conditional is: if the speaker is evil, the constraint is always satisfied;
+    if the speaker is good, the raw predicate must hold. This matches the paper's
+    formulation where evil players' statements don't constrain the world.
+    """
+    speaker = c["args"]["speaker"]
+    raw_pred = _build_hypo_predicate(c)
+
+    def cond(w, sp=speaker, pr=raw_pred, sc=schema):
+        return (not sc.is_good(w[sp])) or pr(w)
+    return cond
+
+
 def compute_all_ig_weights(
     worlds: List[Dict],
     hypo_list: List[Dict],
+    schema=None,
     beta_ig: float = 1.0,
+    use_conditional: bool = True,
 ) -> Dict[int, float]:
     """
     Precompute IG weight for each hypothesis using binary entropy.
+    Uses conditional predicates (matching sdg_framework.add_hypothesis) when
+    use_conditional=True and schema is provided.
     Returns a dict mapping id(constraint) -> IG weight.
     """
     n_worlds = len(worlds)
@@ -147,7 +166,10 @@ def compute_all_ig_weights(
 
     ig_weights = {}
     for h in hypo_list:
-        pred = _build_hypo_predicate(h)
+        if use_conditional and schema is not None:
+            pred = _build_conditional_hypo_predicate(h, schema)
+        else:
+            pred = _build_hypo_predicate(h)
         true_cnt = sum(1 for w in worlds if pred(w))
         if true_cnt == 0 or true_cnt == n_worlds:
             ig_weights[id(h)] = 0.0
@@ -210,8 +232,8 @@ def solve_one(
             obj_model.add_evidence(build_pred(schema, ev_c))
         obj_worlds = obj_model._worlds()
 
-        # Precompute IG weights once for the objective view
-        obj_ig_weights = compute_all_ig_weights(obj_worlds, all_hypos)
+        # Precompute IG weights once for the objective view (using conditional predicates)
+        obj_ig_weights = compute_all_ig_weights(obj_worlds, all_hypos, schema=schema)
 
         # Build perspective extras for each view
         perspective = {"objective": []}
@@ -264,9 +286,9 @@ def solve_one(
             for ex in extras:
                 base.add_evidence(ex)
 
-            # Precompute worlds and IG weights for this view
+            # Precompute worlds and IG weights for this view (using conditional predicates)
             view_worlds = base._worlds()
-            view_ig_weights = compute_all_ig_weights(view_worlds, all_hypos)
+            view_ig_weights = compute_all_ig_weights(view_worlds, all_hypos, schema=schema)
 
             for title, ua, uh, aw, only_today in settings:
                 model = deepcopy(base)

@@ -256,9 +256,11 @@ def _build_hypo_predicate(c: Dict):
 def compute_ig_weights(
     worlds: List[Dict],
     hypo_list: List[Dict],
+    schema=None,
     beta_ig: float = 1.0,
 ) -> List[float]:
-    """Compute IG weights for hypotheses. Returns list in same order as hypo_list."""
+    """Compute IG weights for hypotheses using conditional predicates.
+    Returns list in same order as hypo_list."""
     n_worlds = len(worlds)
     if n_worlds == 0:
         return [0.0] * len(hypo_list)
@@ -270,7 +272,16 @@ def compute_ig_weights(
 
     weights = []
     for h in hypo_list:
-        pred = _build_hypo_predicate(h)
+        # Use conditional predicate (matching sdg_framework.add_hypothesis behavior)
+        # If speaker is evil, constraint always satisfied; if good, raw predicate must hold
+        if schema is not None:
+            speaker = h["args"]["speaker"]
+            raw_pred = _build_hypo_predicate(h)
+            def cond_pred(w, sp=speaker, pr=raw_pred, sc=schema):
+                return (not sc.is_good(w[sp])) or pr(w)
+            pred = cond_pred
+        else:
+            pred = _build_hypo_predicate(h)
         true_cnt = sum(1 for w in worlds if pred(w))
         if true_cnt == 0 or true_cnt == n_worlds:
             weights.append(0.0)
@@ -345,8 +356,8 @@ def solve_one(
         all_worlds_list = list(enumerate_assignments(names, schema))
         obj_worlds = filter_worlds(all_worlds_list, hard_preds)
 
-        # Precompute IG weights for objective view
-        obj_ig_weights = compute_ig_weights(obj_worlds, all_hypos)
+        # Precompute IG weights for objective view (using conditional predicates)
+        obj_ig_weights = compute_ig_weights(obj_worlds, all_hypos, schema=schema)
 
         # Build perspectives
         perspective = {"objective": []}
@@ -402,8 +413,8 @@ def solve_one(
                     out["quests"][str(idx)][view][title] = {"posterior": {}, "best": {}}
                 continue
 
-            # Precompute IG weights for this view (from worlds with hard constraints only)
-            view_ig_weights = compute_ig_weights(view_worlds, all_hypos)
+            # Precompute IG weights for this view (using conditional predicates)
+            view_ig_weights = compute_ig_weights(view_worlds, all_hypos, schema=schema)
 
             for title, ua, uh, aw, only_today in settings:
                 # Select hypotheses for this setting
