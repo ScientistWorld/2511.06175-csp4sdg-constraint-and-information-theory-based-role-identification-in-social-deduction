@@ -1,24 +1,25 @@
 #!/bin/bash
 # Re-solve ALL AvalonLogs games with fixed IG computation (conditional predicates).
+# Uses QUICK_SETTINGS (Strict + HypIG only) for efficiency.
 # The IG fix ensures hypothesis weights match the paper's formulation.
 set -e
 cd /home/user
 
-echo "=== CSP4SDG: Re-solve ALL games with fixed IG computation ==="
+echo "=== CSP4SDG: Re-solve ALL games with fixed IG ==="
 echo "Start: $(date)"
 
-# --- Step 1: Clear old solve results (IG weights were computed incorrectly) ---
+# --- Step 1: Clear old solve results (IG was computed incorrectly) ---
 echo "Clearing old solve results..."
 rm -rf data/avalonlogs_solve/*
 echo "Cleared."
 
-# --- Step 2: Re-solve all games with the fixed solver ---
+# --- Step 2: Re-solve all games with fixed solver (QUICK: Strict + HypIG) ---
 python3 << 'PYEOF'
 import sys, json, time
 from pathlib import Path
 
 sys.path.insert(0, '/home/user')
-from method.avalon_logs_solver import solve_one, ALL_SETTINGS
+from method.avalon_logs_solver import solve_one, QUICK_SETTINGS
 
 in_dir = Path("data/avalonlogs_constraints")
 out_dir = Path("data/avalonlogs_solve")
@@ -39,9 +40,9 @@ from collections import Counter
 sizes = Counter(get_n_players(f) for f in all_files)
 for sz in sorted(sizes):
     print(f"  {sz}p: {sizes[sz]} games")
-print(f"Total: {len(all_files)} games")
+print(f"Total: {len(all_files)} games, settings: {[s[0] for s in QUICK_SETTINGS]}")
 
-# Time budget: 20 hours (leaving margin)
+# Time budget: 20 hours
 TIME_BUDGET = 20 * 60 * 60
 
 t0_total = time.time()
@@ -58,11 +59,11 @@ for fp in all_files:
         continue
 
     try:
-        result = solve_one(fp, settings=ALL_SETTINGS)
+        result = solve_one(fp, settings=QUICK_SETTINGS)
         dst.write_text(json.dumps(result), encoding="utf-8")
         solved += 1
         elapsed = time.time() - t0_total
-        if solved % 100 == 0:
+        if solved % 200 == 0:
             rate = solved / elapsed if elapsed > 0 else 0
             remaining = len(all_files) - solved
             eta = remaining / rate / 60 if rate > 0 else 0

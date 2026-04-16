@@ -226,6 +226,17 @@ def evaluate(
     scores = {"experiments": {}, "metadata": {"dataset": dataset, "condition": condition}}
 
     if dataset == "avalonlogs":
+        # Load reference.json to know which methods to include
+        ref_path = output_path.parent / "reference.json"
+        ref_experiments = {}
+        if ref_path.exists():
+            try:
+                with open(ref_path, encoding="utf-8") as f:
+                    ref_data = json.load(f)
+                ref_experiments = ref_data.get("experiments", {})
+            except Exception:
+                pass
+
         # Collect per-game metrics, keyed by (player_count, setting, view)
         # Then group by player_count and produce experiments matching reference.json
         by_size: Dict[int, Dict[str, Dict[str, List]]] = defaultdict(
@@ -299,6 +310,13 @@ def evaluate(
                 # reference.json uses "CSP_Strict", "CSP_HypIG", etc.
                 setting_clean = setting.replace("+", "")
                 mname = f"CSP_{setting_clean}"
+
+                # Only include methods that exist in reference.json for this experiment
+                ref_exp = ref_experiments.get(exp_name, {})
+                ref_methods = set(ref_exp.get("results", {}).keys())
+                if ref_methods and mname not in ref_methods:
+                    continue
+
                 scores["experiments"][exp_name]["results"][mname] = {}
 
                 # Include views matching reference.json metrics (marginal only for AvalonLogs)
