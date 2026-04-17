@@ -425,12 +425,44 @@ def check_imports_not_gitignored() -> list[str]:
         return errors
     tracked = {line.strip() for line in tracked_result.stdout.splitlines() if line.strip()}
 
+    import glob as _glob
+
     for base, callsites in sorted(import_map.items(), key=lambda kv: str(kv[0])):
         rel_base = base.relative_to(WORKSPACE_DIR)
         py_rel = str(rel_base) + ".py"
         pkg_rel = str(rel_base) + "/__init__.py"
         if py_rel in tracked or pkg_rel in tracked:
             continue  # import target is tracked — fresh clone is fine
+        # Compiled extensions (.so, .pyd, .cpython-*.so) are built at install
+        # time and are never committed to git. Skip if one exists on disk or
+        # if the parent directory contains a build system file that would
+        # produce one (setup.py, CMakeLists.txt, meson.build, pyproject.toml
+        # with a compiled backend, or pybind11 sources).
+        module_name = base.name
+        parent_dir = base.parent
+        ext_globs = [
+            str(parent_dir / f"{module_name}.*.so"),
+            str(parent_dir / f"{module_name}.*.pyd"),
+            str(parent_dir / f"{module_name}.so"),
+            str(parent_dir / f"{module_name}.pyd"),
+        ]
+        if any(_glob.glob(g) for g in ext_globs):
+            continue  # compiled extension on disk — built at install time
+        build_markers = ("setup.py", "CMakeLists.txt", "meson.build", "pyproject.toml",
+                         "Cargo.toml")
+        # Walk up from the module's parent to the workspace root looking for
+        # a build system file that would produce this compiled extension.
+        search = parent_dir
+        _found_build = False
+        while True:
+            if any((search / m).exists() for m in build_markers):
+                _found_build = True
+                break
+            if search == WORKSPACE_DIR or search == search.parent:
+                break
+            search = search.parent
+        if _found_build:
+            continue
         for source_file, lineno in callsites:
             rel_source = source_file.relative_to(WORKSPACE_DIR)
             on_disk = (
