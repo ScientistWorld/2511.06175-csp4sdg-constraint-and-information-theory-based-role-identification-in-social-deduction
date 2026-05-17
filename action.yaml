@@ -1,4 +1,9 @@
-action: done
+# This iteration writes files only — do NOT submit compute jobs.
+# Once you set action to 'done', STOP immediately.
+# Do NOT sleep, poll, or wait. The system reads this file
+# only after your turn ends.
+action: pending
 gpus: 0
-milestone: none
-notes: "Deterministic stratified 50/50 train/test eval split written; scripts only, no scores produced."
+test: false
+milestone: core_claim_plus
+notes: ""
