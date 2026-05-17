@@ -1,5 +1,16 @@
 # Progress
 
+## Continuation Audit
+
+2026-05-17 audit restored the prior `core_claim_plus` milestone. The implementation is the paper's actual CSP4SDG computation rather than a surrogate: it enumerates feasible role worlds, applies hard constraints, scores assertions multiplicatively, scores hypotheses additively with IG/manual weights, and computes posterior marginals plus MAP assignments. The evaluator is independent from `method/` and reads solver artifacts from `data/avalonlogs_solve`.
+
+Verification performed during the audit:
+- `scripts/evaluate.sh avalonlogs data/avalonlogs_solve tmp/audit_scores.json` regenerated six AvalonLogs experiment groups.
+- `python3 validate.py --compare` passes.
+- The AvalonLogs download URL in `scripts/download.sh` resolves through GitHub to a 200 response.
+
+Packaging fix: `environment/container.def` no longer runs `pip install` in `%post`; this pure-Python environment keeps dependency setup in `environment/setup.sh`.
+
 ## What Works
 
 1. **CSP solver** (method/sdg_framework.py): Complete implementation of SDGModel class with:
