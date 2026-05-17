@@ -2,4 +2,4 @@ action: submit
 gpus: 0
 test: false
 milestone: core_claim_plus
-notes: "CPU-only resume job: solve the remaining 861 AvalonLogs 9p/10p games with the CSP4SDG Strict+HypIG solver, then rerun evaluation and validate scores."
+notes: "CPU-only retry after fixing download idempotency: raw AvalonLogs data is already present, so the job skips network fetch, solves the remaining 861 large games, then evaluates and validates."

@@ -55,7 +55,9 @@ while the paper uses LLM-based constraint extraction from dialogue.
 ## Remaining
 
 1. **Full dataset solve**: 861 games remaining across all sizes (9p: 427, 10p: 434 remaining).
-   A CPU resume job has been prepared to finish these larger games.
+   A CPU resume job has been prepared to finish these larger games. The first retry job failed before
+   solving because the compute node attempted a network download; scripts now skip download entirely
+   when raw AvalonLogs files are already present.
 2. **Avalon-NLU and Mafia**: Require LLM-based constraint extraction (API needed). Cannot reproduce without API.
 3. **LLM baselines**: Cannot reproduce without LLM API access or local LLM.
 
@@ -66,6 +68,10 @@ while the paper uses LLM-based constraint extraction from dialogue.
    and the paper's LLM-based extraction.
 2. **Avalon-NLU and Mafia unavailable**: No API available for LLM-based constraint extraction.
 3. **9p/10p partial coverage**: 416/843 nine-player and 166/600 ten-player games are solved so far, due to time constraints.
+4. **Job 1b3b35a6-d2f infrastructure failure**: The job exited at the raw-data step because
+   `scripts/download.sh` fetched GitHub before checking the existing raw data directory. This was fixed
+   by making both `scripts/download.sh` and `scripts/run.sh` treat an existing non-empty
+   `data/avalonlogs_raw/` directory as complete and offline-safe.
 
 ## Deviations from Paper
 

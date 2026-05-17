@@ -4,6 +4,12 @@
 
 ## Progress Log
 
+### [2026-05-17 03:43] - core_claim_plus
+- Reviewed failed CPU resume job `1b3b35a6-d2f`: it exited before solving because the compute node
+  attempted to fetch the AvalonLogs GitHub archive and hit the no-internet restriction.
+- Patched `scripts/download.sh` and `scripts/run.sh` so existing raw AvalonLogs files skip all network
+  fetches, preserving the same resumable solve/evaluate plan for the remaining 861 games.
+
 ### [2026-05-17 03:40] - core_claim_plus
 - Verified the existing implementation is the paper's actual CSP4SDG solver: exact role-count enumeration, hard evidence/phenomenon pruning, soft assertions, IG/manual hypotheses, posterior normalization, and marginal/MAP extraction.
 - Re-ran `scripts/evaluate.sh` on the current 11,533 solved AvalonLogs outputs; `python3 validate.py --compare` passes.

@@ -12,7 +12,11 @@ echo "Start: $(date)"
 mkdir -p data/avalonlogs_raw data/avalonlogs_constraints data/avalonlogs_solve scoring
 
 echo "[1/4] Ensure raw data is present"
-bash scripts/download.sh
+if [ -n "$(find data/avalonlogs_raw -maxdepth 1 -type f -print -quit 2>/dev/null)" ]; then
+    echo "AvalonLogs raw data already present: $(find data/avalonlogs_raw -maxdepth 1 -type f | wc -l) files"
+else
+    bash scripts/download.sh
+fi
 
 echo "[2/4] Convert any raw logs missing constraint files"
 python3 - <<'PY'

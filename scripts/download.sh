@@ -19,6 +19,14 @@ cd /home/user
 
 mkdir -p data/downloads data/avalonlogs_raw
 
+if [ -n "$(find data/avalonlogs_raw -maxdepth 1 -type f -print -quit 2>/dev/null)" ]; then
+    echo "AvalonLogs raw data already present; skipping network fetch."
+    echo "Download complete."
+    echo "Data locations:"
+    echo "  AvalonLogs raw: data/avalonlogs_raw/ ($(find data/avalonlogs_raw -maxdepth 1 -type f | wc -l) files)"
+    exit 0
+fi
+
 if [ ! -s data/downloads/avalonlogs-master.zip ]; then
     echo "Fetching AvalonLogs archive from GitHub..."
     curl -L \
