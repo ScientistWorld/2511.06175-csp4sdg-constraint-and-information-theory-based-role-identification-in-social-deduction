@@ -2,8 +2,7 @@
 # Once you set action to 'done', STOP immediately.
 # Do NOT sleep, poll, or wait. The system reads this file
 # only after your turn ends.
-action: pending
+action: done
 gpus: 0
-test: false
-milestone: core_claim_plus
-notes: ""
+milestone: none
+notes: "Improved train/test anti-shortcut design: added AvalonLogs MAP triangulation, added Mafia slice coverage, removed test dependency on train scores, completed metric descriptions, and wrote DESIGN_NOTES.md. Commit bfc1e940."
