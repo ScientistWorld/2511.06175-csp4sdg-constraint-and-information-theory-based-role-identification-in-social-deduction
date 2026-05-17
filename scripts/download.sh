@@ -15,29 +15,34 @@
 
 set -e
 
-cd /home/user
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$REPO_ROOT"
 
-mkdir -p data/downloads data/avalonlogs_raw
+RAW_DIR="data/downloads/avalonlogs_raw"
+ARCHIVE="data/downloads/avalonlogs-master.zip"
+EXTRACT_DIR="data/downloads/avalonlogs_extract"
 
-if [ -n "$(find data/avalonlogs_raw -maxdepth 1 -type f -print -quit 2>/dev/null)" ]; then
+mkdir -p data/downloads "$RAW_DIR"
+
+if [ -n "$(find "$RAW_DIR" -maxdepth 1 -type f -print -quit 2>/dev/null)" ]; then
     echo "AvalonLogs raw data already present; skipping network fetch."
     echo "Download complete."
     echo "Data locations:"
-    echo "  AvalonLogs raw: data/avalonlogs_raw/ ($(find data/avalonlogs_raw -maxdepth 1 -type f | wc -l) files)"
+    echo "  AvalonLogs raw: $RAW_DIR/ ($(find "$RAW_DIR" -maxdepth 1 -type f | wc -l) files)"
     exit 0
 fi
 
-if [ ! -s data/downloads/avalonlogs-master.zip ]; then
+if [ ! -s "$ARCHIVE" ]; then
     echo "Fetching AvalonLogs archive from GitHub..."
-    curl -L \
+    curl --fail -L \
         https://github.com/WhoaWhoa/avalonlogs/archive/refs/heads/master.zip \
-        -o data/downloads/avalonlogs-master.zip
+        -o "$ARCHIVE"
 fi
 
-if [ -z "$(ls -A data/avalonlogs_raw 2>/dev/null)" ]; then
+if [ -z "$(ls -A "$RAW_DIR" 2>/dev/null)" ]; then
     echo "Extracting AvalonLogs raw files..."
-    rm -rf data/downloads/avalonlogs_extract
-    mkdir -p data/downloads/avalonlogs_extract
+    rm -rf "$EXTRACT_DIR"
+    mkdir -p "$EXTRACT_DIR"
     python3 - <<'PY'
 import shutil
 import zipfile
@@ -45,7 +50,7 @@ from pathlib import Path
 
 archive = Path("data/downloads/avalonlogs-master.zip")
 extract_dir = Path("data/downloads/avalonlogs_extract")
-raw_dir = Path("data/avalonlogs_raw")
+raw_dir = Path("data/downloads/avalonlogs_raw")
 raw_dir.mkdir(parents=True, exist_ok=True)
 
 with zipfile.ZipFile(archive) as zf:
@@ -69,4 +74,4 @@ fi
 
 echo "Download complete."
 echo "Data locations:"
-echo "  AvalonLogs raw: data/avalonlogs_raw/ ($(ls data/avalonlogs_raw 2>/dev/null | wc -l) files)"
+echo "  AvalonLogs raw: $RAW_DIR/ ($(ls "$RAW_DIR" 2>/dev/null | wc -l) files)"

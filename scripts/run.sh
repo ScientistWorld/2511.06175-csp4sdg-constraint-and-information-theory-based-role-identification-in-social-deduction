@@ -4,7 +4,8 @@
 # the method solver.
 set -e
 
-cd /home/user
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$REPO_ROOT"
 
 echo "=== ResearchGym split evaluation ==="
 echo "Start: $(date)"

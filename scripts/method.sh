@@ -12,7 +12,8 @@
 
 set -e
 
-cd /home/user
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$REPO_ROOT"
 
 SAMPLE_COUNT="${1:-}"
 
@@ -22,24 +23,26 @@ echo "=== CSP4SDG Method Pipeline ==="
 echo "[1/4] Converting raw AvalonLogs to CSP constraints..."
 mkdir -p data/avalonlogs_constraints
 python3 -c "
+import os
 import sys
-sys.path.insert(0, '/home/user')
+sys.path.insert(0, os.getcwd())
 from data.convert_avalonlogs import main as convert_main
 import sys
 args = ['convert_avalonlogs.py',
-        'data/avalonlogs_raw',
+        'data/downloads/avalonlogs_raw',
         'data/avalonlogs_constraints']
 "
 # Build args manually to avoid sys.argv issues
 METHOD_SAMPLE_COUNT="$SAMPLE_COUNT" python3 << 'PYEOF'
+import os
 import sys
-sys.path.insert(0, '/home/user')
+sys.path.insert(0, os.getcwd())
 from data.convert_avalonlogs import convert_file
 from pathlib import Path
 import random
 import os
 
-raw_dir = Path("data/avalonlogs_raw")
+raw_dir = Path("data/downloads/avalonlogs_raw")
 out_dir = Path("data/avalonlogs_constraints")
 out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -77,8 +80,9 @@ PYEOF
 echo "[2/4] Running CSP solver..."
 mkdir -p data/avalonlogs_solve
 python3 << 'PYEOF'
+import os
 import sys
-sys.path.insert(0, '/home/user')
+sys.path.insert(0, os.getcwd())
 from method.avalon_logs_solver import solve_one
 from pathlib import Path
 

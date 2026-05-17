@@ -12,11 +12,12 @@
 #   output_path — Where to write scores.json (default: scoring/scores.json)
 #
 # Environment:
-#   PYTHONPATH should include /home/user
+#   PYTHONPATH should include the repository root
 
 set -e
 
-cd /home/user
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$REPO_ROOT"
 
 # Default paths
 DATASET="${1:-avalonlogs}"
@@ -28,8 +29,9 @@ mkdir -p scoring
 echo "Evaluating: dataset=$DATASET, results=$RESULTS_DIR, output=$OUTPUT"
 
 python3 -c "
+import os
 import sys
-sys.path.insert(0, '/home/user')
+sys.path.insert(0, os.getcwd())
 from eval.evaluator import evaluate
 from pathlib import Path
 

@@ -2,7 +2,7 @@
 # Example run.sh — update this file before each job submission.
 #
 # This runs inside the compute container with:
-#   - Your workspace mounted at /home/user
+#   - Your workspace mounted in the container
 #   - GPU(s) available
 #   - No internet access
 #
@@ -11,7 +11,8 @@
 
 set -e
 
-cd /home/user
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$REPO_ROOT"
 
 # Example: train a model
 python method/train.py --epochs 10 --lr 0.001

@@ -11,7 +11,8 @@
 
 set -e
 
-cd /home/user
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$REPO_ROOT"
 
 METHOD="${1:-random}"
 RESULTS_DIR="${2:-data/avalonlogs_baseline_${METHOD}}"
@@ -21,8 +22,9 @@ mkdir -p "$RESULTS_DIR"
 echo "=== Running baseline: $METHOD ==="
 
 python3 << PYEOF
+import os
 import sys
-sys.path.insert(0, '/home/user')
+sys.path.insert(0, os.getcwd())
 import json
 import random
 from pathlib import Path
