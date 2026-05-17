@@ -1,4 +1,4 @@
-action: submit
+action: done
 gpus: 0
-test: false
-notes: "Run evaluate_{train,test}.sh on existing AvalonLogs final outputs to populate scores_{train,test}.json."
+milestone: core_claim
+notes: "Deterministic stratified 50/50 AvalonLogs split over final solver outputs; 216 train metric values and 216 test metric values across 6 experiments; train/test avg abs gaps are small but nonzero (0.0042-0.0206 by experiment, max 0.0496); no nulls, no saturation, matching method sets. Caveat: split scores cover the AvalonLogs experiments present in scoring/scores.json; Avalon-NLU/Mafia artifacts were not available in this workspace."
