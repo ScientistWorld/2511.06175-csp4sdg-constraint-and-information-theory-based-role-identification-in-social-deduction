@@ -2,6 +2,13 @@
 
 ## Continuation Audit
 
+2026-05-17 16:52 audit fixed scoring reference issues found during the final
+paper cross-check. `avalonnlu_lie_main` now uses the Merlin column from Table 7
+instead of the objective column, AvalonLogs reference metrics no longer include
+unreported MAP fields, and reference weights sum to exactly 1.0. The train/test
+split evaluators and score artifacts were aligned with the marginal-only
+AvalonLogs reference. `python3 validate.py --compare` passes after the update.
+
 2026-05-17 audit restored the prior `core_claim_plus` milestone. The implementation is the paper's actual CSP4SDG computation rather than a surrogate: it enumerates feasible role worlds, applies hard constraints, scores assertions multiplicatively, scores hypotheses additively with IG/manual weights, and computes posterior marginals plus MAP assignments. The evaluator is independent from `method/` and reads solver artifacts from `data/avalonlogs_solve`.
 
 Verification performed during the audit:
@@ -103,4 +110,4 @@ while the paper uses LLM-based constraint extraction from dialogue.
 4. **No dialogue**: AvalonLogs has no dialogue; only the no-dialogue condition can be reproduced.
 5. **HypIG implementation**: Information gain weighting produces smaller improvements than the paper reports,
    likely due to implementation differences in hypothesis generation and IG computation.
-6. **MAP accuracy**: Not computed in scores.json (only marginal accuracy). The paper reports both metrics.
+6. **MAP accuracy for AvalonLogs**: The solver artifacts include MAP assignments and the evaluator can compute MAP, but AvalonLogs paper tables report marginal accuracy only, so `reference.json` and `scores.json` use marginal metrics for the reproduced AvalonLogs gym.

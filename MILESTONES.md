@@ -4,6 +4,11 @@
 
 ## Progress Log
 
+### [2026-05-17 16:52] - core_claim_plus
+- Re-validated the existing CSP4SDG AvalonLogs reproduction and confirmed the actual CSP algorithm and artifact-based evaluator are in place.
+- Corrected `scoring/reference.json` so Avalon-NLU Lie Merlin values match Table 7 and AvalonLogs metrics include only paper-reported marginal accuracies.
+- Regenerated train/test score artifacts and re-ran `python3 validate.py --compare`; all checks passed.
+
 ### [2026-05-17 16:05] - core_claim_plus
 - Completed final verification of the packaged research gym.
 - Fixed method leakage in method-agnostic and method-safe scoring documents.

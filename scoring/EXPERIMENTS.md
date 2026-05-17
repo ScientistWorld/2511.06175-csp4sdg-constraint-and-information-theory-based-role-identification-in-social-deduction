@@ -10,7 +10,7 @@ Primary reproduced experiment. It evaluates hidden-role inference on 3,176 solve
 
 Primary metric: `Obj_marginal`.
 
-Supporting metrics: viewpoint-specific marginal and MAP accuracy for Merlin, Percival, Morgana, and non-special evil perspectives.
+Supporting metrics: viewpoint-specific marginal accuracy for Merlin, Percival, Morgana, loyal-servant, and non-special evil perspectives. The paper reports AvalonLogs as marginal accuracy only, so MAP is not part of the paper-referenced score for these experiments.
 
 ## avalonlogs_9player
 
@@ -18,7 +18,7 @@ Secondary high-weight experiment. It evaluates 843 solved 9-player games and tes
 
 Primary metric: `Obj_marginal`.
 
-Supporting metrics: the same viewpoint-specific metrics as the 6-player experiment.
+Supporting metrics: the same viewpoint-specific marginal metrics as the 6-player experiment.
 
 ## avalonlogs_5player
 

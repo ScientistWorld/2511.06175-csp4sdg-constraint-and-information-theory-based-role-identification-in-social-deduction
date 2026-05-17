@@ -13,10 +13,10 @@ These two experiments carry the largest weights among the reproduced scores. The
 ## Secondary Targets
 
 Improve or maintain viewpoint-specific metrics across all reproduced player counts:
-- `MRL_marginal` and `MRL_map`
-- `PCV_marginal` and `PCV_map`
-- `MRG_marginal` and `MRG_map`
-- `EVM_marginal` and `EVM_map`
+- `MRL_marginal`
+- `PCV_marginal`
+- `MRG_marginal`
+- `EVM_marginal`
 
 Strong results should not come from improving only the objective/public view while degrading role-specific viewpoints.
 

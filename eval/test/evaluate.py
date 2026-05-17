@@ -196,7 +196,6 @@ def evaluate_avalonlogs(
             for view, values in sorted(by_exp_method_view[exp_name].get(method_name, {}).items()):
                 if values:
                     method_scores[f"{view}_marginal"] = round(sum(v["marginal"] for v in values) / len(values), 4)
-                    method_scores[f"{view}_map"] = round(sum(v["map"] for v in values) / len(values), 4)
             scores["experiments"][exp_name]["results"][method_name] = method_scores
 
     scores["metadata"]["n_selected_files_by_experiment"] = split_counts
