@@ -1,8 +1,8 @@
 # IMPORTANT: Once you set action to 'submit' or 'done', STOP immediately.
 # Do NOT sleep, poll, or wait for jobs. The system reads this file
 # only after your turn ends. Sleeping blocks the entire pipeline.
-action: done
-gpus: 0
+action: pending
+gpus: 1
 test: false
-milestone: core_claim_plus
-notes: "Continuation audit restored core_claim_plus: implementation is the paper's CSP4SDG method, evaluate.sh works standalone, validate.py --compare passes, and container packaging was cleaned up."
+milestone: core_claim
+notes: ""
