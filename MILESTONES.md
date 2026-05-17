@@ -4,6 +4,12 @@
 
 ## Progress Log
 
+### [2026-05-17 15:30] - core_claim_plus
+- Completed continuation audit after the milestone reset and restored `core_claim_plus`.
+- Confirmed the method implementation is the actual CSP4SDG algorithm, not a surrogate, and that evaluation reads solver artifacts independently from `method/`.
+- Fixed evaluator reference lookup so `scripts/evaluate.sh` preserves the same reference-based output contract even when writing scores outside `scoring/`.
+- Re-ran `scripts/evaluate.sh` and `python3 validate.py --compare`; all checks passed.
+
 ### [2026-05-17 15:13] - core_claim_plus
 - Confirmed the implementation is the paper's actual CSP4SDG algorithm: hard-constraint pruning, multiplicative assertions, additive IG/manual hypotheses, posterior marginals, and MAP worlds.
 - Validated the reusable AvalonLogs gym with `python3 validate.py --compare` and bytecode compilation for method, data conversion, and evaluation modules.

@@ -9,6 +9,11 @@ Verification performed during the audit:
 - `python3 validate.py --compare` passes.
 - The AvalonLogs download URL in `scripts/download.sh` resolves through GitHub to a 200 response.
 
+Continuation audit fix: `eval/evaluator.py` now falls back to the repository's canonical
+`scoring/reference.json` when scores are written outside the `scoring/` directory. This
+keeps `scripts/evaluate.sh ... tmp/output.json` consistent with the default
+`scoring/scores.json` output contract.
+
 Packaging fix: `environment/container.def` no longer runs `pip install` in `%post`; this pure-Python environment keeps dependency setup in `environment/setup.sh`.
 
 ## What Works

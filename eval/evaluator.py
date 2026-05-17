@@ -227,7 +227,10 @@ def evaluate(
 
     if dataset == "avalonlogs":
         # Load reference.json to know which methods to include
+        repo_root = Path(__file__).resolve().parents[1]
         ref_path = output_path.parent / "reference.json"
+        if not ref_path.exists():
+            ref_path = repo_root / "scoring" / "reference.json"
         ref_experiments = {}
         if ref_path.exists():
             try:
