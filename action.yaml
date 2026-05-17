@@ -2,4 +2,4 @@ action: submit
 gpus: 0
 test: false
 milestone: core_claim_plus
-notes: "CPU-only retry after fixing download idempotency: raw AvalonLogs data is already present, so the job skips network fetch, solves the remaining 861 large games, then evaluates and validates."
+notes: "CPU-only retry with per-game timeouts: skip pathological remaining AvalonLogs games, preserve partial progress, rerun evaluation, and validate scores before the node timeout."

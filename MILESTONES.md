@@ -4,6 +4,12 @@
 
 ## Progress Log
 
+### [2026-05-17 07:08] - core_claim_plus
+- Cancelled resume job `424404a8-280` after it improved solved coverage from 11,533 to 11,986 games but
+  then stalled on the hardest remaining large AvalonLogs instances.
+- Patched `scripts/run.sh` with a 90-second per-game timeout, a 50-minute solve budget, and persistent
+  timeout skipping so future jobs produce progress and still run evaluation before node timeout.
+
 ### [2026-05-17 03:43] - core_claim_plus
 - Reviewed failed CPU resume job `1b3b35a6-d2f`: it exited before solving because the compute node
   attempted to fetch the AvalonLogs GitHub archive and hit the no-internet restriction.

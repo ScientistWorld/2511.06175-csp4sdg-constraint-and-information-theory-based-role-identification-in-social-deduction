@@ -54,10 +54,9 @@ while the paper uses LLM-based constraint extraction from dialogue.
 
 ## Remaining
 
-1. **Full dataset solve**: 861 games remaining across all sizes (9p: 427, 10p: 434 remaining).
-   A CPU resume job has been prepared to finish these larger games. The first retry job failed before
-   solving because the compute node attempted a network download; scripts now skip download entirely
-   when raw AvalonLogs files are already present.
+1. **Full dataset solve**: The resume job improved coverage from 11,533 to 11,986 solved games before
+   cancellation, leaving about 408 hard 9p/10p games. The next retry uses per-game timeouts and a
+   job-level solve budget so hard instances are skipped and partial progress is evaluated before timeout.
 2. **Avalon-NLU and Mafia**: Require LLM-based constraint extraction (API needed). Cannot reproduce without API.
 3. **LLM baselines**: Cannot reproduce without LLM API access or local LLM.
 
@@ -72,12 +71,16 @@ while the paper uses LLM-based constraint extraction from dialogue.
    `scripts/download.sh` fetched GitHub before checking the existing raw data directory. This was fixed
    by making both `scripts/download.sh` and `scripts/run.sh` treat an existing non-empty
    `data/avalonlogs_raw/` directory as complete and offline-safe.
+5. **Job 424404a8-280 cancelled after partial progress**: The resumable CPU job solved 453 additional
+   games but later spent too long on the hardest remaining instances without progress output. `scripts/run.sh`
+   now records timed-out files in `data/avalonlogs_solve/timeouts.txt`, skips them on later attempts, and
+   leaves time for evaluation.
 
 ## Deviations from Paper
 
 1. **Datasets**: Only AvalonLogs used. Avalon-NLU and Mafia-UCB require LLM-based extraction (API needed).
 2. **LLM comparisons**: No LLM-based experiments. The paper shows LLM struggles; replicating requires API.
-3. **Game size coverage**: 9-10 player games partially solved.
+3. **Game size coverage**: 9-10 player games partially solved; current coverage is 11,986/12,394 games.
 4. **No dialogue**: AvalonLogs has no dialogue; only the no-dialogue condition can be reproduced.
 5. **HypIG implementation**: Information gain weighting produces smaller improvements than the paper reports,
    likely due to implementation differences in hypothesis generation and IG computation.
