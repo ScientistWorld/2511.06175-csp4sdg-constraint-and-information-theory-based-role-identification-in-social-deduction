@@ -17,4 +17,3 @@
 
 ## Stop Justification
 - Completed at milestone `core_claim_plus`.
-- Higher milestones would require Avalon-NLU/Mafia LLM constraint extraction and LLM baselines, which need external API access not available in this reproduction setting.
