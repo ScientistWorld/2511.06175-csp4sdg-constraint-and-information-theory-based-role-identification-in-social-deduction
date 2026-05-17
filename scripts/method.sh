@@ -31,12 +31,13 @@ args = ['convert_avalonlogs.py',
         'data/avalonlogs_constraints']
 "
 # Build args manually to avoid sys.argv issues
-python3 << 'PYEOF'
+METHOD_SAMPLE_COUNT="$SAMPLE_COUNT" python3 << 'PYEOF'
 import sys
 sys.path.insert(0, '/home/user')
 from data.convert_avalonlogs import convert_file
 from pathlib import Path
 import random
+import os
 
 raw_dir = Path("data/avalonlogs_raw")
 out_dir = Path("data/avalonlogs_constraints")
@@ -47,9 +48,10 @@ rng = random.Random(42)
 
 sample_count = None
 # Check if we should sample
-if len(sys.argv) > 1:
+sample_arg = os.environ.get("METHOD_SAMPLE_COUNT", "")
+if sample_arg:
     try:
-        sample_count = int(sys.argv[1])
+        sample_count = int(sample_arg)
         files = rng.sample(files, min(sample_count, len(files)))
         print(f"Sampling {len(files)} files...")
     except ValueError:

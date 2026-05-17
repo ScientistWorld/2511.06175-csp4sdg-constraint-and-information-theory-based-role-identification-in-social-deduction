@@ -28,7 +28,7 @@
    - Canonicalizes numbered role views (loyal_follower1→LSV, evil_minion1→EVM)
    - Produces scores.json matching reference.json structure
 
-5. **AvalonLogs dataset**: 12,394 games, 9,486 solved across all sizes
+5. **AvalonLogs dataset**: 12,394 converted games, 11,533 solved across all sizes
 
 ## Results Achieved
 
@@ -54,8 +54,8 @@ while the paper uses LLM-based constraint extraction from dialogue.
 
 ## Remaining
 
-1. **Full dataset solve**: ~2,908 games remaining across all sizes (9p: 528, 10p: ~660 remaining).
-   The solver is working; with sufficient time all games would be solved.
+1. **Full dataset solve**: 861 games remaining across all sizes (9p: 427, 10p: 434 remaining).
+   A CPU resume job has been prepared to finish these larger games.
 2. **Avalon-NLU and Mafia**: Require LLM-based constraint extraction (API needed). Cannot reproduce without API.
 3. **LLM baselines**: Cannot reproduce without LLM API access or local LLM.
 
@@ -65,7 +65,7 @@ while the paper uses LLM-based constraint extraction from dialogue.
    implementation shows nearly identical results. This is a known gap between our programmatic extraction
    and the paper's LLM-based extraction.
 2. **Avalon-NLU and Mafia unavailable**: No API available for LLM-based constraint extraction.
-3. **9p/10p partial coverage**: Only 315/843 and 166/826 games solved respectively, due to time constraints.
+3. **9p/10p partial coverage**: 416/843 nine-player and 166/600 ten-player games are solved so far, due to time constraints.
 
 ## Deviations from Paper
 

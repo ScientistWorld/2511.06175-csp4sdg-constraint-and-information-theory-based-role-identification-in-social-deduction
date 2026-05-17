@@ -1,107 +1,104 @@
 #!/bin/bash
-# Re-solve ALL AvalonLogs games with fixed IG computation (conditional predicates).
-# Uses QUICK_SETTINGS (Strict + HypIG only) for efficiency.
-# The IG fix ensures hypothesis weights match the paper's formulation.
+# Resume the AvalonLogs CSP4SDG reproduction.
+#
+# This CPU job solves only missing AvalonLogs outputs, then refreshes
+# scoring/scores.json and validates it against scoring/reference.json.
 set -e
 cd /home/user
 
-echo "=== CSP4SDG: Re-solve ALL games with fixed IG ==="
+echo "=== CSP4SDG: resume missing AvalonLogs solves ==="
 echo "Start: $(date)"
 
-# --- Step 1: Clear old solve results (IG was computed incorrectly) ---
-echo "Clearing old solve results..."
-rm -rf data/avalonlogs_solve/*
-echo "Cleared."
+mkdir -p data/avalonlogs_raw data/avalonlogs_constraints data/avalonlogs_solve scoring
 
-# --- Step 2: Re-solve all games with fixed solver (QUICK: Strict + HypIG) ---
-python3 << 'PYEOF'
-import sys, json, time
+echo "[1/4] Ensure raw data is present"
+bash scripts/download.sh
+
+echo "[2/4] Convert any raw logs missing constraint files"
+python3 - <<'PY'
+import json
+import sys
 from pathlib import Path
 
-sys.path.insert(0, '/home/user')
-from method.avalon_logs_solver import solve_one, QUICK_SETTINGS
+sys.path.insert(0, "/home/user")
+from data.convert_avalonlogs import convert_file
+
+raw_dir = Path("data/avalonlogs_raw")
+out_dir = Path("data/avalonlogs_constraints")
+out_dir.mkdir(parents=True, exist_ok=True)
+
+converted = skipped = failed = 0
+for fp in sorted(raw_dir.iterdir()):
+    if not fp.is_file():
+        continue
+    dst = out_dir / f"{fp.stem}_constraints.json"
+    if dst.exists():
+        skipped += 1
+        continue
+    result = convert_file(fp)
+    if result is None:
+        failed += 1
+        continue
+    dst.write_text(json.dumps(result), encoding="utf-8")
+    converted += 1
+print(f"Converted={converted}, already_present={skipped}, failed_or_unsupported={failed}")
+PY
+
+echo "[3/4] Solve missing games with Strict + HypIG settings"
+python3 - <<'PY'
+import json
+import sys
+import time
+from pathlib import Path
+
+sys.path.insert(0, "/home/user")
+from method.avalon_logs_solver import QUICK_SETTINGS, solve_one
 
 in_dir = Path("data/avalonlogs_constraints")
 out_dir = Path("data/avalonlogs_solve")
 out_dir.mkdir(parents=True, exist_ok=True)
 
 all_files = sorted(in_dir.glob("*_constraints.json"))
+missing = [fp for fp in all_files if not (out_dir / f"{fp.stem}_solve.json").exists()]
 
-# Sort by player count (smallest first = fastest)
-def get_n_players(fp):
+def player_count(fp: Path) -> int:
     try:
-        return len(json.loads(fp.read_text()).get('players', []))
-    except:
+        with fp.open(encoding="utf-8") as f:
+            return len(json.load(f).get("players", []))
+    except Exception:
         return 99
 
-all_files.sort(key=get_n_players)
+missing.sort(key=lambda fp: (player_count(fp), fp.name))
+print(f"Constraint files={len(all_files)}, missing_solve_outputs={len(missing)}")
 
-from collections import Counter
-sizes = Counter(get_n_players(f) for f in all_files)
-for sz in sorted(sizes):
-    print(f"  {sz}p: {sizes[sz]} games")
-print(f"Total: {len(all_files)} games, settings: {[s[0] for s in QUICK_SETTINGS]}")
-
-# Time budget: 20 hours
-TIME_BUDGET = 20 * 60 * 60
-
-t0_total = time.time()
+start = time.time()
 solved = errors = 0
-for fp in all_files:
-    elapsed = time.time() - t0_total
-    if elapsed > TIME_BUDGET:
-        print(f"Time budget exhausted ({elapsed/60:.0f}m), stopping")
-        break
-
-    dst = out_dir / (fp.stem + "_solve.json")
-    if dst.exists():
-        solved += 1
-        continue
-
+for fp in missing:
+    dst = out_dir / f"{fp.stem}_solve.json"
     try:
         result = solve_one(fp, settings=QUICK_SETTINGS)
         dst.write_text(json.dumps(result), encoding="utf-8")
         solved += 1
-        elapsed = time.time() - t0_total
-        if solved % 200 == 0:
-            rate = solved / elapsed if elapsed > 0 else 0
-            remaining = len(all_files) - solved
-            eta = remaining / rate / 60 if rate > 0 else 0
-            print(f"  {solved}/{len(all_files)} ({rate:.1f}/s, ETA: {eta:.0f}m, elapsed: {elapsed/60:.0f}m)", flush=True)
-    except Exception as e:
+        if solved % 25 == 0:
+            elapsed = max(time.time() - start, 1e-9)
+            rate = solved / elapsed
+            remaining = len(missing) - solved
+            eta_min = remaining / rate / 60 if rate else 0
+            print(
+                f"  solved {solved}/{len(missing)} "
+                f"({rate:.3f}/s, ETA {eta_min:.1f}m)",
+                flush=True,
+            )
+    except Exception as exc:
         errors += 1
-        if errors <= 5:
-            print(f"  ERROR {fp.name}: {e}")
+        print(f"  ERROR {fp.name}: {exc}", flush=True)
 
-elapsed = time.time() - t0_total
-print(f"Solved {solved} games, {errors} errors in {elapsed/60:.1f}m")
-PYEOF
+elapsed_min = (time.time() - start) / 60
+print(f"Solved_new={solved}, errors={errors}, elapsed={elapsed_min:.1f}m")
+PY
 
-echo "Solving complete. Updating scores..."
+echo "[4/4] Evaluate and validate"
+bash scripts/evaluate.sh avalonlogs data/avalonlogs_solve scoring/scores.json
+python3 validate.py --compare
 
-# --- Step 3: Update scores using evaluator ---
-python3 -c "
-import sys
-sys.path.insert(0, '/home/user')
-from eval.evaluator import evaluate
-from pathlib import Path
-
-scores = evaluate(
-    results_dir=Path('data/avalonlogs_solve'),
-    output_path=Path('scoring/scores.json'),
-    dataset='avalonlogs',
-    condition='Truth',
-)
-print('Scores updated.')
-print('Experiments:', list(scores.get('experiments', {}).keys()))
-
-# Print summary
-for exp_name, exp_data in scores.get('experiments', {}).items():
-    print(f'\n--- {exp_name} ---')
-    for method, metrics in exp_data.get('results', {}).items():
-        obj = metrics.get('Obj_marginal', 'N/A')
-        mrl = metrics.get('MRL_marginal', 'N/A')
-        print(f'  {method}: Obj={obj}, MRL={mrl}')
-"
-
-echo "=== Complete at $(date) ==="
+echo "Complete: $(date)"

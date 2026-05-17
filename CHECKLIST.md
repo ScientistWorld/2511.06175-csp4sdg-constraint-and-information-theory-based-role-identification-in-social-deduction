@@ -14,7 +14,7 @@ Check off items as you complete them. Order doesn't matter — work however make
 - [x] `scoring/TARGETS.md` — primary, constraint, and ablation targets
 - [x] `scoring/CONSTRAINTS.md` — what a scientist must hold fixed
 - [x] `scoring/DIRECTION.md` — research direction scope for scientist
-- [x] `scoring/scores.json` — reproduced numbers (all 6 player sizes, 8,059 games solved)
+- [x] `scoring/scores.json` — reproduced numbers (all 6 player sizes, 11,533 games solved)
 - [x] Workspace validated via custom comparison script (all structural checks pass)
 
 ## Code
@@ -36,8 +36,8 @@ Check off items as you complete them. Order doesn't matter — work however make
 ## Data
 - [x] AvalonLogs dataset downloaded (12,394 games in data/avalonlogs_raw/)
 - [x] Dataset converted to CSP constraints (data/avalonlogs_constraints/)
-- [x] 8,059 games solved across all sizes (data/avalonlogs_solve/) — ~65% coverage
-- [ ] Remaining ~4,335 games being solved by running job
+- [x] 11,533 games solved across all sizes (data/avalonlogs_solve/) — ~93% coverage
+- [ ] Remaining 861 large games being solved by running job
 
 ## Milestones
 - [x] `method_runs` — CSP solver executes end-to-end without errors

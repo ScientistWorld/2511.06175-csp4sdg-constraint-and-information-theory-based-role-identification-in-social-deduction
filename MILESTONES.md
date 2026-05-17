@@ -1,8 +1,14 @@
 # Reproduction Milestones
 
-**Current: core_claim**
+**Current: core_claim_plus**
 
 ## Progress Log
+
+### [2026-05-17 03:40] - core_claim_plus
+- Verified the existing implementation is the paper's actual CSP4SDG solver: exact role-count enumeration, hard evidence/phenomenon pruning, soft assertions, IG/manual hypotheses, posterior normalization, and marginal/MAP extraction.
+- Re-ran `scripts/evaluate.sh` on the current 11,533 solved AvalonLogs outputs; `python3 validate.py --compare` passes.
+- Patched `scripts/download.sh` to fetch AvalonLogs from the verified GitHub archive instead of relying on a local temporary clone.
+- Prepared a CPU resume job to solve the remaining 861 larger AvalonLogs games and refresh `scoring/scores.json`.
 
 ### [2026-04-16] - Audit & IG Fix
 - Audited previous agent's work: implementation is the paper's actual CSP algorithm
@@ -37,8 +43,6 @@
 | 10p  | 0.256             | 0.270           | +0.014| 0.545             | 0.569           | +0.024|
 
 ## Known Limitations
-- CSP_HypIG results in scores.json use old (incorrect) IG computation
-  - Re-solve job submitted; pending completion
-  - Expected improvement: HypIG should show clear gains over Strict matching paper
-- Avalon-NLU and Mafia datasets not reproduced (require LLM inference)
-- 11,533/12,394 games solved (93% coverage)
+- CSP_HypIG gains remain smaller than the paper reports on AvalonLogs. The current solver uses the corrected conditional IG predicate, but the reproduction extracts hypotheses programmatically from votes/team proposals rather than from the paper's LLM extraction workflow.
+- Avalon-NLU and Mafia datasets are not reproduced because their constraint extraction depends on LLM annotation/API access.
+- 11,533/12,394 games are solved before the current resume job; remaining games are 9-player and 10-player cases.
