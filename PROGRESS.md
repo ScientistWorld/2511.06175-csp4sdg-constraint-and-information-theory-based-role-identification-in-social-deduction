@@ -45,6 +45,7 @@
 
 **Core claim validated**: CSP_Strict clearly outperforms expected LLM_Global baseline on all views.
 For 6-player: MRL 0.615 vs expected 0.360, PCV 0.638 vs expected 0.325, EVM 0.684 vs expected 0.464.
+The same CSP role-inference pipeline has been evaluated on 5, 6, 7, 8, 9, and 10 player AvalonLogs settings, so the current milestone is `core_claim_plus`.
 
 **CSP_HypIG discrepancy**: The paper shows +HypIG significantly outperforms Strict (e.g., 6p Obj: 0.326 vs 0.290).
 Our implementation: HypIG ≈ Strict (e.g., 6p Obj: 0.291 vs 0.291). The IG weighting in our implementation
