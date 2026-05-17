@@ -4,6 +4,10 @@
 
 ## Progress Log
 
+### [2026-05-17 16:58] - core_claim_plus
+- Completed final verification of method/problem separation, portable download sources, scoring weights and coefficients, train/test evaluator wiring, and standalone evaluation.
+- Confirmed `MILESTONES.md` and `action.yaml` remain aligned at `core_claim_plus`.
+
 ### [2026-05-17 16:52] - core_claim_plus
 - Re-validated the existing CSP4SDG AvalonLogs reproduction and confirmed the actual CSP algorithm and artifact-based evaluator are in place.
 - Corrected `scoring/reference.json` so Avalon-NLU Lie Merlin values match Table 7 and AvalonLogs metrics include only paper-reported marginal accuracies.

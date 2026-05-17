@@ -2,26 +2,27 @@
 
 ## Initial Assessment
 
-The workspace already had a working CSP4SDG reproduction at `core_claim_plus`: method outputs existed for AvalonLogs 5-9 player games plus partial 10-player coverage, `scores.json` was populated, and `validate.py --compare` passed. The claimed milestone was justified, but several public-facing benchmark documents leaked method-specific details into files that should be usable by from-scratch scientist agents.
+The workspace started this final pass at `core_claim_plus` with prior verification fixes already applied. The claimed milestone is justified: method outputs exist for AvalonLogs 5-9 player games plus partial 10-player coverage, `scores.json` is populated, `scripts/evaluate.sh` works standalone on existing artifacts, and `python3 validate.py --compare` passes.
 
 ## Issues Found
 
-- Critical: `briefing/evaluation.md`, `scoring/EXPERIMENTS.md`, `scoring/TARGETS.md`, `scoring/CONSTRAINTS.md`, and `scoring/DIRECTION.md` described the paper's specific algorithm and configurations in places that should remain method-agnostic or method-safe.
-- Critical: `avalonlogs_temp/` was tracked at the workspace root with raw log files. The reusable download path is already under `data/downloads/`, so the root copy violated the expected workspace layout.
-- Minor: `briefing/problem.md` framed success partly around paper-specific design preferences rather than the benchmark task itself.
+- Minor: `scripts/evaluate.sh` comments described the current solver instead of the generic method-output artifact contract. The code path itself was already reusable.
+- Minor: Ignored Python `__pycache__/` directories were present under source directories after local validation.
+- Residual workspace note: system-managed root artifacts (`README.md`, `manifest.json`, and `trajectory/` status noise) were already dirty before this pass and were left untouched because they are outside the gym deliverables.
 
 ## Fixes Applied
 
-- Rewrote the method-agnostic and method-safe documentation to describe the task, metrics, constraints, and research direction without exposing algorithm internals.
-- Removed the tracked root-level `avalonlogs_temp/` raw-log directory from version control.
-- Verified `scripts/download.sh` uses a real, accessible GitHub archive URL; `curl -I -L` resolved to HTTP 200 at `codeload.github.com`.
-- Re-ran lightweight validation: `python3 validate.py --compare`, shell syntax checks, import/separation checks, and standalone `scripts/evaluate.sh` on existing artifacts.
+- Updated `scripts/evaluate.sh` comments to describe a generic method-output artifact interface.
+- Removed ignored Python cache directories from `data/`, `eval/`, `method/`, and `baseline/`.
+- Verified method-agnostic files (`briefing/problem.md`, `briefing/evaluation.md`, `scoring/EXPERIMENTS.md`) do not leak the paper's algorithm.
+- Verified `scripts/download.sh` is self-contained and shared-free; its GitHub archive URL resolves through redirects to HTTP 200.
+- Re-ran lightweight validation: `python3 validate.py --compare`, import/separation checks, train/test wiring checks, scoring metric review, and standalone `scripts/evaluate.sh` on existing artifacts.
 
 ## Final Judgment
 
-The workspace is ready to serve as a research gym in both improve and from-scratch modes. Evaluation reads method artifacts rather than importing `method/`, no committed code references `/home/user/shared`, train/test evaluators are wired to separate slices with matching method keys, and the scoring metrics reward underlying inference accuracy rather than reproduction error.
+The workspace is ready to serve as a research gym in both improve and from-scratch modes. Evaluation reads method artifacts rather than importing `method/`, committed gym code avoids `/home/user/shared`, train/test evaluators are wired to separate slices with matching method keys, and the scoring metrics reward underlying inference accuracy rather than reproduction fidelity or wall-clock speed.
 
 - Milestone: core_claim_plus
 - Ready for gym use: yes
 - Confidence: high
-- Key limitation: AvalonLogs reproduction uses public no-dialogue game logs, and 10-player coverage is partial.
+- Key limitation: AvalonLogs reproduction uses public no-dialogue game logs; dialogue/API-dependent datasets are documented in `reference.json` but not reproduced in `scores.json`.

@@ -1,14 +1,14 @@
 #!/bin/bash
 # Evaluation script — the standard way to evaluate work in this environment.
 #
-# This script evaluates CSP solver results against the paper's reported numbers.
+# This script evaluates method output artifacts against the benchmark metrics.
 #
 # Usage:
 #   ./evaluate.sh [dataset] [results_dir] [output_path]
 #
 # Arguments (all optional, with defaults):
 #   dataset     — "avalonlogs" (default), "avalonnlu", "mafia"
-#   results_dir — Directory containing solver output JSON files (default: data/avalonlogs_solve)
+#   results_dir — Directory containing method output JSON files (default: data/avalonlogs_solve)
 #   output_path — Where to write scores.json (default: scoring/scores.json)
 #
 # Environment:
