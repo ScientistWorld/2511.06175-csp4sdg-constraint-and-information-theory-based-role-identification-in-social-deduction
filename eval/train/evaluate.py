@@ -310,9 +310,9 @@ def evaluate(
     output_path: Path,
     dataset: str = "avalonlogs",
     condition: str = "Truth",
-    train_scores_path: Optional[Path] = None,
+    method_filter_path: Optional[Path] = Path("scoring/scores.json"),
 ) -> Dict[str, Any]:
-    method_filter = load_method_filter(train_scores_path)
+    method_filter = load_method_filter(method_filter_path)
     if dataset == "avalonlogs":
         scores = evaluate_avalonlogs(results_dir, dataset, condition, method_filter)
     elif dataset == "avalonnlu":
@@ -335,15 +335,22 @@ def main() -> None:
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--dataset", default="avalonlogs", choices=["avalonlogs", "avalonnlu", "mafia"])
     parser.add_argument("--condition", default="Truth", choices=["Truth", "Lie"])
-    parser.add_argument("--train-scores", type=Path, default=None)
+    parser.add_argument(
+        "--method-filter",
+        type=Path,
+        default=Path("scoring/scores.json"),
+        help="Scores file whose experiment/method entries define the current method set to score.",
+    )
+    parser.add_argument("--train-scores", type=Path, default=None, help=argparse.SUPPRESS)
     args = parser.parse_args()
+    method_filter_path = args.train_scores if args.train_scores is not None else args.method_filter
 
     scores = evaluate(
         results_dir=args.results_dir,
         output_path=args.output,
         dataset=args.dataset,
         condition=args.condition,
-        train_scores_path=args.train_scores,
+        method_filter_path=method_filter_path,
     )
     print(f"Scores written to {args.output}")
     print(f"Slice: {scores.get('metadata', {}).get('slice')}")

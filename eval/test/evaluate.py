@@ -298,18 +298,31 @@ def evaluate_mafia(
     return scores
 
 
+def load_method_filter(path: Optional[Path]) -> Optional[Dict[str, Set[str]]]:
+    if path is None or not path.exists():
+        return None
+    with path.open(encoding="utf-8") as f:
+        data = json.load(f)
+    filters = {}
+    for exp_name, exp_data in data.get("experiments", {}).items():
+        filters[exp_name] = set(exp_data.get("results", {}).keys())
+    return filters
+
+
 def evaluate(
     results_dir: Path,
     output_path: Path,
     dataset: str = "avalonlogs",
     condition: str = "Truth",
+    method_filter_path: Optional[Path] = Path("scoring/scores.json"),
 ) -> Dict[str, Any]:
+    method_filter = load_method_filter(method_filter_path)
     if dataset == "avalonlogs":
-        scores = evaluate_avalonlogs(results_dir, dataset, condition)
+        scores = evaluate_avalonlogs(results_dir, dataset, condition, method_filter)
     elif dataset == "avalonnlu":
-        scores = evaluate_avalonnlu(results_dir, dataset, condition)
+        scores = evaluate_avalonnlu(results_dir, dataset, condition, method_filter)
     elif dataset == "mafia":
-        scores = evaluate_mafia(results_dir, dataset, condition)
+        scores = evaluate_mafia(results_dir, dataset, condition, method_filter)
     else:
         scores = empty_scores(dataset, condition)
         scores["metadata"]["warning"] = "No slice evaluator is implemented for this dataset."
@@ -326,6 +339,12 @@ def main() -> None:
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--dataset", default="avalonlogs", choices=["avalonlogs", "avalonnlu", "mafia"])
     parser.add_argument("--condition", default="Truth", choices=["Truth", "Lie"])
+    parser.add_argument(
+        "--method-filter",
+        type=Path,
+        default=Path("scoring/scores.json"),
+        help="Scores file whose experiment/method entries define the current method set to score.",
+    )
     args = parser.parse_args()
 
     scores = evaluate(
@@ -333,6 +352,7 @@ def main() -> None:
         output_path=args.output,
         dataset=args.dataset,
         condition=args.condition,
+        method_filter_path=args.method_filter,
     )
     print(f"Scores written to {args.output}")
     print(f"Slice: {scores.get('metadata', {}).get('slice')}")
