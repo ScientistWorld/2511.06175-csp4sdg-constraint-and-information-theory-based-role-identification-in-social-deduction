@@ -22,16 +22,6 @@ echo "=== CSP4SDG Method Pipeline ==="
 # Step 1: Convert raw AvalonLogs to CSP constraints
 echo "[1/4] Converting raw AvalonLogs to CSP constraints..."
 mkdir -p data/avalonlogs_constraints
-python3 -c "
-import os
-import sys
-sys.path.insert(0, os.getcwd())
-from data.convert_avalonlogs import main as convert_main
-import sys
-args = ['convert_avalonlogs.py',
-        'data/downloads/avalonlogs_raw',
-        'data/avalonlogs_constraints']
-"
 # Build args manually to avoid sys.argv issues
 METHOD_SAMPLE_COUNT="$SAMPLE_COUNT" python3 << 'PYEOF'
 import os
@@ -42,11 +32,24 @@ from pathlib import Path
 import random
 import os
 
-raw_dir = Path("data/downloads/avalonlogs_raw")
+raw_candidates = [
+    Path("data/downloads/avalonlogs_raw"),
+    Path("data/downloads/avalonlogs"),
+]
+min_expected_raw_files = 10000
+raw_dir = next(
+    (p for p in raw_candidates if p.exists() and sum(1 for fp in p.iterdir() if fp.is_file()) >= min_expected_raw_files),
+    raw_candidates[0],
+)
+if not raw_dir.exists() or sum(1 for fp in raw_dir.iterdir() if fp.is_file()) < min_expected_raw_files:
+    raise SystemExit(
+        "No AvalonLogs raw files found. Run scripts/download.sh on an internet-enabled node first."
+    )
 out_dir = Path("data/avalonlogs_constraints")
 out_dir.mkdir(parents=True, exist_ok=True)
 
 files = [fp for fp in raw_dir.iterdir() if fp.is_file()]
+print(f"Using raw AvalonLogs directory: {raw_dir} ({len(files)} files)")
 rng = random.Random(42)
 
 sample_count = None

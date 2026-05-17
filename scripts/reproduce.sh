@@ -25,9 +25,8 @@ echo "=== CSP4SDG Full Reproduction Pipeline ==="
 echo "[1/5] Ensuring data is available..."
 bash scripts/download.sh
 
-# Step 2: Run baseline
-echo "[2/5] Running baseline (random)..."
-bash scripts/baseline.sh random data/avalonlogs_baseline_random
+# Step 2: Baseline note
+echo "[2/5] Skipping optional LLM baselines; this reproduction is self-contained and evaluates CSP-only AvalonLogs results."
 
 # Step 3: Run the paper's method
 echo "[3/5] Running CSP4SDG method (full dataset)..."

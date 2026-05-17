@@ -16,4 +16,4 @@
 - Reproduced the core AvalonLogs claim across 5-, 6-, 7-, 8-, 9-, and partially solved 10-player settings. CSP_Strict is close to the paper on the accessible no-dialogue benchmark and clearly beats the paper's LLM_Global reference on informative role views.
 
 ## Stop Justification
-- Completed at milestone `core_claim`.
+- Completed at milestone `core_claim_plus`.

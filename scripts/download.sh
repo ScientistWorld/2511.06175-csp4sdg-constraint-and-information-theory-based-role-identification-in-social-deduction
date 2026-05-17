@@ -19,16 +19,29 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO_ROOT"
 
 RAW_DIR="data/downloads/avalonlogs_raw"
+LEGACY_RAW_DIR="data/downloads/avalonlogs"
 ARCHIVE="data/downloads/avalonlogs-master.zip"
 EXTRACT_DIR="data/downloads/avalonlogs_extract"
+MIN_EXPECTED_RAW_FILES=10000
 
 mkdir -p data/downloads "$RAW_DIR"
 
-if [ -n "$(find "$RAW_DIR" -maxdepth 1 -type f -print -quit 2>/dev/null)" ]; then
+legacy_count="$(find "$LEGACY_RAW_DIR" -maxdepth 1 -type f 2>/dev/null | wc -l)"
+raw_count="$(find "$RAW_DIR" -maxdepth 1 -type f 2>/dev/null | wc -l)"
+
+if [ "$legacy_count" -ge "$MIN_EXPECTED_RAW_FILES" ] && [ "$raw_count" -eq 0 ]; then
+    echo "Found existing AvalonLogs raw files at $LEGACY_RAW_DIR; reusing them."
+    echo "Download complete."
+    echo "Data locations:"
+    echo "  AvalonLogs raw: $LEGACY_RAW_DIR/ ($legacy_count files)"
+    exit 0
+fi
+
+if [ "$raw_count" -ge "$MIN_EXPECTED_RAW_FILES" ]; then
     echo "AvalonLogs raw data already present; skipping network fetch."
     echo "Download complete."
     echo "Data locations:"
-    echo "  AvalonLogs raw: $RAW_DIR/ ($(find "$RAW_DIR" -maxdepth 1 -type f | wc -l) files)"
+    echo "  AvalonLogs raw: $RAW_DIR/ ($raw_count files)"
     exit 0
 fi
 
@@ -43,7 +56,8 @@ if [ -z "$(ls -A "$RAW_DIR" 2>/dev/null)" ]; then
     echo "Extracting AvalonLogs raw files..."
     rm -rf "$EXTRACT_DIR"
     mkdir -p "$EXTRACT_DIR"
-    python3 - <<'PY'
+python3 - <<'PY'
+import json
 import shutil
 import zipfile
 from pathlib import Path
@@ -63,8 +77,11 @@ for fp in root.rglob("*"):
         continue
     if fp.name.startswith("."):
         continue
-    # AvalonLogs game files are extensionless timestamp/id JSON files.
-    if fp.suffix:
+    try:
+        payload = json.loads(fp.read_text(encoding="utf-8"))
+    except Exception:
+        continue
+    if not {"players", "missions", "outcome"}.issubset(payload):
         continue
     shutil.copy2(fp, raw_dir / fp.name)
     copied += 1

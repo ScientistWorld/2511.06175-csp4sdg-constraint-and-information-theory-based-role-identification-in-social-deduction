@@ -31,7 +31,7 @@ python eval/evaluator.py --results-dir data/avalonlogs_solve --output scoring/sc
 
 ## Primary: avalonlogs_9player
 
-**What it tests:** CSP-based role inference on 9-player Avalon games (145 games, partial).
+**What it tests:** CSP-based role inference on 9-player Avalon games (843 solved games).
 Tests scalability to more players with larger combinatorial space (3 evil vs 6 good).
 
 **Primary metric:** `Obj_marginal` (higher is better)
@@ -52,7 +52,8 @@ over manual weight tuning (+HypM or manual W_strong/W_reject/W_weak).
 
 **Metric:** `Obj_marginal` comparison between CSP_HypIG and CSP_Strict
   - Direction: +HypIG should score >= Strict on most views
-  - On 6-player: HypIG matches Strict on Obj (+0.004), improves on PCV (+0.013)
+  - Paper 6-player reference: HypIG improves objective marginal accuracy over Strict by +0.036.
+  - Current reproduction: HypIG is close to Strict on objective marginal accuracy (+0.004) and improves PCV by +0.013.
 
 ---
 
@@ -75,6 +76,6 @@ should degrade accuracy.
 - [x] Marginal accuracy computed as average probability assigned to true roles
 - [x] Results averaged over all games and all quests within each game
 - [x] 6-player results (3,176 games) match paper's Table 3 AvalonLogs-6p section
-- [ ] 9-player results (843 games) fully solved — currently at 145/843
+- [x] 9-player results (843 games) fully solved
 - [x] Scores written to scoring/scores.json in matching experiment/metric format
 - [x] Validation: `python validate.py --compare` passes with no errors

@@ -11,7 +11,7 @@ The paper tackles the role identification problem in Social Deduction Games (Ava
 
 ## Key Results
 
-- **CSP methods dominate**: On Avalon-NLU (21 games, 6 players), CSP+HypIG achieves ~0.76 MAP accuracy for Percival vs. ~0.19 for LLM-Global — a 4x improvement
+- **CSP methods dominate**: On Avalon-NLU (21 games, 6 players), CSP+HypIG achieves ~0.76 marginal / 0.79 MAP accuracy for Percival vs. ~0.16 marginal / 0.19 MAP for LLM-Global
 - **Information-gain weighting is effective**: IG-auto-weighted hypotheses perform on par with hand-tuned weights, eliminating manual tuning
 - **LLMs amplify heuristics**: Across GPT-4o-mini, GPT-4o, GPT-4.1, DeepSeek-v3, Gemini-2.0-flash, accuracy barely changes — suggesting the bottleneck is combinatorial reasoning, not language understanding
 - **Hybrid LLM+CSP helps LLMs**: All LLM backbones gain ~10-20pp when augmented with CSP posteriors

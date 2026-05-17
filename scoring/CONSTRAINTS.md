@@ -18,7 +18,8 @@ Avalon's game rules. No neural networks or LLMs are permitted in the reasoning p
 
 ## Data
 
-The scientist must use the AvalonLogs dataset in `data/avalonlogs_raw/` (~12,400 games).
+The scientist must use the AvalonLogs dataset downloaded by `scripts/download.sh`
+to `data/downloads/avalonlogs_raw/` and converted to `data/avalonlogs_constraints/`.
 The CSP constraint conversion (`data/convert_avalonlogs.py`) derives constraints
 programmatically from game events (quest failures, votes, team proposals).
 No LLM annotation is used. No external social deduction game datasets may be
@@ -55,7 +56,7 @@ Metric names must match: `{View}_marginal` (Obj, MRL, PCV, MRG, EVM).
 ## Compliance Checklist
 
 - [x] Using the CSP4SDG solver from `method/sdg_framework.py`
-- [x] Using the AvalonLogs dataset from `data/avalonlogs_raw/`
+- [x] Using the AvalonLogs dataset from `data/downloads/avalonlogs_raw/`
 - [x] No neural network or LLM in the constraint reasoning path
 - [x] No training or learning from game data
 - [x] Results averaged over all games and quests in the evaluation set

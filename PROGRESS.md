@@ -44,7 +44,7 @@ Packaging fix: `environment/container.def` no longer runs `pip install` in `%pos
    - Canonicalizes numbered role views (loyal_follower1→LSV, evil_minion1→EVM)
    - Produces scores.json matching reference.json structure
 
-5. **AvalonLogs dataset**: 12,394 converted games, 12,091 solved. All 5-9 player games are solved; 297 of 600 10-player games are solved.
+5. **AvalonLogs dataset**: 12,882 raw files downloaded to `data/downloads/avalonlogs_raw/`; 12,394 games converted; 12,091 solved. All 5-9 player games are solved; 297 of 600 10-player games are solved.
 
 ## Results Achieved
 
@@ -87,7 +87,7 @@ while the paper uses LLM-based constraint extraction from dialogue.
 4. **Job 1b3b35a6-d2f infrastructure failure**: The job exited at the raw-data step because
    `scripts/download.sh` fetched GitHub before checking the existing raw data directory. This was fixed
    by making both `scripts/download.sh` and `scripts/run.sh` treat an existing non-empty
-   `data/avalonlogs_raw/` directory as complete and offline-safe.
+   `data/downloads/avalonlogs_raw/` directory as complete and offline-safe.
 5. **Job 424404a8-280 cancelled after partial progress**: The resumable CPU job solved 453 additional
    games but later spent too long on the hardest remaining instances without progress output. `scripts/run.sh`
    now records timed-out files in `data/avalonlogs_solve/timeouts.txt`, skips them on later attempts, and

@@ -34,7 +34,7 @@ Check off items as you complete them. Order doesn't matter — work however make
 - [x] `environment/container.def` + `environment/setup.sh` (CSP is pure Python, runs natively)
 
 ## Data
-- [x] AvalonLogs dataset downloaded (12,394 converted games from data/avalonlogs_raw/)
+- [x] AvalonLogs dataset downloaded (12,882 raw files in data/downloads/avalonlogs_raw/)
 - [x] Dataset converted to CSP constraints (data/avalonlogs_constraints/)
 - [x] 12,091 games solved across all sizes (data/avalonlogs_solve/) — all 5-9 player games plus 297/600 10-player games
 - [x] Remaining hard cases bounded with persistent per-game timeout tracking

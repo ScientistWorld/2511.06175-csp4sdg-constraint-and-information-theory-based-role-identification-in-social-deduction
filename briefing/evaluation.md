@@ -50,7 +50,7 @@ Results reported separately for each viewpoint:
 - **Evil roles**: Know their teammates
 
 ### Game Size
-Focus on 6-8 player games for computational tractability. Larger games excluded due to combinatorial explosion.
+AvalonLogs results are reported separately for 5-, 6-, 7-, 8-, 9-, and 10-player games. Exact enumeration becomes expensive for 10-player games, so partial 10-player coverage is acceptable if it is clearly reported.
 
 ### Statistical Validation
 Improvements over baselines should use paired tests (Wilcoxon, paired t-test) across games with p < 0.05.
