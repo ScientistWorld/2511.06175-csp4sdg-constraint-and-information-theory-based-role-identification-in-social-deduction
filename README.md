@@ -11,7 +11,7 @@ The paper tackles the role identification problem in Social Deduction Games (Ava
 
 ## Key Results
 
-- **CSP methods dominate**: On Avalon-NLU (21 games, 6 players), CSP+HypIG achieves ~0.76 MAP accuracy for Percival vs. ~0.19 for LLM-Global — a 4x improvement
+- **CSP methods dominate**: On Avalon-NLU (21 games, 6 players), CSP+HypIG achieves ~0.76 marginal / 0.79 MAP accuracy for Percival vs. ~0.16 marginal / 0.19 MAP for LLM-Global
 - **Information-gain weighting is effective**: IG-auto-weighted hypotheses perform on par with hand-tuned weights, eliminating manual tuning
 - **LLMs amplify heuristics**: Across GPT-4o-mini, GPT-4o, GPT-4.1, DeepSeek-v3, Gemini-2.0-flash, accuracy barely changes — suggesting the bottleneck is combinatorial reasoning, not language understanding
 - **Hybrid LLM+CSP helps LLMs**: All LLM backbones gain ~10-20pp when augmented with CSP posteriors
@@ -22,45 +22,48 @@ The paper tackles the role identification problem in Social Deduction Games (Ava
 
 ## Research Question
 
-In Social Deduction Games (SDGs) like Avalon, Mafia, and Werewolf, players are secretly assigned roles and must deduce each other's hidden identities through game events (votes, quests, eliminations) and dialogue. The core challenge is **role identification**: given partial, noisy, and often deceptive information, what is the most likely role assignment for each player?
+In social deduction games such as Avalon, Mafia, and Werewolf, players have hidden roles and reveal information only indirectly through public actions, optional communication, and game outcomes. The central task is **role identification**: given the observed game history and the role composition for that game, infer the most likely role for each player.
 
-The problem is hard because:
-- Information is incomplete and distributed across players
-- Players deliberately deceive each other
-- The combinatorial space of possible role assignments grows factorially with player count (90 worlds for 6 players, ~78,000 for 10 players)
-- Some roles have special knowledge (e.g., Merlin knows who is evil) that provides asymmetric information
-- Dialogue contains both honest claims and strategic lies
+The problem is difficult because:
+- Observations are incomplete and noisy.
+- Some players benefit from misleading others.
+- Different roles have different private information.
+- The number of possible full role assignments grows rapidly with player count.
+- Public events and communication can support multiple conflicting explanations.
 
 ## Why It Matters
 
-Accurate role identification is the foundation of decision-making in SDGs — for both human players and AI agents. If an agent cannot correctly infer who is on its team, it cannot coordinate effectively or deceive opponents. This problem also generalizes to any multi-agent setting where agents must reason about hidden state from public observations and communication.
-
-## Success Criteria
-
-A successful role identification system should:
-1. **Maximise marginal accuracy**: assign high probability to the true role of each player (1/P for random)
-2. **Maximise MAP (maximum-a-posteriori) accuracy**: correctly recover the exact full role assignment
-3. **Be interpretable**: provide calibrated probabilities and explain why certain roles are likely
-4. **Be game-agnostic**: work across different social deduction games without per-game tuning
-5. **Be training-free**: not require learning from game data (the combinatorial structure is known from game rules)
+Accurate role identification is a prerequisite for strategic play in social deduction games. It is also a compact benchmark for hidden-state reasoning in multi-agent settings: a system must combine public evidence, asymmetric information, and uncertainty about other agents' motives.
 
 ## Task Definition
 
-**Input**: Game history consisting of:
-- Player list and known role composition (e.g., "6 players: 3 good, 2 evil, 1 special")
-- Public events: team proposals, votes, quest outcomes, night eliminations
-- Private dialogue (optional, not always available)
-- Role perspective (optional): the viewpoint from which reasoning is performed
+**Input**:
+- Player list and role composition for one game.
+- Public game events such as team proposals, votes, quest outcomes, and eliminations.
+- Optional communication traces when available.
+- Optional perspective information describing what a particular role viewpoint is allowed to know.
 
-**Output**: For each player, a probability distribution over possible roles, plus a MAP assignment.
+**Output**:
+- For each evaluated viewpoint, a probability distribution over possible roles for each player.
+- A single maximum-a-posteriori full role assignment.
+
+## Success Criteria
+
+A strong solution should:
+1. Assign high probability to each player's true role.
+2. Recover accurate full role assignments when uncertainty is low.
+3. Remain calibrated when evidence is ambiguous.
+4. Respect the declared role composition and viewpoint-specific information.
+5. Generalize across player counts without changing the evaluation protocol.
 
 ## Difficulty
 
-- 6 players: 90 possible role assignments (choose 3 good from 6, then assign special roles)
-- 8 players: ~2,800 assignments
-- 10 players: ~78,000 assignments
+For Avalon-style role sets, the possible assignment space is small enough to define exactly but large enough to make naive reasoning weak:
+- 6 players: 90 possible full assignments in the reproduced role schema.
+- 8 players: roughly 2,800 assignments.
+- 10 players: roughly 78,000 assignments.
 
-The challenge is not just enumeration but also appropriately weighting different evidence sources — votes may indicate suspicion but a player could be lying; quest failures indicate evil presence but don't identify who.
+The challenge is not just listing assignments. A method must decide how much each event, outcome, and viewpoint should shift probability mass toward or away from competing hidden-role explanations.
 
 ---
 
@@ -116,58 +119,66 @@ Rather than hand-tuning hypothesis weights, the paper computes Information Gain 
 
 ## Metrics
 
-Two accuracy metrics evaluate role identification quality:
+Two accuracy metrics evaluate hidden-role inference quality.
 
-### Marginal Accuracy (MA)
-For a game with *P* players, let *r_p* be player *p*'s true role and *a_{p,r}* be the posterior probability that player *p* has role *r*:
+### Marginal Accuracy
 
-$$\text{MA}_q = \frac{1}{P} \sum_{p=1}^{P} a_{p, r_p^*}$$
+For a game with `P` players, let `r_p` be player `p`'s true role and `a_{p,r}` be the predicted posterior probability that player `p` has role `r`:
 
-This is the average probability assigned to the true role across all players in a single round *q*.
+```text
+MA = (1 / P) * sum_p a_{p,r_p}
+```
 
-### MAP (Maximum-A-Posteriori) Accuracy
-Let $\hat{r}_p$ be the role assigned in the single most likely complete assignment:
+This rewards calibrated probability mass on the true role even when the full assignment remains uncertain.
 
-$$\text{MAP}_q = \frac{1}{P} \sum_{p=1}^{P} \mathbf{1}[\hat{r}_p = r_p^*]$$
+### MAP Accuracy
 
-This is the fraction of players whose exact role is correctly recovered.
+Let `hat_r_p` be the role assigned to player `p` in the single most likely complete assignment:
+
+```text
+MAP = (1 / P) * sum_p 1[hat_r_p = r_p]
+```
+
+This measures how often the predicted best full assignment gives each player the correct exact role.
 
 ### Aggregation
-Both metrics are averaged over the *Q* rounds of a game, then over all games in the dataset.
 
-## Baselines and Targets
-
-**Random baseline** (uniform prior):
-- Objective ≈ 0.267, Merlin = 0.4, Percival = 0.4, Assassin = 0.583, Servant = 0.333
-
-**LLM baseline** (for papers with dialogue): Large language model prompted with game history. Generally performs near random for special roles.
-
-**Target performance** (from AvalonLogs 6-player, Table 3):
-- CSP-Strict: Obj=0.290, Merlin=0.614, Percival=0.635, EvilMinion=0.691
-- CSP+HypIG: Obj=0.326, Merlin=0.615, Percival=0.637, EvilMinion=0.729
-- LLM-Global: Obj=0.283, Merlin=0.360, Percival=0.325, EvilMinion=0.464
-
-The core claim: constraint-based probabilistic reasoning significantly outperforms LLM-based approaches for role identification.
+Metrics are averaged over evaluated game states and then over games. Results are reported separately for each viewpoint and player-count experiment.
 
 ## Evaluation Protocol
 
 ### Dataset
-**AvalonLogs**: 12,699 Avalon games (5-10 players) with team proposals, votes, quest outcomes, and ground-truth roles. No dialogue.
 
-### Perspectives
-Results reported separately for each viewpoint:
-- **Objective**: Public information only
-- **Merlin**: Knows which players are evil
-- **Percival**: Sees Merlin/Morgana candidates
-- **Morgana**: Knows fellow evils
-- **Servant**: No special knowledge
-- **Evil roles**: Know their teammates
+The reproduced gym uses public AvalonLogs games with player lists, public events, quest outcomes, and ground-truth roles. Dialogue is not required for the reproduced benchmark. The downloaded raw logs are converted into a method-independent representation under `data/`, and any valid method may consume that representation or the raw logs.
 
-### Game Size
-Focus on 6-8 player games for computational tractability. Larger games excluded due to combinatorial explosion.
+### Viewpoints
+
+Scores are reported for multiple information settings:
+- `Obj`: public information only.
+- `MRL`: Merlin's viewpoint.
+- `PCV`: Percival's viewpoint.
+- `MRG`: Morgana's viewpoint.
+- `EVM`: non-special evil viewpoint.
+
+Each viewpoint controls what hidden information the predictor may condition on.
+
+### Experiments
+
+AvalonLogs experiments are split by player count (`avalonlogs_5player` through `avalonlogs_10player`). This prevents improvements on one game size from hiding regressions on another. Larger player counts are more expensive, so coverage is reported in the experiment notes and progress logs.
+
+### Output Contract
+
+Evaluation reads method outputs, not method internals. A method should write one JSON artifact per solved game with:
+- the source file identifier,
+- player names and true roles,
+- per-viewpoint posterior probabilities over roles,
+- per-viewpoint best role assignment.
+
+`scripts/evaluate.sh` calls `eval/evaluator.py` to read those artifacts and writes `scoring/scores.json`.
 
 ### Statistical Validation
-Improvements over baselines should use paired tests (Wilcoxon, paired t-test) across games with p < 0.05.
+
+For new research claims, compare methods on matched games and viewpoints. Paired tests such as Wilcoxon signed-rank or paired t-tests are appropriate when enough matched games are available. The gym score itself is based on the metrics and weights in `scoring/reference.json`.
 
 ---
 
@@ -354,6 +365,33 @@ Improvements over baselines should use paired tests (Wilcoxon, paired t-test) ac
 
 </details>
 
+### Iteration 8: gpt-5.5 (verifier)
+- **Milestone**: `core_claim_plus` | **Status**: done
+- **Working time**: 16m | **GPU**: 0.0h
+- **Jobs**: 12 total (2 completed, 3 failed)
+
+<details>
+<summary>Progress Log</summary>
+
+### [2026-05-17 16:05] - core_claim_plus
+- Completed final verification of the packaged research gym.
+- Fixed method leakage in method-agnostic and method-safe scoring documents.
+- Removed tracked root-level raw AvalonLogs files; reusable data now remains under the standard data/download paths.
+- Re-ran `python3 validate.py --compare`, shell syntax checks, URL verification, and standalone evaluation on existing artifacts.
+
+### [2026-05-17 15:30] - core_claim_plus
+- Completed continuation audit after the milestone reset and restored `core_claim_plus`.
+- Confirmed the method implementation is the actual CSP4SDG algorithm, not a surrogate, and that evaluation reads solver artifacts independently from `method/`.
+- Fixed evaluator reference lookup so `scripts/evaluate.sh` preserves the same reference-based output contract even when writing scores outside `scoring/`.
+- Re-ran `scripts/evaluate.sh` and `python3 validate.py --compare`; all checks passed.
+
+### [2026-05-17 15:13] - core_claim_plus
+- Confirmed the implementation is the paper's actual CSP4SDG algorithm: hard-constraint pruning, multiplicative assertions, additive IG/manual hypotheses, posterior marginals, and MAP worlds.
+- Validated the reusable AvalonLogs gym with `python3 validate.py --compare` and bytecode compilation for method, data conversion, and evaluation modules.
+- Reproduced the core AvalonLogs claim across 5-, 6-, 7-, 8-, 9-, and partially solved 10-player settings. CSP_Strict is close to the paper on the accessible no-dialogue benchmark and clearly beats the paper's LLM_Global reference on informative role views.
+
+</details>
+
 
 ---
 
@@ -362,4 +400,4 @@ Improvements over baselines should use paired tests (Wilcoxon, paired t-test) ac
 **Current: core_claim_plus**
 
 ## Stop Justification
-- Completed at milestone `core_claim`.
+- Completed at milestone `core_claim_plus`.
