@@ -237,8 +237,10 @@ def evaluate(
             except Exception:
                 pass
 
-        # Collect per-game metrics, keyed by (player_count, setting, view)
-        # Then group by player_count and produce experiments matching reference.json
+        # Collect game-level metrics, keyed by (player_count, setting, view).
+        # The paper averages over quests within each game first, then averages
+        # across games. Keeping game means here prevents longer games from
+        # receiving extra weight.
         by_size: Dict[int, Dict[str, Dict[str, List]]] = defaultdict(
             lambda: defaultdict(lambda: defaultdict(list))
         )
@@ -256,37 +258,8 @@ def evaluate(
             n_players = len(truth)
             game_counts[n_players] = game_counts.get(n_players, 0) + 1
 
-            for q_idx, quests in game.get("quests", {}).items():
-                for view, settings in quests.items():
-                    # Canonicalize view name
-                    def canonicalize_name(v: str) -> str:
-                        v2 = v.lower()
-                        stripped = re.sub(r'\d+$', '', v2)
-                        if stripped in ("merlin",): return "MRL"
-                        if stripped in ("percival",): return "PCV"
-                        if stripped in ("morgana",): return "MRG"
-                        if stripped in ("servant", "loyal_follower", "loyal_servant"): return "LSV"
-                        if stripped in ("assassin",): return "ASN"
-                        if stripped in ("evil_minion", "evil-minion", "mordred", "oberon"): return "EVM"
-                        if stripped in ("objective",): return "Obj"
-                        return stripped
-
-                    cv = canonicalize_name(view)
-                    if cv in ("unknown", "obj") and view.lower() != "objective":
-                        continue  # Skip unknown views
-
-                    for setting, data in settings.items():
-                        post = data.get("posterior", {})
-                        best = data.get("best", {})
-                        if not post:
-                            continue
-
-                        P = len(truth)
-                        marg = sum(post.get(p, {}).get(r, 0.0) for p, r in truth.items()) / P
-                        correct = sum(1 for p, r in truth.items() if best.get(p) == r)
-                        map_acc = correct / P
-
-                        by_size[n_players][setting][cv].append((marg, map_acc))
+            for (view, setting), rec in compute_avalonlogs_game_metrics(game).items():
+                by_size[n_players][setting][view].append((rec["marg_mean"], rec["map_mean"]))
 
         # Map player size to experiment name (matching reference.json)
         SIZE_TO_EXP = {

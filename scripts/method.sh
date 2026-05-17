@@ -86,7 +86,17 @@ in_dir = Path("data/avalonlogs_constraints")
 out_dir = Path("data/avalonlogs_solve")
 out_dir.mkdir(parents=True, exist_ok=True)
 
-files = list(in_dir.glob("*_constraints.json"))
+files = sorted(in_dir.glob("*_constraints.json"))
+sample_arg = "$SAMPLE_COUNT"
+if sample_arg:
+    import random
+    try:
+        sample_count = int(sample_arg)
+        rng = random.Random(42)
+        files = rng.sample(files, min(sample_count, len(files)))
+        print(f"Sampling {len(files)} constraint files for solving...")
+    except ValueError:
+        pass
 print(f"Processing {len(files)} constraint files...")
 
 solved = 0

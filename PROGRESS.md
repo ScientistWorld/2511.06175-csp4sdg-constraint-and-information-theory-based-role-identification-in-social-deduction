@@ -39,7 +39,7 @@ Packaging fix: `environment/container.def` no longer runs `pip install` in `%pos
    - Canonicalizes numbered role views (loyal_follower1→LSV, evil_minion1→EVM)
    - Produces scores.json matching reference.json structure
 
-5. **AvalonLogs dataset**: 12,394 converted games, 12,091 solved across all sizes
+5. **AvalonLogs dataset**: 12,394 converted games, 12,091 solved. All 5-9 player games are solved; 297 of 600 10-player games are solved.
 
 ## Results Achieved
 
@@ -47,19 +47,19 @@ Packaging fix: `environment/container.def` no longer runs `pip install` in `%pos
 
 | Size | Solved | Obj     | MRL     | PCV     | MRG     | LSV     | EVM     | vs Paper |
 |------|--------|---------|---------|---------|--------|---------|---------|----------|
-| 5p   | 3359   | 0.280   | 0.626   | 0.639   | 0.600   | 0.491   | 0.700   | Very close |
-| 6p   | 3176   | 0.291   | 0.615   | 0.638   | 0.584   | 0.416   | 0.684   | Very close |
-| 7p   | 2735   | 0.242   | 0.559   | 0.546   | 0.516   | 0.360   | 0.534   | Very close |
-| 8p   | 1681   | 0.260   | 0.568   | 0.547   | 0.526   | 0.337   | 0.540   | Very close |
-| 9p   | 843    | 0.299   | 0.593   | 0.570   | 0.552   | 0.353   | 0.590   | Very close |
-| 10p  | 297    | 0.291   | 0.620   | 0.509   | 0.540   | 0.351   | 0.575   | Close / higher than paper |
+| 5p   | 3359   | 0.279   | 0.625   | 0.636   | 0.600   | 0.457   | 0.667   | Very close |
+| 6p   | 3176   | 0.290   | 0.616   | 0.636   | 0.584   | 0.391   | 0.647   | Very close |
+| 7p   | 2735   | 0.241   | 0.558   | 0.545   | 0.516   | 0.342   | 0.510   | Very close |
+| 8p   | 1681   | 0.259   | 0.567   | 0.547   | 0.525   | 0.326   | 0.520   | Very close |
+| 9p   | 843    | 0.299   | 0.593   | 0.569   | 0.553   | 0.345   | 0.572   | Very close |
+| 10p  | 297    | 0.290   | 0.617   | 0.508   | 0.537   | 0.339   | 0.553   | Close / higher than paper |
 
 **Core claim validated**: CSP_Strict clearly outperforms expected LLM_Global baseline on all views.
-For 6-player: MRL 0.615 vs expected 0.360, PCV 0.638 vs expected 0.325, EVM 0.684 vs expected 0.464.
+For 6-player: MRL 0.616 vs expected 0.360, PCV 0.636 vs expected 0.325, EVM 0.647 vs expected 0.464.
 The same CSP role-inference pipeline has been evaluated on 5, 6, 7, 8, 9, and 10 player AvalonLogs settings, so the current milestone is `core_claim_plus`.
 
 **CSP_HypIG discrepancy**: The paper shows +HypIG significantly outperforms Strict (e.g., 6p Obj: 0.326 vs 0.290).
-Our implementation: HypIG ≈ Strict (e.g., 6p Obj: 0.291 vs 0.291). The IG weighting in our implementation
+Our implementation: HypIG ≈ Strict (e.g., 6p Obj: 0.294 vs Strict 0.290). The IG weighting in our implementation
 does not produce the paper's large objective-level gains. This is likely due to different hypothesis generation
 or IG computation approach — our implementation uses programmatic extraction from AvalonLogs vote/team data,
 while the paper uses LLM-based constraint extraction from dialogue.
@@ -67,7 +67,7 @@ while the paper uses LLM-based constraint extraction from dialogue.
 ## Remaining
 
 1. **Full dataset solve**: The resume jobs improved coverage from 11,533 to 12,091 solved games. The
-   remaining 303 hard 9p/10p games are either recorded as 90-second timeouts (261 cases) or left unsolved
+   remaining 303 hard 10-player games are either recorded as 90-second timeouts (261 cases) or left unsolved
    after the final job-level budget (42 cases).
 2. **Avalon-NLU and Mafia**: Require LLM-based constraint extraction (API needed). Cannot reproduce without API.
 3. **LLM baselines**: Cannot reproduce without LLM API access or local LLM.
@@ -78,7 +78,7 @@ while the paper uses LLM-based constraint extraction from dialogue.
    implementation shows nearly identical results. This is a known gap between our programmatic extraction
    and the paper's LLM-based extraction.
 2. **Avalon-NLU and Mafia unavailable**: No API available for LLM-based constraint extraction.
-3. **9p/10p partial coverage**: 416/843 nine-player and 166/600 ten-player games are solved so far, due to time constraints.
+3. **10p partial coverage**: all 843 nine-player games and 297/600 ten-player games are solved. The unsolved cases are the largest remaining exact-enumeration instances.
 4. **Job 1b3b35a6-d2f infrastructure failure**: The job exited at the raw-data step because
    `scripts/download.sh` fetched GitHub before checking the existing raw data directory. This was fixed
    by making both `scripts/download.sh` and `scripts/run.sh` treat an existing non-empty
@@ -94,7 +94,7 @@ while the paper uses LLM-based constraint extraction from dialogue.
 
 1. **Datasets**: Only AvalonLogs used. Avalon-NLU and Mafia-UCB require LLM-based extraction (API needed).
 2. **LLM comparisons**: No LLM-based experiments. The paper shows LLM struggles; replicating requires API.
-3. **Game size coverage**: 9-10 player games partially solved; current coverage is 12,091/12,394 games.
+3. **Game size coverage**: 10-player games are partially solved; current coverage is 12,091/12,394 games.
 4. **No dialogue**: AvalonLogs has no dialogue; only the no-dialogue condition can be reproduced.
 5. **HypIG implementation**: Information gain weighting produces smaller improvements than the paper reports,
    likely due to implementation differences in hypothesis generation and IG computation.
