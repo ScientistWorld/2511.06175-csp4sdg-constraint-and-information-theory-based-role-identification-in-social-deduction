@@ -18,7 +18,7 @@ from typing import Any, Dict, Iterable, List, Optional, Set, Tuple
 
 SPLIT_NAME = "test"
 SPLIT_SEED = "avalon-scientist-gym-v1"
-VALID_VIEWS = {"MRL", "PCV", "MRG", "LSV", "EVM", "Obj"}
+VALID_VIEWS = {"MRL", "PCV", "MRG", "LSV", "EVM", "Obj", "BYS", "MAF"}
 SIZE_TO_EXP = {
     5: "avalonlogs_5player",
     6: "avalonlogs_6player",
@@ -64,6 +64,10 @@ def canonicalize_view(view: str) -> str:
         return "EVM"
     if v == "objective":
         return "Obj"
+    if v in {"bys", "bystander"}:
+        return "BYS"
+    if v in {"maf", "mafia", "mafioso"}:
+        return "MAF"
     return v
 
 
@@ -91,8 +95,9 @@ def compute_game_metrics(game: Dict[str, Any]) -> Dict[Tuple[str, str], Dict[str
     if player_count == 0:
         return out
 
-    for quests in game.get("quests", {}).values():
-        for view, settings in quests.items():
+    rounds = game.get("quests") or game.get("days") or {}
+    for round_obj in rounds.values():
+        for view, settings in round_obj.items():
             canonical_view = canonicalize_view(view)
             for setting, data in settings.items():
                 posterior = data.get("posterior", {})
@@ -155,7 +160,7 @@ def evaluate_avalonlogs(
             grouped_paths[player_count].append((path.name, path))
 
     split_counts = {}
-    by_exp_method_view: Dict[str, Dict[str, Dict[str, List[float]]]] = defaultdict(
+    by_exp_method_view: Dict[str, Dict[str, Dict[str, List[Dict[str, float]]]]] = defaultdict(
         lambda: defaultdict(lambda: defaultdict(list))
     )
 
@@ -173,7 +178,7 @@ def evaluate_avalonlogs(
                     continue
                 if method_filter is not None and method_name not in method_filter.get(exp_name, set()):
                     continue
-                by_exp_method_view[exp_name][method_name][view].append(vals["marginal"])
+                by_exp_method_view[exp_name][method_name][view].append(vals)
 
     experiment_names = set(by_exp_method_view)
     if method_filter is not None:
@@ -190,7 +195,8 @@ def evaluate_avalonlogs(
             method_scores = {}
             for view, values in sorted(by_exp_method_view[exp_name].get(method_name, {}).items()):
                 if values:
-                    method_scores[f"{view}_marginal"] = round(sum(values) / len(values), 4)
+                    method_scores[f"{view}_marginal"] = round(sum(v["marginal"] for v in values) / len(values), 4)
+                    method_scores[f"{view}_map"] = round(sum(v["map"] for v in values) / len(values), 4)
             scores["experiments"][exp_name]["results"][method_name] = method_scores
 
     scores["metadata"]["n_selected_files_by_experiment"] = split_counts
@@ -243,15 +249,53 @@ def evaluate_avalonnlu(
     return scores
 
 
-def load_method_filter(path: Optional[Path]) -> Optional[Dict[str, Set[str]]]:
-    if path is None or not path.exists():
-        return None
-    with path.open(encoding="utf-8") as f:
-        data = json.load(f)
-    filters = {}
-    for exp_name, exp_data in data.get("experiments", {}).items():
-        filters[exp_name] = set(exp_data.get("results", {}).keys())
-    return filters
+def evaluate_mafia(
+    results_dir: Path,
+    dataset: str,
+    condition: str,
+    method_filter: Optional[Dict[str, Set[str]]] = None,
+) -> Dict[str, Any]:
+    scores = empty_scores(dataset, condition)
+    labelled_games = []
+    paths = [results_dir] if results_dir.is_file() else sorted(results_dir.glob("*.jsonl"))
+    for path in paths:
+        for idx, game in enumerate(load_jsonl(path)):
+            if game.get("cond") == condition:
+                labelled_games.append((f"{path.name}:{idx}", game))
+
+    selected_games = select_half_by_group(labelled_games, SPLIT_NAME)
+    exp_name = f"mafia_{condition.lower()}_main"
+    by_method_view: Dict[str, Dict[str, Dict[str, List[float]]]] = defaultdict(
+        lambda: defaultdict(lambda: defaultdict(list))
+    )
+
+    for game in selected_games:
+        for (view, method_name), vals in compute_game_metrics(game).items():
+            if view not in {"Obj", "BYS", "MAF"}:
+                continue
+            if method_filter is not None and method_name not in method_filter.get(exp_name, set()):
+                continue
+            by_method_view[method_name][view]["marginal"].append(vals["marginal"])
+            by_method_view[method_name][view]["map"].append(vals["map"])
+
+    if by_method_view or method_filter:
+        scores["experiments"][exp_name] = {
+            "description": f"Mafia-UCB {condition} {SPLIT_NAME} split results",
+            "results": {},
+        }
+        exp_filter = method_filter.get(exp_name, set()) if method_filter is not None else None
+        method_names = sorted(exp_filter) if exp_filter else sorted(by_method_view)
+        for method_name in method_names:
+            method_scores = {}
+            for view, metrics in sorted(by_method_view.get(method_name, {}).items()):
+                if metrics["marginal"]:
+                    method_scores[f"{view}_marginal"] = round(sum(metrics["marginal"]) / len(metrics["marginal"]), 4)
+                if metrics["map"]:
+                    method_scores[f"{view}_map"] = round(sum(metrics["map"]) / len(metrics["map"]), 4)
+            scores["experiments"][exp_name]["results"][method_name] = method_scores
+
+    scores["metadata"]["n_selected_games"] = len(selected_games)
+    return scores
 
 
 def evaluate(
@@ -259,13 +303,13 @@ def evaluate(
     output_path: Path,
     dataset: str = "avalonlogs",
     condition: str = "Truth",
-    train_scores_path: Optional[Path] = None,
 ) -> Dict[str, Any]:
-    method_filter = load_method_filter(train_scores_path)
     if dataset == "avalonlogs":
-        scores = evaluate_avalonlogs(results_dir, dataset, condition, method_filter)
+        scores = evaluate_avalonlogs(results_dir, dataset, condition)
     elif dataset == "avalonnlu":
-        scores = evaluate_avalonnlu(results_dir, dataset, condition, method_filter)
+        scores = evaluate_avalonnlu(results_dir, dataset, condition)
+    elif dataset == "mafia":
+        scores = evaluate_mafia(results_dir, dataset, condition)
     else:
         scores = empty_scores(dataset, condition)
         scores["metadata"]["warning"] = "No slice evaluator is implemented for this dataset."
@@ -282,7 +326,6 @@ def main() -> None:
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--dataset", default="avalonlogs", choices=["avalonlogs", "avalonnlu", "mafia"])
     parser.add_argument("--condition", default="Truth", choices=["Truth", "Lie"])
-    parser.add_argument("--train-scores", type=Path, default=None)
     args = parser.parse_args()
 
     scores = evaluate(
@@ -290,7 +333,6 @@ def main() -> None:
         output_path=args.output,
         dataset=args.dataset,
         condition=args.condition,
-        train_scores_path=args.train_scores,
     )
     print(f"Scores written to {args.output}")
     print(f"Slice: {scores.get('metadata', {}).get('slice')}")
