@@ -173,180 +173,38 @@ Improvements over baselines should use paired tests (Wilcoxon, paired t-test) ac
 
 # Reproduction Log
 
-### Iteration 1: MiniMax-M2.7
-- **Milestone**: `method_runs` | **Status**: done
-- **Working time**: 6.4h | **GPU**: 0.0h
-
-<details>
-<summary>Progress Log</summary>
-
-### [2026-04-06] - method_runs
-- Implemented the CSP4SDG solver based on the paper's code (method/sdg_framework.py, method/avalon_logs_solver.py)
-- CSP solver runs end-to-end on AvalonLogs data without errors
-- Data preprocessing (convert_avalonlogs.py) successfully converts raw game logs to CSP constraints
-- Optimized solver processes 6-8 player games in ~1-10s per game (9-10 player games are slow due to combinatorial explosion)
-- AvalonLogs dataset: 12,402 game files, converted to constraints
-- Evaluation code computes marginal accuracy and MAP accuracy per game, aggregated across games
-
-### [2026-04-06] - none
-- Read the paper and identified key components: CSP framework, four constraint types, IG weighting
-- Cloned CSP4SDG GitHub repo for reference implementation
-- Downloaded AvalonLogs dataset (12,402 games) from GitHub
-
-</details>
-
-### Iteration 1: MiniMax-M2.7
-- **Milestone**: `core_claim` | **Status**: done
-- **Working time**: 43m | **GPU**: 0.0h
-
-<details>
-<summary>Progress Log</summary>
-
-### [2026-04-08] - core_claim
-- Solved 7,587 6-8 player games (72 minutes with 16 workers) + 145 of 843 9-player games
-- 6-player results (3,176 games) match paper closely on most metrics:
-  - CSP_Strict: Obj=0.2902 vs 0.290, MRL=0.6155 vs 0.614, PCV=0.6364 vs 0.635, MRG=0.5838 vs 0.584 (all within 0.002)
-  - CSP_HypIG: Obj=0.2944 vs 0.326 (-0.032), MRL=0.6182 vs 0.615 (+0.003), PCV=0.6489 vs 0.637 (+0.012), MRG=0.584 vs 0.577 (+0.007)
-  - EVM: 0.595 vs 0.691 (consistent ~0.10 gap — different EVM definition; see PROGRESS.md)
-- 9-player results (145 games) show CSP working but not yet fully convergent
-- scores.json written, all validations passed
-- Core claim DEMONSTRATED: CSP-based inference outperforms random baseline and matches paper approach
-
-### [2026-04-07] - method_runs
-- Implemented complete CSP4SDG solver (method/sdg_framework.py) matching the paper's algorithm exactly
-  - Four constraint types: evidence, phenomenon, assertions, hypotheses
-  - Scoring function with multiplicative assertions and additive hypotheses
-  - Information-gain auto-weighting for hypotheses
-  - Marginal posterior and MAP assignment computation
-- Implemented AvalonLogs solver (method/avalon_logs_solver.py) with optimized world enumeration
-- Implemented data converter (data/convert_avalonlogs.py) extracting CSP constraints from raw game logs
-- Implemented evaluation code (eval/evaluator.py) computing marginal and MAP accuracy
-- Downloaded and converted AvalonLogs dataset (12,402 games)
-- Verified solver works on sample games (~700ms/game for 6-player games)
-- Environment packaging in progress (Docker Hub rate limiting causing build failures)
-
-### [2026-04-07] - none
-- Read paper thoroughly and identified key components
-- Read existing workspace code and confirmed implementation quality
-- Downloaded AvalonLogs data from GitHub
-
-</details>
-
-### Iteration 2: glm-5.1
-- **Milestone**: `method_runs` | **Status**: error
-- **Working time**: 8m | **GPU**: 0.0h
-
-### Iteration 1: MiniMax-M2.7
+### Iteration 1: gpt-5.5
 - **Milestone**: `core_claim_plus` | **Status**: done
-- **Working time**: 23m | **GPU**: 0.0h
+- **Working time**: 25m | **GPU**: 0.0h
+- **Jobs**: 11 total (1 completed, 3 failed)
 
 <details>
 <summary>Progress Log</summary>
 
-### [2026-04-11] - core_claim
-- Fixed evaluator.py to handle numbered role views (loyal_follower1→LSV, evil_minion1→EVM)
-- Regenerated scores.json from all 7,741 solved games
-- Both avalonlogs_6player (3,176 games) and avalonlogs_9player (145 games) experiments present
-- Validator passes with no errors
-- **6-player CSP results closely match paper values:**
-  - CSP_Strict: Obj=0.291 vs 0.290, MRL=0.615 vs 0.614, PCV=0.638 vs 0.635, MRG=0.584 vs 0.584, LSV=0.416 vs 0.390, EVM=0.684 vs 0.691
-  - CSP_HypIG: Obj=0.291 vs 0.326, MRL=0.618 vs 0.615, PCV=0.650 vs 0.637, MRG=0.584 vs 0.577, LSV=0.421 vs 0.419, EVM=0.684 vs 0.729
-- **Core claim validated**: CSP significantly outperforms LLM_Global (MRL: 0.618 vs 0.360, PCV: 0.650 vs 0.325)
-- EVM shows ~0.005-0.045 gap from paper — likely from role aggregation differences in data converter
-- Fixed container.def to use python:3.11-slim base image
-- Updated evaluate.sh and run.sh evaluation pipelines
+### [2026-05-17 14:54] - core_claim_plus
+- CPU resume job `4921dcc7-746` completed successfully after repeated scheduler preemptions.
+- Final evaluated coverage is 12,091/12,394 AvalonLogs games; 261 hard instances are recorded as timed out
+  and 42 unsolved hard instances remain.
+- `scripts/evaluate.sh` refreshed `scoring/scores.json`, and `python validate.py --compare` passed all
+  scoring and structure checks.
 
-### [2026-04-08] - method_runs
-- CSP solver (sdg_framework.py) implements paper's algorithm correctly
-- AvalonLogs solver (avalon_logs_solver.py) processes games at ~700ms/game
-- Data conversion (convert_avalonlogs.py) extracts CSP constraints from game logs
-- First 3,176 6-player games solved successfully
+### [2026-05-17 07:08] - core_claim_plus
+- Cancelled resume job `424404a8-280` after it improved solved coverage from 11,533 to 11,986 games but
+  then stalled on the hardest remaining large AvalonLogs instances.
+- Patched `scripts/run.sh` with a 90-second per-game timeout, a 50-minute solve budget, and persistent
+  timeout skipping so future jobs produce progress and still run evaluation before node timeout.
 
-</details>
+### [2026-05-17 03:43] - core_claim_plus
+- Reviewed failed CPU resume job `1b3b35a6-d2f`: it exited before solving because the compute node
+  attempted to fetch the AvalonLogs GitHub archive and hit the no-internet restriction.
+- Patched `scripts/download.sh` and `scripts/run.sh` so existing raw AvalonLogs files skip all network
+  fetches, preserving the same resumable solve/evaluate plan for the remaining 861 games.
 
-### Iteration 2: glm-5.1
-- **Milestone**: `core_claim` | **Status**: done
-- **GPU**: 0.0h
-
-### Iteration 3: gpt-5.4
-- **Milestone**: `method_runs` | **Status**: done
-- **GPU**: 0.0h
-
-### Iteration 2: MiniMax-M2.7
-- **Milestone**: `core_claim` | **Status**: done
-- **Working time**: 1.2h | **GPU**: 0.0h
-- **Jobs**: 6 total (0 completed, 2 failed)
-
-<details>
-<summary>Progress Log</summary>
-
-### [2026-04-13 17:30] - core_claim
-- Implemented the CSP4SDG constraint-satisfaction framework for Avalon role inference
-- CSP solver (method/sdg_framework.py) implements the paper's equations exactly:
-  - Hard constraints: evidence (role_is) + phenomenon (evil_at_least)
-  - Soft constraints: assertions (multiplicative high weight) + hypotheses (additive IG-weighted)
-  - Exact enumeration of all feasible worlds (up to 10 players)
-  - Log-space numerically-stable scoring
-- Data conversion (data/convert_avalonlogs.py): converts 12,394 raw games to CSP constraints
-- Solver (method/avalon_logs_solver.py): processes constraints across all 5 CSP settings
-- Evaluation (eval/evaluator.py): computes marginal accuracy per view per setting
-- Results match paper's Table 3 closely for CSP_Strict across all 6 player sizes:
-  - 6-player: Obj 0.291 (paper 0.290), MRL 0.615 (paper 0.614), PCV 0.638 (paper 0.635)
-  - 9-player: Obj 0.301 (paper 0.302), MRL 0.593 (paper 0.595), PCV 0.570 (paper 0.568)
-  - All other sizes also within ±0.02 of paper values
-- Core claim validated: CSP significantly outperforms expected LLM_Global baseline
-  - Merlin identification: 0.615 vs 0.360 (1.7x improvement)
-  - Percival identification: 0.638 vs 0.325 (2x improvement)
-  - Evil minion identification: 0.684 vs 0.464 (1.5x improvement)
-- Environment is fully usable: evaluate.sh works, scores.json produced, validate.py passes
-
-</details>
-
-### Iteration 3: glm-5.1
-- **Milestone**: `core_claim` | **Status**: done
-- **GPU**: 0.0h
-- **Jobs**: 6 total (0 completed, 2 failed)
-
-<details>
-<summary>Progress Log</summary>
-
-- CSP_Strict matches paper within ±0.02 across all 6 player sizes (5p-10p)
-- 9,486/12,394 games solved (6p/7p/8p at 100%)
-- Evaluator updated to include MAP accuracy and per-method Obj scores
-- Solving remaining 2,908 games with ALL_SETTINGS (5 CSP stages)
-
-</details>
-
-### Iteration 2: glm-5.1
-- **Milestone**: `core_claim` | **Status**: done
-- **Working time**: 1.0h | **GPU**: 0.0h
-- **Jobs**: 8 total (0 completed, 2 failed)
-
-<details>
-<summary>Progress Log</summary>
-
-### [2026-04-15] - method_runs
-- CSP4SDG solver implemented: CSP framework with evidence, assertions, hypotheses, IG weighting
-- 9,486/12,394 AvalonLogs games solved (6p/7p/8p at 100%, 5p at 42%, 9p at 37%, 10p at 28%)
-- Evaluator computes marginal accuracy across 6 views (MRL, PCV, MRG, LSV, EVM, Obj)
-
-### [2026-04-15] - core_claim
-- CSP_Strict matches paper within ±0.03 on primary metrics across all 6 player sizes
-- validate.py --compare passes: all reproduced metrics numerically plausible
-- Core claim validated: CSP-based approach outperforms LLM baselines on role identification
-- Implementation verified as real CSP solver (not surrogate): exact enumeration, scoring Eq 1,2, IG weighting
-- All deliverables complete: briefing/, scoring/, scripts/, environment/
-- Submitted job to solve remaining ~2,908 games with ALL_SETTINGS for improved coverage
-
-</details>
-
-### Iteration 2: glm-5.1
-- **Milestone**: `method_runs` | **Status**: error
-- **Working time**: 38m | **GPU**: 0.0h
-- **Jobs**: 8 total (0 completed, 2 failed)
-
-<details>
-<summary>Progress Log</summary>
+### [2026-05-17 03:40] - core_claim_plus
+- Verified the existing implementation is the paper's actual CSP4SDG solver: exact role-count enumeration, hard evidence/phenomenon pruning, soft assertions, IG/manual hypotheses, posterior normalization, and marginal/MAP extraction.
+- Re-ran `scripts/evaluate.sh` on the current 11,533 solved AvalonLogs outputs; `python3 validate.py --compare` passes.
+- Patched `scripts/download.sh` to fetch AvalonLogs from the verified GitHub archive instead of relying on a local temporary clone.
+- Prepared a CPU resume job to solve the remaining 861 larger AvalonLogs games and refresh `scoring/scores.json`.
 
 ### [2026-04-16] - Audit & IG Fix
 - Audited previous agent's work: implementation is the paper's actual CSP algorithm
@@ -376,4 +234,4 @@ Improvements over baselines should use paired tests (Wilcoxon, paired t-test) ac
 
 # Reproduction Milestones
 
-**Current: core_claim**
+**Current: core_claim_plus**
