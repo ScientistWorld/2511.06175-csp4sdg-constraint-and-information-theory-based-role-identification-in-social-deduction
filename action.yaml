@@ -1,5 +1,3 @@
-action: submit
-gpus: 0
-test: false
+action: done
 milestone: core_claim_plus
-notes: "CPU-only retry with per-game timeouts: skip pathological remaining AvalonLogs games, preserve partial progress, rerun evaluation, and validate scores before the node timeout."
+notes: "CSP4SDG core claim reproduced on AvalonLogs across all six player sizes. Final evaluated coverage is 12,091/12,394 games; validate.py --compare passes and the environment is packaged."

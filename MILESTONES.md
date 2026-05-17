@@ -4,6 +4,13 @@
 
 ## Progress Log
 
+### [2026-05-17 14:54] - core_claim_plus
+- CPU resume job `4921dcc7-746` completed successfully after repeated scheduler preemptions.
+- Final evaluated coverage is 12,091/12,394 AvalonLogs games; 261 hard instances are recorded as timed out
+  and 42 unsolved hard instances remain.
+- `scripts/evaluate.sh` refreshed `scoring/scores.json`, and `python validate.py --compare` passed all
+  scoring and structure checks.
+
 ### [2026-05-17 07:08] - core_claim_plus
 - Cancelled resume job `424404a8-280` after it improved solved coverage from 11,533 to 11,986 games but
   then stalled on the hardest remaining large AvalonLogs instances.
@@ -51,10 +58,11 @@
 | 6p   | 0.290             | 0.291           | +0.001| 0.614             | 0.615           | +0.001|
 | 7p   | 0.240             | 0.242           | +0.002| 0.559             | 0.559           | 0.000 |
 | 8p   | 0.256             | 0.260           | +0.004| 0.565             | 0.568           | +0.003|
-| 9p   | 0.302             | 0.302           | 0.000 | 0.595             | 0.604           | +0.009|
-| 10p  | 0.256             | 0.270           | +0.014| 0.545             | 0.569           | +0.024|
+| 9p   | 0.302             | 0.299           | -0.003| 0.595             | 0.593           | -0.002|
+| 10p  | 0.256             | 0.291           | +0.035| 0.545             | 0.620           | +0.075|
 
 ## Known Limitations
 - CSP_HypIG gains remain smaller than the paper reports on AvalonLogs. The current solver uses the corrected conditional IG predicate, but the reproduction extracts hypotheses programmatically from votes/team proposals rather than from the paper's LLM extraction workflow.
 - Avalon-NLU and Mafia datasets are not reproduced because their constraint extraction depends on LLM annotation/API access.
-- 11,533/12,394 games are solved before the current resume job; remaining games are 9-player and 10-player cases.
+- 12,091/12,394 games are solved; the remaining cases are hard 9-player and 10-player instances, most
+  of which exceeded the 90-second per-game timeout.
