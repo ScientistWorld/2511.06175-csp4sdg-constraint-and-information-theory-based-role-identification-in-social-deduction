@@ -2,55 +2,63 @@
 
 ## Metrics
 
-Two accuracy metrics evaluate role identification quality:
+Two accuracy metrics evaluate hidden-role inference quality.
 
-### Marginal Accuracy (MA)
-For a game with *P* players, let *r_p* be player *p*'s true role and *a_{p,r}* be the posterior probability that player *p* has role *r*:
+### Marginal Accuracy
 
-$$\text{MA}_q = \frac{1}{P} \sum_{p=1}^{P} a_{p, r_p^*}$$
+For a game with `P` players, let `r_p` be player `p`'s true role and `a_{p,r}` be the predicted posterior probability that player `p` has role `r`:
 
-This is the average probability assigned to the true role across all players in a single round *q*.
+```text
+MA = (1 / P) * sum_p a_{p,r_p}
+```
 
-### MAP (Maximum-A-Posteriori) Accuracy
-Let $\hat{r}_p$ be the role assigned in the single most likely complete assignment:
+This rewards calibrated probability mass on the true role even when the full assignment remains uncertain.
 
-$$\text{MAP}_q = \frac{1}{P} \sum_{p=1}^{P} \mathbf{1}[\hat{r}_p = r_p^*]$$
+### MAP Accuracy
 
-This is the fraction of players whose exact role is correctly recovered.
+Let `hat_r_p` be the role assigned to player `p` in the single most likely complete assignment:
+
+```text
+MAP = (1 / P) * sum_p 1[hat_r_p = r_p]
+```
+
+This measures how often the predicted best full assignment gives each player the correct exact role.
 
 ### Aggregation
-Both metrics are averaged over the *Q* rounds of a game, then over all games in the dataset.
 
-## Baselines and Targets
-
-**Random baseline** (uniform prior):
-- Objective ≈ 0.267, Merlin = 0.4, Percival = 0.4, Assassin = 0.583, Servant = 0.333
-
-**LLM baseline** (for papers with dialogue): Large language model prompted with game history. Generally performs near random for special roles.
-
-**Target performance** (from AvalonLogs 6-player, Table 3):
-- CSP-Strict: Obj=0.290, Merlin=0.614, Percival=0.635, EvilMinion=0.691
-- CSP+HypIG: Obj=0.326, Merlin=0.615, Percival=0.637, EvilMinion=0.729
-- LLM-Global: Obj=0.283, Merlin=0.360, Percival=0.325, EvilMinion=0.464
-
-The core claim: constraint-based probabilistic reasoning significantly outperforms LLM-based approaches for role identification.
+Metrics are averaged over evaluated game states and then over games. Results are reported separately for each viewpoint and player-count experiment.
 
 ## Evaluation Protocol
 
 ### Dataset
-**AvalonLogs**: 12,699 Avalon games (5-10 players) with team proposals, votes, quest outcomes, and ground-truth roles. No dialogue.
 
-### Perspectives
-Results reported separately for each viewpoint:
-- **Objective**: Public information only
-- **Merlin**: Knows which players are evil
-- **Percival**: Sees Merlin/Morgana candidates
-- **Morgana**: Knows fellow evils
-- **Servant**: No special knowledge
-- **Evil roles**: Know their teammates
+The reproduced gym uses public AvalonLogs games with player lists, public events, quest outcomes, and ground-truth roles. Dialogue is not required for the reproduced benchmark. The downloaded raw logs are converted into a method-independent representation under `data/`, and any valid method may consume that representation or the raw logs.
 
-### Game Size
-AvalonLogs results are reported separately for 5-, 6-, 7-, 8-, 9-, and 10-player games. Exact enumeration becomes expensive for 10-player games, so partial 10-player coverage is acceptable if it is clearly reported.
+### Viewpoints
+
+Scores are reported for multiple information settings:
+- `Obj`: public information only.
+- `MRL`: Merlin's viewpoint.
+- `PCV`: Percival's viewpoint.
+- `MRG`: Morgana's viewpoint.
+- `EVM`: non-special evil viewpoint.
+
+Each viewpoint controls what hidden information the predictor may condition on.
+
+### Experiments
+
+AvalonLogs experiments are split by player count (`avalonlogs_5player` through `avalonlogs_10player`). This prevents improvements on one game size from hiding regressions on another. Larger player counts are more expensive, so coverage is reported in the experiment notes and progress logs.
+
+### Output Contract
+
+Evaluation reads method outputs, not method internals. A method should write one JSON artifact per solved game with:
+- the source file identifier,
+- player names and true roles,
+- per-viewpoint posterior probabilities over roles,
+- per-viewpoint best role assignment.
+
+`scripts/evaluate.sh` calls `eval/evaluator.py` to read those artifacts and writes `scoring/scores.json`.
 
 ### Statistical Validation
-Improvements over baselines should use paired tests (Wilcoxon, paired t-test) across games with p < 0.05.
+
+For new research claims, compare methods on matched games and viewpoints. Paired tests such as Wilcoxon signed-rank or paired t-tests are appropriate when enough matched games are available. The gym score itself is based on the metrics and weights in `scoring/reference.json`.

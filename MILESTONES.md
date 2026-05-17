@@ -4,6 +4,12 @@
 
 ## Progress Log
 
+### [2026-05-17 16:05] - core_claim_plus
+- Completed final verification of the packaged research gym.
+- Fixed method leakage in method-agnostic and method-safe scoring documents.
+- Removed tracked root-level raw AvalonLogs files; reusable data now remains under the standard data/download paths.
+- Re-ran `python3 validate.py --compare`, shell syntax checks, URL verification, and standalone evaluation on existing artifacts.
+
 ### [2026-05-17 15:30] - core_claim_plus
 - Completed continuation audit after the milestone reset and restored `core_claim_plus`.
 - Confirmed the method implementation is the actual CSP4SDG algorithm, not a surrogate, and that evaluation reads solver artifacts independently from `method/`.

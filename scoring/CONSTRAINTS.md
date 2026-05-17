@@ -1,65 +1,43 @@
 # Scientist Constraints
 
-This file defines what a scientist must hold fixed when trying to improve on the
-CSP4SDG results, so that improvement requires genuine methodology.
-
-## Model
-
-The scientist must use the provided CSP4SDG solver (`method/sdg_framework.py`) as
-the base reasoning engine. The solver must implement the four-constraint framework:
-- **Hard constraints**: evidence (quest failures → evil agents on team) and
-  phenomenon (role schema validity)
-- **Soft constraints**: assertions (multiplicative, high weight) and hypotheses
-  (additive, IG-computed weight)
-
-The scoring function S(a) = (prod_{c in A} w_A) * (1 + sum_{h in H} w_H(h)) must
-be preserved. The role schema (player counts, good/evil partitions) must match
-Avalon's game rules. No neural networks or LLMs are permitted in the reasoning pipeline.
+These constraints define what must stay fixed so improvements reflect better hidden-role inference rather than a changed benchmark.
 
 ## Data
 
-The scientist must use the AvalonLogs dataset downloaded by `scripts/download.sh`
-to `data/downloads/avalonlogs_raw/` and converted to `data/avalonlogs_constraints/`.
-The CSP constraint conversion (`data/convert_avalonlogs.py`) derives constraints
-programmatically from game events (quest failures, votes, team proposals).
-No LLM annotation is used. No external social deduction game datasets may be
-substituted for the evaluation.
+Use the AvalonLogs data downloaded by `scripts/download.sh` and the tracked conversion utilities under `data/`. Do not substitute a different dataset for the reported AvalonLogs experiments. Additional datasets may be explored only as clearly labeled extra experiments.
 
-**Player count filtering:** The reproduced experiments use 6-player and 9-player
-games. A scientist may evaluate on 5-10 player games, but results must be reported
-separately by player count to match the experiment structure.
+Ground-truth roles may be used only for evaluation, never as an inference-time input.
 
-## Evaluation Protocol
+## Inputs
 
-The scientist must use `eval/evaluator.py` which computes marginal accuracy
-(average probability assigned to true roles) and MAP accuracy (fraction of
-players with exactly correct role assignments). Results must be averaged over
-all games and all quests within each game, then aggregated across games by
-player count. No cherry-picking of specific games or quests.
+Methods may condition on:
+- player identities within a game,
+- public game events,
+- declared role composition,
+- viewpoint-specific private information allowed by the game rules.
 
-## Scoring Format
+Methods may not condition on future events for an earlier evaluated state, hidden roles outside the allowed viewpoint, or external annotations unavailable to all competitors.
 
-Results go in `scoring/scores.json`. Experiment names must match those in
-`scoring/reference.json`: `avalonlogs_6player`, `avalonlogs_9player`.
-Method names must match: `CSP_Strict`, `CSP_HypIG`.
-Metric names must match: `{View}_marginal` (Obj, MRL, PCV, MRG, EVM).
+## Outputs
 
-**Run comparison:** `python validate.py --compare`
+Every method must produce:
+- posterior probabilities over possible roles for each player,
+- one best full role assignment per evaluated viewpoint,
+- artifacts readable by `eval/evaluator.py`.
 
-## Out of Bounds
+Predicted assignments must respect the role composition for the game being evaluated.
 
-- Replacing the CSP solver with a neural network or LLM-based role classifier
-- Using external LLM APIs for constraint extraction or reasoning (must be self-contained)
-- Training or fine-tuning on game data (the method is train-free by design)
-- Reporting results on a different dataset without clearly labeling the deviation
+## Evaluation
 
-## Compliance Checklist
+Use the provided evaluation scripts without editing metrics, experiment weights, or ground-truth labels:
 
-- [x] Using the CSP4SDG solver from `method/sdg_framework.py`
-- [x] Using the AvalonLogs dataset from `data/downloads/avalonlogs_raw/`
-- [x] No neural network or LLM in the constraint reasoning path
-- [x] No training or learning from game data
-- [x] Results averaged over all games and quests in the evaluation set
-- [x] scores.json uses experiment names `avalonlogs_6player`, `avalonlogs_9player`
-- [x] scores.json uses method names `CSP_Strict`, `CSP_HypIG`
-- [x] `python validate.py` passes without errors
+```bash
+bash scripts/evaluate.sh
+python validate.py --compare
+```
+
+Results must be reported separately by player count and viewpoint. Do not cherry-pick games, player counts, or viewpoints.
+
+## Resource and Reproducibility Limits
+
+The benchmark must run without internet access on compute nodes. Paid APIs and private services are out of bounds. If a method uses learned components, their training data, checkpoints, and inference procedure must be reproducible from files available in the workspace or downloaded by `scripts/download.sh`.

@@ -1,43 +1,41 @@
 # Experiment Overview
 
-This file describes what each experiment in `scores.json` is trying to establish.
-The paper reports AvalonLogs as 12,699 games. This reproduction converted 12,394
-usable raw logs from the public repository and solved 12,091 of them.
+This file describes the experiments that appear in `scoring/scores.json`. It is intentionally method-agnostic: any system that produces the required posterior and MAP outputs can be evaluated by the same scripts.
 
-## avalonlogs_6player (weight: 0.2083 — highest weight, primary result)
-Evaluates CSP-based role inference on 6-player Avalon games (3,176 games).
-6-player Avalon has 2 good special roles (Merlin + Percival) against 2 evil (Morgana + 1 Minion).
+The paper reports AvalonLogs as 12,699 games. This reproduction converted 12,394 usable raw logs from the public repository and produced scored artifacts for 12,091 games.
 
-This is the primary experiment establishing the core claim: CSP with constraint-based
-inference can accurately identify hidden roles. Two configurations are evaluated:
-- **CSP_Strict**: Hard constraints only (evidence + phenomenon)
-- **CSP_HypIG**: Hard constraints + hypotheses with Information-Gain auto-weighting
+## avalonlogs_6player
 
-Results closely match the paper's Table 3 (AvalonLogs-6p column). CSP_Strict reproduces
-within ±0.01 on all views. CSP_HypIG in our implementation produces results closer to
-Strict (the IG weighting does not yield the paper's large Obj gain of +0.036).
+Primary reproduced experiment. It evaluates hidden-role inference on 3,176 solved 6-player Avalon games. This setting is important because it is large enough to include special-role and team-side uncertainty while still having broad dataset coverage.
 
-## avalonlogs_9player (weight: 0.1667 — second highest)
-Evaluates CSP on 9-player games (843 solved). Tests scalability to larger
-combinatorial space (3 evil vs 6 good). CSP_Strict closely matches the paper (±0.01).
+Primary metric: `Obj_marginal`.
 
-## avalonlogs_5player (weight: 0.0417)
-5-player games (3,359 solved). Entry-level setup with fewer players and simpler role
-structures. Results match paper closely for CSP_Strict.
+Supporting metrics: viewpoint-specific marginal and MAP accuracy for Merlin, Percival, Morgana, and non-special evil perspectives.
 
-## avalonlogs_7player (weight: 0.0417)
-7-player games (2,735 solved). Intermediate complexity. Results match paper closely.
+## avalonlogs_9player
 
-## avalonlogs_8player (weight: 0.0417)
-8-player games (1,681 solved). Higher combinatorial space. Results match paper closely.
+Secondary high-weight experiment. It evaluates 843 solved 9-player games and tests whether a method remains useful as the assignment space and role composition become larger.
 
-## avalonlogs_10player (weight: 0.0417)
-10-player games (297 solved, partial). Largest combinatorial space.
-Results match paper closely for both Strict and HypIG.
+Primary metric: `Obj_marginal`.
 
-## Key Finding
-CSP_Strict results consistently match the paper across all player sizes (within ±0.02).
-The CSP framework is confirmed to work for hidden-role inference. The HypIG improvement
-over Strict is smaller in our implementation than in the paper, likely due to differences
-in how hypotheses are extracted from AvalonLogs vote/team data vs the paper's
-LLM-based extraction on dialogue datasets.
+Supporting metrics: the same viewpoint-specific metrics as the 6-player experiment.
+
+## avalonlogs_5player
+
+Small-game experiment with 3,359 solved games. It checks that a method handles simpler role compositions and high-coverage data without special casing.
+
+## avalonlogs_7player
+
+Intermediate-complexity experiment with 2,735 solved games. It provides a bridge between the small and large game-size settings.
+
+## avalonlogs_8player
+
+Larger intermediate experiment with 1,681 solved games. It tests robustness as the number of possible full assignments increases.
+
+## avalonlogs_10player
+
+Largest reproduced setting, with 297 solved games. Coverage is partial because the role-assignment space is largest here, but the experiment is useful as a stress test for scaling behavior.
+
+## Scoring Emphasis
+
+The highest weights in `scoring/reference.json` are assigned to the 6-player and 9-player settings. When only the experiments present in `scores.json` are considered, those two settings dominate the gym score, while the remaining player counts provide breadth and regression checks.

@@ -1,38 +1,30 @@
 # Research Direction
 
-## Research Problem
-This paper addresses hidden-role inference in social deduction games. Given incomplete,
-noisy, and potentially deceptive information from game events and dialogue, the goal
-is to infer the most likely role assignment for each player. The core challenge is that
-the combinatorial space of role assignments grows factorially with player count, and
-players deliberately deceive each other.
+## Problem Space
 
-## Core Contribution
-The paper's key contribution is CSP4SDG: a constraint-satisfaction framework that
-decomposes game information into four linguistically-agnostic constraint types and uses
-information-gain-weighted soft constraints to compute calibrated role posteriors. The
-scientist should work within this constraint-reasoning paradigm — improving how
-constraints are extracted, weighted, or solved.
+This gym studies hidden-role inference in social deduction games. A scientist should improve how a system turns game histories and viewpoint information into calibrated posterior probabilities over player roles.
 
-## Approach Scope
-The scientist may explore improvements in:
-- **Constraint extraction**: better extraction of constraints from game events
-- **Constraint weighting**: improved information-gain or alternative weighting schemes
-- **Inference algorithms**: faster or more accurate CSP solving
-- **Multi-game reasoning**: aggregating evidence across multiple games or rounds
-- **Perspective modeling**: better modeling of what each role perspective knows
+## Allowed Directions
 
-The scientist may NOT use:
-- Neural networks or LLMs as the primary reasoning engine
-- External game datasets beyond the provided AvalonLogs corpus
-- Ensemble methods combining fundamentally different reasoning paradigms
-- Training or learning from game data (the method is train-free by design)
+Improvements may target:
+- better use of public game events,
+- better modeling of viewpoint-specific private information,
+- more accurate uncertainty calibration,
+- more robust inference across player counts,
+- more efficient search or approximation as the assignment space grows,
+- clearer handling of conflicting or deceptive evidence.
+
+Any approach family is acceptable if it stays within the fixed data, input, output, and evaluation contracts in `scoring/CONSTRAINTS.md`.
 
 ## Out of Bounds
-- Replacing the CSP solver with a neural network or transformer-based role classifier.
-  The paper's thesis is that structured combinatorial reasoning is essential for SDG
-  role inference — switching to end-to-end learning sidesteps this thesis entirely.
-- Using external LLM APIs to extract constraints or reason about roles. The method
-  must be self-contained and runnable without internet access.
-- Scaling up to more players or different SDG variants without demonstrating that
-  the improvement is due to methodological innovation, not just more data.
+
+The following changes do not count as valid scientific improvements for this gym:
+- changing the task from role inference to a different game prediction problem,
+- using ground-truth roles or future events as inference-time features,
+- evaluating only an easier subset while reporting it as the standard benchmark,
+- changing metric definitions, experiment weights, or labels,
+- relying on paid APIs or resources unavailable from the reproducible environment.
+
+## Expected Contribution
+
+A successful contribution should improve the weighted evaluation score while preserving broad performance across viewpoints and player counts. It should also document which evidence sources, modeling choices, or inference changes explain the improvement.
