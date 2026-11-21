@@ -1,0 +1,111 @@
+{
+  "experiments": {
+    "avalonlogs_10player": {
+      "description": "AvalonLogs 10-player test split results",
+      "results": {
+        "CSP_HypIG": {
+          "EVM_marginal": 1.0,
+          "LSV_marginal": 0.5642,
+          "Obj_marginal": 0.5266
+        },
+        "CSP_Strict": {
+          "EVM_marginal": 1.0,
+          "LSV_marginal": 0.5628,
+          "Obj_marginal": 0.5253
+        }
+      }
+    },
+    "avalonlogs_5player": {
+      "description": "AvalonLogs 5-player test split results",
+      "results": {
+        "CSP_HypIG": {
+          "EVM_marginal": 1.0,
+          "LSV_marginal": 0.7867,
+          "Obj_marginal": 0.7135
+        },
+        "CSP_Strict": {
+          "EVM_marginal": 1.0,
+          "LSV_marginal": 0.7729,
+          "Obj_marginal": 0.6975
+        }
+      }
+    },
+    "avalonlogs_6player": {
+      "description": "AvalonLogs 6-player test split results",
+      "results": {
+        "CSP_HypIG": {
+          "EVM_marginal": 1.0,
+          "LSV_marginal": 0.7502,
+          "Obj_marginal": 0.7167
+        },
+        "CSP_Strict": {
+          "EVM_marginal": 1.0,
+          "LSV_marginal": 0.7387,
+          "Obj_marginal": 0.7063
+        }
+      }
+    },
+    "avalonlogs_7player": {
+      "description": "AvalonLogs 7-player test split results",
+      "results": {
+        "CSP_HypIG": {
+          "EVM_marginal": 0.9786,
+          "LSV_marginal": 0.6584,
+          "MRL_marginal": 1.0,
+          "Obj_marginal": 0.604
+        },
+        "CSP_Strict": {
+          "EVM_marginal": 0.9786,
+          "LSV_marginal": 0.6516,
+          "MRL_marginal": 1.0,
+          "Obj_marginal": 0.5973
+        }
+      }
+    },
+    "avalonlogs_8player": {
+      "description": "AvalonLogs 8-player test split results",
+      "results": {
+        "CSP_HypIG": {
+          "EVM_marginal": 1.0,
+          "LSV_marginal": 0.6391,
+          "Obj_marginal": 0.6006
+        },
+        "CSP_Strict": {
+          "EVM_marginal": 1.0,
+          "LSV_marginal": 0.6379,
+          "Obj_marginal": 0.6007
+        }
+      }
+    },
+    "avalonlogs_9player": {
+      "description": "AvalonLogs 9-player test split results",
+      "results": {
+        "CSP_HypIG": {
+          "EVM_marginal": 1.0,
+          "LSV_marginal": 0.6212,
+          "Obj_marginal": 0.5918
+        },
+        "CSP_Strict": {
+          "EVM_marginal": 1.0,
+          "LSV_marginal": 0.6135,
+          "Obj_marginal": 0.5855
+        }
+      }
+    }
+  },
+  "metadata": {
+    "dataset": "avalonlogs",
+    "condition": "Truth",
+    "slice": "test",
+    "split_seed": "avalon-scientist-gym-v1",
+    "split_style": "deterministic stratified 50/50 split over pre-generated method output files",
+    "n_selected_files_by_experiment": {
+      "avalonlogs_8player": 10,
+      "avalonlogs_9player": 10,
+      "avalonlogs_6player": 10,
+      "avalonlogs_10player": 10,
+      "avalonlogs_7player": 10,
+      "avalonlogs_5player": 10
+    }
+  }
+}
