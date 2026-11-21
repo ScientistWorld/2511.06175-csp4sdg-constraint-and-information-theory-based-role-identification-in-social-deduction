@@ -1,43 +1,37 @@
 # Scientist Constraints
 
-These constraints define what must stay fixed so improvements reflect better hidden-role inference rather than a changed benchmark.
+These keep improvements about better hidden-role inference rather than a
+changed benchmark.
 
 ## Data
 
-Use the AvalonLogs data downloaded by `scripts/download.sh` and the tracked conversion utilities under `data/`. Do not substitute a different dataset for the reported AvalonLogs experiments. Additional datasets may be explored only as clearly labeled extra experiments.
+- Inference may use only what an instance contains: seat labels, the declared
+  role composition, the public history up to the cut (proposals, votes, quest
+  teams, fail counts) and the viewpoint's private information.
+- The visible games in `data/avalonlogs_raw/` (with their roles) may be used to
+  fit or tune anything. Nothing else labelled may be used: in particular, no
+  copy of the public AvalonLogs corpus beyond the visible games, and no lookup
+  of an instance's game in any external source.
+- Never read, decode or modify anything under `eval/` from the method.
 
-Ground-truth roles may be used only for evaluation, never as an inference-time input.
+## Interface
 
-## Inputs
-
-Methods may condition on:
-- player identities within a game,
-- public game events,
-- declared role composition,
-- viewpoint-specific private information allowed by the game rules.
-
-Methods may not condition on future events for an earlier evaluated state, hidden roles outside the allowed viewpoint, or external annotations unavailable to all competitors.
-
-## Outputs
-
-Every method must produce:
-- posterior probabilities over possible roles for each player,
-- one best full role assignment per evaluated viewpoint,
-- artifacts readable by `eval/evaluator.py`.
-
-Predicted assignments must respect the role composition for the game being evaluated.
+- The method is whatever `scripts/predict.sh <input_dir> <output_dir>` runs. The
+  evaluators call it on instances they build; they never retrain anything.
+- Predictions must satisfy the validity rules in `briefing/evaluation.md`
+  (normalised distributions over the declared roles with consistent role totals,
+  and a complete assignment with the declared counts) for every instance.
+  Otherwise the method scores the worst value everywhere.
+- Each instance must be predicted on its own information. Do not pool
+  information across instances.
 
 ## Evaluation
 
-Use the provided evaluation scripts without editing metrics, experiment weights, or ground-truth labels:
+Do not edit `eval/`, `scripts/evaluate_train.sh`, `scripts/evaluate_test.sh`,
+or `scoring/reference.json` (metrics, coefficients, weights, paper numbers).
+Report results per player count and viewpoint.
 
-```bash
-bash scripts/evaluate.sh
-python validate.py --compare
-```
+## Resources
 
-Results must be reported separately by player count and viewpoint. Do not cherry-pick games, player counts, or viewpoints.
-
-## Resource and Reproducibility Limits
-
-The benchmark must run without internet access on compute nodes. Paid APIs and private services are out of bounds. If a method uses learned components, their training data, checkpoints, and inference procedure must be reproducible from files available in the workspace or downloaded by `scripts/download.sh`.
+Compute nodes have no internet. Paid APIs and private services are out of
+bounds. Learned components must be reproducible from the workspace.

@@ -17,15 +17,21 @@ Accurate role identification is a prerequisite for strategic play in social dedu
 
 ## Task Definition
 
-**Input**:
-- Player list and role composition for one game.
-- Public game events such as team proposals, votes, quest outcomes, and eliminations.
-- Optional communication traces when available.
-- Optional perspective information describing what a particular role viewpoint is allowed to know.
+**Input** (one instance):
+- Player list (seat labels) and the declared role composition of the game.
+- The public history up to a completed quest: every team proposal, every
+  player's approve/reject vote, each quest team and its number of fail cards.
+- One viewpoint: either the objective observer (public information only) or a
+  player whose role is given together with the private information that role
+  receives under the Avalon rules (Merlin sees every evil player except Mordred;
+  Percival sees Merlin and Morgana without knowing which is which; evil players
+  other than Oberon see their evil teammates except Oberon; loyal followers see
+  nothing).
 
-**Output**:
-- For each evaluated viewpoint, a probability distribution over possible roles for each player.
-- A single maximum-a-posteriori full role assignment.
+**Output** (per instance):
+- For every player, a probability distribution over the roles of the declared
+  composition.
+- One complete role assignment that respects the declared role counts.
 
 ## Success Criteria
 

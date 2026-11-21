@@ -1,25 +1,37 @@
 # Train/Test Evaluation Design Notes
 
-## Checks performed
+Current design (iteration 11; see `HARDENING.md` for why it changed).
 
-- Reviewed `scripts/evaluate_train.sh` and `scripts/evaluate_test.sh` side by side for slice paths, output paths, and hardcoded method defaults.
-- Read both slice evaluators for method attachment. They score pre-generated solver artifacts from `--results-dir` instead of rerunning training or inference.
-- Grepped for train/test cross-imports, paper-agreement metric names, `METHOD_NAME` defaults, and accidental test-to-train script references.
-- Checked `scoring/reference.json` metric definitions for required fields and for forbidden paper-agreement metrics.
-- Confirmed `scoring/scores_train.json` and `scoring/scores_test.json` are absent.
-- Ran `bash -n` on both train/test shell wrappers.
+## Split and instances
 
-## Changes made
+- 12,393 usable AvalonLogs games. Half of every player count (seeded) is the
+  hidden test set, stored encoded in `eval/test/heldout.dat` (inputs and roles in
+  separate sections) and removed from `data/avalonlogs_raw/`.
+  `eval/test/heldout_ids.txt` holds the SHA-256 of their file names so that
+  `scripts/download.sh` drops them from a fresh archive download.
+  `eval/test/build_heldout.py` documents how the file was built.
+- One instance per game: the public history up to one uniformly sampled completed
+  quest, one viewpoint (Obj, Merlin, Percival, Morgana, loyal follower, evil
+  minion; balanced within each player count), seat labels instead of names.
+  One instance per game rules out combining viewpoints or prefixes of a game.
+- `eval/train/evaluate.py` builds train instances the same way (its own code and
+  seed) from the visible games.
 
-- Added AvalonLogs MAP scoring to both `eval/train/evaluate.py` and `eval/test/evaluate.py`. The first pass only scored marginal probability on AvalonLogs, which left a shortcut path where a method could tune probability mass without producing coherent best role assignments. The split now triangulates marginal accuracy with MAP accuracy on every AvalonLogs role view.
-- Added Mafia JSONL slice scoring to both train and test evaluators. `reference.json` already contained `mafia_truth_main`, but `--dataset mafia` previously returned an empty warning, so that experiment was not actually covered by the split.
-- Removed the held-out evaluator's dependency on `scoring/scores_train.json`. Test now discovers method entries directly from held-out artifacts, preserving the same method interface as train without coupling the hidden slice to a visible score file.
-- Added `description` fields to every metric definition in `scoring/reference.json`.
-- Added AvalonLogs `*_map` metric entries in `scoring/reference.json` with lower coefficient than the marginal metrics. These are secondary anti-shortcut checks, not replacements for the paper's headline marginal quantities.
+## Running the method
 
-## Runtime concerns for the runner iteration
+Both evaluators write the instances to a fresh temporary directory and call
+`bash scripts/predict.sh <input_dir> <output_dir>`. The test evaluator keeps
+`heldout.dat` mode 000 while the predictor runs and decodes the roles only after
+it returns. There is no wall-clock limit.
 
-- Mafia support was added against the official CSP JSONL shape (`players`, `cond`, `days`, per-view `posterior` and `best`). The runner should confirm future Mafia artifacts use that same shape or adapt the method wrapper, not the evaluator.
-- AvalonLogs MAP metrics are newly emitted by train/test. Existing paper-result entries in `reference.json` do not include AvalonLogs MAP values because those were not part of the original transcribed result table for those experiments; the benchmark scorer should treat the metric definitions as the target schema for future score files.
-- The split is deterministic 50/50 within player-count groups or JSONL records. If a provided result directory is very small, train/test variance may be high; the runner should watch selected-count metadata before interpreting a large gap as method overfit.
-- Mafia-UCB `MAF_*` metrics may saturate for CSP-style methods because the mafia perspective often knows the mafia team. The paired `Obj_*` and `BYS_*` metrics are more informative for shortcut detection.
+## Scoring
+
+- Method names are discovered from `predictions.json`; no whitelist.
+- Validity per instance: posterior over exactly the instance's players and the
+  declared roles, finite values in [0,1], rows summing to 1, role totals equal
+  to the composition; `best` a complete assignment with the declared counts;
+  predictor exit status 0. Any failure gives the method Brier 2 and marginal 0
+  in every metric of every experiment; a run with no predictions is recorded as
+  failed under the method names in `scoring/reference.json`.
+- Ranked metric: Brier score per (player count, viewpoint), coefficient 1.
+  Reported only: the paper's marginal accuracy (coefficient 0).

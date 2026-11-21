@@ -1,5 +1,638 @@
 {
   "experiments": {
+    "avalonlogs_5player": {
+      "description": "AvalonLogs 5-player results (Table 8, Appendix H). CSP+HypIG outperforms LLM. Scored on held-out game prefixes, one viewpoint per game; ranking uses the *_brier metrics; primary_metric is the paper's reported quantity.",
+      "weight": 0.1,
+      "primary_metric": "Obj_marginal",
+      "metrics": {
+        "Obj_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the objective observer (public information only) viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "MRL_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the Merlin viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "PCV_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the Percival viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "MRG_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the Morgana viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "LSV_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the loyal-follower viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "EVM_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the evil-minion viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "Obj_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the objective observer (public information only) viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "MRL_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the Merlin viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "PCV_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the Percival viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "MRG_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the Morgana viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "LSV_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the loyal-follower viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "EVM_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the evil-minion viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        }
+      },
+      "results": {
+        "CSP_Strict": {
+          "type": "proposed",
+          "Obj_marginal": 0.278,
+          "MRL_marginal": 0.63,
+          "PCV_marginal": 0.641,
+          "MRG_marginal": 0.601,
+          "LSV_marginal": 0.456,
+          "EVM_marginal": 0.696
+        },
+        "CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.258,
+          "MRL_marginal": 0.634,
+          "PCV_marginal": 0.661,
+          "MRG_marginal": 0.6,
+          "LSV_marginal": 0.45,
+          "EVM_marginal": 0.653
+        },
+        "LLM_Global": {
+          "type": "baseline",
+          "Obj_marginal": 0.272,
+          "MRL_marginal": 0.378,
+          "PCV_marginal": 0.326,
+          "MRG_marginal": 0.302,
+          "LSV_marginal": 0.272,
+          "EVM_marginal": 0.462
+        },
+        "LLM_CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.276,
+          "MRL_marginal": 0.63,
+          "PCV_marginal": 0.64,
+          "MRG_marginal": 0.601,
+          "LSV_marginal": 0.455,
+          "EVM_marginal": 0.696
+        }
+      }
+    },
+    "avalonlogs_6player": {
+      "description": "AvalonLogs 6-player results (Table 3 / Appendix H). CSP+HypIG outperforms LLM on all views. Scored on held-out game prefixes, one viewpoint per game; ranking uses the *_brier metrics; primary_metric is the paper's reported quantity.",
+      "weight": 0.35,
+      "primary_metric": "Obj_marginal",
+      "metrics": {
+        "Obj_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the objective observer (public information only) viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "MRL_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the Merlin viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "PCV_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the Percival viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "MRG_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the Morgana viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "LSV_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the loyal-follower viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "EVM_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the evil-minion viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "Obj_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the objective observer (public information only) viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "MRL_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the Merlin viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "PCV_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the Percival viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "MRG_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the Morgana viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "LSV_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the loyal-follower viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "EVM_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the evil-minion viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        }
+      },
+      "results": {
+        "CSP_Strict": {
+          "type": "proposed",
+          "Obj_marginal": 0.29,
+          "MRL_marginal": 0.614,
+          "PCV_marginal": 0.635,
+          "MRG_marginal": 0.584,
+          "LSV_marginal": 0.39,
+          "EVM_marginal": 0.691
+        },
+        "CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.326,
+          "MRL_marginal": 0.615,
+          "PCV_marginal": 0.637,
+          "MRG_marginal": 0.577,
+          "LSV_marginal": 0.419,
+          "EVM_marginal": 0.729
+        },
+        "LLM_Global": {
+          "type": "baseline",
+          "Obj_marginal": 0.283,
+          "MRL_marginal": 0.36,
+          "PCV_marginal": 0.325,
+          "MRG_marginal": 0.298,
+          "LSV_marginal": 0.29,
+          "EVM_marginal": 0.464
+        },
+        "LLM_CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.289,
+          "MRL_marginal": 0.613,
+          "PCV_marginal": 0.633,
+          "MRG_marginal": 0.584,
+          "LSV_marginal": 0.389,
+          "EVM_marginal": 0.691
+        }
+      }
+    },
+    "avalonlogs_7player": {
+      "description": "AvalonLogs 7-player results (Table 8, Appendix H). Scored on held-out game prefixes, one viewpoint per game; ranking uses the *_brier metrics; primary_metric is the paper's reported quantity.",
+      "weight": 0.1,
+      "primary_metric": "Obj_marginal",
+      "metrics": {
+        "Obj_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the objective observer (public information only) viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "MRL_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the Merlin viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "PCV_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the Percival viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "MRG_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the Morgana viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "LSV_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the loyal-follower viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "EVM_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the evil-minion viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "Obj_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the objective observer (public information only) viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "MRL_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the Merlin viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "PCV_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the Percival viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "MRG_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the Morgana viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "LSV_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the loyal-follower viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "EVM_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the evil-minion viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        }
+      },
+      "results": {
+        "CSP_Strict": {
+          "type": "proposed",
+          "Obj_marginal": 0.24,
+          "MRL_marginal": 0.559,
+          "PCV_marginal": 0.546,
+          "MRG_marginal": 0.519,
+          "LSV_marginal": 0.342,
+          "EVM_marginal": 0.555
+        },
+        "CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.243,
+          "MRL_marginal": 0.591,
+          "PCV_marginal": 0.561,
+          "MRG_marginal": 0.52,
+          "LSV_marginal": 0.347,
+          "EVM_marginal": 0.545
+        },
+        "LLM_Global": {
+          "type": "baseline",
+          "Obj_marginal": 0.237,
+          "MRL_marginal": 0.338,
+          "PCV_marginal": 0.291,
+          "MRG_marginal": 0.285,
+          "LSV_marginal": 0.243,
+          "EVM_marginal": 0.391
+        },
+        "LLM_CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.239,
+          "MRL_marginal": 0.559,
+          "PCV_marginal": 0.542,
+          "MRG_marginal": 0.518,
+          "LSV_marginal": 0.341,
+          "EVM_marginal": 0.555
+        }
+      }
+    },
+    "avalonlogs_8player": {
+      "description": "AvalonLogs 8-player results (Table 8, Appendix H). Scored on held-out game prefixes, one viewpoint per game; ranking uses the *_brier metrics; primary_metric is the paper's reported quantity.",
+      "weight": 0.1,
+      "primary_metric": "Obj_marginal",
+      "metrics": {
+        "Obj_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the objective observer (public information only) viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "MRL_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the Merlin viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "PCV_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the Percival viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "MRG_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the Morgana viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "LSV_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the loyal-follower viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "EVM_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the evil-minion viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "Obj_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the objective observer (public information only) viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "MRL_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the Merlin viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "PCV_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the Percival viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "MRG_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the Morgana viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "LSV_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the loyal-follower viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "EVM_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the evil-minion viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        }
+      },
+      "results": {
+        "CSP_Strict": {
+          "type": "proposed",
+          "Obj_marginal": 0.256,
+          "MRL_marginal": 0.565,
+          "PCV_marginal": 0.546,
+          "MRG_marginal": 0.524,
+          "LSV_marginal": 0.324,
+          "EVM_marginal": 0.569
+        },
+        "CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.244,
+          "MRL_marginal": 0.571,
+          "PCV_marginal": 0.552,
+          "MRG_marginal": 0.495,
+          "LSV_marginal": 0.311,
+          "EVM_marginal": 0.527
+        },
+        "LLM_Global": {
+          "type": "baseline",
+          "Obj_marginal": 0.253,
+          "MRL_marginal": 0.349,
+          "PCV_marginal": 0.315,
+          "MRG_marginal": 0.304,
+          "LSV_marginal": 0.264,
+          "EVM_marginal": 0.402
+        },
+        "LLM_CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.255,
+          "MRL_marginal": 0.564,
+          "PCV_marginal": 0.543,
+          "MRG_marginal": 0.523,
+          "LSV_marginal": 0.323,
+          "EVM_marginal": 0.568
+        }
+      }
+    },
+    "avalonlogs_9player": {
+      "description": "AvalonLogs 9-player results (Table 3). CSP+HypIG outperforms LLM significantly. Scored on held-out game prefixes, one viewpoint per game; ranking uses the *_brier metrics; primary_metric is the paper's reported quantity.",
+      "weight": 0.25,
+      "primary_metric": "Obj_marginal",
+      "metrics": {
+        "Obj_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the objective observer (public information only) viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "MRL_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the Merlin viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "PCV_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the Percival viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "MRG_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the Morgana viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "LSV_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the loyal-follower viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "EVM_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the evil-minion viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "Obj_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the objective observer (public information only) viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "MRL_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the Merlin viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "PCV_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the Percival viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "MRG_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the Morgana viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "LSV_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the loyal-follower viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "EVM_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the evil-minion viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        }
+      },
+      "results": {
+        "CSP_Strict": {
+          "type": "proposed",
+          "Obj_marginal": 0.302,
+          "MRL_marginal": 0.595,
+          "PCV_marginal": 0.568,
+          "MRG_marginal": 0.554,
+          "LSV_marginal": 0.348,
+          "EVM_marginal": 0.614
+        },
+        "CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.36,
+          "MRL_marginal": 0.666,
+          "PCV_marginal": 0.525,
+          "MRG_marginal": 0.578,
+          "LSV_marginal": 0.403,
+          "EVM_marginal": 0.674
+        },
+        "LLM_Global": {
+          "type": "baseline",
+          "Obj_marginal": 0.28,
+          "MRL_marginal": 0.36,
+          "PCV_marginal": 0.309,
+          "MRG_marginal": 0.313,
+          "LSV_marginal": 0.291,
+          "EVM_marginal": 0.417
+        },
+        "LLM_CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.301,
+          "MRL_marginal": 0.593,
+          "PCV_marginal": 0.564,
+          "MRG_marginal": 0.554,
+          "LSV_marginal": 0.347,
+          "EVM_marginal": 0.614
+        }
+      }
+    },
+    "avalonlogs_10player": {
+      "description": "AvalonLogs 10-player results (Table 8, Appendix H). Scored on held-out game prefixes, one viewpoint per game; ranking uses the *_brier metrics; primary_metric is the paper's reported quantity.",
+      "weight": 0.1,
+      "primary_metric": "Obj_marginal",
+      "metrics": {
+        "Obj_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the objective observer (public information only) viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "MRL_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the Merlin viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "PCV_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the Percival viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "MRG_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the Morgana viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "LSV_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the loyal-follower viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "EVM_brier": {
+          "higher_is_better": false,
+          "coefficient": 1.0,
+          "description": "Mean Brier score of the posterior over roles from the evil-minion viewpoint: average over held-out instances of (1/P) sum_p sum_r (q_pr - 1[r = true role of p])^2. Proper scoring rule; 0 is perfect, 2 is the worst value (assigned to failed runs). Ranked."
+        },
+        "Obj_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the objective observer (public information only) viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "MRL_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the Merlin viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "PCV_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the Percival viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "MRG_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the Morgana viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "LSV_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the loyal-follower viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        },
+        "EVM_marginal": {
+          "higher_is_better": true,
+          "coefficient": 0.0,
+          "description": "Marginal accuracy from the evil-minion viewpoint (the paper's Table 8 quantity): mean probability assigned to the true roles. Reported for comparison with the paper; NOT ranked (coefficient 0) because a linear score rewards overconfident posteriors."
+        }
+      },
+      "results": {
+        "CSP_Strict": {
+          "type": "proposed",
+          "Obj_marginal": 0.256,
+          "MRL_marginal": 0.545,
+          "PCV_marginal": 0.496,
+          "MRG_marginal": 0.495,
+          "LSV_marginal": 0.304,
+          "EVM_marginal": 0.498
+        },
+        "CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.24,
+          "MRL_marginal": 0.567,
+          "PCV_marginal": 0.504,
+          "MRG_marginal": 0.519,
+          "LSV_marginal": 0.289,
+          "EVM_marginal": 0.452
+        },
+        "LLM_Global": {
+          "type": "baseline",
+          "Obj_marginal": 0.248,
+          "MRL_marginal": 0.341,
+          "PCV_marginal": 0.289,
+          "MRG_marginal": 0.306,
+          "LSV_marginal": 0.255,
+          "EVM_marginal": 0.345
+        },
+        "LLM_CSP_HypIG": {
+          "type": "proposed",
+          "Obj_marginal": 0.255,
+          "MRL_marginal": 0.544,
+          "PCV_marginal": 0.495,
+          "MRG_marginal": 0.495,
+          "LSV_marginal": 0.303,
+          "EVM_marginal": 0.499
+        }
+      }
+    }
+  },
+  "_paper_only_experiments": {
+    "_note": "Paper results for datasets this gym does not run (Avalon-NLU and Mafia-UCB need dialogue and LLM constraint extraction). Kept unchanged for reference; never scored. The \"weight\" values are the weights these experiments had before iteration 11.",
     "avalonnlu_truth_main": {
       "description": "Avalon-NLU Truthful-Good main results (Table 2). Primary: CSP+HypIG consistently outperforms LLM-Global.",
       "weight": 0.25,
@@ -187,456 +820,6 @@
         }
       }
     },
-    "avalonlogs_5player": {
-      "description": "AvalonLogs 5-player results (Table 8, Appendix H). CSP+HypIG outperforms LLM.",
-      "weight": 0.0417,
-      "primary_metric": "Obj_marginal",
-      "metrics": {
-        "Obj_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the objective observer view."
-        },
-        "MRL_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the Merlin-perspective view."
-        },
-        "PCV_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the Percival-perspective view."
-        },
-        "MRG_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the Morgana-perspective view."
-        },
-        "LSV_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the loyal-servant-perspective view."
-        },
-        "EVM_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the evil-minion-perspective view."
-        }
-      },
-      "results": {
-        "CSP_Strict": {
-          "type": "proposed",
-          "Obj_marginal": 0.278,
-          "MRL_marginal": 0.63,
-          "PCV_marginal": 0.641,
-          "MRG_marginal": 0.601,
-          "LSV_marginal": 0.456,
-          "EVM_marginal": 0.696
-        },
-        "CSP_HypIG": {
-          "type": "proposed",
-          "Obj_marginal": 0.258,
-          "MRL_marginal": 0.634,
-          "PCV_marginal": 0.661,
-          "MRG_marginal": 0.6,
-          "LSV_marginal": 0.45,
-          "EVM_marginal": 0.653
-        },
-        "LLM_Global": {
-          "type": "baseline",
-          "Obj_marginal": 0.272,
-          "MRL_marginal": 0.378,
-          "PCV_marginal": 0.326,
-          "MRG_marginal": 0.302,
-          "LSV_marginal": 0.272,
-          "EVM_marginal": 0.462
-        },
-        "LLM_CSP_HypIG": {
-          "type": "proposed",
-          "Obj_marginal": 0.276,
-          "MRL_marginal": 0.63,
-          "PCV_marginal": 0.64,
-          "MRG_marginal": 0.601,
-          "LSV_marginal": 0.455,
-          "EVM_marginal": 0.696
-        }
-      }
-    },
-    "avalonlogs_6player": {
-      "description": "AvalonLogs 6-player results (Table 3 / Appendix H). CSP+HypIG outperforms LLM on all views.",
-      "weight": 0.2083,
-      "primary_metric": "Obj_marginal",
-      "metrics": {
-        "Obj_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the objective observer view."
-        },
-        "MRL_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the Merlin-perspective view."
-        },
-        "PCV_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the Percival-perspective view."
-        },
-        "MRG_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the Morgana-perspective view."
-        },
-        "LSV_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the loyal-servant-perspective view."
-        },
-        "EVM_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the evil-minion-perspective view."
-        }
-      },
-      "results": {
-        "CSP_Strict": {
-          "type": "proposed",
-          "Obj_marginal": 0.29,
-          "MRL_marginal": 0.614,
-          "PCV_marginal": 0.635,
-          "MRG_marginal": 0.584,
-          "LSV_marginal": 0.39,
-          "EVM_marginal": 0.691
-        },
-        "CSP_HypIG": {
-          "type": "proposed",
-          "Obj_marginal": 0.326,
-          "MRL_marginal": 0.615,
-          "PCV_marginal": 0.637,
-          "MRG_marginal": 0.577,
-          "LSV_marginal": 0.419,
-          "EVM_marginal": 0.729
-        },
-        "LLM_Global": {
-          "type": "baseline",
-          "Obj_marginal": 0.283,
-          "MRL_marginal": 0.36,
-          "PCV_marginal": 0.325,
-          "MRG_marginal": 0.298,
-          "LSV_marginal": 0.29,
-          "EVM_marginal": 0.464
-        },
-        "LLM_CSP_HypIG": {
-          "type": "proposed",
-          "Obj_marginal": 0.289,
-          "MRL_marginal": 0.613,
-          "PCV_marginal": 0.633,
-          "MRG_marginal": 0.584,
-          "LSV_marginal": 0.389,
-          "EVM_marginal": 0.691
-        }
-      }
-    },
-    "avalonlogs_9player": {
-      "description": "AvalonLogs 9-player results (Table 3). CSP+HypIG outperforms LLM significantly.",
-      "weight": 0.1667,
-      "primary_metric": "Obj_marginal",
-      "metrics": {
-        "Obj_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the objective observer view."
-        },
-        "MRL_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the Merlin-perspective view."
-        },
-        "PCV_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the Percival-perspective view."
-        },
-        "MRG_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the Morgana-perspective view."
-        },
-        "LSV_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the loyal-servant-perspective view."
-        },
-        "EVM_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the evil-minion-perspective view."
-        }
-      },
-      "results": {
-        "CSP_Strict": {
-          "type": "proposed",
-          "Obj_marginal": 0.302,
-          "MRL_marginal": 0.595,
-          "PCV_marginal": 0.568,
-          "MRG_marginal": 0.554,
-          "LSV_marginal": 0.348,
-          "EVM_marginal": 0.614
-        },
-        "CSP_HypIG": {
-          "type": "proposed",
-          "Obj_marginal": 0.36,
-          "MRL_marginal": 0.666,
-          "PCV_marginal": 0.525,
-          "MRG_marginal": 0.578,
-          "LSV_marginal": 0.403,
-          "EVM_marginal": 0.674
-        },
-        "LLM_Global": {
-          "type": "baseline",
-          "Obj_marginal": 0.28,
-          "MRL_marginal": 0.36,
-          "PCV_marginal": 0.309,
-          "MRG_marginal": 0.313,
-          "LSV_marginal": 0.291,
-          "EVM_marginal": 0.417
-        },
-        "LLM_CSP_HypIG": {
-          "type": "proposed",
-          "Obj_marginal": 0.301,
-          "MRL_marginal": 0.593,
-          "PCV_marginal": 0.564,
-          "MRG_marginal": 0.554,
-          "LSV_marginal": 0.347,
-          "EVM_marginal": 0.614
-        }
-      }
-    },
-    "avalonlogs_7player": {
-      "description": "AvalonLogs 7-player results (Table 8, Appendix H).",
-      "weight": 0.0417,
-      "primary_metric": "Obj_marginal",
-      "metrics": {
-        "Obj_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the objective observer view."
-        },
-        "MRL_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the Merlin-perspective view."
-        },
-        "PCV_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the Percival-perspective view."
-        },
-        "MRG_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the Morgana-perspective view."
-        },
-        "LSV_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the loyal-servant-perspective view."
-        },
-        "EVM_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the evil-minion-perspective view."
-        }
-      },
-      "results": {
-        "CSP_Strict": {
-          "type": "proposed",
-          "Obj_marginal": 0.24,
-          "MRL_marginal": 0.559,
-          "PCV_marginal": 0.546,
-          "MRG_marginal": 0.519,
-          "LSV_marginal": 0.342,
-          "EVM_marginal": 0.555
-        },
-        "CSP_HypIG": {
-          "type": "proposed",
-          "Obj_marginal": 0.243,
-          "MRL_marginal": 0.591,
-          "PCV_marginal": 0.561,
-          "MRG_marginal": 0.52,
-          "LSV_marginal": 0.347,
-          "EVM_marginal": 0.545
-        },
-        "LLM_Global": {
-          "type": "baseline",
-          "Obj_marginal": 0.237,
-          "MRL_marginal": 0.338,
-          "PCV_marginal": 0.291,
-          "MRG_marginal": 0.285,
-          "LSV_marginal": 0.243,
-          "EVM_marginal": 0.391
-        },
-        "LLM_CSP_HypIG": {
-          "type": "proposed",
-          "Obj_marginal": 0.239,
-          "MRL_marginal": 0.559,
-          "PCV_marginal": 0.542,
-          "MRG_marginal": 0.518,
-          "LSV_marginal": 0.341,
-          "EVM_marginal": 0.555
-        }
-      }
-    },
-    "avalonlogs_8player": {
-      "description": "AvalonLogs 8-player results (Table 8, Appendix H).",
-      "weight": 0.0417,
-      "primary_metric": "Obj_marginal",
-      "metrics": {
-        "Obj_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the objective observer view."
-        },
-        "MRL_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the Merlin-perspective view."
-        },
-        "PCV_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the Percival-perspective view."
-        },
-        "MRG_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the Morgana-perspective view."
-        },
-        "LSV_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the loyal-servant-perspective view."
-        },
-        "EVM_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the evil-minion-perspective view."
-        }
-      },
-      "results": {
-        "CSP_Strict": {
-          "type": "proposed",
-          "Obj_marginal": 0.256,
-          "MRL_marginal": 0.565,
-          "PCV_marginal": 0.546,
-          "MRG_marginal": 0.524,
-          "LSV_marginal": 0.324,
-          "EVM_marginal": 0.569
-        },
-        "CSP_HypIG": {
-          "type": "proposed",
-          "Obj_marginal": 0.244,
-          "MRL_marginal": 0.571,
-          "PCV_marginal": 0.552,
-          "MRG_marginal": 0.495,
-          "LSV_marginal": 0.311,
-          "EVM_marginal": 0.527
-        },
-        "LLM_Global": {
-          "type": "baseline",
-          "Obj_marginal": 0.253,
-          "MRL_marginal": 0.349,
-          "PCV_marginal": 0.315,
-          "MRG_marginal": 0.304,
-          "LSV_marginal": 0.264,
-          "EVM_marginal": 0.402
-        },
-        "LLM_CSP_HypIG": {
-          "type": "proposed",
-          "Obj_marginal": 0.255,
-          "MRL_marginal": 0.564,
-          "PCV_marginal": 0.543,
-          "MRG_marginal": 0.523,
-          "LSV_marginal": 0.323,
-          "EVM_marginal": 0.568
-        }
-      }
-    },
-    "avalonlogs_10player": {
-      "description": "AvalonLogs 10-player results (Table 8, Appendix H).",
-      "weight": 0.0416,
-      "primary_metric": "Obj_marginal",
-      "metrics": {
-        "Obj_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the objective observer view."
-        },
-        "MRL_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the Merlin-perspective view."
-        },
-        "PCV_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the Percival-perspective view."
-        },
-        "MRG_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the Morgana-perspective view."
-        },
-        "LSV_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the loyal-servant-perspective view."
-        },
-        "EVM_marginal": {
-          "higher_is_better": true,
-          "coefficient": 1.0,
-          "description": "Mean probability assigned to the true roles from the evil-minion-perspective view."
-        }
-      },
-      "results": {
-        "CSP_Strict": {
-          "type": "proposed",
-          "Obj_marginal": 0.256,
-          "MRL_marginal": 0.545,
-          "PCV_marginal": 0.496,
-          "MRG_marginal": 0.495,
-          "LSV_marginal": 0.304,
-          "EVM_marginal": 0.498
-        },
-        "CSP_HypIG": {
-          "type": "proposed",
-          "Obj_marginal": 0.24,
-          "MRL_marginal": 0.567,
-          "PCV_marginal": 0.504,
-          "MRG_marginal": 0.519,
-          "LSV_marginal": 0.289,
-          "EVM_marginal": 0.452
-        },
-        "LLM_Global": {
-          "type": "baseline",
-          "Obj_marginal": 0.248,
-          "MRL_marginal": 0.341,
-          "PCV_marginal": 0.289,
-          "MRG_marginal": 0.306,
-          "LSV_marginal": 0.255,
-          "EVM_marginal": 0.345
-        },
-        "LLM_CSP_HypIG": {
-          "type": "proposed",
-          "Obj_marginal": 0.255,
-          "MRL_marginal": 0.544,
-          "PCV_marginal": 0.495,
-          "MRG_marginal": 0.495,
-          "LSV_marginal": 0.303,
-          "EVM_marginal": 0.499
-        }
-      }
-    },
     "mafia_truth_main": {
       "description": "Mafia-UCB Truthful-Good results (Table 2).",
       "weight": 0.125,
@@ -712,5 +895,10 @@
         }
       }
     }
+  },
+  "_notes": {
+    "setup": "AvalonLogs (WhoaWhoa 2022), 12,393 usable games. Half of every player count is the hidden test set (eval/test/heldout.dat, 6,197 games); the rest are visible in data/avalonlogs_raw (6,196 usable). Each game yields one instance: the public history up to one uniformly sampled completed quest (the paper samples one quest per game) seen from one viewpoint, views balanced within a player count.",
+    "paper_numbers": "results hold the paper's Table 8 marginal accuracies unchanged. The paper evaluated a sampled quest on the subset of games with LLM runs; this gym evaluates the full held-out split, so the paper numbers are on the same scale but are not targets.",
+    "ranking": "Every *_brier metric has coefficient 1 (lower is better); *_marginal metrics have coefficient 0."
   }
 }

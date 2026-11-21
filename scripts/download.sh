@@ -1,47 +1,36 @@
 #!/bin/bash
-# Download all data and models needed for this environment.
+# Download all data needed for this environment.
 #
-# Estimated total download size: ~50 MB
-# Estimated disk usage after extraction: ~50 MB raw logs, plus generated
-# constraints/solver outputs created by scripts/method.sh.
+# Estimated total download size: ~50 MB (AvalonLogs archive); ~25 MB on disk
+# after extraction and filtering.
 #
-# Datasets:
-#   1. AvalonLogs: public raw JSON logs (~12,400 game files)
-#      Source: https://github.com/WhoaWhoa/avalonlogs
+# Dataset: AvalonLogs public raw JSON game logs (WhoaWhoa 2022)
+#   Source: https://github.com/WhoaWhoa/avalonlogs
 #
-# Note: Avalon-NLU and Mafia-UCB require LLM-based constraint extraction
-# and API keys — they are NOT downloaded here. The CSP solver is tested
-# on AvalonLogs which has programmatic constraint extraction.
+# The visible games are already tracked under data/avalonlogs_raw/. This script
+# only fetches when they are missing. Half of the games are the hidden test set:
+# they are kept (encoded) only in eval/test/, and are dropped here from a fresh
+# download using the hashed file names in eval/test/heldout_ids.txt. The archive
+# itself is deleted after extraction.
+#
+# Avalon-NLU and Mafia-UCB need LLM-based constraint extraction and are not
+# downloaded (their paper numbers are kept in scoring/reference.json only).
 
 set -e
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO_ROOT"
 
-RAW_DIR="data/downloads/avalonlogs_raw"
-LEGACY_RAW_DIR="data/downloads/avalonlogs"
+RAW_DIR="data/avalonlogs_raw"
 ARCHIVE="data/downloads/avalonlogs-master.zip"
 EXTRACT_DIR="data/downloads/avalonlogs_extract"
-MIN_EXPECTED_RAW_FILES=10000
+MIN_EXPECTED_RAW_FILES=6000
 
 mkdir -p data/downloads "$RAW_DIR"
 
-legacy_count="$(find "$LEGACY_RAW_DIR" -maxdepth 1 -type f 2>/dev/null | wc -l)"
 raw_count="$(find "$RAW_DIR" -maxdepth 1 -type f 2>/dev/null | wc -l)"
-
-if [ "$legacy_count" -ge "$MIN_EXPECTED_RAW_FILES" ] && [ "$raw_count" -eq 0 ]; then
-    echo "Found existing AvalonLogs raw files at $LEGACY_RAW_DIR; reusing them."
-    echo "Download complete."
-    echo "Data locations:"
-    echo "  AvalonLogs raw: $LEGACY_RAW_DIR/ ($legacy_count files)"
-    exit 0
-fi
-
 if [ "$raw_count" -ge "$MIN_EXPECTED_RAW_FILES" ]; then
-    echo "AvalonLogs raw data already present; skipping network fetch."
-    echo "Download complete."
-    echo "Data locations:"
-    echo "  AvalonLogs raw: $RAW_DIR/ ($raw_count files)"
+    echo "AvalonLogs visible games already present ($raw_count files); skipping network fetch."
     exit 0
 fi
 
@@ -52,11 +41,11 @@ if [ ! -s "$ARCHIVE" ]; then
         -o "$ARCHIVE"
 fi
 
-if [ -z "$(ls -A "$RAW_DIR" 2>/dev/null)" ]; then
-    echo "Extracting AvalonLogs raw files..."
-    rm -rf "$EXTRACT_DIR"
-    mkdir -p "$EXTRACT_DIR"
+echo "Extracting AvalonLogs raw files (dropping hidden test games)..."
+rm -rf "$EXTRACT_DIR"
+mkdir -p "$EXTRACT_DIR"
 python3 - <<'PY'
+import hashlib
 import json
 import shutil
 import zipfile
@@ -64,31 +53,34 @@ from pathlib import Path
 
 archive = Path("data/downloads/avalonlogs-master.zip")
 extract_dir = Path("data/downloads/avalonlogs_extract")
-raw_dir = Path("data/downloads/avalonlogs_raw")
-raw_dir.mkdir(parents=True, exist_ok=True)
+raw_dir = Path("data/avalonlogs_raw")
+heldout = set()
+ids = Path("eval/test/heldout_ids.txt")
+if ids.exists():
+    heldout = set(ids.read_text().split())
 
 with zipfile.ZipFile(archive) as zf:
     zf.extractall(extract_dir)
 
 root = next(extract_dir.glob("avalonlogs-*"))
-copied = 0
+copied = dropped = 0
 for fp in root.rglob("*"):
-    if not fp.is_file():
-        continue
-    if fp.name.startswith("."):
+    if not fp.is_file() or fp.name.startswith("."):
         continue
     try:
         payload = json.loads(fp.read_text(encoding="utf-8"))
     except Exception:
         continue
-    if not {"players", "missions", "outcome"}.issubset(payload):
+    if not isinstance(payload, dict) or not {"players", "missions", "outcome"}.issubset(payload):
+        continue
+    if hashlib.sha256(fp.name.encode()).hexdigest() in heldout:
+        dropped += 1
         continue
     shutil.copy2(fp, raw_dir / fp.name)
     copied += 1
-print(f"Copied {copied} raw log files.")
+print(f"Copied {copied} visible game logs; dropped {dropped} hidden test games.")
 PY
-fi
+rm -rf "$EXTRACT_DIR" "$ARCHIVE"
 
 echo "Download complete."
-echo "Data locations:"
-echo "  AvalonLogs raw: $RAW_DIR/ ($(ls "$RAW_DIR" 2>/dev/null | wc -l) files)"
+echo "  AvalonLogs visible games: $RAW_DIR/ ($(find "$RAW_DIR" -maxdepth 1 -type f | wc -l) files)"

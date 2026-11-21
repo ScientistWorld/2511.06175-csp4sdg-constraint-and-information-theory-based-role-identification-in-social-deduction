@@ -1,36 +1,37 @@
 # Evaluation Targets
 
-This file defines what future scientist agents should optimize. The target is hidden-role inference from AvalonLogs game histories under the fixed evaluation protocol.
+The target is better hidden-role posteriors on held-out AvalonLogs game
+prefixes, under the fixed protocol in `briefing/evaluation.md`.
 
-## Primary Targets
+## Primary targets
 
-Improve `Obj_marginal` on:
-- `avalonlogs_6player`
-- `avalonlogs_9player`
+Lower `*_brier` (all six viewpoints) on:
+- `avalonlogs_6player` (weight 0.35)
+- `avalonlogs_9player` (weight 0.25)
 
-These two experiments carry the largest weights among the reproduced scores. They should remain the main focus for method improvements.
+## Breadth targets
 
-## Secondary Targets
+Lower or equal `*_brier` on `avalonlogs_5player`, `avalonlogs_7player`,
+`avalonlogs_8player`, `avalonlogs_10player` (0.10 each). Gains on the public
+views (`Obj`, `LSV`) and on the informed views (`MRL`, `PCV`, `MRG`, `EVM`)
+both count; a method should not buy one with the other.
 
-Improve or maintain viewpoint-specific metrics across all reproduced player counts:
-- `MRL_marginal`
-- `PCV_marginal`
-- `MRG_marginal`
-- `EVM_marginal`
+## Reported, not ranked
 
-Strong results should not come from improving only the objective/public view while degrading role-specific viewpoints.
+`*_marginal` (mean probability on the true role) is the paper's AvalonLogs
+quantity and is reported so results can be compared with the paper. It has
+coefficient 0: it is linear in the prediction, so it rewards overconfident
+posteriors.
 
-## Breadth Targets
+## Output requirement
 
-The smaller-weight experiments (`avalonlogs_5player`, `avalonlogs_7player`, `avalonlogs_8player`, and `avalonlogs_10player`) test robustness across game sizes. A useful improvement should either improve multiple player counts or clearly document which setting it targets.
-
-## Output Requirement
-
-New methods should write artifacts in the same schema consumed by `eval/evaluator.py`, then run:
+`scripts/predict.sh <input_dir> <output_dir>` must write a valid prediction for
+every instance and every method name it emits (see the validity rules in
+`briefing/evaluation.md`); otherwise that method gets the worst value of every
+metric. Develop with:
 
 ```bash
-bash scripts/evaluate.sh
-python validate.py --compare
+bash scripts/evaluate_train.sh            # visible games, writes scoring/scores_train.json
+bash scripts/evaluate_train.sh --limit-per-size 100   # quick check
+python validate.py
 ```
-
-The gym score is based on the experiments present in `scoring/scores.json`; experiment weights from `scoring/reference.json` are renormalized over that reproduced subset.

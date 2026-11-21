@@ -1,41 +1,51 @@
 # Experiment Overview
 
-This file describes the experiments that appear in `scoring/scores.json`. It is intentionally method-agnostic: any system that produces the required posterior and MAP outputs can be evaluated by the same scripts.
+All experiments measure hidden-role inference on real AvalonLogs games (public
+game logs, no dialogue), one experiment per player count. They are
+method-agnostic: anything that turns an instance (game prefix + viewpoint) into
+per-player role distributions and a complete assignment through
+`scripts/predict.sh` is scored the same way. The protocol is in
+`briefing/evaluation.md`.
 
-The paper reports AvalonLogs as 12,699 games. This reproduction converted 12,394 usable raw logs from the public repository and produced scored artifacts for 12,091 games.
+Each experiment has twelve metrics: `{view}_brier` (ranked, lower is better)
+and `{view}_marginal` (the paper's reported quantity, coefficient 0) for the
+views `Obj`, `MRL`, `PCV`, `MRG`, `LSV`, `EVM`. The hidden test uses 6,197
+held-out games, one instance each; the train slice uses the 6,196 visible games
+the same way.
 
-## avalonlogs_6player
+## avalonlogs_6player (weight 0.35)
 
-Primary reproduced experiment. It evaluates hidden-role inference on 3,176 solved 6-player Avalon games. This setting is important because it is large enough to include special-role and team-side uncertainty while still having broad dataset coverage.
+1,588 held-out games (~265 per viewpoint). The paper's main-text small-game
+setting: two or three evil players among six, with Merlin, Percival and
+Morgana in most games.
 
-Primary metric: `Obj_marginal`.
+## avalonlogs_9player (weight 0.25)
 
-Supporting metrics: viewpoint-specific marginal accuracy for Merlin, Percival, Morgana, loyal-servant, and non-special evil perspectives. The paper reports AvalonLogs as marginal accuracy only, so MAP is not part of the paper-referenced score for these experiments.
+421 held-out games (~70 per viewpoint). The paper's main-text large-game
+setting: three evil players among nine, a larger assignment space and more
+loyal followers.
 
-## avalonlogs_9player
+## avalonlogs_5player (weight 0.10)
 
-Secondary high-weight experiment. It evaluates 843 solved 9-player games and tests whether a method remains useful as the assignment space and role composition become larger.
+1,679 held-out games (~280 per viewpoint). Smallest games; checks that a method
+handles simple compositions without special casing.
 
-Primary metric: `Obj_marginal`.
+## avalonlogs_7player (weight 0.10)
 
-Supporting metrics: the same viewpoint-specific marginal metrics as the 6-player experiment.
+1,369 held-out games (~228 per viewpoint). Three evil among seven; the hardest
+size for public-information inference.
 
-## avalonlogs_5player
+## avalonlogs_8player (weight 0.10)
 
-Small-game experiment with 3,359 solved games. It checks that a method handles simpler role compositions and high-coverage data without special casing.
+840 held-out games (~140 per viewpoint).
 
-## avalonlogs_7player
+## avalonlogs_10player (weight 0.10)
 
-Intermediate-complexity experiment with 2,735 solved games. It provides a bridge between the small and large game-size settings.
+300 held-out games (~50 per viewpoint). Four evil among ten, up to 151,200
+complete assignments; the noisiest cell sizes.
 
-## avalonlogs_8player
+## Scoring emphasis
 
-Larger intermediate experiment with 1,681 solved games. It tests robustness as the number of possible full assignments increases.
-
-## avalonlogs_10player
-
-Largest reproduced setting, with 297 solved games. Coverage is partial because the role-assignment space is largest here, but the experiment is useful as a stress test for scaling behavior.
-
-## Scoring Emphasis
-
-The highest weights in `scoring/reference.json` are assigned to the 6-player and 9-player settings. When only the experiments present in `scores.json` are considered, those two settings dominate the gym score, while the remaining player counts provide breadth and regression checks.
+6p and 9p carry the most weight, following the paper's main-text table; the
+other sizes keep a method from trading one game size for another. Within an
+experiment every viewpoint counts equally.

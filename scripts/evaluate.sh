@@ -1,48 +1,14 @@
 #!/bin/bash
-# Evaluation script — the standard way to evaluate work in this environment.
+# Development evaluation: identical to scripts/evaluate_train.sh (visible
+# games only) but writes scoring/scores.json. Ranking uses only
+# scoring/scores_test.json, produced by scripts/evaluate_test.sh.
 #
-# This script evaluates method output artifacts against the benchmark metrics.
-#
-# Usage:
-#   ./evaluate.sh [dataset] [results_dir] [output_path]
-#
-# Arguments (all optional, with defaults):
-#   dataset     — "avalonlogs" (default), "avalonnlu", "mafia"
-#   results_dir — Directory containing method output JSON files (default: data/avalonlogs_solve)
-#   output_path — Where to write scores.json (default: scoring/scores.json)
-#
-# Environment:
-#   PYTHONPATH should include the repository root
-
+#   bash scripts/evaluate.sh [--limit-per-size N] [--predict-cmd CMD]
 set -e
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO_ROOT"
-
-# Default paths
-DATASET="${1:-avalonlogs}"
-RESULTS_DIR="${2:-data/avalonlogs_solve}"
-OUTPUT="${3:-scoring/scores.json}"
-
+export PYTHONPATH="$REPO_ROOT${PYTHONPATH:+:$PYTHONPATH}"
 mkdir -p scoring
 
-echo "Evaluating: dataset=$DATASET, results=$RESULTS_DIR, output=$OUTPUT"
-
-python3 -c "
-import os
-import sys
-sys.path.insert(0, os.getcwd())
-from eval.evaluator import evaluate
-from pathlib import Path
-
-scores = evaluate(
-    results_dir=Path('$RESULTS_DIR'),
-    output_path=Path('$OUTPUT'),
-    dataset='$DATASET',
-    condition='Truth',
-)
-print('Evaluation complete.')
-print('Experiments:', list(scores.get('experiments', {}).keys()))
-"
-
-echo "Scores written to $OUTPUT"
+python3 eval/train/evaluate.py --output scoring/scores.json "$@"

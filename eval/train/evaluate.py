@@ -1,359 +1,344 @@
 #!/usr/bin/env python3
 """
-Train-slice evaluator for pre-generated Avalon solver outputs.
+Train-slice evaluator for AvalonLogs hidden-role inference.
 
-This file is intentionally self-contained within eval/train. It reads method
-artifacts already present on disk, selects a deterministic stratified half of
-the evaluation pool, and writes scores_train.json-compatible output.
+Builds evaluation instances from the visible games in data/avalonlogs_raw
+(the held-out test games are not there), runs the method through the fixed
+interface
+
+    bash scripts/predict.sh <input_dir> <output_dir>
+
+and scores the predictions exactly like the hidden test evaluator: one game
+prefix per instance (uniformly sampled completed mission), one viewpoint per
+game (balanced within each player count), Brier score (ranked) and marginal
+accuracy (reported) per viewpoint and player count.  Invalid or missing
+predictions, or a non-zero predictor exit status, fail the method: it gets the
+worst value of every metric in every experiment.
 """
 
+from __future__ import annotations
+
 import argparse
-import hashlib
 import json
-import re
-from collections import defaultdict
+import math
+import os
+import random
+import shlex
+import shutil
+import subprocess
+import sys
+import tempfile
+from collections import Counter, defaultdict
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Set, Tuple
+from typing import Dict, List, Optional
+
+REPO = Path(__file__).resolve().parents[2]
+RAW_DIR = REPO / "data" / "avalonlogs_raw"
+SEED = "avalonlogs-train-v2"
+SLICE = "train"
+GOOD = {"loyal_follower", "merlin", "percival", "servant"}
+VIEW_ORDER = ["objective", "merlin", "percival", "morgana", "loyal_follower", "evil_minion"]
+VIEW_KEY = {"objective": "Obj", "merlin": "MRL", "percival": "PCV", "morgana": "MRG",
+            "loyal_follower": "LSV", "evil_minion": "EVM"}
+VIEWS = ["Obj", "MRL", "PCV", "MRG", "LSV", "EVM"]
+SIZES = [5, 6, 7, 8, 9, 10]
+WORST = {"brier": 2.0, "marginal": 0.0}
+ROW_TOL = 1e-3
+COL_TOL = 1e-2
 
 
-SPLIT_NAME = "train"
-SPLIT_SEED = "avalon-scientist-gym-v1"
-VALID_VIEWS = {"MRL", "PCV", "MRG", "LSV", "EVM", "Obj", "BYS", "MAF"}
-SIZE_TO_EXP = {
-    5: "avalonlogs_5player",
-    6: "avalonlogs_6player",
-    7: "avalonlogs_7player",
-    8: "avalonlogs_8player",
-    9: "avalonlogs_9player",
-    10: "avalonlogs_10player",
-}
+def exp_name(n: int) -> str:
+    return f"avalonlogs_{n}player"
 
 
-def load_json(path: Path) -> Optional[Dict[str, Any]]:
+# ------------------------------------------------------- instance building
+def canon(role):
+    return role.strip().lower().replace(" ", "_")
+
+
+def load_game(path):
     try:
-        with path.open(encoding="utf-8") as f:
-            return json.load(f)
+        raw = json.loads(Path(path).read_text(encoding="utf-8"))
     except Exception:
         return None
-
-
-def load_jsonl(path: Path) -> Iterable[Dict[str, Any]]:
-    with path.open(encoding="utf-8") as f:
-        for line in f:
-            if line.strip():
-                yield json.loads(line)
-
-
-def stable_key(label: str) -> str:
-    return hashlib.sha256(f"{SPLIT_SEED}:{label}".encode("utf-8")).hexdigest()
-
-
-def canonicalize_view(view: str) -> str:
-    v = re.sub(r"\d+$", "", view.lower())
-    if v == "merlin":
-        return "MRL"
-    if v == "percival":
-        return "PCV"
-    if v == "morgana":
-        return "MRG"
-    if v in {"servant", "loyal_follower", "loyal_servant"}:
-        return "LSV"
-    if v == "assassin":
-        return "ASN"
-    if v in {"evil_minion", "evil-minion", "mordred", "oberon"}:
-        return "EVM"
-    if v == "objective":
-        return "Obj"
-    if v in {"bys", "bystander"}:
-        return "BYS"
-    if v in {"maf", "mafia", "mafioso"}:
-        return "MAF"
-    return v
-
-
-def method_name_for_setting(setting: str) -> str:
-    clean = setting.strip().lstrip("+")
-    clean = re.sub(r"[^A-Za-z0-9]+", "_", clean).strip("_")
-    if not clean:
-        clean = "Unnamed"
-    if clean.startswith(("CSP_", "LLM_", "Random")):
-        return clean
-    return f"CSP_{clean}"
-
-
-def select_half_by_group(items: List[Tuple[str, Any]], slice_name: str) -> List[Any]:
-    ordered = sorted(items, key=lambda item: stable_key(item[0]))
-    midpoint = (len(ordered) + 1) // 2
-    selected = ordered[:midpoint] if slice_name == "train" else ordered[midpoint:]
-    return [item for _, item in selected]
-
-
-def compute_game_metrics(game: Dict[str, Any]) -> Dict[Tuple[str, str], Dict[str, float]]:
-    truth = game.get("players", {})
-    player_count = len(truth)
-    out: Dict[Tuple[str, str], Dict[str, float]] = {}
-    if player_count == 0:
-        return out
-
-    rounds = game.get("quests") or game.get("days") or {}
-    for round_obj in rounds.values():
-        for view, settings in round_obj.items():
-            canonical_view = canonicalize_view(view)
-            for setting, data in settings.items():
-                posterior = data.get("posterior", {})
-                best = data.get("best", {})
-                if not posterior:
-                    continue
-
-                marginal = sum(
-                    posterior.get(player, {}).get(role, 0.0)
-                    for player, role in truth.items()
-                ) / player_count
-                map_acc = sum(
-                    1 for player, role in truth.items() if best.get(player) == role
-                ) / player_count
-
-                key = (canonical_view, method_name_for_setting(setting))
-                rec = out.setdefault(key, {"marginal_sum": 0.0, "map_sum": 0.0, "count": 0.0})
-                rec["marginal_sum"] += marginal
-                rec["map_sum"] += map_acc
-                rec["count"] += 1.0
-
-    averaged = {}
-    for key, rec in out.items():
-        if rec["count"]:
-            averaged[key] = {
-                "marginal": rec["marginal_sum"] / rec["count"],
-                "map": rec["map_sum"] / rec["count"],
-            }
-    return averaged
-
-
-def empty_scores(dataset: str, condition: str) -> Dict[str, Any]:
-    return {
-        "experiments": {},
-        "metadata": {
-            "dataset": dataset,
-            "condition": condition,
-            "slice": SPLIT_NAME,
-            "split_seed": SPLIT_SEED,
-            "split_style": "deterministic stratified 50/50 split over pre-generated method output files",
-        },
-    }
-
-
-def evaluate_avalonlogs(
-    results_dir: Path,
-    dataset: str,
-    condition: str,
-    method_filter: Optional[Dict[str, Set[str]]] = None,
-) -> Dict[str, Any]:
-    scores = empty_scores(dataset, condition)
-    grouped_paths: Dict[int, List[Tuple[str, Path]]] = defaultdict(list)
-
-    for path in sorted(results_dir.glob("*_solve.json")):
-        game = load_json(path)
-        if not game:
-            continue
-        player_count = len(game.get("players", {}))
-        if player_count in SIZE_TO_EXP:
-            grouped_paths[player_count].append((path.name, path))
-
-    split_counts = {}
-    by_exp_method_view: Dict[str, Dict[str, Dict[str, List[Dict[str, float]]]]] = defaultdict(
-        lambda: defaultdict(lambda: defaultdict(list))
-    )
-
-    for player_count, labelled_paths in grouped_paths.items():
-        exp_name = SIZE_TO_EXP[player_count]
-        selected_paths = select_half_by_group(labelled_paths, SPLIT_NAME)
-        split_counts[exp_name] = len(selected_paths)
-
-        for path in selected_paths:
-            game = load_json(path)
-            if not game:
-                continue
-            for (view, method_name), vals in compute_game_metrics(game).items():
-                if view not in VALID_VIEWS:
-                    continue
-                if method_filter is not None and method_name not in method_filter.get(exp_name, set()):
-                    continue
-                by_exp_method_view[exp_name][method_name][view].append(vals)
-
-    for exp_name in sorted(by_exp_method_view):
-        scores["experiments"][exp_name] = {
-            "description": f"AvalonLogs {exp_name.split('_')[1].replace('player', '-player')} {SPLIT_NAME} split results",
-            "results": {},
-        }
-        exp_filter = method_filter.get(exp_name, set()) if method_filter is not None else None
-        method_names = sorted(exp_filter) if exp_filter else sorted(by_exp_method_view[exp_name])
-        for method_name in method_names:
-            method_scores = {}
-            for view, values in sorted(by_exp_method_view[exp_name].get(method_name, {}).items()):
-                if values:
-                    method_scores[f"{view}_marginal"] = round(sum(v["marginal"] for v in values) / len(values), 4)
-            scores["experiments"][exp_name]["results"][method_name] = method_scores
-
-    scores["metadata"]["n_selected_files_by_experiment"] = split_counts
-    return scores
-
-
-def evaluate_avalonnlu(
-    results_dir: Path,
-    dataset: str,
-    condition: str,
-    method_filter: Optional[Dict[str, Set[str]]] = None,
-) -> Dict[str, Any]:
-    scores = empty_scores(dataset, condition)
-    labelled_games = []
-    for path in sorted(results_dir.glob("*.jsonl")):
-        for idx, game in enumerate(load_jsonl(path)):
-            if game.get("cond") == condition:
-                labelled_games.append((f"{path.name}:{idx}", game))
-
-    selected_games = select_half_by_group(labelled_games, SPLIT_NAME)
-    exp_name = f"avalonnlu_{condition.lower()}_main"
-    by_method_view: Dict[str, Dict[str, Dict[str, List[float]]]] = defaultdict(
-        lambda: defaultdict(lambda: defaultdict(list))
-    )
-
-    for game in selected_games:
-        for (view, method_name), vals in compute_game_metrics(game).items():
-            if method_filter is not None and method_name not in method_filter.get(exp_name, set()):
-                continue
-            by_method_view[method_name][view]["marginal"].append(vals["marginal"])
-            by_method_view[method_name][view]["map"].append(vals["map"])
-
-    if by_method_view or method_filter:
-        scores["experiments"][exp_name] = {
-            "description": f"Avalon-NLU {condition} {SPLIT_NAME} split results",
-            "results": {},
-        }
-        exp_filter = method_filter.get(exp_name, set()) if method_filter is not None else None
-        method_names = sorted(exp_filter) if exp_filter else sorted(by_method_view)
-        for method_name in method_names:
-            method_scores = {}
-            for view, metrics in sorted(by_method_view.get(method_name, {}).items()):
-                if metrics["marginal"]:
-                    method_scores[f"{view}_marginal"] = round(sum(metrics["marginal"]) / len(metrics["marginal"]), 4)
-                if metrics["map"]:
-                    method_scores[f"{view}_map"] = round(sum(metrics["map"]) / len(metrics["map"]), 4)
-            scores["experiments"][exp_name]["results"][method_name] = method_scores
-
-    scores["metadata"]["n_selected_games"] = len(selected_games)
-    return scores
-
-
-def evaluate_mafia(
-    results_dir: Path,
-    dataset: str,
-    condition: str,
-    method_filter: Optional[Dict[str, Set[str]]] = None,
-) -> Dict[str, Any]:
-    scores = empty_scores(dataset, condition)
-    labelled_games = []
-    paths = [results_dir] if results_dir.is_file() else sorted(results_dir.glob("*.jsonl"))
-    for path in paths:
-        for idx, game in enumerate(load_jsonl(path)):
-            if game.get("cond") == condition:
-                labelled_games.append((f"{path.name}:{idx}", game))
-
-    selected_games = select_half_by_group(labelled_games, SPLIT_NAME)
-    exp_name = f"mafia_{condition.lower()}_main"
-    by_method_view: Dict[str, Dict[str, Dict[str, List[float]]]] = defaultdict(
-        lambda: defaultdict(lambda: defaultdict(list))
-    )
-
-    for game in selected_games:
-        for (view, method_name), vals in compute_game_metrics(game).items():
-            if view not in {"Obj", "BYS", "MAF"}:
-                continue
-            if method_filter is not None and method_name not in method_filter.get(exp_name, set()):
-                continue
-            by_method_view[method_name][view]["marginal"].append(vals["marginal"])
-            by_method_view[method_name][view]["map"].append(vals["map"])
-
-    if by_method_view or method_filter:
-        scores["experiments"][exp_name] = {
-            "description": f"Mafia-UCB {condition} {SPLIT_NAME} split results",
-            "results": {},
-        }
-        exp_filter = method_filter.get(exp_name, set()) if method_filter is not None else None
-        method_names = sorted(exp_filter) if exp_filter else sorted(by_method_view)
-        for method_name in method_names:
-            method_scores = {}
-            for view, metrics in sorted(by_method_view.get(method_name, {}).items()):
-                if metrics["marginal"]:
-                    method_scores[f"{view}_marginal"] = round(sum(metrics["marginal"]) / len(metrics["marginal"]), 4)
-                if metrics["map"]:
-                    method_scores[f"{view}_map"] = round(sum(metrics["map"]) / len(metrics["map"]), 4)
-            scores["experiments"][exp_name]["results"][method_name] = method_scores
-
-    scores["metadata"]["n_selected_games"] = len(selected_games)
-    return scores
-
-
-def load_method_filter(path: Optional[Path]) -> Optional[Dict[str, Set[str]]]:
-    if path is None or not path.exists():
+    if not isinstance(raw, dict) or not {"players", "missions", "outcome"} <= set(raw):
         return None
-    with path.open(encoding="utf-8") as f:
-        data = json.load(f)
-    filters = {}
-    for exp_name, exp_data in data.get("experiments", {}).items():
-        filters[exp_name] = set(exp_data.get("results", {}).keys())
-    return filters
+    names = [p["name"] for p in raw["players"]]
+    roles = {r["name"]: canon(r["role"]) for r in raw["outcome"].get("roles", [])}
+    if len(set(names)) != len(names) or set(roles) != set(names) or not 5 <= len(names) <= 10:
+        return None
+    done = []
+    for m in raw.get("missions", []):
+        if m.get("state") not in ("SUCCESS", "FAIL"):
+            break
+        done.append(m)
+    if not done:
+        return None
+    ok = set(names)
+    for m in done:
+        if not set(m.get("team", [])) <= ok or "numFails" not in m:
+            return None
+        for pr in m.get("proposals", []):
+            if pr.get("proposer") not in ok or not set(pr.get("team", [])) <= ok \
+                    or not set(pr.get("votes", [])) <= ok:
+                return None
+    return {"names": names, "roles": roles, "missions": done}
 
 
-def evaluate(
-    results_dir: Path,
-    output_path: Path,
-    dataset: str = "avalonlogs",
-    condition: str = "Truth",
-    method_filter_path: Optional[Path] = Path("scoring/scores.json"),
-) -> Dict[str, Any]:
-    method_filter = load_method_filter(method_filter_path)
-    if dataset == "avalonlogs":
-        scores = evaluate_avalonlogs(results_dir, dataset, condition, method_filter)
-    elif dataset == "avalonnlu":
-        scores = evaluate_avalonnlu(results_dir, dataset, condition, method_filter)
-    elif dataset == "mafia":
-        scores = evaluate_mafia(results_dir, dataset, condition, method_filter)
-    else:
-        scores = empty_scores(dataset, condition)
-        scores["metadata"]["warning"] = "No slice evaluator is implemented for this dataset."
+def build_instance(game, q, view, rng, instance_id):
+    names = game["names"]
+    alias = {n: f"P{i + 1}" for i, n in enumerate(names)}
+    counts = Counter(game["roles"].values())
+    missions = []
+    for idx, m in enumerate(game["missions"][:q], 1):
+        props = []
+        for pr in m.get("proposals", []):
+            appr = set(pr.get("votes", []))
+            props.append({
+                "proposer": alias[pr["proposer"]],
+                "team": [alias[p] for p in pr["team"]],
+                "approve": [alias[p] for p in names if p in appr],
+                "reject": [alias[p] for p in names if p not in appr],
+                "approved": pr.get("state") == "APPROVED",
+            })
+        missions.append({"mission": idx, "team_size": m["teamSize"], "fails_required": m["failsRequired"],
+                         "proposals": props, "team": [alias[p] for p in m["team"]],
+                         "num_fails": m["numFails"], "result": m["state"]})
+    seat = {alias[n]: i for i, n in enumerate(names)}
+    lab = {alias[n]: r for n, r in game["roles"].items()}
+    spec = {"perspective": view}
+    if view != "objective":
+        viewers = sorted([p for p, r in lab.items() if r == view], key=seat.get)
+        viewer = viewers[rng.randrange(len(viewers))]
+        spec.update({"viewer": viewer, "viewer_role": view})
+        if view == "merlin":
+            spec["sees_evil"] = sorted([p for p, r in lab.items() if r not in GOOD and r != "mordred"], key=seat.get)
+        elif view == "percival":
+            spec["merlin_candidates"] = sorted([p for p, r in lab.items() if r in ("merlin", "morgana")], key=seat.get)
+        elif view in ("morgana", "evil_minion"):
+            spec["sees_evil"] = sorted([p for p, r in lab.items()
+                                        if r not in GOOD and r != "oberon" and p != viewer], key=seat.get)
+    inst = {"instance_id": instance_id, "n_players": len(names),
+            "players": [alias[n] for n in names],
+            "role_counts": dict(sorted(counts.items())),
+            "good_roles": sorted(r for r in counts if r in GOOD),
+            "evil_roles": sorted(r for r in counts if r not in GOOD),
+            "missions": missions, "view": spec}
+    return inst, lab
 
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    with output_path.open("w", encoding="utf-8") as f:
-        json.dump(scores, f, indent=2, ensure_ascii=False)
-    return scores
+
+def build_train_instances(raw_dir: Path, limit: Optional[int] = None):
+    games = []
+    for fp in sorted(raw_dir.iterdir()):
+        if fp.is_file():
+            g = load_game(fp)
+            if g is not None:
+                games.append((fp.name, g))
+    rng = random.Random(SEED)
+    by_size = {}
+    for label, g in games:
+        by_size.setdefault(len(g["names"]), []).append((label, g))
+    insts, labels = [], {}
+    for n in sorted(by_size):
+        items = by_size[n]
+        rng.shuffle(items)
+        if limit:
+            items = items[:limit]
+        vc = Counter()
+        for _label, g in items:
+            present = set(g["roles"].values())
+            av = [v for v in VIEW_ORDER if v == "objective" or v in present]
+            low = min(vc[v] for v in av)
+            view = rng.choice([v for v in av if vc[v] == low])
+            vc[view] += 1
+            q = rng.randint(1, len(g["missions"]))
+            iid = f"r{rng.getrandbits(48):012x}"
+            inst, lab = build_instance(g, q, view, rng, iid)
+            insts.append(inst)
+            labels[iid] = lab
+    rng.shuffle(insts)
+    return insts, labels
+
+
+# ------------------------------------------------------------- validation
+def valid_prediction(pred, inst) -> bool:
+    players = inst["players"]
+    counts = {r: int(c) for r, c in inst["role_counts"].items() if int(c) > 0}
+    if not isinstance(pred, dict):
+        return False
+    post, best = pred.get("posterior"), pred.get("best")
+    if not isinstance(post, dict) or set(post) != set(players):
+        return False
+    col = Counter()
+    for p in players:
+        row = post[p]
+        if not isinstance(row, dict):
+            return False
+        s = 0.0
+        for r, v in row.items():
+            if r not in counts or isinstance(v, bool) or not isinstance(v, (int, float)):
+                return False
+            if not math.isfinite(v) or v < -1e-9 or v > 1.0 + 1e-6:
+                return False
+            s += v
+            col[r] += v
+        if abs(s - 1.0) > ROW_TOL:
+            return False
+    if any(abs(col[r] - c) > COL_TOL for r, c in counts.items()):
+        return False
+    if not isinstance(best, dict) or set(best) != set(players):
+        return False
+    if any(not isinstance(r, str) for r in best.values()):
+        return False
+    return Counter(best.values()) == Counter(counts)
+
+
+def instance_metrics(pred, inst, truth) -> Dict[str, float]:
+    roles = [r for r, c in inst["role_counts"].items() if int(c) > 0]
+    brier = marginal = 0.0
+    for p in inst["players"]:
+        row = pred["posterior"][p]
+        t = truth[p]
+        q = {r: min(max(float(row.get(r, 0.0)), 0.0), 1.0) for r in roles}
+        marginal += q[t]
+        brier += sum((q[r] - (1.0 if r == t else 0.0)) ** 2 for r in roles)
+    n = len(inst["players"])
+    return {"brier": brier / n, "marginal": marginal / n}
+
+
+def sanitize(name) -> Optional[str]:
+    if not isinstance(name, str):
+        return None
+    clean = "".join(ch if ch.isalnum() or ch == "_" else "_" for ch in name.strip().lstrip("+")).strip("_")
+    if not clean or clean.startswith("_"):
+        return None
+    return clean
+
+
+def fallback_method_names() -> List[str]:
+    names = set()
+    try:
+        ref = json.loads((REPO / "scoring" / "reference.json").read_text())
+        for n in SIZES:
+            names |= set(ref["experiments"][exp_name(n)]["results"])
+    except Exception:
+        pass
+    return sorted(names) or ["FAILED_RUN"]
+
+
+def run_predictor(cmd: str, instances: List[dict], workdir: Path):
+    in_dir, out_dir = workdir / "input", workdir / "output"
+    in_dir.mkdir()
+    out_dir.mkdir()
+    (in_dir / "instances.json").write_text(json.dumps(
+        {"format": "avalonlogs-instances-v2", "instances": instances}))
+    try:
+        rc = subprocess.run(shlex.split(cmd) + [str(in_dir), str(out_dir)], cwd=str(REPO)).returncode
+    except OSError as exc:
+        print(f"predictor could not start: {exc}", file=sys.stderr)
+        rc = 127
+    preds = {}
+    try:
+        data = json.loads((out_dir / "predictions.json").read_text())
+        preds = data.get("predictions", {}) if isinstance(data, dict) else {}
+        if not isinstance(preds, dict):
+            preds = {}
+    except Exception as exc:
+        print(f"could not read predictions: {exc}", file=sys.stderr)
+    return rc, preds
+
+
+def score(instances, labels, preds, rc):
+    by_cell = defaultdict(list)
+    for inst in instances:
+        by_cell[(inst["n_players"], VIEW_KEY[inst["view"]["perspective"]])].append(inst)
+    names = set()
+    for v in preds.values():
+        if isinstance(v, dict):
+            names |= {s for s in (sanitize(k) for k in v) if s}
+    results = {exp_name(n): {} for n in SIZES}
+    status, per_instance = {}, {}
+    for name in sorted(names):
+        cells = defaultdict(list)
+        ok = rc == 0
+        reason = "" if ok else f"predictor exit status {rc}"
+        if ok:
+            for inst in instances:
+                entry = preds.get(inst["instance_id"])
+                pred = None
+                if isinstance(entry, dict):
+                    pred = next((p for k, p in entry.items() if sanitize(k) == name), None)
+                if pred is None or not valid_prediction(pred, inst):
+                    ok = False
+                    reason = f"missing or invalid prediction for {inst['instance_id']}"
+                    break
+                m = instance_metrics(pred, inst, labels[inst["instance_id"]])
+                cells[(inst["n_players"], VIEW_KEY[inst["view"]["perspective"]])].append(m)
+                per_instance.setdefault(name, {})[inst["instance_id"]] = m
+        status[name] = "ok" if ok else f"failed: {reason}"
+        for n in SIZES:
+            vals = {}
+            for view in VIEWS:
+                for metric in ("brier", "marginal"):
+                    if ok and cells.get((n, view)):
+                        xs = [c[metric] for c in cells[(n, view)]]
+                        vals[f"{view}_{metric}"] = round(sum(xs) / len(xs), 6)
+                    else:
+                        vals[f"{view}_{metric}"] = WORST[metric]
+            results[exp_name(n)][name] = vals
+    if not names:
+        for name in fallback_method_names():
+            status[name] = "failed: no predictions"
+            for n in SIZES:
+                results[exp_name(n)][name] = {f"{v}_{m}": WORST[m] for v in VIEWS for m in ("brier", "marginal")}
+    counts = {exp_name(n): {v: len(by_cell.get((n, v), [])) for v in VIEWS} for n in SIZES}
+    return results, status, counts, per_instance
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Evaluate the visible train slice from pre-generated outputs.")
-    parser.add_argument("--results-dir", required=True, type=Path)
-    parser.add_argument("--output", required=True, type=Path)
-    parser.add_argument("--dataset", default="avalonlogs", choices=["avalonlogs", "avalonnlu", "mafia"])
-    parser.add_argument("--condition", default="Truth", choices=["Truth", "Lie"])
-    parser.add_argument(
-        "--method-filter",
-        type=Path,
-        default=Path("scoring/scores.json"),
-        help="Scores file whose experiment/method entries define the current method set to score.",
-    )
-    parser.add_argument("--train-scores", type=Path, default=None, help=argparse.SUPPRESS)
-    args = parser.parse_args()
-    method_filter_path = args.train_scores if args.train_scores is not None else args.method_filter
+    ap = argparse.ArgumentParser(description="Score the method on train instances built from visible games.")
+    ap.add_argument("--output", type=Path, default=REPO / "scoring" / "scores_train.json")
+    ap.add_argument("--predict-cmd", default=os.environ.get("PREDICT_CMD", "bash scripts/predict.sh"),
+                    help="Predictor command; receives <input_dir> <output_dir>.")
+    ap.add_argument("--raw-dir", type=Path, default=RAW_DIR)
+    ap.add_argument("--limit-per-size", type=int, default=None,
+                    help="Use at most this many games per player count (quick development runs).")
+    ap.add_argument("--per-instance", type=Path, default=None, help=argparse.SUPPRESS)
+    ap.add_argument("--dump-instances", type=Path, default=None,
+                    help="Also write the train instances and their roles to this JSON file.")
+    args = ap.parse_args()
 
-    scores = evaluate(
-        results_dir=args.results_dir,
-        output_path=args.output,
-        dataset=args.dataset,
-        condition=args.condition,
-        method_filter_path=method_filter_path,
-    )
-    print(f"Scores written to {args.output}")
-    print(f"Slice: {scores.get('metadata', {}).get('slice')}")
-    print(f"Experiments: {list(scores.get('experiments', {}).keys())}")
+    instances, labels = build_train_instances(args.raw_dir, args.limit_per_size)
+    if args.dump_instances is not None:
+        args.dump_instances.write_text(json.dumps({"instances": instances, "labels": labels}))
+    work = Path(tempfile.mkdtemp(prefix="avalon_train_"))
+    try:
+        rc, preds = run_predictor(args.predict_cmd, instances, work)
+    finally:
+        shutil.rmtree(work, ignore_errors=True)
+    results, status, counts, per_instance = score(instances, labels, preds, rc)
+    out = {"experiments": {}, "metadata": {
+        "slice": SLICE,
+        "n_instances": len(instances),
+        "n_instances_by_experiment_view": counts,
+        "predictor_exit_status": rc,
+        "method_status": status,
+        "protocol": "one visible game prefix per instance, one viewpoint per game; "
+                    "Brier score (ranked) and marginal accuracy (reported) per viewpoint",
+    }}
+    for n in SIZES:
+        out["experiments"][exp_name(n)] = {
+            "description": f"AvalonLogs {n}-player train instances (visible games)",
+            "results": results[exp_name(n)],
+        }
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(json.dumps(out, indent=2))
+    if args.per_instance is not None:
+        args.per_instance.parent.mkdir(parents=True, exist_ok=True)
+        args.per_instance.write_text(json.dumps(per_instance))
+    print(f"Train scores written to {args.output}")
+    for name, st in sorted(status.items()):
+        print(f"  {name}: {st}")
 
 
 if __name__ == "__main__":

@@ -37,15 +37,21 @@ Accurate role identification is a prerequisite for strategic play in social dedu
 
 ## Task Definition
 
-**Input**:
-- Player list and role composition for one game.
-- Public game events such as team proposals, votes, quest outcomes, and eliminations.
-- Optional communication traces when available.
-- Optional perspective information describing what a particular role viewpoint is allowed to know.
+**Input** (one instance):
+- Player list (seat labels) and the declared role composition of the game.
+- The public history up to a completed quest: every team proposal, every
+  player's approve/reject vote, each quest team and its number of fail cards.
+- One viewpoint: either the objective observer (public information only) or a
+  player whose role is given together with the private information that role
+  receives under the Avalon rules (Merlin sees every evil player except Mordred;
+  Percival sees Merlin and Morgana without knowing which is which; evil players
+  other than Oberon see their evil teammates except Oberon; loyal followers see
+  nothing).
 
-**Output**:
-- For each evaluated viewpoint, a probability distribution over possible roles for each player.
-- A single maximum-a-posteriori full role assignment.
+**Output** (per instance):
+- For every player, a probability distribution over the roles of the declared
+  composition.
+- One complete role assignment that respects the declared role counts.
 
 ## Success Criteria
 
@@ -113,72 +119,173 @@ Rather than hand-tuning hypothesis weights, the paper computes Information Gain 
 3. The hybrid LLM+CSP approach adds modest value to LLMs but the CSP remains the dominant component
 4. Pure LLMs struggle with combinatorial reasoning even with large model scale
 
+## Implementation in this gym
+
+- `method/csp4sdg_avalonlogs.py` (called by `scripts/predict.sh` through
+  `method/predict.py`) runs CSP4SDG on each instance:
+  1. constraint extraction as in the paper's AvalonLogs converter: a quest with
+     f fail cards gives `evil_at_least(team, f)`; each proposal gives
+     `hypo_team_good(proposer, team)` (w=0.5), each approving vote
+     `hypo_team_good(voter, team)` (w=0.1), each rejecting vote
+     `hypo_role_in(voter, random other team member, evil)` (w=0.2);
+  2. viewpoint evidence as in the official solver: own role fixed; Merlin and
+     evil roles add "player is evil" for every player in `sees_evil`; Percival
+     adds "these two are {Merlin, Morgana}" when both exist;
+  3. exact inference (Eq. 1–3): hard pruning, S(a) = 1 + sum of IG weights of
+     satisfied hypotheses, IG = binary entropy of the fraction of the view's
+     feasible worlds satisfying the (speaker-conditional) hypothesis.
+- All constraints depend on roles only through each player's side, apart from
+  the viewpoint's role-level knowledge, so inference enumerates evil subsets
+  and the role assignments inside each side. `method/csp4sdg_enumerate.py`
+  (literal enumeration with `method/sdg_framework.py`) gives the same posteriors
+  to 5e-11.
+- Emitted methods: `CSP_Strict` (hard constraints only) and `CSP_HypIG`
+  (+ IG-weighted hypotheses). AvalonLogs has no assertions, so `+Assert`
+  equals `Strict`.
+- Departures from the official code: the random suspect for a rejecting vote is
+  drawn per instance (seeded by the instance id) instead of from one global RNG
+  in file order, and never the voter themself; `sees_evil` lists all players the
+  rules reveal (the official code omitted the rare explicit `assassin` role).
+  As in the official code, the viewpoint evidence uses only "listed players are
+  evil", not the completeness of the lists.
+
 ---
 
 # Evaluation
 
+## What is evaluated
+
+Hidden-role inference on real AvalonLogs games (5–10 players, no dialogue). An
+**instance** is one game cut after a completed quest and seen from one
+viewpoint. For every instance a method returns, for every player, a probability
+distribution over the roles of the declared composition, plus one complete role
+assignment.
+
+The method never receives roles. The evaluators build the instances, run the
+method on them, and score the predictions against roles they hold themselves.
+
+## Data and splits
+
+- 12,393 usable public AvalonLogs games. Half of every player count (6,197
+  games) is the **hidden test set**: it lives only, encoded, in `eval/test/`.
+  The other half (6,196 usable games, with their roles) is visible in
+  `data/avalonlogs_raw/` for development and for fitting anything a method wants
+  to learn.
+- Each game gives exactly **one** instance: the public history up to one
+  uniformly sampled completed quest, seen from **one** viewpoint. Viewpoints
+  are balanced within each player count. One instance per game means no
+  instance can be combined with another viewpoint, or a later part, of the same
+  game.
+- Player names are replaced by seat labels `P1..Pn` (seat order = leader
+  rotation order).
+- `scripts/evaluate_train.sh` builds train instances the same way from the
+  visible games; `scripts/evaluate_test.sh` uses the hidden ones. Same metrics,
+  same interface.
+
+## Viewpoints
+
+| key | viewer | private information given in `view` |
+|---|---|---|
+| `Obj` | none (objective observer) | none |
+| `MRL` | Merlin | `sees_evil`: every evil player except Mordred |
+| `PCV` | Percival | `merlin_candidates`: Merlin and Morgana, unlabelled (only Merlin if there is no Morgana) |
+| `MRG` | Morgana | `sees_evil`: every other evil player except Oberon |
+| `LSV` | a loyal follower | none besides their own role |
+| `EVM` | an evil minion | `sees_evil`: every other evil player except Oberon |
+
+Every non-objective view also gives `viewer` and `viewer_role`. The lists are
+complete under the Avalon rules: a player missing from `sees_evil` is not an
+evil player of a role the viewer is shown.
+
+## Method interface
+
+```
+bash scripts/predict.sh <input_dir> <output_dir>
+```
+
+`<input_dir>/instances.json`:
+
+```json
+{"format": "avalonlogs-instances-v2",
+ "instances": [{
+   "instance_id": "t1a2b3c4d5e6f",
+   "n_players": 7,
+   "players": ["P1", "P2", "P3", "P4", "P5", "P6", "P7"],
+   "role_counts": {"evil_minion": 1, "loyal_follower": 2, "merlin": 1, "mordred": 1, "morgana": 1, "percival": 1},
+   "good_roles": ["loyal_follower", "merlin", "percival"],
+   "evil_roles": ["evil_minion", "mordred", "morgana"],
+   "missions": [{"mission": 1, "team_size": 2, "fails_required": 1,
+                 "proposals": [{"proposer": "P3", "team": ["P3", "P5"],
+                                "approve": ["P1", "P3", "P5"], "reject": ["P2", "P4", "P6", "P7"],
+                                "approved": false}, "..."],
+                 "team": ["P4", "P1"], "num_fails": 0, "result": "SUCCESS"}, "..."],
+   "view": {"perspective": "merlin", "viewer": "P2", "viewer_role": "merlin", "sees_evil": ["P5", "P6"]}}]}
+```
+
+`missions` holds only the completed quests up to the cut, in order, with every
+team proposal, every player's vote and the number of fail cards.
+
+`<output_dir>/predictions.json`:
+
+```json
+{"predictions": {"<instance_id>": {"<method_name>": {
+    "posterior": {"P1": {"merlin": 0.4, "loyal_follower": 0.6}, "...": {}},
+    "best": {"P1": "loyal_follower", "...": "..."}}}}}
+```
+
+Every method name found in `predictions.json` is scored separately, so one run
+can submit several methods. Names are sanitised to letters, digits and `_`.
+
+## Validity (otherwise the method has failed)
+
+For a method to be scored, the predictor must exit with status 0 and the method
+must have, for **every** instance:
+
+- `posterior` with exactly the instance's players; per player, probabilities for
+  roles of the declared composition only (missing roles count as 0), each finite
+  and in [0, 1], summing to 1 (±1e-3);
+- role totals consistent with the composition: for every role r,
+  sum over players of P(player = r) equals count(r) (±1e-2) — as any mixture of
+  legal complete assignments does;
+- `best`: a complete assignment of the declared roles with the declared counts.
+
+A failed method gets the worst value of every metric in every experiment
+(Brier 2, marginal accuracy 0). If the predictor writes nothing, the failure is
+recorded under the method names of `scoring/reference.json`.
+
 ## Metrics
 
-Two accuracy metrics evaluate hidden-role inference quality.
+For an instance with P players, true roles r_p and predicted probabilities q:
 
-### Marginal Accuracy
+- **Brier score** (ranked, lower is better):
+  `(1/P) * sum_p sum_r (q_{p,r} - 1[r = r_p])^2`.
+  A strictly proper scoring rule: reporting the true posterior is optimal, so it
+  rewards both sharpness and calibration.
+- **Marginal accuracy** (reported, coefficient 0): `(1/P) * sum_p q_{p,r_p}`,
+  the paper's AvalonLogs quantity. It is not ranked because it is linear in q:
+  moving all mass onto the most likely assignment raises it without better
+  inference.
 
-For a game with `P` players, let `r_p` be player `p`'s true role and `a_{p,r}` be the predicted posterior probability that player `p` has role `r`:
+Both are averaged over the instances of each (player count, viewpoint) cell.
+The `best` assignment is required and validated but not scored.
 
-```text
-MA = (1 / P) * sum_p a_{p,r_p}
-```
+## Experiments and ranking
 
-This rewards calibrated probability mass on the true role even when the full assignment remains uncertain.
+`avalonlogs_5player` … `avalonlogs_10player`, each with `Obj/MRL/PCV/MRG/LSV/EVM`
+× `brier/marginal`. Held-out instances per viewpoint cell: about 280 (5p), 265
+(6p), 228 (7p), 140 (8p), 70 (9p), 50 (10p).
 
-### MAP Accuracy
+The rank sums, over experiments and ranked metrics, experiment weight ×
+|coefficient| × improvement over the reference (taken in the better direction)
+divided by that metric's spread across ranked attempts. Weights:
+6p 0.35, 9p 0.25, and 0.10 each for 5p, 7p, 8p, 10p. All 36 `*_brier`
+coefficients (6 viewpoints × 6 experiments) are 1.
 
-Let `hat_r_p` be the role assigned to player `p` in the single most likely complete assignment:
+## Statistical validation
 
-```text
-MAP = (1 / P) * sum_p 1[hat_r_p = r_p]
-```
-
-This measures how often the predicted best full assignment gives each player the correct exact role.
-
-### Aggregation
-
-Metrics are averaged over evaluated game states and then over games. Results are reported separately for each viewpoint and player-count experiment.
-
-## Evaluation Protocol
-
-### Dataset
-
-The reproduced gym uses public AvalonLogs games with player lists, public events, quest outcomes, and ground-truth roles. Dialogue is not required for the reproduced benchmark. The downloaded raw logs are converted into a method-independent representation under `data/`, and any valid method may consume that representation or the raw logs.
-
-### Viewpoints
-
-Scores are reported for multiple information settings:
-- `Obj`: public information only.
-- `MRL`: Merlin's viewpoint.
-- `PCV`: Percival's viewpoint.
-- `MRG`: Morgana's viewpoint.
-- `EVM`: non-special evil viewpoint.
-
-Each viewpoint controls what hidden information the predictor may condition on.
-
-### Experiments
-
-AvalonLogs experiments are split by player count (`avalonlogs_5player` through `avalonlogs_10player`). This prevents improvements on one game size from hiding regressions on another. Larger player counts are more expensive, so coverage is reported in the experiment notes and progress logs.
-
-### Output Contract
-
-Evaluation reads method outputs, not method internals. A method should write one JSON artifact per solved game with:
-- the source file identifier,
-- player names and true roles,
-- per-viewpoint posterior probabilities over roles,
-- per-viewpoint best role assignment.
-
-`scripts/evaluate.sh` calls `eval/evaluator.py` to read those artifacts and writes `scoring/scores.json`.
-
-### Statistical Validation
-
-For new research claims, compare methods on matched games and viewpoints. Paired tests such as Wilcoxon signed-rank or paired t-tests are appropriate when enough matched games are available. The gym score itself is based on the metrics and weights in `scoring/reference.json`.
+All methods see identical instances, so compare them with paired tests on
+per-instance Brier differences. On the test set, a difference of about 0.002 in
+experiment-weighted mean Brier is roughly two paired standard errors.
 
 ---
 

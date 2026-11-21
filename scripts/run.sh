@@ -1,19 +1,23 @@
 #!/bin/bash
-# Score the ResearchGym train/test split over the existing final AvalonLogs
-# method outputs. This is post-hoc scoring only; it does not retrain or rerun
-# the method solver.
+# Iteration-11 job: hardening audit, then the reference end to end.
+# (After this job, run.sh goes back to the reference-only version.)
 set -e
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO_ROOT"
+export PYTHONPATH="$REPO_ROOT${PYTHONPATH:+:$PYTHONPATH}"
+mkdir -p scoring logs outputs
 
-echo "=== ResearchGym split evaluation ==="
-echo "Start: $(date)"
+echo "=== iteration-11 audit ($(date)) nproc=$(nproc) user=$(id -u)"
+bash redteam/iter11/audit.sh 2>&1 | tee redteam/iter11/audit.log
+find redteam/iter11/runs -name 'per_instance*.json' -delete
+rm -f redteam/iter11/runs/reference/instance_cells.json
 
-mkdir -p scoring logs
-
-bash scripts/evaluate_train.sh avalonlogs data/avalonlogs_solve scoring/scores_train.json
-bash scripts/evaluate_test.sh avalonlogs data/avalonlogs_solve scoring/scores_test.json
-
-echo "Train/test split scoring complete"
-echo "End: $(date)"
+echo "=== CSP4SDG AvalonLogs reference run ($(date))"
+bash scripts/evaluate.sh
+bash scripts/evaluate_train.sh
+bash scripts/evaluate_test.sh
+bash scripts/baseline.sh
+cp outputs/baseline_prior_train.json redteam/iter11/baseline_prior_train.json
+python3 validate.py --post-design
+echo "=== done ($(date))"

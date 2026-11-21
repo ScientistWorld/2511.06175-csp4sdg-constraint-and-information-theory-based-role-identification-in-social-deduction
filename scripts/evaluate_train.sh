@@ -1,32 +1,18 @@
 #!/bin/bash
-# Evaluate the visible train slice of pre-generated method outputs.
+# Train evaluation on the visible games. Runs with no arguments:
 #
-# Usage:
-#   ./evaluate_train.sh [dataset] [results_dir] [output_path]
+#   bash scripts/evaluate_train.sh
 #
-# Arguments mirror scripts/evaluate.sh:
-#   dataset     - "avalonlogs" (default), "avalonnlu", "mafia"
-#   results_dir - Directory containing solver output JSON files (default: data/avalonlogs_solve)
-#   output_path - Where to write scores_train.json (default: scoring/scores_train.json)
-
+# Builds instances from data/avalonlogs_raw (visible games only), runs the
+# method on disk through scripts/predict.sh, and writes
+# scoring/scores_train.json with exactly the same metrics as the hidden test.
+# Optional flags go to eval/train/evaluate.py (--output, --predict-cmd,
+# --limit-per-size N for quick development runs).
 set -e
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO_ROOT"
-
-DATASET="${1:-avalonlogs}"
-RESULTS_DIR="${2:-data/avalonlogs_solve}"
-OUTPUT="${3:-scoring/scores_train.json}"
-CONDITION="${CONDITION:-Truth}"
-
+export PYTHONPATH="$REPO_ROOT${PYTHONPATH:+:$PYTHONPATH}"
 mkdir -p scoring
 
-echo "Evaluating train slice: dataset=$DATASET, results=$RESULTS_DIR, output=$OUTPUT"
-
-python3 eval/train/evaluate.py \
-  --dataset "$DATASET" \
-  --condition "$CONDITION" \
-  --results-dir "$RESULTS_DIR" \
-  --output "$OUTPUT"
-
-echo "Train scores written to $OUTPUT"
+python3 eval/train/evaluate.py "$@"
