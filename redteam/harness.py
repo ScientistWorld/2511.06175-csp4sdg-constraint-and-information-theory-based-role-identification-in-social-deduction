@@ -104,15 +104,15 @@ def build(case):
         return
     pick = {}
     max_diff = 0.
-    seed = int(case.rsplit('_',1)[1]) if case.startswith('reference_seed_') else 0
+    seed = int(case.rsplit('_',1)[1]) if case.startswith(('reference_seed_','raw_ig_seed_')) else 0
     random.seed(seed)
     manifest = {'case':case,'seed':seed,'n_input_files':len(files)}
     for j, f in enumerate(files):
         cp = ROOT/'data/avalonlogs_constraints'/f.name.replace('_solve.json','.json')
         game = json.loads(cp.read_text())
         game['_file'] = cp.name
-        if case.startswith('reference_seed_') or case in ('live_conditional_ig','shortcut_bruteforce'):
-            g = solve(game, weighting='ig' if case == 'live_conditional_ig' else 'raw_ig')
+        if case.startswith(('reference_seed_','raw_ig_seed_')) or case in ('live_conditional_ig','shortcut_bruteforce'):
+            g = solve(game, weighting='raw_ig' if case.startswith('raw_ig_seed_') else 'ig')
             saved = json.loads(f.read_text())
             for q,vs in saved['quests'].items():
                 for v,ss in vs.items():
@@ -161,7 +161,7 @@ def build(case):
         else:
             truth = {p['name']:p['role'] for p in game['players']}
             roles = list(game['schema']['role_counts'])
-            if case == 'shortcut_leaked_labels':
+            if case in ('shortcut_leaked_labels','shortcut_failed_objective'):
                 post = {p:{r:1.} for p,r in truth.items()}
                 best = truth
             elif case in ('shortcut_constant_ones','shortcut_impossible'):
@@ -177,6 +177,9 @@ def build(case):
                 raise ValueError(case)
             pred = {'posterior':post, 'best':best}
             g = {'file':cp.name,'players':truth,'quests':{str(q['quest']):{v:{'Strict':pred,'+HypIG':pred} for v in VIEWS} for q in game['quests']}}
+        if case == 'shortcut_failed_objective':
+            for views in g['quests'].values():
+                views['objective'] = {s:{'posterior':{p:{r:0. for r in roles} for p in truth},'best':{}} for s in ('Strict','+HypIG')}
         write(OUTPUT/f.name,g)
         if (j+1)%1000 == 0:
             print(case,j+1,'seconds',round(time.monotonic()-started,1),flush=True)

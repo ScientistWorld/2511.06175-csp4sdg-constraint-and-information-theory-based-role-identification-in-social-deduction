@@ -1,0 +1,7 @@
+#!/bin/bash
+set -euo pipefail
+cd /home/user
+trap 'python3 redteam/harness.py restore' EXIT
+python3 redteam/harness.py raw_ig_seed_1 > redteam/raw_ig_seed_1/install.log 2>&1
+bash scripts/evaluate_test.sh > redteam/raw_ig_seed_1/test.log 2>&1
+cp scoring/scores_test.json redteam/raw_ig_seed_1/scores_test.json
