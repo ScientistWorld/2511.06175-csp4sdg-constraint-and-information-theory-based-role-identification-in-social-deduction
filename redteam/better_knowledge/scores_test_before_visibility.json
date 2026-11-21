@@ -1,0 +1,145 @@
+{
+  "experiments": {
+    "avalonlogs_10player": {
+      "description": "AvalonLogs 10-player test split results",
+      "results": {
+        "CSP_HypIG": {
+          "EVM_marginal": 0.5349,
+          "LSV_marginal": 0.3296,
+          "MRG_marginal": 0.5463,
+          "MRL_marginal": 0.6377,
+          "Obj_marginal": 0.2808,
+          "PCV_marginal": 0.5143
+        },
+        "CSP_Strict": {
+          "EVM_marginal": 0.5343,
+          "LSV_marginal": 0.3289,
+          "MRG_marginal": 0.5456,
+          "MRL_marginal": 0.6366,
+          "Obj_marginal": 0.28,
+          "PCV_marginal": 0.5127
+        }
+      }
+    },
+    "avalonlogs_5player": {
+      "description": "AvalonLogs 5-player test split results",
+      "results": {
+        "CSP_HypIG": {
+          "EVM_marginal": 0.6635,
+          "LSV_marginal": 0.4597,
+          "MRG_marginal": 0.6002,
+          "MRL_marginal": 0.6879,
+          "Obj_marginal": 0.2799,
+          "PCV_marginal": 0.6452
+        },
+        "CSP_Strict": {
+          "EVM_marginal": 0.663,
+          "LSV_marginal": 0.4547,
+          "MRG_marginal": 0.5999,
+          "MRL_marginal": 0.6848,
+          "Obj_marginal": 0.2762,
+          "PCV_marginal": 0.6347
+        }
+      }
+    },
+    "avalonlogs_6player": {
+      "description": "AvalonLogs 6-player test split results",
+      "results": {
+        "CSP_HypIG": {
+          "EVM_marginal": 0.644,
+          "LSV_marginal": 0.3934,
+          "MRG_marginal": 0.5834,
+          "MRL_marginal": 0.67,
+          "Obj_marginal": 0.2916,
+          "PCV_marginal": 0.6479
+        },
+        "CSP_Strict": {
+          "EVM_marginal": 0.6437,
+          "LSV_marginal": 0.3886,
+          "MRG_marginal": 0.5832,
+          "MRL_marginal": 0.6661,
+          "Obj_marginal": 0.2872,
+          "PCV_marginal": 0.635
+        }
+      }
+    },
+    "avalonlogs_7player": {
+      "description": "AvalonLogs 7-player test split results",
+      "results": {
+        "CSP_HypIG": {
+          "EVM_marginal": 0.5092,
+          "LSV_marginal": 0.343,
+          "MRG_marginal": 0.52,
+          "MRL_marginal": 0.6007,
+          "Obj_marginal": 0.2415,
+          "PCV_marginal": 0.5508
+        },
+        "CSP_Strict": {
+          "EVM_marginal": 0.5083,
+          "LSV_marginal": 0.3416,
+          "MRG_marginal": 0.5188,
+          "MRL_marginal": 0.5985,
+          "Obj_marginal": 0.2403,
+          "PCV_marginal": 0.5471
+        }
+      }
+    },
+    "avalonlogs_8player": {
+      "description": "AvalonLogs 8-player test split results",
+      "results": {
+        "CSP_HypIG": {
+          "EVM_marginal": 0.5191,
+          "LSV_marginal": 0.3267,
+          "MRG_marginal": 0.5252,
+          "MRL_marginal": 0.6098,
+          "Obj_marginal": 0.2599,
+          "PCV_marginal": 0.5506
+        },
+        "CSP_Strict": {
+          "EVM_marginal": 0.5182,
+          "LSV_marginal": 0.3258,
+          "MRG_marginal": 0.524,
+          "MRL_marginal": 0.6071,
+          "Obj_marginal": 0.2592,
+          "PCV_marginal": 0.5485
+        }
+      }
+    },
+    "avalonlogs_9player": {
+      "description": "AvalonLogs 9-player test split results",
+      "results": {
+        "CSP_HypIG": {
+          "EVM_marginal": 0.5692,
+          "LSV_marginal": 0.3447,
+          "MRG_marginal": 0.5585,
+          "MRL_marginal": 0.6277,
+          "Obj_marginal": 0.2987,
+          "PCV_marginal": 0.5743
+        },
+        "CSP_Strict": {
+          "EVM_marginal": 0.5687,
+          "LSV_marginal": 0.3429,
+          "MRG_marginal": 0.5581,
+          "MRL_marginal": 0.6254,
+          "Obj_marginal": 0.297,
+          "PCV_marginal": 0.5699
+        }
+      }
+    }
+  },
+  "metadata": {
+    "dataset": "avalonlogs",
+    "condition": "Truth",
+    "slice": "test",
+    "split_seed": "avalon-scientist-gym-v1",
+    "split_style": "deterministic stratified 50/50 split over pre-generated method output files",
+    "n_selected_files_by_experiment": {
+      "avalonlogs_6player": 1588,
+      "avalonlogs_8player": 840,
+      "avalonlogs_7player": 1367,
+      "avalonlogs_5player": 1679,
+      "avalonlogs_10player": 148,
+      "avalonlogs_9player": 421
+    }
+  }
+}
