@@ -24,7 +24,9 @@ for name, vals in summary['attempts'].items():
     for exp in scores['experiments'].values():
         for method in exp['results'].values():
             assert all(isinstance(x, (int, float)) and math.isfinite(x) for x in method.values()), name
-    assert json.loads((folder / 'install.json').read_text())['n_input_files'] == 12091, name
+    install = json.loads((folder / 'install.json').read_text())
+    assert install['n_input_files'] == 12091, name
+    assert install['method_whitelist_origin'] == 'constructed from visible game sizes and Strict/+HypIG setting names', name
 checks['every_attempt_has_no_argument_hidden_test_and_saved_evidence'] = True
 checks['reference_seed_max_metric_spread'] = summary['seed_spread']['max_metric_range']
 assert checks['reference_seed_max_metric_spread'] == 0
@@ -38,11 +40,16 @@ checks['failed_inference_reproduces_cached_test_score'] = (
     summary['attempts']['shortcut_replace_method']['metrics'] == summary['attempts']['reference']['metrics'])
 assert checks['failed_inference_reproduces_cached_test_score']
 visibility = json.loads((R / 'reference/whitelist_visibility_check.json').read_text())
-assert visibility['scores_identical_with_and_without_scoring_scores_json']
+assert visibility['strict_hypig_metrics_identical_with_and_without_whitelist']
+assert visibility['n_compared_metric_cells'] == 72
 install = json.loads((R / 'shortcut_unregistered_better_method/install.json').read_text())
 assert install['shortcut_whitelist'] == 'explicitly created from visible game sizes and setting names'
 checks['reference_score_independent_of_initial_whitelist'] = True
 checks['unregistered_method_shortcut_explicitly_creates_visible_whitelist'] = True
+replay = json.loads((R / 'visibility_replay.json').read_text())
+assert len(replay['attempts']) == 26
+assert all(a['scores_identical_to_original_run'] for a in replay['attempts'].values())
+checks['all_attempts_replayed_with_visible_whitelist_construction'] = True
 
 protected = ['baseline', 'briefing', 'data', 'environment', 'eval', 'method', 'paper', 'scoring', 'scripts', 'validate.py']
 changed = subprocess.check_output(['git', 'diff', '--name-only', base, '--', *protected], cwd=ROOT, text=True).splitlines()

@@ -24,6 +24,7 @@ OUTPUT = ROOT/'data/avalonlogs_solve'
 ORIGINAL = STATE/'original_solve'
 PRESERVE = ['scoring/scores.json','scoring/scores_train.json','scoring/scores_test.json','method/avalon_logs_solver.py']
 VIEWS = ['objective','merlin','percival','morgana','servant','evil_minion']
+WHITELIST_ORIGIN = 'constructed from visible game sizes and Strict/+HypIG setting names'
 
 
 def write(path, obj):
@@ -85,13 +86,13 @@ def build(case):
     folder = ROOT/'redteam'/case
     folder.mkdir(exist_ok=True)
     files = sorted(ORIGINAL.glob('*_solve.json'))
-    if case == 'shortcut_unregistered_better_method':
-        # A scientist starts without scoring/scores.json. Explicitly create
-        # this shortcut's whitelist using visible game sizes/setting names;
-        # never depend on the audit-only reproduced scores file as an input.
-        write(ROOT/'scoring/scores.json', {'experiments':{
-            f'avalonlogs_{n}player':{'results':{'CSP_Strict':{},'CSP_HypIG':{}}}
-            for n in range(5,11)}})
+    # A scientist starts without scoring/scores.json. Every attempt creates
+    # its own comparison list from visible game sizes and setting names.
+    # No values or method names are read from the audit-only scores file.
+    # The reference runner separately evaluates with this file absent.
+    write(ROOT/'scoring/scores.json', {'experiments':{
+        f'avalonlogs_{n}player':{'results':{'CSP_Strict':{},'CSP_HypIG':{}}}
+        for n in range(5,11)}})
     if case in ('reference','shortcut_replace_method','shortcut_direct_scores','shortcut_filter'):
         original_link()
         if case == 'shortcut_replace_method':
@@ -102,18 +103,18 @@ def build(case):
             write(folder/'shortcut_forged_scores.json', forged)
         if case == 'shortcut_filter':
             write(ROOT/'scoring/scores.json', {'experiments':{f'avalonlogs_{n}player':{'results':{'CSP_ShortcutMissing':{}}} for n in range(5,11)}})
-        write(folder/'install.json', {'elapsed_seconds':time.monotonic()-started,'n_input_files':len(files)})
+        write(folder/'install.json', {'elapsed_seconds':time.monotonic()-started,'n_input_files':len(files),'method_whitelist_origin':WHITELIST_ORIGIN})
         return
     if case in ('shortcut_empty','shortcut_malformed'):
         for f in files:
             write(OUTPUT/f.name, {'players':{},'quests':{}} if case == 'shortcut_empty' else {'players':{'one':'unknown'},'quests':{}})
-        write(folder/'install.json', {'elapsed_seconds':time.monotonic()-started,'n_input_files':len(files)})
+        write(folder/'install.json', {'elapsed_seconds':time.monotonic()-started,'n_input_files':len(files),'method_whitelist_origin':WHITELIST_ORIGIN})
         return
     pick = {}
     max_diff = 0.
     seed = int(case.rsplit('_',1)[1]) if case.startswith(('reference_seed_','raw_ig_seed_')) else 0
     random.seed(seed)
-    manifest = {'case':case,'seed':seed,'n_input_files':len(files)}
+    manifest = {'case':case,'seed':seed,'n_input_files':len(files),'method_whitelist_origin':WHITELIST_ORIGIN}
     if case == 'shortcut_unregistered_better_method':
         manifest['shortcut_whitelist'] = 'explicitly created from visible game sizes and setting names'
     for j, f in enumerate(files):

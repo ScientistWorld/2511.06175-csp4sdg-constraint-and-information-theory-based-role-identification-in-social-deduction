@@ -17,7 +17,7 @@ spec = json.loads((ROOT/'scoring/reference.json').read_text())['experiments']
 ref = json.loads((R/'reference/scores_test.json').read_text())['experiments']
 exps = sorted(ref)
 den = sum(spec[e]['weight'] for e in exps)
-weights = {e:spec[e]['weight']/den for e in exps}
+weights = {e:spec[e]['weight'] for e in exps}
 scored = [(e,m) for e in exps for m in spec[e]['metrics']]
 all_scores = {p.parent.name:json.loads(p.read_text()) for p in R.glob('*/scores_test.json')}
 
@@ -33,7 +33,7 @@ for key in scored:
     xs = [v[key] for v in vv.values() if isinstance(v[key],(int,float)) and math.isfinite(v[key])]
     sigma[key] = statistics.pstdev(xs) if len(xs)>1 else 0.
 
-report = {'rank_definition':'sum normalized experiment weight * abs(coefficient) * better-direction (attempt - original test reference) / audit-cohort population standard deviation; missing values skipped',
+report = {'rank_definition':'sum original experiment weight * abs(coefficient) * better-direction improvement / audit-cohort population standard deviation; rank uses cached test reference, rank_vs_paper_csp_hypig uses scoring/reference.json; missing values skipped',
           'rank_limit':'Future ranking cohort and its standard deviations are not available. These numeric ranks describe this saved audit cohort, not a claimed final leaderboard rank.',
           'reference_method':'CSP_HypIG', 'weights':weights, 'attempts':{}, 'active_bounds':[], 'dormant_paper_bounds':[]}
 for e,m in scored:
@@ -64,7 +64,7 @@ for name, v in vv.items():
             paper_terms.append(scale*paper_delta)
         by_exp.setdefault(e,{})[m] = x
     present = [key for key in scored if isinstance(v[key],(int,float))]
-    q = sum(weights[e]*v[e,m]/len(spec[e]['metrics']) for e,m in present)
+    q = sum(weights[e]/den*v[e,m]/len(spec[e]['metrics']) for e,m in present)
     report['attempts'][name] = {'rank':sum(terms),'rank_vs_paper_csp_hypig':sum(paper_terms),'weighted_marginal':q if len(present)==len(scored) else None,
         'weighted_marginal_if_missing_zero':q,'n_present':len(present),'n_expected':len(scored),
         'positive_deltas':sum(x>0 for x in deltas.values()),'negative_deltas':sum(x<0 for x in deltas.values()),
