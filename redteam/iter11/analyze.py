@@ -22,7 +22,7 @@ from pathlib import Path
 
 A = Path(__file__).resolve().parent
 ROOT = A.parents[1]
-RUNS = A / "runs"
+RUNS = A / "attempts"
 REF = json.loads((ROOT / "scoring" / "reference.json").read_text())["experiments"]
 VIEWS = ["Obj", "MRL", "PCV", "MRG", "LSV", "EVM"]
 EXPS = sorted(REF, key=lambda e: int(e.split("_")[1].replace("player", "")))
@@ -68,7 +68,7 @@ def paired_se(var_pi, ref_pi):
     """SE of the weighted-Brier difference from per-instance values."""
     if not var_pi or not ref_pi:
         return None
-    inst = load(ROOT / "redteam" / "iter11" / "runs" / "reference" / "instance_cells.json")
+    inst = load(ROOT / "redteam" / "iter11" / "attempts" / "reference" / "instance_cells.json")
     cells = {}
     for iid, cell in inst.items():
         if iid in var_pi and iid in ref_pi:

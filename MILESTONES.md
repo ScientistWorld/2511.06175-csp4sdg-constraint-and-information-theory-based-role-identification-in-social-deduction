@@ -4,6 +4,12 @@
 
 ## Progress Log
 
+### [2026-11-21] - core_claim_plus (iteration 11, hardening)
+- Hidden test now runs the method (scripts/predict.sh) on 6,197 held-out game prefixes kept only in eval/test/;
+  ranked metric is the Brier score per player count and viewpoint; invalid or missing output = worst values.
+- Reference (CSP_HypIG) rerun from final code: weighted Brier 0.4776; beats CSP_Strict by 0.0050 +/- 0.0004.
+  Details and shortcut audit in HARDENING.md.
+
 ### [2026-05-17 16:58] - core_claim_plus
 - Completed final verification of method/problem separation, portable download sources, scoring weights and coefficients, train/test evaluator wiring, and standalone evaluation.
 - Confirmed `MILESTONES.md` and `action.yaml` remain aligned at `core_claim_plus`.

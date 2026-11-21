@@ -284,8 +284,12 @@ coefficients (6 viewpoints × 6 experiments) are 1.
 ## Statistical validation
 
 All methods see identical instances, so compare them with paired tests on
-per-instance Brier differences. On the test set, a difference of about 0.002 in
-experiment-weighted mean Brier is roughly two paired standard errors.
+per-instance Brier differences. On the test set, the paired standard error of
+the experiment-weighted mean Brier difference between two methods was 0.0004
+for methods with similar posteriors (e.g. two CSP settings) and about 0.0013 for
+methods built on a different evidence model. The inference is deterministic;
+changing the seed of the one random step in the reference (which team member a
+rejecting voter is taken to suspect) moves that aggregate by at most 0.0002.
 
 ---
 

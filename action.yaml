@@ -1,4 +1,2 @@
-action: submit
-gpus: 0
-test: false
-notes: "Iteration 11 hardening audit: reference, seeds, enumeration check, honest/weaker variants and shortcuts through the new hidden test; then reference train/test scores and validate"
+action: done
+notes: "Hardened: hidden held-out game prefixes run through scripts/predict.sh, Brier scoring (marginal reported only), invalid/missing = worst values, no whitelist; reference rerun (W 0.4776), better variants score 15-31 paired SEs higher, shortcuts closed; see HARDENING.md"

@@ -11,30 +11,30 @@ cd "$REPO_ROOT"
 export PYTHONPATH="$REPO_ROOT${PYTHONPATH:+:$PYTHONPATH}"
 A=redteam/iter11
 V="python3 $A/variants.py"
-mkdir -p $A/runs
+mkdir -p $A/attempts
 
 run_test() {  # name, predictor command, [extra env assignments via env]
     local name="$1"; shift
     local cmd="$1"; shift
-    if [ -s "$A/runs/$name/scores_test.json" ]; then echo "skip $name"; return; fi
-    mkdir -p "$A/runs/$name"
+    if [ -s "$A/attempts/$name/scores_test.json" ]; then echo "skip $name"; return; fi
+    mkdir -p "$A/attempts/$name"
     echo "=== test: $name ($(date +%T))"
-    python3 eval/test/evaluate.py --predict-cmd "$cmd" --output "$A/runs/$name/scores_test.json.tmp" \
-        --per-instance "$A/runs/$name/per_instance.json" > "$A/runs/$name/test.log" 2>&1 || echo "evaluator rc=$?"
-    mv "$A/runs/$name/scores_test.json.tmp" "$A/runs/$name/scores_test.json"
-    tail -4 "$A/runs/$name/test.log"
+    python3 eval/test/evaluate.py --predict-cmd "$cmd" --output "$A/attempts/$name/scores_test.json.tmp" \
+        --per-instance "$A/attempts/$name/per_instance.json" > "$A/attempts/$name/test.log" 2>&1 || echo "evaluator rc=$?"
+    mv "$A/attempts/$name/scores_test.json.tmp" "$A/attempts/$name/scores_test.json"
+    tail -4 "$A/attempts/$name/test.log"
 }
 
 run_train() {
     local name="$1"; shift
     local cmd="$1"; shift
-    if [ -s "$A/runs/$name/scores_train.json" ]; then echo "skip train $name"; return; fi
-    mkdir -p "$A/runs/$name"
+    if [ -s "$A/attempts/$name/scores_train.json" ]; then echo "skip train $name"; return; fi
+    mkdir -p "$A/attempts/$name"
     echo "=== train: $name ($(date +%T))"
-    python3 eval/train/evaluate.py --predict-cmd "$cmd" --output "$A/runs/$name/scores_train.json.tmp" \
-        --per-instance "$A/runs/$name/per_instance_train.json" > "$A/runs/$name/train.log" 2>&1 || echo "evaluator rc=$?"
-    mv "$A/runs/$name/scores_train.json.tmp" "$A/runs/$name/scores_train.json"
-    tail -3 "$A/runs/$name/train.log"
+    python3 eval/train/evaluate.py --predict-cmd "$cmd" --output "$A/attempts/$name/scores_train.json.tmp" \
+        --per-instance "$A/attempts/$name/per_instance_train.json" > "$A/attempts/$name/train.log" 2>&1 || echo "evaluator rc=$?"
+    mv "$A/attempts/$name/scores_train.json.tmp" "$A/attempts/$name/scores_train.json"
+    tail -3 "$A/attempts/$name/train.log"
 }
 
 # 1. Reference, its seeds, and the train side.
@@ -78,18 +78,18 @@ POWER=1.25 run_test power_1.25 "$V sharpen_power"
 POWER=0.8 run_test power_0.8 "$V sharpen_power"
 
 # 6. Writable-whitelist and score-forgery shortcuts (use the default output path).
-if [ ! -s $A/runs/filter/scores_test.json ]; then
-    mkdir -p $A/runs/filter
+if [ ! -s $A/attempts/filter/scores_test.json ]; then
+    mkdir -p $A/attempts/filter
     cp scoring/scores.json /tmp/iter11_scores_backup.json 2>/dev/null || true
     echo '{"experiments": {"avalonlogs_6player": {"results": {"NoSuchMethod": {"Obj_brier": 0.0}}}}}' > scoring/scores.json
-    bash scripts/evaluate_test.sh > $A/runs/filter/test.log 2>&1
-    cp scoring/scores_test.json $A/runs/filter/scores_test.json
+    bash scripts/evaluate_test.sh > $A/attempts/filter/test.log 2>&1
+    cp scoring/scores_test.json $A/attempts/filter/scores_test.json
     cp /tmp/iter11_scores_backup.json scoring/scores.json 2>/dev/null || rm -f scoring/scores.json
 fi
-if [ ! -s $A/runs/forge_scores/scores_test.json ]; then
-    mkdir -p $A/runs/forge_scores
-    bash scripts/evaluate_test.sh --predict-cmd "$V forge_scores" > $A/runs/forge_scores/test.log 2>&1
-    cp scoring/scores_test.json $A/runs/forge_scores/scores_test.json
+if [ ! -s $A/attempts/forge_scores/scores_test.json ]; then
+    mkdir -p $A/attempts/forge_scores
+    bash scripts/evaluate_test.sh --predict-cmd "$V forge_scores" > $A/attempts/forge_scores/test.log 2>&1
+    cp scoring/scores_test.json $A/attempts/forge_scores/scores_test.json
 fi
 
 # 7. Analysis.
