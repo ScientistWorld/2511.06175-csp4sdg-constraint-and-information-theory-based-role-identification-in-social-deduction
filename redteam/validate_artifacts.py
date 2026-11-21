@@ -37,6 +37,12 @@ assert int((R / 'shortcut_replace_method/shortcut_method_exit_code.txt').read_te
 checks['failed_inference_reproduces_cached_test_score'] = (
     summary['attempts']['shortcut_replace_method']['metrics'] == summary['attempts']['reference']['metrics'])
 assert checks['failed_inference_reproduces_cached_test_score']
+visibility = json.loads((R / 'reference/whitelist_visibility_check.json').read_text())
+assert visibility['scores_identical_with_and_without_scoring_scores_json']
+install = json.loads((R / 'shortcut_unregistered_better_method/install.json').read_text())
+assert install['shortcut_whitelist'] == 'explicitly created from visible game sizes and setting names'
+checks['reference_score_independent_of_initial_whitelist'] = True
+checks['unregistered_method_shortcut_explicitly_creates_visible_whitelist'] = True
 
 protected = ['baseline', 'briefing', 'data', 'environment', 'eval', 'method', 'paper', 'scoring', 'scripts', 'validate.py']
 changed = subprocess.check_output(['git', 'diff', '--name-only', base, '--', *protected], cwd=ROOT, text=True).splitlines()

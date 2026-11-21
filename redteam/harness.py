@@ -85,6 +85,13 @@ def build(case):
     folder = ROOT/'redteam'/case
     folder.mkdir(exist_ok=True)
     files = sorted(ORIGINAL.glob('*_solve.json'))
+    if case == 'shortcut_unregistered_better_method':
+        # A scientist starts without scoring/scores.json. Explicitly create
+        # this shortcut's whitelist using visible game sizes/setting names;
+        # never depend on the audit-only reproduced scores file as an input.
+        write(ROOT/'scoring/scores.json', {'experiments':{
+            f'avalonlogs_{n}player':{'results':{'CSP_Strict':{},'CSP_HypIG':{}}}
+            for n in range(5,11)}})
     if case in ('reference','shortcut_replace_method','shortcut_direct_scores','shortcut_filter'):
         original_link()
         if case == 'shortcut_replace_method':
@@ -107,6 +114,8 @@ def build(case):
     seed = int(case.rsplit('_',1)[1]) if case.startswith(('reference_seed_','raw_ig_seed_')) else 0
     random.seed(seed)
     manifest = {'case':case,'seed':seed,'n_input_files':len(files)}
+    if case == 'shortcut_unregistered_better_method':
+        manifest['shortcut_whitelist'] = 'explicitly created from visible game sizes and setting names'
     for j, f in enumerate(files):
         cp = ROOT/'data/avalonlogs_constraints'/f.name.replace('_solve.json','.json')
         game = json.loads(cp.read_text())
