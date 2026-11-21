@@ -128,7 +128,7 @@ def build(case):
             for q,vs in fixed['quests'].items():
                 for v,ss in vs.items():
                     g['quests'][q][v] = ss
-        elif case in ('weaker_no_hypotheses','weaker_prior','shortcut_empty_map','shortcut_unregistered_better_method','shortcut_pool'):
+        elif case in ('weaker_no_hypotheses','weaker_prior','shortcut_empty_map','shortcut_unregistered_better_method','shortcut_pool','shortcut_future_copy'):
             g = json.loads(f.read_text())
             for vs in g['quests'].values():
                 for ss in vs.values():
@@ -140,6 +140,9 @@ def build(case):
                     elif case == 'shortcut_empty_map':
                         for s in ss:
                             ss[s]['best'] = {}
+            if case == 'shortcut_future_copy' and g['quests']:
+                last = g['quests'][max(g['quests'], key=int)]
+                g['quests'] = {q:copy.deepcopy(last) for q in g['quests']}
             if case == 'shortcut_unregistered_better_method':
                 fixed = solve(game, fix=True, weighting='raw_ig', only_merlin=True)
                 for q,vs in fixed['quests'].items():
