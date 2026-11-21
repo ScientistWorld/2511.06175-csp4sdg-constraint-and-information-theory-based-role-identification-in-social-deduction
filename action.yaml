@@ -1,4 +1,8 @@
-action: submit
+# Once you set action to 'submit' or 'done', STOP immediately.
+# Do NOT sleep, poll, or wait for jobs. The system reads this file
+# only after your turn ends.
+action: pending
 gpus: 0
 test: false
-notes: "Replay 26 audit attempts using an explicitly constructed visible whitelist; compare every score file and verify reference with and without filtering."
+milestone: core_claim_plus
+notes: ""
