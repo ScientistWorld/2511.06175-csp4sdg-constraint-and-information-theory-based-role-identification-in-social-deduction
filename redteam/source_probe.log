@@ -1,0 +1,87 @@
+1000 elapsed 19.8
+2000 elapsed 26.8
+3000 elapsed 34.6
+4000 elapsed 43.0
+5000 elapsed 50.2
+6000 elapsed 57.8
+7000 elapsed 65.5
+8000 elapsed 72.5
+9000 elapsed 81.2
+10000 elapsed 92.3
+11000 elapsed 101.5
+12000 elapsed 106.5
+{
+  "cached_9_10_player_rule_classes": {
+    "10_raw_only": 166,
+    "9_raw_only": 414,
+    "10_conditional_only": 131,
+    "9_neither": 1,
+    "9_conditional_only": 427,
+    "9_both": 1
+  },
+  "examples": {
+    "10_raw_only": {
+      "source": "2020-03-21T02:59:04_constraints.json",
+      "raw_max_difference": 8.43769498715119e-15,
+      "conditional_max_difference": 0.04497197582245893
+    },
+    "9_raw_only": {
+      "source": "2020-03-21T06:03:06_constraints.json",
+      "raw_max_difference": 4.3076653355456074e-14,
+      "conditional_max_difference": 0.05340216019227817
+    },
+    "10_conditional_only": {
+      "source": "2020-03-28T01:38:39_constraints.json",
+      "raw_max_difference": 0.15872685271402703,
+      "conditional_max_difference": 4.4853010194856324e-13
+    },
+    "9_neither": {
+      "source": "2020-04-04T02:53:39_constraints.json",
+      "raw_max_difference": 0.05252635060146549,
+      "conditional_max_difference": 0.06424817790504755
+    },
+    "9_conditional_only": {
+      "source": "2020-04-19T03:42:23_constraints.json",
+      "raw_max_difference": 0.05194676477913257,
+      "conditional_max_difference": 1.8185453143360064e-13
+    },
+    "9_both": {
+      "source": "2020-04-25T06:22:17_constraints.json",
+      "raw_max_difference": 0.0,
+      "conditional_max_difference": 0.0
+    }
+  },
+  "direct_source_validation": {
+    "6": {
+      "source": "2019-03-13T22:31:15_constraints.json",
+      "grouped_vs_current_source_max_posterior_difference": 1.3322676295501878e-15
+    },
+    "5": {
+      "source": "2019-06-28T16:15:10_constraints.json",
+      "grouped_vs_current_source_max_posterior_difference": 3.3306690738754696e-16
+    }
+  },
+  "maximum_complete_assignments_by_size": {
+    "6": 360,
+    "8": 6720,
+    "7": 2520,
+    "5": 120,
+    "10": 151200,
+    "9": 15120
+  },
+  "solved_counts": {
+    "6": 3176,
+    "8": 1681,
+    "7": 2735,
+    "5": 3359,
+    "10": 297,
+    "9": 843
+  },
+  "constraint_counts": {
+    "evidence": 21172,
+    "phenomenon": 0,
+    "assertions": 0,
+    "hypotheses": 639654
+  },
+  "elapsed_seconds": 107.24293905007653
+}
