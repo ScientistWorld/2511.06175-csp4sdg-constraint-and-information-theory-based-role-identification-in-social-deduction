@@ -1,4 +1,8 @@
-action: submit
+# Once you set action to 'submit' or 'done', STOP immediately.
+# Do NOT sleep, poll, or wait for jobs. The system reads this file
+# only after your turn ends.
+action: pending
 gpus: 0
 test: false
-notes: "Resume saved audit: current solver seeds 0/1/2, exhaustive enumeration, failed-objective shortcut, and cache provenance validation. All completed shortcut scores are reused."
+milestone: core_claim_plus
+notes: ""

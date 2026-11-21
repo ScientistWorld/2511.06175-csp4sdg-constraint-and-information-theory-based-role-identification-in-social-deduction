@@ -1,0 +1,3001 @@
+{
+  "file": "2021-05-13T16:36:54_constraints.json",
+  "players": {
+    "RAFAEL": "percival",
+    "HALI": "evil_minion",
+    "PHILSUMMER": "morgana",
+    "DAVIDE": "loyal_follower",
+    "LUSZI": "merlin",
+    "R": "loyal_follower"
+  },
+  "quests": {
+    "1": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.16666666666666657,
+              "loyal_follower": 0.33333333333333265,
+              "merlin": 0.16666666666666657,
+              "morgana": 0.16666666666666657,
+              "percival": 0.16666666666666657
+            },
+            "HALI": {
+              "loyal_follower": 0.33333333333333265,
+              "merlin": 0.16666666666666657,
+              "morgana": 0.16666666666666657,
+              "percival": 0.16666666666666657,
+              "evil_minion": 0.16666666666666657
+            },
+            "PHILSUMMER": {
+              "loyal_follower": 0.33333333333333265,
+              "merlin": 0.16666666666666657,
+              "morgana": 0.16666666666666657,
+              "percival": 0.16666666666666657,
+              "evil_minion": 0.16666666666666657
+            },
+            "DAVIDE": {
+              "merlin": 0.16666666666666657,
+              "morgana": 0.16666666666666657,
+              "percival": 0.16666666666666657,
+              "loyal_follower": 0.33333333333333265,
+              "evil_minion": 0.16666666666666657
+            },
+            "LUSZI": {
+              "morgana": 0.16666666666666657,
+              "percival": 0.16666666666666657,
+              "merlin": 0.16666666666666657,
+              "loyal_follower": 0.33333333333333265,
+              "evil_minion": 0.16666666666666657
+            },
+            "R": {
+              "percival": 0.16666666666666657,
+              "morgana": 0.16666666666666657,
+              "merlin": 0.16666666666666657,
+              "loyal_follower": 0.33333333333333265,
+              "evil_minion": 0.16666666666666657
+            }
+          },
+          "best": {
+            "RAFAEL": "evil_minion",
+            "HALI": "loyal_follower",
+            "PHILSUMMER": "loyal_follower",
+            "DAVIDE": "merlin",
+            "LUSZI": "morgana",
+            "R": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.12523243455030372,
+              "loyal_follower": 0.37476756544969764,
+              "merlin": 0.18738378272484846,
+              "morgana": 0.12523243455030372,
+              "percival": 0.18738378272484846
+            },
+            "HALI": {
+              "loyal_follower": 0.306401082457698,
+              "merlin": 0.1532005412288488,
+              "morgana": 0.19359891754230296,
+              "percival": 0.1532005412288488,
+              "evil_minion": 0.19359891754230296
+            },
+            "PHILSUMMER": {
+              "loyal_follower": 0.306401082457698,
+              "merlin": 0.1532005412288488,
+              "morgana": 0.19359891754230296,
+              "percival": 0.1532005412288488,
+              "evil_minion": 0.19359891754230296
+            },
+            "DAVIDE": {
+              "merlin": 0.1532005412288488,
+              "morgana": 0.19359891754230296,
+              "percival": 0.1532005412288488,
+              "loyal_follower": 0.306401082457698,
+              "evil_minion": 0.19359891754230296
+            },
+            "LUSZI": {
+              "morgana": 0.19359891754230296,
+              "percival": 0.1532005412288488,
+              "merlin": 0.1532005412288488,
+              "loyal_follower": 0.306401082457698,
+              "evil_minion": 0.19359891754230296
+            },
+            "R": {
+              "percival": 0.19981405235975747,
+              "morgana": 0.10037189528048575,
+              "merlin": 0.19981405235975747,
+              "loyal_follower": 0.39962810471951515,
+              "evil_minion": 0.10037189528048572
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "PHILSUMMER": "loyal_follower",
+            "DAVIDE": "merlin",
+            "LUSZI": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "percival": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "percival": 0.9999999999999999
+            },
+            "HALI": {
+              "evil_minion": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            },
+            "PHILSUMMER": {
+              "merlin": 0.5,
+              "morgana": 0.5
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.6666666666666666,
+              "evil_minion": 0.3333333333333333
+            },
+            "LUSZI": {
+              "morgana": 0.5,
+              "merlin": 0.5
+            },
+            "R": {
+              "loyal_follower": 0.6666666666666666,
+              "evil_minion": 0.3333333333333333
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "DAVIDE": "loyal_follower",
+            "R": "loyal_follower",
+            "PHILSUMMER": "merlin",
+            "LUSZI": "morgana",
+            "RAFAEL": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "percival": 1.0
+            },
+            "HALI": {
+              "evil_minion": 0.4198373814600232,
+              "loyal_follower": 0.5801626185399769
+            },
+            "PHILSUMMER": {
+              "merlin": 0.5,
+              "morgana": 0.5
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.5801626185399769,
+              "evil_minion": 0.4198373814600232
+            },
+            "LUSZI": {
+              "morgana": 0.5,
+              "merlin": 0.5
+            },
+            "R": {
+              "loyal_follower": 0.8396747629200464,
+              "evil_minion": 0.16032523707995366
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "DAVIDE": "loyal_follower",
+            "R": "loyal_follower",
+            "PHILSUMMER": "merlin",
+            "LUSZI": "morgana",
+            "RAFAEL": "percival"
+          }
+        }
+      },
+      "evil_minion": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUSZI": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.49999999999999994
+            },
+            "R": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.49999999999999994
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUSZI": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.5
+            },
+            "R": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "morgana": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUSZI": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.49999999999999994
+            },
+            "R": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.49999999999999994
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUSZI": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.5
+            },
+            "R": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998
+            },
+            "HALI": {
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "PHILSUMMER": {
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.9999999999999989
+            },
+            "LUSZI": {
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "R": {
+              "percival": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            }
+          },
+          "best": {
+            "RAFAEL": "evil_minion",
+            "HALI": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "PHILSUMMER": "merlin",
+            "LUSZI": "morgana",
+            "R": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.1642481117486753,
+              "loyal_follower": 0.22383459216754958,
+              "merlin": 0.22383459216754958,
+              "morgana": 0.1642481117486753,
+              "percival": 0.22383459216754958
+            },
+            "HALI": {
+              "loyal_follower": 0.17748955184175844,
+              "merlin": 0.17748955184175844,
+              "morgana": 0.23376567223736205,
+              "percival": 0.17748955184175844,
+              "evil_minion": 0.233765672237362
+            },
+            "PHILSUMMER": {
+              "merlin": 0.17748955184175844,
+              "morgana": 0.23376567223736205,
+              "percival": 0.17748955184175844,
+              "loyal_follower": 0.17748955184175844,
+              "evil_minion": 0.233765672237362
+            },
+            "DAVIDE": {
+              "loyal_follower": 1.0
+            },
+            "LUSZI": {
+              "morgana": 0.23376567223736205,
+              "percival": 0.17748955184175844,
+              "merlin": 0.17748955184175844,
+              "loyal_follower": 0.17748955184175844,
+              "evil_minion": 0.233765672237362
+            },
+            "R": {
+              "percival": 0.2436967523071744,
+              "morgana": 0.13445487153923807,
+              "merlin": 0.2436967523071744,
+              "loyal_follower": 0.2436967523071744,
+              "evil_minion": 0.13445487153923807
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "PHILSUMMER": "merlin",
+            "LUSZI": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "HALI": {
+              "evil_minion": 0.5,
+              "morgana": 0.5
+            },
+            "PHILSUMMER": {
+              "morgana": 0.5,
+              "evil_minion": 0.5
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "LUSZI": {
+              "merlin": 0.9999999999999999
+            },
+            "R": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "HALI": {
+              "evil_minion": 0.5,
+              "morgana": 0.5
+            },
+            "PHILSUMMER": {
+              "morgana": 0.5,
+              "evil_minion": 0.5
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "LUSZI": {
+              "merlin": 1.0
+            },
+            "R": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998
+            },
+            "HALI": {
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "PHILSUMMER": {
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "DAVIDE": {
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "LUSZI": {
+              "percival": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "R": {
+              "loyal_follower": 0.9999999999999989
+            }
+          },
+          "best": {
+            "RAFAEL": "evil_minion",
+            "HALI": "loyal_follower",
+            "R": "loyal_follower",
+            "PHILSUMMER": "merlin",
+            "DAVIDE": "morgana",
+            "LUSZI": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.12534897628203592,
+              "loyal_follower": 0.24976734914530935,
+              "merlin": 0.24976734914530935,
+              "morgana": 0.12534897628203592,
+              "percival": 0.24976734914530935
+            },
+            "HALI": {
+              "loyal_follower": 0.18755816271367262,
+              "merlin": 0.18755816271367262,
+              "morgana": 0.21866275592949097,
+              "percival": 0.18755816271367262,
+              "evil_minion": 0.218662755929491
+            },
+            "PHILSUMMER": {
+              "merlin": 0.18755816271367262,
+              "morgana": 0.21866275592949097,
+              "percival": 0.18755816271367262,
+              "loyal_follower": 0.18755816271367262,
+              "evil_minion": 0.218662755929491
+            },
+            "DAVIDE": {
+              "morgana": 0.21866275592949097,
+              "percival": 0.18755816271367262,
+              "merlin": 0.18755816271367262,
+              "loyal_follower": 0.18755816271367262,
+              "evil_minion": 0.218662755929491
+            },
+            "LUSZI": {
+              "percival": 0.18755816271367262,
+              "morgana": 0.21866275592949097,
+              "merlin": 0.18755816271367262,
+              "loyal_follower": 0.18755816271367262,
+              "evil_minion": 0.218662755929491
+            },
+            "R": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "R": "loyal_follower",
+            "PHILSUMMER": "merlin",
+            "DAVIDE": "morgana",
+            "LUSZI": "percival"
+          }
+        }
+      }
+    },
+    "2": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.20833333333333307,
+              "loyal_follower": 0.29166666666666613,
+              "merlin": 0.1458333333333333,
+              "morgana": 0.20833333333333307,
+              "percival": 0.1458333333333333
+            },
+            "HALI": {
+              "loyal_follower": 0.29166666666666613,
+              "merlin": 0.1458333333333333,
+              "morgana": 0.20833333333333307,
+              "percival": 0.1458333333333333,
+              "evil_minion": 0.20833333333333307
+            },
+            "PHILSUMMER": {
+              "loyal_follower": 0.37499999999999917,
+              "merlin": 0.1874999999999998,
+              "morgana": 0.12500000000000003,
+              "percival": 0.1874999999999998,
+              "evil_minion": 0.12500000000000003
+            },
+            "DAVIDE": {
+              "merlin": 0.1458333333333333,
+              "morgana": 0.20833333333333307,
+              "percival": 0.1458333333333333,
+              "loyal_follower": 0.29166666666666613,
+              "evil_minion": 0.20833333333333307
+            },
+            "LUSZI": {
+              "morgana": 0.12500000000000003,
+              "percival": 0.1874999999999998,
+              "merlin": 0.1874999999999998,
+              "loyal_follower": 0.37499999999999917,
+              "evil_minion": 0.12500000000000003
+            },
+            "R": {
+              "percival": 0.1874999999999998,
+              "morgana": 0.12500000000000003,
+              "merlin": 0.1874999999999998,
+              "loyal_follower": 0.37499999999999917,
+              "evil_minion": 0.12500000000000003
+            }
+          },
+          "best": {
+            "RAFAEL": "evil_minion",
+            "HALI": "loyal_follower",
+            "PHILSUMMER": "loyal_follower",
+            "DAVIDE": "merlin",
+            "LUSZI": "morgana",
+            "R": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.151726601704849,
+              "loyal_follower": 0.3482733982951523,
+              "merlin": 0.17413669914757618,
+              "morgana": 0.151726601704849,
+              "percival": 0.17413669914757618
+            },
+            "HALI": {
+              "loyal_follower": 0.26525019190670784,
+              "merlin": 0.13262509595335395,
+              "morgana": 0.23474980809329343,
+              "percival": 0.13262509595335395,
+              "evil_minion": 0.23474980809329363
+            },
+            "PHILSUMMER": {
+              "loyal_follower": 0.34858352524004127,
+              "merlin": 0.17429176262002072,
+              "morgana": 0.15141647475996003,
+              "percival": 0.17429176262002072,
+              "evil_minion": 0.1514164747599601
+            },
+            "DAVIDE": {
+              "merlin": 0.13262509595335395,
+              "morgana": 0.23474980809329343,
+              "percival": 0.13262509595335395,
+              "loyal_follower": 0.26525019190670784,
+              "evil_minion": 0.23474980809329363
+            },
+            "LUSZI": {
+              "morgana": 0.15141647475996003,
+              "percival": 0.17429176262002072,
+              "merlin": 0.17429176262002072,
+              "loyal_follower": 0.34858352524004127,
+              "evil_minion": 0.1514164747599601
+            },
+            "R": {
+              "percival": 0.2120295837056774,
+              "morgana": 0.07594083258864671,
+              "merlin": 0.2120295837056774,
+              "loyal_follower": 0.42405916741135485,
+              "evil_minion": 0.0759408325886467
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "PHILSUMMER": "loyal_follower",
+            "DAVIDE": "merlin",
+            "LUSZI": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "percival": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "percival": 1.0
+            },
+            "HALI": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "PHILSUMMER": {
+              "merlin": 0.5,
+              "morgana": 0.5
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "LUSZI": {
+              "morgana": 0.5,
+              "merlin": 0.5
+            },
+            "R": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "DAVIDE": "loyal_follower",
+            "R": "loyal_follower",
+            "PHILSUMMER": "merlin",
+            "LUSZI": "morgana",
+            "RAFAEL": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "percival": 1.0
+            },
+            "HALI": {
+              "evil_minion": 0.5,
+              "loyal_follower": 0.5
+            },
+            "PHILSUMMER": {
+              "merlin": 0.5,
+              "morgana": 0.5
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.5,
+              "evil_minion": 0.5
+            },
+            "LUSZI": {
+              "morgana": 0.5,
+              "merlin": 0.5
+            },
+            "R": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "DAVIDE": "loyal_follower",
+            "R": "loyal_follower",
+            "PHILSUMMER": "merlin",
+            "LUSZI": "morgana",
+            "RAFAEL": "percival"
+          }
+        }
+      },
+      "evil_minion": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUSZI": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.49999999999999994
+            },
+            "R": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.49999999999999994
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUSZI": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.5
+            },
+            "R": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "morgana": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUSZI": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.49999999999999994
+            },
+            "R": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.49999999999999994
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUSZI": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.5
+            },
+            "R": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.28571428571428586,
+              "loyal_follower": 0.14285714285714285,
+              "merlin": 0.14285714285714285,
+              "morgana": 0.28571428571428586,
+              "percival": 0.14285714285714285
+            },
+            "HALI": {
+              "loyal_follower": 0.14285714285714285,
+              "merlin": 0.14285714285714285,
+              "morgana": 0.28571428571428586,
+              "percival": 0.14285714285714285,
+              "evil_minion": 0.28571428571428586
+            },
+            "PHILSUMMER": {
+              "merlin": 0.2380952380952382,
+              "morgana": 0.14285714285714285,
+              "percival": 0.2380952380952382,
+              "loyal_follower": 0.2380952380952382,
+              "evil_minion": 0.14285714285714285
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.9999999999999986
+            },
+            "LUSZI": {
+              "morgana": 0.14285714285714285,
+              "percival": 0.2380952380952382,
+              "merlin": 0.2380952380952382,
+              "loyal_follower": 0.2380952380952382,
+              "evil_minion": 0.14285714285714285
+            },
+            "R": {
+              "percival": 0.2380952380952382,
+              "morgana": 0.14285714285714285,
+              "merlin": 0.2380952380952382,
+              "loyal_follower": 0.2380952380952382,
+              "evil_minion": 0.14285714285714285
+            }
+          },
+          "best": {
+            "RAFAEL": "evil_minion",
+            "HALI": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "PHILSUMMER": "merlin",
+            "LUSZI": "morgana",
+            "R": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.23032812996053886,
+              "loyal_follower": 0.17978124669297432,
+              "merlin": 0.17978124669297432,
+              "morgana": 0.23032812996053886,
+              "percival": 0.17978124669297432
+            },
+            "HALI": {
+              "loyal_follower": 0.11516406498026945,
+              "merlin": 0.11516406498026945,
+              "morgana": 0.32725390252959624,
+              "percival": 0.11516406498026945,
+              "evil_minion": 0.3272539025295962
+            },
+            "PHILSUMMER": {
+              "merlin": 0.2196331861773226,
+              "morgana": 0.17055022073401646,
+              "percival": 0.21963318617732264,
+              "loyal_follower": 0.2196331861773226,
+              "evil_minion": 0.17055022073401646
+            },
+            "DAVIDE": {
+              "loyal_follower": 1.0
+            },
+            "LUSZI": {
+              "morgana": 0.17055022073401646,
+              "percival": 0.21963318617732264,
+              "merlin": 0.2196331861773226,
+              "loyal_follower": 0.2196331861773226,
+              "evil_minion": 0.17055022073401646
+            },
+            "R": {
+              "percival": 0.2657883159721117,
+              "morgana": 0.10131752604183274,
+              "merlin": 0.2657883159721117,
+              "loyal_follower": 0.2657883159721117,
+              "evil_minion": 0.10131752604183272
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "PHILSUMMER": "merlin",
+            "LUSZI": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "HALI": {
+              "evil_minion": 0.5,
+              "morgana": 0.5
+            },
+            "PHILSUMMER": {
+              "morgana": 0.5,
+              "evil_minion": 0.5
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "LUSZI": {
+              "merlin": 0.9999999999999999
+            },
+            "R": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "HALI": {
+              "evil_minion": 0.5,
+              "morgana": 0.5
+            },
+            "PHILSUMMER": {
+              "morgana": 0.5,
+              "evil_minion": 0.5
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "LUSZI": {
+              "merlin": 1.0
+            },
+            "R": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.2222222222222221,
+              "loyal_follower": 0.18518518518518512,
+              "merlin": 0.18518518518518512,
+              "morgana": 0.2222222222222221,
+              "percival": 0.18518518518518512
+            },
+            "HALI": {
+              "loyal_follower": 0.18518518518518512,
+              "merlin": 0.18518518518518512,
+              "morgana": 0.2222222222222221,
+              "percival": 0.18518518518518512,
+              "evil_minion": 0.2222222222222221
+            },
+            "PHILSUMMER": {
+              "merlin": 0.2222222222222221,
+              "morgana": 0.16666666666666663,
+              "percival": 0.2222222222222221,
+              "loyal_follower": 0.2222222222222221,
+              "evil_minion": 0.16666666666666663
+            },
+            "DAVIDE": {
+              "morgana": 0.2222222222222221,
+              "percival": 0.18518518518518512,
+              "merlin": 0.18518518518518512,
+              "loyal_follower": 0.18518518518518512,
+              "evil_minion": 0.2222222222222221
+            },
+            "LUSZI": {
+              "percival": 0.2222222222222221,
+              "morgana": 0.16666666666666663,
+              "merlin": 0.2222222222222221,
+              "loyal_follower": 0.2222222222222221,
+              "evil_minion": 0.16666666666666663
+            },
+            "R": {
+              "loyal_follower": 1.0000000000000016
+            }
+          },
+          "best": {
+            "RAFAEL": "evil_minion",
+            "HALI": "loyal_follower",
+            "R": "loyal_follower",
+            "PHILSUMMER": "merlin",
+            "DAVIDE": "morgana",
+            "LUSZI": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.14297182758277258,
+              "loyal_follower": 0.23801878161148496,
+              "merlin": 0.23801878161148496,
+              "morgana": 0.14297182758277258,
+              "percival": 0.23801878161148496
+            },
+            "HALI": {
+              "loyal_follower": 0.16669342643598026,
+              "merlin": 0.16669342643598026,
+              "morgana": 0.2499598603460296,
+              "percival": 0.16669342643598026,
+              "evil_minion": 0.24995986034602966
+            },
+            "PHILSUMMER": {
+              "merlin": 0.21429718275827725,
+              "morgana": 0.17855422586258413,
+              "percival": 0.21429718275827725,
+              "loyal_follower": 0.21429718275827725,
+              "evil_minion": 0.17855422586258413
+            },
+            "DAVIDE": {
+              "morgana": 0.2499598603460296,
+              "percival": 0.16669342643598029,
+              "merlin": 0.16669342643598026,
+              "loyal_follower": 0.16669342643598026,
+              "evil_minion": 0.24995986034602966
+            },
+            "LUSZI": {
+              "percival": 0.21429718275827725,
+              "morgana": 0.17855422586258413,
+              "merlin": 0.21429718275827725,
+              "loyal_follower": 0.21429718275827725,
+              "evil_minion": 0.17855422586258413
+            },
+            "R": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "R": "loyal_follower",
+            "PHILSUMMER": "merlin",
+            "DAVIDE": "morgana",
+            "LUSZI": "percival"
+          }
+        }
+      }
+    },
+    "3": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.3000000000000001,
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.09999999999999999,
+              "morgana": 0.3000000000000001,
+              "percival": 0.09999999999999999
+            },
+            "HALI": {
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.09999999999999999,
+              "morgana": 0.3000000000000001,
+              "percival": 0.09999999999999999,
+              "evil_minion": 0.3000000000000001
+            },
+            "PHILSUMMER": {
+              "loyal_follower": 0.3000000000000001,
+              "merlin": 0.15,
+              "morgana": 0.19999999999999998,
+              "percival": 0.15,
+              "evil_minion": 0.19999999999999998
+            },
+            "DAVIDE": {
+              "merlin": 0.24999999999999997,
+              "percival": 0.24999999999999997,
+              "loyal_follower": 0.5000000000000007
+            },
+            "LUSZI": {
+              "percival": 0.24999999999999997,
+              "merlin": 0.24999999999999997,
+              "loyal_follower": 0.5000000000000007
+            },
+            "R": {
+              "morgana": 0.19999999999999998,
+              "percival": 0.15,
+              "merlin": 0.15,
+              "loyal_follower": 0.3000000000000001,
+              "evil_minion": 0.19999999999999998
+            }
+          },
+          "best": {
+            "RAFAEL": "evil_minion",
+            "HALI": "loyal_follower",
+            "PHILSUMMER": "loyal_follower",
+            "DAVIDE": "merlin",
+            "R": "morgana",
+            "LUSZI": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.2808758463696291,
+              "loyal_follower": 0.21912415363037144,
+              "merlin": 0.1095620768151857,
+              "morgana": 0.28087584636962926,
+              "percival": 0.1095620768151857
+            },
+            "HALI": {
+              "loyal_follower": 0.19404411246843295,
+              "merlin": 0.0970220562342165,
+              "morgana": 0.30595588753156766,
+              "percival": 0.0970220562342165,
+              "evil_minion": 0.30595588753156755
+            },
+            "PHILSUMMER": {
+              "loyal_follower": 0.2453416397609285,
+              "merlin": 0.12267081988046424,
+              "morgana": 0.254658360239072,
+              "percival": 0.12267081988046423,
+              "evil_minion": 0.254658360239072
+            },
+            "DAVIDE": {
+              "merlin": 0.25000000000000033,
+              "percival": 0.25000000000000033,
+              "loyal_follower": 0.5000000000000006
+            },
+            "LUSZI": {
+              "percival": 0.25000000000000033,
+              "merlin": 0.25000000000000033,
+              "loyal_follower": 0.5000000000000006
+            },
+            "R": {
+              "morgana": 0.1585099058597323,
+              "percival": 0.17074504707013405,
+              "merlin": 0.17074504707013405,
+              "loyal_follower": 0.34149009414026804,
+              "evil_minion": 0.15850990585973232
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "percival": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "percival": 1.0
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 1.0
+            },
+            "LUSZI": {
+              "merlin": 1.0
+            },
+            "R": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "DAVIDE": "loyal_follower",
+            "R": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "RAFAEL": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "percival": 1.0
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 1.0
+            },
+            "LUSZI": {
+              "merlin": 1.0
+            },
+            "R": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "DAVIDE": "loyal_follower",
+            "R": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "RAFAEL": "percival"
+          }
+        }
+      },
+      "evil_minion": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUSZI": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.49999999999999994
+            },
+            "R": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.49999999999999994
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUSZI": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.5
+            },
+            "R": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "morgana": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUSZI": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.49999999999999994
+            },
+            "R": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.49999999999999994
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUSZI": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.5
+            },
+            "R": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.3,
+              "loyal_follower": 0.13333333333333333,
+              "merlin": 0.13333333333333333,
+              "morgana": 0.3,
+              "percival": 0.13333333333333333
+            },
+            "HALI": {
+              "loyal_follower": 0.13333333333333333,
+              "merlin": 0.13333333333333333,
+              "morgana": 0.3,
+              "percival": 0.13333333333333333,
+              "evil_minion": 0.3
+            },
+            "PHILSUMMER": {
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "DAVIDE": {
+              "loyal_follower": 1.0000000000000013
+            },
+            "LUSZI": {
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "R": {
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            }
+          },
+          "best": {
+            "RAFAEL": "evil_minion",
+            "HALI": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "PHILSUMMER": "merlin",
+            "R": "morgana",
+            "LUSZI": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.28087584636962876,
+              "loyal_follower": 0.14608276908691414,
+              "merlin": 0.14608276908691414,
+              "morgana": 0.28087584636962876,
+              "percival": 0.14608276908691414
+            },
+            "HALI": {
+              "loyal_follower": 0.1293627416456219,
+              "merlin": 0.1293627416456219,
+              "morgana": 0.3059558875315671,
+              "percival": 0.1293627416456219,
+              "evil_minion": 0.30595588753156727
+            },
+            "PHILSUMMER": {
+              "merlin": 0.16356109317395218,
+              "morgana": 0.2546583602390718,
+              "percival": 0.16356109317395218,
+              "loyal_follower": 0.16356109317395218,
+              "evil_minion": 0.2546583602390718
+            },
+            "DAVIDE": {
+              "loyal_follower": 1.0
+            },
+            "LUSZI": {
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "R": {
+              "morgana": 0.15850990585973226,
+              "percival": 0.2276600627601785,
+              "merlin": 0.2276600627601785,
+              "loyal_follower": 0.2276600627601785,
+              "evil_minion": 0.15850990585973226
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "HALI": {
+              "evil_minion": 0.5,
+              "morgana": 0.5
+            },
+            "PHILSUMMER": {
+              "morgana": 0.5,
+              "evil_minion": 0.5
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "LUSZI": {
+              "merlin": 0.9999999999999999
+            },
+            "R": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "HALI": {
+              "evil_minion": 0.5,
+              "morgana": 0.5
+            },
+            "PHILSUMMER": {
+              "morgana": 0.5,
+              "evil_minion": 0.5
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "LUSZI": {
+              "merlin": 1.0
+            },
+            "R": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.3333333333333334,
+              "loyal_follower": 0.1111111111111111,
+              "morgana": 0.3333333333333334,
+              "merlin": 0.1111111111111111,
+              "percival": 0.1111111111111111
+            },
+            "HALI": {
+              "loyal_follower": 0.1111111111111111,
+              "morgana": 0.3333333333333334,
+              "merlin": 0.1111111111111111,
+              "percival": 0.1111111111111111,
+              "evil_minion": 0.3333333333333334
+            },
+            "PHILSUMMER": {
+              "morgana": 0.3333333333333334,
+              "loyal_follower": 0.1111111111111111,
+              "merlin": 0.1111111111111111,
+              "percival": 0.1111111111111111,
+              "evil_minion": 0.3333333333333334
+            },
+            "DAVIDE": {
+              "merlin": 0.3333333333333334,
+              "percival": 0.3333333333333334,
+              "loyal_follower": 0.3333333333333334
+            },
+            "LUSZI": {
+              "percival": 0.3333333333333334,
+              "merlin": 0.3333333333333334,
+              "loyal_follower": 0.3333333333333334
+            },
+            "R": {
+              "loyal_follower": 1.0000000000000002
+            }
+          },
+          "best": {
+            "RAFAEL": "evil_minion",
+            "HALI": "loyal_follower",
+            "R": "loyal_follower",
+            "DAVIDE": "merlin",
+            "PHILSUMMER": "morgana",
+            "LUSZI": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.27576826643507996,
+              "loyal_follower": 0.14948782237661332,
+              "morgana": 0.27576826643507996,
+              "merlin": 0.14948782237661332,
+              "percival": 0.14948782237661332
+            },
+            "HALI": {
+              "loyal_follower": 0.10014633646382474,
+              "morgana": 0.34978049530426286,
+              "merlin": 0.10014633646382474,
+              "percival": 0.10014633646382474,
+              "evil_minion": 0.34978049530426286
+            },
+            "PHILSUMMER": {
+              "morgana": 0.37445123826065707,
+              "loyal_follower": 0.08369917449289523,
+              "merlin": 0.08369917449289523,
+              "percival": 0.08369917449289523,
+              "evil_minion": 0.37445123826065707
+            },
+            "DAVIDE": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "LUSZI": {
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "R": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "R": "loyal_follower",
+            "DAVIDE": "merlin",
+            "PHILSUMMER": "morgana",
+            "LUSZI": "percival"
+          }
+        }
+      }
+    },
+    "4": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.3000000000000001,
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.09999999999999999,
+              "morgana": 0.3000000000000001,
+              "percival": 0.09999999999999999
+            },
+            "HALI": {
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.09999999999999999,
+              "morgana": 0.3000000000000001,
+              "percival": 0.09999999999999999,
+              "evil_minion": 0.3000000000000001
+            },
+            "PHILSUMMER": {
+              "loyal_follower": 0.3000000000000001,
+              "merlin": 0.15,
+              "morgana": 0.19999999999999998,
+              "percival": 0.15,
+              "evil_minion": 0.19999999999999998
+            },
+            "DAVIDE": {
+              "merlin": 0.24999999999999997,
+              "percival": 0.24999999999999997,
+              "loyal_follower": 0.5000000000000007
+            },
+            "LUSZI": {
+              "percival": 0.24999999999999997,
+              "merlin": 0.24999999999999997,
+              "loyal_follower": 0.5000000000000007
+            },
+            "R": {
+              "morgana": 0.19999999999999998,
+              "percival": 0.15,
+              "merlin": 0.15,
+              "loyal_follower": 0.3000000000000001,
+              "evil_minion": 0.19999999999999998
+            }
+          },
+          "best": {
+            "RAFAEL": "evil_minion",
+            "HALI": "loyal_follower",
+            "PHILSUMMER": "loyal_follower",
+            "DAVIDE": "merlin",
+            "R": "morgana",
+            "LUSZI": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.29851343596804214,
+              "loyal_follower": 0.20148656403195805,
+              "merlin": 0.100743282015979,
+              "morgana": 0.298513435968042,
+              "percival": 0.100743282015979
+            },
+            "HALI": {
+              "loyal_follower": 0.18826391329942666,
+              "merlin": 0.0941319566497133,
+              "morgana": 0.3117360867005739,
+              "percival": 0.0941319566497133,
+              "evil_minion": 0.3117360867005736
+            },
+            "PHILSUMMER": {
+              "loyal_follower": 0.23679898432332352,
+              "merlin": 0.11839949216166175,
+              "morgana": 0.26320101567667675,
+              "percival": 0.11839949216166175,
+              "evil_minion": 0.26320101567667675
+            },
+            "DAVIDE": {
+              "merlin": 0.2500000000000001,
+              "percival": 0.2500000000000001,
+              "loyal_follower": 0.5
+            },
+            "LUSZI": {
+              "percival": 0.2500000000000001,
+              "merlin": 0.2500000000000001,
+              "loyal_follower": 0.5
+            },
+            "R": {
+              "morgana": 0.12654946165470787,
+              "percival": 0.1867252691726462,
+              "merlin": 0.1867252691726462,
+              "loyal_follower": 0.3734505383452923,
+              "evil_minion": 0.12654946165470787
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "percival": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "percival": 1.0
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 1.0
+            },
+            "LUSZI": {
+              "merlin": 1.0
+            },
+            "R": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "DAVIDE": "loyal_follower",
+            "R": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "RAFAEL": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "percival": 1.0
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 1.0
+            },
+            "LUSZI": {
+              "merlin": 1.0
+            },
+            "R": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "DAVIDE": "loyal_follower",
+            "R": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "RAFAEL": "percival"
+          }
+        }
+      },
+      "evil_minion": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUSZI": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.49999999999999994
+            },
+            "R": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.49999999999999994
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUSZI": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.5
+            },
+            "R": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "morgana": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUSZI": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.49999999999999994
+            },
+            "R": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.49999999999999994
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUSZI": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.5
+            },
+            "R": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.3,
+              "loyal_follower": 0.13333333333333333,
+              "merlin": 0.13333333333333333,
+              "morgana": 0.3,
+              "percival": 0.13333333333333333
+            },
+            "HALI": {
+              "loyal_follower": 0.13333333333333333,
+              "merlin": 0.13333333333333333,
+              "morgana": 0.3,
+              "percival": 0.13333333333333333,
+              "evil_minion": 0.3
+            },
+            "PHILSUMMER": {
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "DAVIDE": {
+              "loyal_follower": 1.0000000000000013
+            },
+            "LUSZI": {
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "R": {
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            }
+          },
+          "best": {
+            "RAFAEL": "evil_minion",
+            "HALI": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "PHILSUMMER": "merlin",
+            "R": "morgana",
+            "LUSZI": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.2985134359680423,
+              "loyal_follower": 0.13432437602130534,
+              "merlin": 0.13432437602130534,
+              "morgana": 0.29851343596804225,
+              "percival": 0.13432437602130534
+            },
+            "HALI": {
+              "loyal_follower": 0.12550927553295108,
+              "merlin": 0.12550927553295108,
+              "morgana": 0.3117360867005736,
+              "percival": 0.12550927553295108,
+              "evil_minion": 0.3117360867005737
+            },
+            "PHILSUMMER": {
+              "merlin": 0.1578659895488823,
+              "morgana": 0.26320101567667675,
+              "percival": 0.1578659895488823,
+              "loyal_follower": 0.1578659895488823,
+              "evil_minion": 0.26320101567667675
+            },
+            "DAVIDE": {
+              "loyal_follower": 1.0
+            },
+            "LUSZI": {
+              "percival": 0.33333333333333354,
+              "merlin": 0.33333333333333354,
+              "loyal_follower": 0.33333333333333354
+            },
+            "R": {
+              "morgana": 0.12654946165470785,
+              "percival": 0.2489670255635283,
+              "merlin": 0.2489670255635283,
+              "loyal_follower": 0.2489670255635283,
+              "evil_minion": 0.12654946165470787
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "HALI": {
+              "evil_minion": 0.5,
+              "morgana": 0.5
+            },
+            "PHILSUMMER": {
+              "morgana": 0.5,
+              "evil_minion": 0.5
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "LUSZI": {
+              "merlin": 0.9999999999999999
+            },
+            "R": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "HALI": {
+              "evil_minion": 0.5,
+              "morgana": 0.5
+            },
+            "PHILSUMMER": {
+              "morgana": 0.5,
+              "evil_minion": 0.5
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "LUSZI": {
+              "merlin": 1.0
+            },
+            "R": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.3333333333333334,
+              "loyal_follower": 0.1111111111111111,
+              "morgana": 0.3333333333333334,
+              "merlin": 0.1111111111111111,
+              "percival": 0.1111111111111111
+            },
+            "HALI": {
+              "loyal_follower": 0.1111111111111111,
+              "morgana": 0.3333333333333334,
+              "merlin": 0.1111111111111111,
+              "percival": 0.1111111111111111,
+              "evil_minion": 0.3333333333333334
+            },
+            "PHILSUMMER": {
+              "morgana": 0.3333333333333334,
+              "loyal_follower": 0.1111111111111111,
+              "merlin": 0.1111111111111111,
+              "percival": 0.1111111111111111,
+              "evil_minion": 0.3333333333333334
+            },
+            "DAVIDE": {
+              "merlin": 0.3333333333333334,
+              "percival": 0.3333333333333334,
+              "loyal_follower": 0.3333333333333334
+            },
+            "LUSZI": {
+              "percival": 0.3333333333333334,
+              "merlin": 0.3333333333333334,
+              "loyal_follower": 0.3333333333333334
+            },
+            "R": {
+              "loyal_follower": 1.0000000000000002
+            }
+          },
+          "best": {
+            "RAFAEL": "evil_minion",
+            "HALI": "loyal_follower",
+            "R": "loyal_follower",
+            "DAVIDE": "merlin",
+            "PHILSUMMER": "morgana",
+            "LUSZI": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.27576826643507996,
+              "loyal_follower": 0.14948782237661332,
+              "morgana": 0.27576826643507996,
+              "merlin": 0.14948782237661332,
+              "percival": 0.14948782237661332
+            },
+            "HALI": {
+              "loyal_follower": 0.10014633646382474,
+              "morgana": 0.34978049530426286,
+              "merlin": 0.10014633646382474,
+              "percival": 0.10014633646382474,
+              "evil_minion": 0.34978049530426286
+            },
+            "PHILSUMMER": {
+              "morgana": 0.37445123826065707,
+              "loyal_follower": 0.08369917449289523,
+              "merlin": 0.08369917449289523,
+              "percival": 0.08369917449289523,
+              "evil_minion": 0.37445123826065707
+            },
+            "DAVIDE": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "LUSZI": {
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "R": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "R": "loyal_follower",
+            "DAVIDE": "merlin",
+            "PHILSUMMER": "morgana",
+            "LUSZI": "percival"
+          }
+        }
+      }
+    },
+    "5": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.3000000000000001,
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.09999999999999999,
+              "morgana": 0.3000000000000001,
+              "percival": 0.09999999999999999
+            },
+            "HALI": {
+              "loyal_follower": 0.19999999999999998,
+              "merlin": 0.09999999999999999,
+              "morgana": 0.3000000000000001,
+              "percival": 0.09999999999999999,
+              "evil_minion": 0.3000000000000001
+            },
+            "PHILSUMMER": {
+              "loyal_follower": 0.3000000000000001,
+              "merlin": 0.15,
+              "morgana": 0.19999999999999998,
+              "percival": 0.15,
+              "evil_minion": 0.19999999999999998
+            },
+            "DAVIDE": {
+              "merlin": 0.24999999999999997,
+              "percival": 0.24999999999999997,
+              "loyal_follower": 0.5000000000000007
+            },
+            "LUSZI": {
+              "percival": 0.24999999999999997,
+              "merlin": 0.24999999999999997,
+              "loyal_follower": 0.5000000000000007
+            },
+            "R": {
+              "morgana": 0.19999999999999998,
+              "percival": 0.15,
+              "merlin": 0.15,
+              "loyal_follower": 0.3000000000000001,
+              "evil_minion": 0.19999999999999998
+            }
+          },
+          "best": {
+            "RAFAEL": "evil_minion",
+            "HALI": "loyal_follower",
+            "PHILSUMMER": "loyal_follower",
+            "DAVIDE": "merlin",
+            "R": "morgana",
+            "LUSZI": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.30020728019573173,
+              "loyal_follower": 0.1997927198042685,
+              "merlin": 0.09989635990213422,
+              "morgana": 0.30020728019573145,
+              "percival": 0.09989635990213422
+            },
+            "HALI": {
+              "loyal_follower": 0.19014832002382367,
+              "merlin": 0.09507416001191184,
+              "morgana": 0.30985167997617646,
+              "percival": 0.09507416001191184,
+              "evil_minion": 0.30985167997617663
+            },
+            "PHILSUMMER": {
+              "loyal_follower": 0.2441672955070711,
+              "merlin": 0.1220836477535356,
+              "morgana": 0.255832704492929,
+              "percival": 0.1220836477535356,
+              "evil_minion": 0.2558327044929289
+            },
+            "DAVIDE": {
+              "merlin": 0.25000000000000006,
+              "percival": 0.25000000000000006,
+              "loyal_follower": 0.5000000000000001
+            },
+            "LUSZI": {
+              "percival": 0.25000000000000006,
+              "merlin": 0.25000000000000006,
+              "loyal_follower": 0.5000000000000001
+            },
+            "R": {
+              "morgana": 0.1341083353351632,
+              "percival": 0.18294583233241848,
+              "merlin": 0.18294583233241848,
+              "loyal_follower": 0.3658916646648369,
+              "evil_minion": 0.13410833533516317
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "percival": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "percival": 1.0
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 1.0
+            },
+            "LUSZI": {
+              "merlin": 1.0
+            },
+            "R": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "DAVIDE": "loyal_follower",
+            "R": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "RAFAEL": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "percival": 1.0
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 1.0
+            },
+            "LUSZI": {
+              "merlin": 1.0
+            },
+            "R": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "DAVIDE": "loyal_follower",
+            "R": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "RAFAEL": "percival"
+          }
+        }
+      },
+      "evil_minion": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUSZI": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.49999999999999994
+            },
+            "R": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.49999999999999994
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUSZI": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.5
+            },
+            "R": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "morgana": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.49999999999999994,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUSZI": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.49999999999999994
+            },
+            "R": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.49999999999999994
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "HALI": {
+              "evil_minion": 1.0
+            },
+            "PHILSUMMER": {
+              "morgana": 1.0
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.5,
+              "merlin": 0.25,
+              "percival": 0.25
+            },
+            "LUSZI": {
+              "merlin": 0.25,
+              "percival": 0.25,
+              "loyal_follower": 0.5
+            },
+            "R": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "loyal_follower": 0.5
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.3,
+              "loyal_follower": 0.13333333333333333,
+              "merlin": 0.13333333333333333,
+              "morgana": 0.3,
+              "percival": 0.13333333333333333
+            },
+            "HALI": {
+              "loyal_follower": 0.13333333333333333,
+              "merlin": 0.13333333333333333,
+              "morgana": 0.3,
+              "percival": 0.13333333333333333,
+              "evil_minion": 0.3
+            },
+            "PHILSUMMER": {
+              "merlin": 0.19999999999999998,
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            },
+            "DAVIDE": {
+              "loyal_follower": 1.0000000000000013
+            },
+            "LUSZI": {
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "R": {
+              "morgana": 0.19999999999999998,
+              "percival": 0.19999999999999998,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.19999999999999998,
+              "evil_minion": 0.19999999999999998
+            }
+          },
+          "best": {
+            "RAFAEL": "evil_minion",
+            "HALI": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "PHILSUMMER": "merlin",
+            "R": "morgana",
+            "LUSZI": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.3002072801957316,
+              "loyal_follower": 0.13319514653617898,
+              "merlin": 0.13319514653617898,
+              "morgana": 0.3002072801957316,
+              "percival": 0.13319514653617898
+            },
+            "HALI": {
+              "loyal_follower": 0.1267655466825491,
+              "merlin": 0.1267655466825491,
+              "morgana": 0.30985167997617646,
+              "percival": 0.1267655466825491,
+              "evil_minion": 0.30985167997617646
+            },
+            "PHILSUMMER": {
+              "merlin": 0.1627781970047141,
+              "morgana": 0.25583270449292894,
+              "percival": 0.1627781970047141,
+              "loyal_follower": 0.1627781970047141,
+              "evil_minion": 0.25583270449292894
+            },
+            "DAVIDE": {
+              "loyal_follower": 1.0
+            },
+            "LUSZI": {
+              "percival": 0.33333333333333337,
+              "merlin": 0.33333333333333337,
+              "loyal_follower": 0.33333333333333337
+            },
+            "R": {
+              "morgana": 0.13410833533516317,
+              "percival": 0.2439277764432246,
+              "merlin": 0.2439277764432246,
+              "loyal_follower": 0.2439277764432246,
+              "evil_minion": 0.13410833533516314
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "HALI": {
+              "evil_minion": 0.5,
+              "morgana": 0.5
+            },
+            "PHILSUMMER": {
+              "morgana": 0.5,
+              "evil_minion": 0.5
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "LUSZI": {
+              "merlin": 0.9999999999999999
+            },
+            "R": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "HALI": {
+              "evil_minion": 0.5,
+              "morgana": 0.5
+            },
+            "PHILSUMMER": {
+              "morgana": 0.5,
+              "evil_minion": 0.5
+            },
+            "DAVIDE": {
+              "loyal_follower": 0.6666666666666666,
+              "percival": 0.3333333333333333
+            },
+            "LUSZI": {
+              "merlin": 1.0
+            },
+            "R": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "DAVIDE": "loyal_follower",
+            "LUSZI": "merlin",
+            "PHILSUMMER": "morgana",
+            "R": "percival"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.3333333333333334,
+              "loyal_follower": 0.1111111111111111,
+              "morgana": 0.3333333333333334,
+              "merlin": 0.1111111111111111,
+              "percival": 0.1111111111111111
+            },
+            "HALI": {
+              "loyal_follower": 0.1111111111111111,
+              "morgana": 0.3333333333333334,
+              "merlin": 0.1111111111111111,
+              "percival": 0.1111111111111111,
+              "evil_minion": 0.3333333333333334
+            },
+            "PHILSUMMER": {
+              "morgana": 0.3333333333333334,
+              "loyal_follower": 0.1111111111111111,
+              "merlin": 0.1111111111111111,
+              "percival": 0.1111111111111111,
+              "evil_minion": 0.3333333333333334
+            },
+            "DAVIDE": {
+              "merlin": 0.3333333333333334,
+              "percival": 0.3333333333333334,
+              "loyal_follower": 0.3333333333333334
+            },
+            "LUSZI": {
+              "percival": 0.3333333333333334,
+              "merlin": 0.3333333333333334,
+              "loyal_follower": 0.3333333333333334
+            },
+            "R": {
+              "loyal_follower": 1.0000000000000002
+            }
+          },
+          "best": {
+            "RAFAEL": "evil_minion",
+            "HALI": "loyal_follower",
+            "R": "loyal_follower",
+            "DAVIDE": "merlin",
+            "PHILSUMMER": "morgana",
+            "LUSZI": "percival"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "RAFAEL": {
+              "evil_minion": 0.27321355259481805,
+              "loyal_follower": 0.15119096493678783,
+              "morgana": 0.27321355259481805,
+              "merlin": 0.15119096493678783,
+              "percival": 0.15119096493678783
+            },
+            "HALI": {
+              "loyal_follower": 0.09107118419827272,
+              "morgana": 0.36339322370259086,
+              "merlin": 0.09107118419827272,
+              "percival": 0.09107118419827272,
+              "evil_minion": 0.36339322370259086
+            },
+            "PHILSUMMER": {
+              "morgana": 0.36339322370259086,
+              "loyal_follower": 0.09107118419827272,
+              "merlin": 0.09107118419827272,
+              "percival": 0.09107118419827272,
+              "evil_minion": 0.36339322370259086
+            },
+            "DAVIDE": {
+              "merlin": 0.3333333333333332,
+              "percival": 0.33333333333333326,
+              "loyal_follower": 0.3333333333333332
+            },
+            "LUSZI": {
+              "percival": 0.33333333333333326,
+              "merlin": 0.3333333333333332,
+              "loyal_follower": 0.3333333333333332
+            },
+            "R": {
+              "loyal_follower": 1.0
+            }
+          },
+          "best": {
+            "HALI": "evil_minion",
+            "RAFAEL": "loyal_follower",
+            "R": "loyal_follower",
+            "DAVIDE": "merlin",
+            "PHILSUMMER": "morgana",
+            "LUSZI": "percival"
+          }
+        }
+      }
+    }
+  }
+}

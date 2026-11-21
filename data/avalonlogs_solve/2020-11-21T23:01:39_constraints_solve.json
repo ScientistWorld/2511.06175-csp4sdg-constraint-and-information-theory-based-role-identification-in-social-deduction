@@ -1,0 +1,1182 @@
+{
+  "file": "2020-11-21T23:01:39_constraints.json",
+  "players": {
+    "FERGUS": "loyal_follower",
+    "ARIANA": "evil_minion",
+    "GEE": "loyal_follower",
+    "GRAEME": "evil_minion",
+    "PEW": "merlin"
+  },
+  "quests": {
+    "1": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.39999999999999997,
+              "merlin": 0.19999999999999998,
+              "evil_minion": 0.39999999999999997
+            },
+            "ARIANA": {
+              "loyal_follower": 0.39999999999999997,
+              "merlin": 0.19999999999999998,
+              "evil_minion": 0.39999999999999997
+            },
+            "GEE": {
+              "merlin": 0.19999999999999998,
+              "evil_minion": 0.39999999999999997,
+              "loyal_follower": 0.39999999999999997
+            },
+            "GRAEME": {
+              "evil_minion": 0.39999999999999997,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.39999999999999997
+            },
+            "PEW": {
+              "evil_minion": 0.39999999999999997,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.39999999999999997
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "ARIANA": "loyal_follower",
+            "GEE": "merlin",
+            "GRAEME": "evil_minion",
+            "PEW": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.4303825839021469,
+              "merlin": 0.21519129195107345,
+              "evil_minion": 0.35442612414677965
+            },
+            "ARIANA": {
+              "loyal_follower": 0.3744024926834837,
+              "merlin": 0.18720124634174184,
+              "evil_minion": 0.4383962609747744
+            },
+            "GEE": {
+              "merlin": 0.22049519390291525,
+              "evil_minion": 0.33851441829125434,
+              "loyal_follower": 0.44099038780583033
+            },
+            "GRAEME": {
+              "evil_minion": 0.43433159829359574,
+              "merlin": 0.18855613390213477,
+              "loyal_follower": 0.3771122678042695
+            },
+            "PEW": {
+              "evil_minion": 0.43433159829359574,
+              "merlin": 0.18855613390213477,
+              "loyal_follower": 0.3771122678042695
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "GRAEME": "merlin",
+            "ARIANA": "evil_minion",
+            "PEW": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 1.0
+            },
+            "ARIANA": {
+              "loyal_follower": 0.25,
+              "merlin": 0.25,
+              "evil_minion": 0.49999999999999994
+            },
+            "GEE": {
+              "merlin": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "loyal_follower": 0.25
+            },
+            "GRAEME": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "PEW": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "ARIANA": "loyal_follower",
+            "GEE": "merlin",
+            "GRAEME": "evil_minion",
+            "PEW": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 1.0
+            },
+            "ARIANA": {
+              "loyal_follower": 0.22580645161290322,
+              "merlin": 0.22580645161290322,
+              "evil_minion": 0.5483870967741936
+            },
+            "GEE": {
+              "merlin": 0.3225806451612903,
+              "evil_minion": 0.3548387096774194,
+              "loyal_follower": 0.3225806451612903
+            },
+            "GRAEME": {
+              "evil_minion": 0.5483870967741935,
+              "merlin": 0.22580645161290322,
+              "loyal_follower": 0.22580645161290322
+            },
+            "PEW": {
+              "evil_minion": 0.5483870967741935,
+              "merlin": 0.22580645161290322,
+              "loyal_follower": 0.22580645161290322
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "GRAEME": "merlin",
+            "ARIANA": "evil_minion",
+            "PEW": "evil_minion"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ARIANA": {
+              "evil_minion": 1.0
+            },
+            "GEE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "GRAEME": {
+              "evil_minion": 1.0
+            },
+            "PEW": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "PEW": "merlin",
+            "ARIANA": "evil_minion",
+            "GRAEME": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ARIANA": {
+              "evil_minion": 1.0
+            },
+            "GEE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "GRAEME": {
+              "evil_minion": 1.0
+            },
+            "PEW": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "PEW": "merlin",
+            "ARIANA": "evil_minion",
+            "GRAEME": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.25,
+              "merlin": 0.25,
+              "evil_minion": 0.49999999999999994
+            },
+            "ARIANA": {
+              "merlin": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "loyal_follower": 0.25
+            },
+            "GEE": {
+              "loyal_follower": 1.0
+            },
+            "GRAEME": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "PEW": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "ARIANA": "merlin",
+            "GRAEME": "evil_minion",
+            "PEW": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.3103448275862069,
+              "merlin": 0.3103448275862069,
+              "evil_minion": 0.3793103448275862
+            },
+            "ARIANA": {
+              "merlin": 0.24137931034482757,
+              "evil_minion": 0.5172413793103449,
+              "loyal_follower": 0.24137931034482757
+            },
+            "GEE": {
+              "loyal_follower": 1.0
+            },
+            "GRAEME": {
+              "evil_minion": 0.5517241379310345,
+              "merlin": 0.22413793103448276,
+              "loyal_follower": 0.22413793103448276
+            },
+            "PEW": {
+              "evil_minion": 0.5517241379310345,
+              "merlin": 0.22413793103448276,
+              "loyal_follower": 0.22413793103448276
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "ARIANA": "merlin",
+            "GRAEME": "evil_minion",
+            "PEW": "evil_minion"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ARIANA": {
+              "evil_minion": 1.0
+            },
+            "GEE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "GRAEME": {
+              "evil_minion": 1.0
+            },
+            "PEW": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "PEW": "merlin",
+            "ARIANA": "evil_minion",
+            "GRAEME": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ARIANA": {
+              "evil_minion": 1.0
+            },
+            "GEE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "GRAEME": {
+              "evil_minion": 1.0
+            },
+            "PEW": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "PEW": "merlin",
+            "ARIANA": "evil_minion",
+            "GRAEME": "evil_minion"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 1.0
+            },
+            "ARIANA": {
+              "evil_minion": 1.0
+            },
+            "GEE": {
+              "loyal_follower": 1.0
+            },
+            "GRAEME": {
+              "evil_minion": 1.0
+            },
+            "PEW": {
+              "merlin": 1.0
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "PEW": "merlin",
+            "ARIANA": "evil_minion",
+            "GRAEME": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 1.0
+            },
+            "ARIANA": {
+              "evil_minion": 1.0
+            },
+            "GEE": {
+              "loyal_follower": 1.0
+            },
+            "GRAEME": {
+              "evil_minion": 1.0
+            },
+            "PEW": {
+              "merlin": 1.0
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "PEW": "merlin",
+            "ARIANA": "evil_minion",
+            "GRAEME": "evil_minion"
+          }
+        }
+      }
+    },
+    "2": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.39999999999999997,
+              "merlin": 0.19999999999999998,
+              "evil_minion": 0.39999999999999997
+            },
+            "ARIANA": {
+              "loyal_follower": 0.39999999999999997,
+              "merlin": 0.19999999999999998,
+              "evil_minion": 0.39999999999999997
+            },
+            "GEE": {
+              "merlin": 0.19999999999999998,
+              "evil_minion": 0.39999999999999997,
+              "loyal_follower": 0.39999999999999997
+            },
+            "GRAEME": {
+              "evil_minion": 0.39999999999999997,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.39999999999999997
+            },
+            "PEW": {
+              "evil_minion": 0.39999999999999997,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.39999999999999997
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "ARIANA": "loyal_follower",
+            "GEE": "merlin",
+            "GRAEME": "evil_minion",
+            "PEW": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.43619784671713363,
+              "merlin": 0.21809892335856682,
+              "evil_minion": 0.34570322992429975
+            },
+            "ARIANA": {
+              "loyal_follower": 0.3657663740643146,
+              "merlin": 0.1828831870321573,
+              "evil_minion": 0.4513504389035283
+            },
+            "GEE": {
+              "merlin": 0.21140024609485888,
+              "evil_minion": 0.3657992617154235,
+              "loyal_follower": 0.4228004921897179
+            },
+            "GRAEME": {
+              "evil_minion": 0.4028369535927577,
+              "merlin": 0.19905434880241415,
+              "loyal_follower": 0.39810869760482837
+            },
+            "PEW": {
+              "evil_minion": 0.4343101158639912,
+              "merlin": 0.18856329471200298,
+              "loyal_follower": 0.37712658942400595
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "GRAEME": "merlin",
+            "ARIANA": "evil_minion",
+            "PEW": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 1.0
+            },
+            "ARIANA": {
+              "loyal_follower": 0.25,
+              "merlin": 0.25,
+              "evil_minion": 0.49999999999999994
+            },
+            "GEE": {
+              "merlin": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "loyal_follower": 0.25
+            },
+            "GRAEME": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "PEW": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "ARIANA": "loyal_follower",
+            "GEE": "merlin",
+            "GRAEME": "evil_minion",
+            "PEW": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 1.0
+            },
+            "ARIANA": {
+              "loyal_follower": 0.2142070557413667,
+              "merlin": 0.2142070557413667,
+              "evil_minion": 0.5715858885172667
+            },
+            "GEE": {
+              "merlin": 0.29726753460484145,
+              "evil_minion": 0.40546493079031704,
+              "loyal_follower": 0.29726753460484145
+            },
+            "GRAEME": {
+              "evil_minion": 0.5005457089397172,
+              "merlin": 0.24972714553014141,
+              "loyal_follower": 0.24972714553014141
+            },
+            "PEW": {
+              "evil_minion": 0.5224034717526991,
+              "merlin": 0.23879826412365046,
+              "loyal_follower": 0.23879826412365046
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "GRAEME": "merlin",
+            "ARIANA": "evil_minion",
+            "PEW": "evil_minion"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ARIANA": {
+              "evil_minion": 1.0
+            },
+            "GEE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "GRAEME": {
+              "evil_minion": 1.0
+            },
+            "PEW": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "PEW": "merlin",
+            "ARIANA": "evil_minion",
+            "GRAEME": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ARIANA": {
+              "evil_minion": 1.0
+            },
+            "GEE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "GRAEME": {
+              "evil_minion": 1.0
+            },
+            "PEW": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "PEW": "merlin",
+            "ARIANA": "evil_minion",
+            "GRAEME": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.25,
+              "merlin": 0.25,
+              "evil_minion": 0.49999999999999994
+            },
+            "ARIANA": {
+              "merlin": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "loyal_follower": 0.25
+            },
+            "GEE": {
+              "loyal_follower": 1.0
+            },
+            "GRAEME": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "PEW": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "ARIANA": "merlin",
+            "GRAEME": "evil_minion",
+            "PEW": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.3125,
+              "merlin": 0.3125,
+              "evil_minion": 0.37500000000000006
+            },
+            "ARIANA": {
+              "merlin": 0.25,
+              "evil_minion": 0.5000000000000001,
+              "loyal_follower": 0.25
+            },
+            "GEE": {
+              "loyal_follower": 1.0
+            },
+            "GRAEME": {
+              "evil_minion": 0.5312500000000001,
+              "merlin": 0.23437500000000006,
+              "loyal_follower": 0.23437500000000006
+            },
+            "PEW": {
+              "evil_minion": 0.5937500000000001,
+              "merlin": 0.20312500000000003,
+              "loyal_follower": 0.20312500000000003
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "ARIANA": "merlin",
+            "GRAEME": "evil_minion",
+            "PEW": "evil_minion"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ARIANA": {
+              "evil_minion": 1.0
+            },
+            "GEE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "GRAEME": {
+              "evil_minion": 1.0
+            },
+            "PEW": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "PEW": "merlin",
+            "ARIANA": "evil_minion",
+            "GRAEME": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ARIANA": {
+              "evil_minion": 1.0
+            },
+            "GEE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "GRAEME": {
+              "evil_minion": 1.0
+            },
+            "PEW": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "PEW": "merlin",
+            "ARIANA": "evil_minion",
+            "GRAEME": "evil_minion"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 1.0
+            },
+            "ARIANA": {
+              "evil_minion": 1.0
+            },
+            "GEE": {
+              "loyal_follower": 1.0
+            },
+            "GRAEME": {
+              "evil_minion": 1.0
+            },
+            "PEW": {
+              "merlin": 1.0
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "PEW": "merlin",
+            "ARIANA": "evil_minion",
+            "GRAEME": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 1.0
+            },
+            "ARIANA": {
+              "evil_minion": 1.0
+            },
+            "GEE": {
+              "loyal_follower": 1.0
+            },
+            "GRAEME": {
+              "evil_minion": 1.0
+            },
+            "PEW": {
+              "merlin": 1.0
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "PEW": "merlin",
+            "ARIANA": "evil_minion",
+            "GRAEME": "evil_minion"
+          }
+        }
+      }
+    },
+    "3": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.39999999999999997,
+              "merlin": 0.19999999999999998,
+              "evil_minion": 0.39999999999999997
+            },
+            "ARIANA": {
+              "loyal_follower": 0.39999999999999997,
+              "merlin": 0.19999999999999998,
+              "evil_minion": 0.39999999999999997
+            },
+            "GEE": {
+              "merlin": 0.19999999999999998,
+              "evil_minion": 0.39999999999999997,
+              "loyal_follower": 0.39999999999999997
+            },
+            "GRAEME": {
+              "evil_minion": 0.39999999999999997,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.39999999999999997
+            },
+            "PEW": {
+              "evil_minion": 0.39999999999999997,
+              "merlin": 0.19999999999999998,
+              "loyal_follower": 0.39999999999999997
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "ARIANA": "loyal_follower",
+            "GEE": "merlin",
+            "GRAEME": "evil_minion",
+            "PEW": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.4411640520043241,
+              "merlin": 0.22058202600216206,
+              "evil_minion": 0.33825392199351345
+            },
+            "ARIANA": {
+              "loyal_follower": 0.37421722501584603,
+              "merlin": 0.18710861250792304,
+              "evil_minion": 0.4386741624762305
+            },
+            "GEE": {
+              "merlin": 0.2047325886399922,
+              "evil_minion": 0.38580223408002307,
+              "loyal_follower": 0.4094651772799843
+            },
+            "GRAEME": {
+              "evil_minion": 0.40949703852382235,
+              "merlin": 0.1968343204920591,
+              "loyal_follower": 0.3936686409841182
+            },
+            "PEW": {
+              "evil_minion": 0.4277726429264099,
+              "merlin": 0.19074245235786327,
+              "loyal_follower": 0.38148490471572655
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "GRAEME": "merlin",
+            "ARIANA": "evil_minion",
+            "PEW": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower1": {
+        "Strict": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 1.0
+            },
+            "ARIANA": {
+              "loyal_follower": 0.25,
+              "merlin": 0.25,
+              "evil_minion": 0.49999999999999994
+            },
+            "GEE": {
+              "merlin": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "loyal_follower": 0.25
+            },
+            "GRAEME": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "PEW": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "ARIANA": "loyal_follower",
+            "GEE": "merlin",
+            "GRAEME": "evil_minion",
+            "PEW": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 1.0
+            },
+            "ARIANA": {
+              "loyal_follower": 0.22254501812224897,
+              "merlin": 0.22254501812224897,
+              "evil_minion": 0.5549099637555021
+            },
+            "GEE": {
+              "merlin": 0.2850908189600297,
+              "evil_minion": 0.4298183620799407,
+              "loyal_follower": 0.2850908189600297
+            },
+            "GRAEME": {
+              "evil_minion": 0.49309045369278154,
+              "merlin": 0.25345477315360926,
+              "loyal_follower": 0.25345477315360926
+            },
+            "PEW": {
+              "evil_minion": 0.5221812204717757,
+              "merlin": 0.23890938976411208,
+              "loyal_follower": 0.23890938976411208
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "GRAEME": "merlin",
+            "ARIANA": "evil_minion",
+            "PEW": "evil_minion"
+          }
+        }
+      },
+      "evil_minion1": {
+        "Strict": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ARIANA": {
+              "evil_minion": 1.0
+            },
+            "GEE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "GRAEME": {
+              "evil_minion": 1.0
+            },
+            "PEW": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "PEW": "merlin",
+            "ARIANA": "evil_minion",
+            "GRAEME": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ARIANA": {
+              "evil_minion": 1.0
+            },
+            "GEE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "GRAEME": {
+              "evil_minion": 1.0
+            },
+            "PEW": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "PEW": "merlin",
+            "ARIANA": "evil_minion",
+            "GRAEME": "evil_minion"
+          }
+        }
+      },
+      "loyal_follower2": {
+        "Strict": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.25,
+              "merlin": 0.25,
+              "evil_minion": 0.49999999999999994
+            },
+            "ARIANA": {
+              "merlin": 0.25,
+              "evil_minion": 0.49999999999999994,
+              "loyal_follower": 0.25
+            },
+            "GEE": {
+              "loyal_follower": 1.0
+            },
+            "GRAEME": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            },
+            "PEW": {
+              "evil_minion": 0.49999999999999994,
+              "merlin": 0.25,
+              "loyal_follower": 0.25
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "ARIANA": "merlin",
+            "GRAEME": "evil_minion",
+            "PEW": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.33333333333333337,
+              "merlin": 0.33333333333333337,
+              "evil_minion": 0.33333333333333326
+            },
+            "ARIANA": {
+              "merlin": 0.23529411764705882,
+              "evil_minion": 0.5294117647058824,
+              "loyal_follower": 0.23529411764705882
+            },
+            "GEE": {
+              "loyal_follower": 1.0
+            },
+            "GRAEME": {
+              "evil_minion": 0.5490196078431373,
+              "merlin": 0.22549019607843135,
+              "loyal_follower": 0.22549019607843135
+            },
+            "PEW": {
+              "evil_minion": 0.5882352941176471,
+              "merlin": 0.20588235294117646,
+              "loyal_follower": 0.20588235294117646
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "ARIANA": "merlin",
+            "GRAEME": "evil_minion",
+            "PEW": "evil_minion"
+          }
+        }
+      },
+      "evil_minion2": {
+        "Strict": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ARIANA": {
+              "evil_minion": 1.0
+            },
+            "GEE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "GRAEME": {
+              "evil_minion": 1.0
+            },
+            "PEW": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "PEW": "merlin",
+            "ARIANA": "evil_minion",
+            "GRAEME": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "ARIANA": {
+              "evil_minion": 1.0
+            },
+            "GEE": {
+              "loyal_follower": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "GRAEME": {
+              "evil_minion": 1.0
+            },
+            "PEW": {
+              "merlin": 0.3333333333333333,
+              "loyal_follower": 0.6666666666666666
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "PEW": "merlin",
+            "ARIANA": "evil_minion",
+            "GRAEME": "evil_minion"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 1.0
+            },
+            "ARIANA": {
+              "evil_minion": 1.0
+            },
+            "GEE": {
+              "loyal_follower": 1.0
+            },
+            "GRAEME": {
+              "evil_minion": 1.0
+            },
+            "PEW": {
+              "merlin": 1.0
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "PEW": "merlin",
+            "ARIANA": "evil_minion",
+            "GRAEME": "evil_minion"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "FERGUS": {
+              "loyal_follower": 1.0
+            },
+            "ARIANA": {
+              "evil_minion": 1.0
+            },
+            "GEE": {
+              "loyal_follower": 1.0
+            },
+            "GRAEME": {
+              "evil_minion": 1.0
+            },
+            "PEW": {
+              "merlin": 1.0
+            }
+          },
+          "best": {
+            "FERGUS": "loyal_follower",
+            "GEE": "loyal_follower",
+            "PEW": "merlin",
+            "ARIANA": "evil_minion",
+            "GRAEME": "evil_minion"
+          }
+        }
+      }
+    }
+  }
+}

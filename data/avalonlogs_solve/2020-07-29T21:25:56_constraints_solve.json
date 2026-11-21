@@ -1,0 +1,2184 @@
+{
+  "file": "2020-07-29T21:25:56_constraints.json",
+  "players": {
+    "IMELDA": "percival",
+    "JOE": "morgana",
+    "LOZENGE": "loyal_follower",
+    "MAISIE": "merlin",
+    "CDOG": "mordred"
+  },
+  "quests": {
+    "1": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.14285714285714285,
+              "merlin": 0.2380952380952382,
+              "percival": 0.2380952380952382,
+              "morgana": 0.14285714285714285,
+              "loyal_follower": 0.2380952380952382
+            },
+            "JOE": {
+              "merlin": 0.14285714285714285,
+              "percival": 0.14285714285714285,
+              "morgana": 0.28571428571428586,
+              "loyal_follower": 0.14285714285714285,
+              "mordred": 0.28571428571428586
+            },
+            "LOZENGE": {
+              "percival": 0.2380952380952382,
+              "loyal_follower": 0.2380952380952382,
+              "merlin": 0.2380952380952382,
+              "morgana": 0.14285714285714285,
+              "mordred": 0.14285714285714285
+            },
+            "MAISIE": {
+              "morgana": 0.28571428571428586,
+              "percival": 0.14285714285714285,
+              "loyal_follower": 0.14285714285714285,
+              "merlin": 0.14285714285714285,
+              "mordred": 0.28571428571428586
+            },
+            "CDOG": {
+              "loyal_follower": 0.2380952380952382,
+              "percival": 0.2380952380952382,
+              "merlin": 0.2380952380952382,
+              "morgana": 0.14285714285714285,
+              "mordred": 0.14285714285714285
+            }
+          },
+          "best": {
+            "IMELDA": "mordred",
+            "JOE": "merlin",
+            "LOZENGE": "percival",
+            "MAISIE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.16646023129133034,
+              "merlin": 0.22235984580577972,
+              "percival": 0.22235984580577972,
+              "morgana": 0.16646023129133034,
+              "loyal_follower": 0.22235984580577972
+            },
+            "JOE": {
+              "merlin": 0.16646023129133034,
+              "percival": 0.16646023129133034,
+              "morgana": 0.2503096530630044,
+              "loyal_follower": 0.16646023129133034,
+              "mordred": 0.25030965306300446
+            },
+            "LOZENGE": {
+              "percival": 0.24989678231233178,
+              "loyal_follower": 0.24989678231233178,
+              "merlin": 0.24989678231233178,
+              "morgana": 0.1251548265315022,
+              "mordred": 0.12515482653150223
+            },
+            "MAISIE": {
+              "morgana": 0.33292046258266067,
+              "percival": 0.1113863582782262,
+              "loyal_follower": 0.1113863582782262,
+              "merlin": 0.1113863582782262,
+              "mordred": 0.33292046258266067
+            },
+            "CDOG": {
+              "loyal_follower": 0.24989678231233184,
+              "percival": 0.24989678231233184,
+              "merlin": 0.24989678231233184,
+              "morgana": 0.1251548265315022,
+              "mordred": 0.12515482653150223
+            }
+          },
+          "best": {
+            "IMELDA": "mordred",
+            "JOE": "merlin",
+            "LOZENGE": "percival",
+            "MAISIE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        }
+      },
+      "percival": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "percival": 1.0
+            },
+            "JOE": {
+              "merlin": 0.5,
+              "morgana": 0.5
+            },
+            "LOZENGE": {
+              "mordred": 0.5,
+              "loyal_follower": 0.5
+            },
+            "MAISIE": {
+              "morgana": 0.5,
+              "merlin": 0.5
+            },
+            "CDOG": {
+              "loyal_follower": 0.5,
+              "mordred": 0.5
+            }
+          },
+          "best": {
+            "LOZENGE": "mordred",
+            "JOE": "merlin",
+            "IMELDA": "percival",
+            "MAISIE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "percival": 1.0
+            },
+            "JOE": {
+              "merlin": 0.6666666666666666,
+              "morgana": 0.3333333333333333
+            },
+            "LOZENGE": {
+              "mordred": 0.5,
+              "loyal_follower": 0.5
+            },
+            "MAISIE": {
+              "morgana": 0.6666666666666666,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "loyal_follower": 0.5,
+              "mordred": 0.5
+            }
+          },
+          "best": {
+            "LOZENGE": "mordred",
+            "JOE": "merlin",
+            "IMELDA": "percival",
+            "MAISIE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        }
+      },
+      "morgana": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 0.9999999999999999
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "mordred": 0.9999999999999999
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 1.0
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "mordred": 1.0
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        }
+      },
+      "loyal_follower": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.2,
+              "merlin": 0.3,
+              "percival": 0.3,
+              "morgana": 0.2
+            },
+            "JOE": {
+              "merlin": 0.2,
+              "morgana": 0.3,
+              "percival": 0.2,
+              "mordred": 0.3
+            },
+            "LOZENGE": {
+              "loyal_follower": 1.0000000000000002
+            },
+            "MAISIE": {
+              "morgana": 0.3,
+              "merlin": 0.2,
+              "percival": 0.2,
+              "mordred": 0.3
+            },
+            "CDOG": {
+              "percival": 0.3,
+              "merlin": 0.3,
+              "morgana": 0.2,
+              "mordred": 0.2
+            }
+          },
+          "best": {
+            "IMELDA": "mordred",
+            "JOE": "merlin",
+            "CDOG": "percival",
+            "MAISIE": "morgana",
+            "LOZENGE": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.2218588967462618,
+              "merlin": 0.2781411032537381,
+              "percival": 0.2781411032537381,
+              "morgana": 0.2218588967462618
+            },
+            "JOE": {
+              "merlin": 0.2218588967462618,
+              "morgana": 0.2781411032537381,
+              "percival": 0.2218588967462618,
+              "mordred": 0.2781411032537381
+            },
+            "LOZENGE": {
+              "loyal_follower": 1.0
+            },
+            "MAISIE": {
+              "morgana": 0.3327883451193927,
+              "merlin": 0.1672116548806072,
+              "percival": 0.1672116548806072,
+              "mordred": 0.3327883451193927
+            },
+            "CDOG": {
+              "percival": 0.3327883451193927,
+              "merlin": 0.3327883451193927,
+              "morgana": 0.1672116548806072,
+              "mordred": 0.1672116548806072
+            }
+          },
+          "best": {
+            "IMELDA": "mordred",
+            "JOE": "merlin",
+            "CDOG": "percival",
+            "MAISIE": "morgana",
+            "LOZENGE": "loyal_follower"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.16666666666666666,
+              "percival": 0.3333333333333333,
+              "morgana": 0.16666666666666666,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 0.49999999999999994,
+              "mordred": 0.49999999999999994
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "morgana": 0.16666666666666666,
+              "mordred": 0.16666666666666666
+            },
+            "MAISIE": {
+              "merlin": 1.0
+            },
+            "CDOG": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "morgana": 0.16666666666666666,
+              "mordred": 0.16666666666666666
+            }
+          },
+          "best": {
+            "IMELDA": "mordred",
+            "MAISIE": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.16666666666666666,
+              "percival": 0.3333333333333333,
+              "morgana": 0.16666666666666666,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 0.5,
+              "mordred": 0.5
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "morgana": 0.16666666666666666,
+              "mordred": 0.16666666666666666
+            },
+            "MAISIE": {
+              "merlin": 1.0
+            },
+            "CDOG": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "morgana": 0.16666666666666666,
+              "mordred": 0.16666666666666666
+            }
+          },
+          "best": {
+            "IMELDA": "mordred",
+            "MAISIE": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        }
+      },
+      "mordred": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 0.9999999999999999
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "mordred": 0.9999999999999999
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 1.0
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "mordred": 1.0
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        }
+      }
+    },
+    "2": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.14285714285714285,
+              "merlin": 0.2380952380952382,
+              "percival": 0.2380952380952382,
+              "morgana": 0.14285714285714285,
+              "loyal_follower": 0.2380952380952382
+            },
+            "JOE": {
+              "merlin": 0.14285714285714285,
+              "percival": 0.14285714285714285,
+              "morgana": 0.28571428571428586,
+              "loyal_follower": 0.14285714285714285,
+              "mordred": 0.28571428571428586
+            },
+            "LOZENGE": {
+              "percival": 0.2380952380952382,
+              "loyal_follower": 0.2380952380952382,
+              "merlin": 0.2380952380952382,
+              "morgana": 0.14285714285714285,
+              "mordred": 0.14285714285714285
+            },
+            "MAISIE": {
+              "morgana": 0.28571428571428586,
+              "percival": 0.14285714285714285,
+              "loyal_follower": 0.14285714285714285,
+              "merlin": 0.14285714285714285,
+              "mordred": 0.28571428571428586
+            },
+            "CDOG": {
+              "loyal_follower": 0.2380952380952382,
+              "percival": 0.2380952380952382,
+              "merlin": 0.2380952380952382,
+              "morgana": 0.14285714285714285,
+              "mordred": 0.14285714285714285
+            }
+          },
+          "best": {
+            "IMELDA": "mordred",
+            "JOE": "merlin",
+            "LOZENGE": "percival",
+            "MAISIE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.14089524824048802,
+              "merlin": 0.2394031678396749,
+              "percival": 0.2394031678396749,
+              "morgana": 0.14089524824048802,
+              "loyal_follower": 0.23940316783967494
+            },
+            "JOE": {
+              "merlin": 0.13852669373023557,
+              "percival": 0.13852669373023557,
+              "morgana": 0.29220995940464717,
+              "loyal_follower": 0.13852669373023554,
+              "mordred": 0.2922099594046471
+            },
+            "LOZENGE": {
+              "percival": 0.2514275487106625,
+              "loyal_follower": 0.25142754871066253,
+              "merlin": 0.2514275487106625,
+              "morgana": 0.1228586769340066,
+              "mordred": 0.12285867693400662
+            },
+            "MAISIE": {
+              "morgana": 0.3140717749560951,
+              "percival": 0.12395215002927015,
+              "loyal_follower": 0.12395215002927015,
+              "merlin": 0.12395215002927015,
+              "mordred": 0.3140717749560952
+            },
+            "CDOG": {
+              "loyal_follower": 0.24669043969015764,
+              "percival": 0.24669043969015766,
+              "merlin": 0.24669043969015766,
+              "morgana": 0.12996434046476393,
+              "mordred": 0.12996434046476393
+            }
+          },
+          "best": {
+            "JOE": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "MAISIE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        }
+      },
+      "percival": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "percival": 1.0
+            },
+            "JOE": {
+              "merlin": 0.5,
+              "morgana": 0.5
+            },
+            "LOZENGE": {
+              "mordred": 0.5,
+              "loyal_follower": 0.5
+            },
+            "MAISIE": {
+              "morgana": 0.5,
+              "merlin": 0.5
+            },
+            "CDOG": {
+              "loyal_follower": 0.5,
+              "mordred": 0.5
+            }
+          },
+          "best": {
+            "LOZENGE": "mordred",
+            "JOE": "merlin",
+            "IMELDA": "percival",
+            "MAISIE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "percival": 1.0
+            },
+            "JOE": {
+              "merlin": 0.5555555555555556,
+              "morgana": 0.44444444444444453
+            },
+            "LOZENGE": {
+              "mordred": 0.5000000000000001,
+              "loyal_follower": 0.5000000000000001
+            },
+            "MAISIE": {
+              "morgana": 0.5555555555555556,
+              "merlin": 0.44444444444444453
+            },
+            "CDOG": {
+              "loyal_follower": 0.5000000000000001,
+              "mordred": 0.5000000000000001
+            }
+          },
+          "best": {
+            "LOZENGE": "mordred",
+            "JOE": "merlin",
+            "IMELDA": "percival",
+            "MAISIE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        }
+      },
+      "morgana": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 0.9999999999999999
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "mordred": 0.9999999999999999
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 1.0
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "mordred": 1.0
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        }
+      },
+      "loyal_follower": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.2,
+              "merlin": 0.3,
+              "percival": 0.3,
+              "morgana": 0.2
+            },
+            "JOE": {
+              "merlin": 0.2,
+              "morgana": 0.3,
+              "percival": 0.2,
+              "mordred": 0.3
+            },
+            "LOZENGE": {
+              "loyal_follower": 1.0000000000000002
+            },
+            "MAISIE": {
+              "morgana": 0.3,
+              "merlin": 0.2,
+              "percival": 0.2,
+              "mordred": 0.3
+            },
+            "CDOG": {
+              "percival": 0.3,
+              "merlin": 0.3,
+              "morgana": 0.2,
+              "mordred": 0.2
+            }
+          },
+          "best": {
+            "IMELDA": "mordred",
+            "JOE": "merlin",
+            "CDOG": "percival",
+            "MAISIE": "morgana",
+            "LOZENGE": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.1881351580410395,
+              "merlin": 0.3118648419589603,
+              "percival": 0.3118648419589603,
+              "morgana": 0.1881351580410395
+            },
+            "JOE": {
+              "merlin": 0.1881351580410395,
+              "morgana": 0.3118648419589603,
+              "percival": 0.1881351580410395,
+              "mordred": 0.3118648419589603
+            },
+            "LOZENGE": {
+              "loyal_follower": 1.0
+            },
+            "MAISIE": {
+              "morgana": 0.32689041196294716,
+              "merlin": 0.17310958803705268,
+              "percival": 0.17310958803705268,
+              "mordred": 0.32689041196294716
+            },
+            "CDOG": {
+              "percival": 0.32689041196294716,
+              "merlin": 0.32689041196294716,
+              "morgana": 0.17310958803705268,
+              "mordred": 0.17310958803705268
+            }
+          },
+          "best": {
+            "JOE": "mordred",
+            "IMELDA": "merlin",
+            "CDOG": "percival",
+            "MAISIE": "morgana",
+            "LOZENGE": "loyal_follower"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.16666666666666666,
+              "percival": 0.3333333333333333,
+              "morgana": 0.16666666666666666,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 0.49999999999999994,
+              "mordred": 0.49999999999999994
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "morgana": 0.16666666666666666,
+              "mordred": 0.16666666666666666
+            },
+            "MAISIE": {
+              "merlin": 1.0
+            },
+            "CDOG": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "morgana": 0.16666666666666666,
+              "mordred": 0.16666666666666666
+            }
+          },
+          "best": {
+            "IMELDA": "mordred",
+            "MAISIE": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.15410409348882034,
+              "percival": 0.34589590651117963,
+              "morgana": 0.15410409348882034,
+              "loyal_follower": 0.34589590651117963
+            },
+            "JOE": {
+              "morgana": 0.5,
+              "mordred": 0.5
+            },
+            "LOZENGE": {
+              "percival": 0.3082081869776407,
+              "loyal_follower": 0.3082081869776407,
+              "morgana": 0.1917918130223593,
+              "mordred": 0.1917918130223593
+            },
+            "MAISIE": {
+              "merlin": 1.0
+            },
+            "CDOG": {
+              "loyal_follower": 0.34589590651117963,
+              "percival": 0.34589590651117963,
+              "morgana": 0.15410409348882034,
+              "mordred": 0.15410409348882034
+            }
+          },
+          "best": {
+            "JOE": "mordred",
+            "MAISIE": "merlin",
+            "IMELDA": "percival",
+            "LOZENGE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        }
+      },
+      "mordred": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 0.9999999999999999
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "mordred": 0.9999999999999999
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 1.0
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "mordred": 1.0
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        }
+      }
+    },
+    "3": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.14285714285714285,
+              "merlin": 0.2380952380952382,
+              "percival": 0.2380952380952382,
+              "morgana": 0.14285714285714285,
+              "loyal_follower": 0.2380952380952382
+            },
+            "JOE": {
+              "merlin": 0.14285714285714285,
+              "percival": 0.14285714285714285,
+              "morgana": 0.28571428571428586,
+              "loyal_follower": 0.14285714285714285,
+              "mordred": 0.28571428571428586
+            },
+            "LOZENGE": {
+              "percival": 0.2380952380952382,
+              "loyal_follower": 0.2380952380952382,
+              "merlin": 0.2380952380952382,
+              "morgana": 0.14285714285714285,
+              "mordred": 0.14285714285714285
+            },
+            "MAISIE": {
+              "morgana": 0.28571428571428586,
+              "percival": 0.14285714285714285,
+              "loyal_follower": 0.14285714285714285,
+              "merlin": 0.14285714285714285,
+              "mordred": 0.28571428571428586
+            },
+            "CDOG": {
+              "loyal_follower": 0.2380952380952382,
+              "percival": 0.2380952380952382,
+              "merlin": 0.2380952380952382,
+              "morgana": 0.14285714285714285,
+              "mordred": 0.14285714285714285
+            }
+          },
+          "best": {
+            "IMELDA": "mordred",
+            "JOE": "merlin",
+            "LOZENGE": "percival",
+            "MAISIE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.1489906914162164,
+              "merlin": 0.2340062057225228,
+              "percival": 0.2340062057225228,
+              "morgana": 0.1489906914162164,
+              "loyal_follower": 0.23400620572252281
+            },
+            "JOE": {
+              "merlin": 0.1365359135180767,
+              "percival": 0.1365359135180767,
+              "morgana": 0.29519612972288545,
+              "loyal_follower": 0.1365359135180767,
+              "mordred": 0.2951961297228854
+            },
+            "LOZENGE": {
+              "percival": 0.2499208751108543,
+              "loyal_follower": 0.2499208751108543,
+              "merlin": 0.2499208751108543,
+              "morgana": 0.12511868733371914,
+              "mordred": 0.12511868733371914
+            },
+            "MAISIE": {
+              "morgana": 0.30800859529273183,
+              "percival": 0.1279942698048457,
+              "loyal_follower": 0.1279942698048457,
+              "merlin": 0.1279942698048457,
+              "mordred": 0.30800859529273195
+            },
+            "CDOG": {
+              "loyal_follower": 0.25154273584370157,
+              "percival": 0.25154273584370157,
+              "merlin": 0.25154273584370157,
+              "morgana": 0.12268589623444819,
+              "mordred": 0.12268589623444819
+            }
+          },
+          "best": {
+            "JOE": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "MAISIE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        }
+      },
+      "percival": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "percival": 1.0
+            },
+            "JOE": {
+              "merlin": 0.5,
+              "morgana": 0.5
+            },
+            "LOZENGE": {
+              "mordred": 0.5,
+              "loyal_follower": 0.5
+            },
+            "MAISIE": {
+              "morgana": 0.5,
+              "merlin": 0.5
+            },
+            "CDOG": {
+              "loyal_follower": 0.5,
+              "mordred": 0.5
+            }
+          },
+          "best": {
+            "LOZENGE": "mordred",
+            "JOE": "merlin",
+            "IMELDA": "percival",
+            "MAISIE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "percival": 1.0
+            },
+            "JOE": {
+              "merlin": 0.5229426374711638,
+              "morgana": 0.47705736252883624
+            },
+            "LOZENGE": {
+              "mordred": 0.48692643406322095,
+              "loyal_follower": 0.5130735659367791
+            },
+            "MAISIE": {
+              "morgana": 0.5229426374711638,
+              "merlin": 0.47705736252883624
+            },
+            "CDOG": {
+              "loyal_follower": 0.48692643406322095,
+              "mordred": 0.5130735659367791
+            }
+          },
+          "best": {
+            "LOZENGE": "mordred",
+            "JOE": "merlin",
+            "IMELDA": "percival",
+            "MAISIE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        }
+      },
+      "morgana": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 0.9999999999999999
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "mordred": 0.9999999999999999
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 1.0
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "mordred": 1.0
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        }
+      },
+      "loyal_follower": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.2,
+              "merlin": 0.3,
+              "percival": 0.3,
+              "morgana": 0.2
+            },
+            "JOE": {
+              "merlin": 0.2,
+              "morgana": 0.3,
+              "percival": 0.2,
+              "mordred": 0.3
+            },
+            "LOZENGE": {
+              "loyal_follower": 1.0000000000000002
+            },
+            "MAISIE": {
+              "morgana": 0.3,
+              "merlin": 0.2,
+              "percival": 0.2,
+              "mordred": 0.3
+            },
+            "CDOG": {
+              "percival": 0.3,
+              "merlin": 0.3,
+              "morgana": 0.2,
+              "mordred": 0.2
+            }
+          },
+          "best": {
+            "IMELDA": "mordred",
+            "JOE": "merlin",
+            "CDOG": "percival",
+            "MAISIE": "morgana",
+            "LOZENGE": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.20234459262332724,
+              "merlin": 0.29765540737667273,
+              "percival": 0.29765540737667273,
+              "morgana": 0.20234459262332719
+            },
+            "JOE": {
+              "merlin": 0.19120356843119868,
+              "morgana": 0.3087964315688013,
+              "percival": 0.19120356843119868,
+              "mordred": 0.3087964315688013
+            },
+            "LOZENGE": {
+              "loyal_follower": 1.0
+            },
+            "MAISIE": {
+              "morgana": 0.32397442989414355,
+              "merlin": 0.17602557010585645,
+              "percival": 0.17602557010585645,
+              "mordred": 0.3239744298941435
+            },
+            "CDOG": {
+              "percival": 0.3351154540862721,
+              "merlin": 0.3351154540862721,
+              "morgana": 0.16488454591372786,
+              "mordred": 0.16488454591372786
+            }
+          },
+          "best": {
+            "JOE": "mordred",
+            "IMELDA": "merlin",
+            "CDOG": "percival",
+            "MAISIE": "morgana",
+            "LOZENGE": "loyal_follower"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.16666666666666666,
+              "percival": 0.3333333333333333,
+              "morgana": 0.16666666666666666,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 0.49999999999999994,
+              "mordred": 0.49999999999999994
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "morgana": 0.16666666666666666,
+              "mordred": 0.16666666666666666
+            },
+            "MAISIE": {
+              "merlin": 1.0
+            },
+            "CDOG": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "morgana": 0.16666666666666666,
+              "mordred": 0.16666666666666666
+            }
+          },
+          "best": {
+            "IMELDA": "mordred",
+            "MAISIE": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.1816966118512955,
+              "percival": 0.3183033881487045,
+              "morgana": 0.1816966118512955,
+              "loyal_follower": 0.3183033881487045
+            },
+            "JOE": {
+              "morgana": 0.49999999999999994,
+              "mordred": 0.5
+            },
+            "LOZENGE": {
+              "percival": 0.33333333333333337,
+              "loyal_follower": 0.33333333333333337,
+              "morgana": 0.16666666666666663,
+              "mordred": 0.16666666666666663
+            },
+            "MAISIE": {
+              "merlin": 1.0
+            },
+            "CDOG": {
+              "loyal_follower": 0.3483632785179621,
+              "percival": 0.3483632785179621,
+              "morgana": 0.15163672148203786,
+              "mordred": 0.15163672148203786
+            }
+          },
+          "best": {
+            "IMELDA": "mordred",
+            "MAISIE": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        }
+      },
+      "mordred": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 0.9999999999999999
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "mordred": 0.9999999999999999
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 1.0
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "mordred": 1.0
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        }
+      }
+    },
+    "4": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.1666666666666667,
+              "merlin": 0.2222222222222223,
+              "percival": 0.2222222222222223,
+              "morgana": 0.1666666666666667,
+              "loyal_follower": 0.2222222222222223
+            },
+            "JOE": {
+              "merlin": 0.1666666666666667,
+              "percival": 0.1666666666666667,
+              "morgana": 0.25000000000000006,
+              "loyal_follower": 0.1666666666666667,
+              "mordred": 0.25000000000000006
+            },
+            "LOZENGE": {
+              "percival": 0.2222222222222223,
+              "loyal_follower": 0.2222222222222223,
+              "merlin": 0.2222222222222223,
+              "morgana": 0.1666666666666667,
+              "mordred": 0.1666666666666667
+            },
+            "MAISIE": {
+              "morgana": 0.25000000000000006,
+              "percival": 0.1666666666666667,
+              "loyal_follower": 0.1666666666666667,
+              "merlin": 0.1666666666666667,
+              "mordred": 0.25000000000000006
+            },
+            "CDOG": {
+              "loyal_follower": 0.2222222222222223,
+              "percival": 0.2222222222222223,
+              "merlin": 0.2222222222222223,
+              "morgana": 0.1666666666666667,
+              "mordred": 0.1666666666666667
+            }
+          },
+          "best": {
+            "IMELDA": "mordred",
+            "JOE": "merlin",
+            "LOZENGE": "percival",
+            "MAISIE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.17872060819548544,
+              "merlin": 0.2141862612030097,
+              "percival": 0.2141862612030097,
+              "morgana": 0.17872060819548546,
+              "loyal_follower": 0.21418626120300974
+            },
+            "JOE": {
+              "merlin": 0.1887569616775569,
+              "percival": 0.1887569616775569,
+              "morgana": 0.2168645574836647,
+              "loyal_follower": 0.18875696167755693,
+              "mordred": 0.21686455748366462
+            },
+            "LOZENGE": {
+              "percival": 0.22372224852505448,
+              "loyal_follower": 0.22372224852505448,
+              "merlin": 0.22372224852505448,
+              "morgana": 0.16441662721241831,
+              "mordred": 0.1644166272124183
+            },
+            "MAISIE": {
+              "morgana": 0.2831354425163354,
+              "percival": 0.1445763716557764,
+              "loyal_follower": 0.1445763716557764,
+              "merlin": 0.1445763716557764,
+              "mordred": 0.2831354425163354
+            },
+            "CDOG": {
+              "loyal_follower": 0.22875815693860252,
+              "percival": 0.22875815693860252,
+              "merlin": 0.22875815693860252,
+              "morgana": 0.15686276459209622,
+              "mordred": 0.15686276459209625
+            }
+          },
+          "best": {
+            "IMELDA": "mordred",
+            "JOE": "merlin",
+            "LOZENGE": "percival",
+            "MAISIE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        }
+      },
+      "percival": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "percival": 1.0
+            },
+            "JOE": {
+              "merlin": 0.5,
+              "morgana": 0.5
+            },
+            "LOZENGE": {
+              "mordred": 0.5,
+              "loyal_follower": 0.5
+            },
+            "MAISIE": {
+              "morgana": 0.5,
+              "merlin": 0.5
+            },
+            "CDOG": {
+              "loyal_follower": 0.5,
+              "mordred": 0.5
+            }
+          },
+          "best": {
+            "LOZENGE": "mordred",
+            "JOE": "merlin",
+            "IMELDA": "percival",
+            "MAISIE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "percival": 1.0
+            },
+            "JOE": {
+              "merlin": 0.5669304250709154,
+              "morgana": 0.4330695749290846
+            },
+            "LOZENGE": {
+              "mordred": 0.476207367967157,
+              "loyal_follower": 0.523792632032843
+            },
+            "MAISIE": {
+              "morgana": 0.5669304250709154,
+              "merlin": 0.4330695749290846
+            },
+            "CDOG": {
+              "loyal_follower": 0.476207367967157,
+              "mordred": 0.523792632032843
+            }
+          },
+          "best": {
+            "LOZENGE": "mordred",
+            "JOE": "merlin",
+            "IMELDA": "percival",
+            "MAISIE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        }
+      },
+      "morgana": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 0.9999999999999999
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "mordred": 0.9999999999999999
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 1.0
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "mordred": 1.0
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        }
+      },
+      "loyal_follower": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.25,
+              "merlin": 0.25,
+              "percival": 0.25,
+              "morgana": 0.25
+            },
+            "JOE": {
+              "merlin": 0.25,
+              "morgana": 0.25,
+              "percival": 0.25,
+              "mordred": 0.25
+            },
+            "LOZENGE": {
+              "loyal_follower": 1.0
+            },
+            "MAISIE": {
+              "morgana": 0.25,
+              "merlin": 0.25,
+              "percival": 0.25,
+              "mordred": 0.25
+            },
+            "CDOG": {
+              "percival": 0.25,
+              "merlin": 0.25,
+              "morgana": 0.25,
+              "mordred": 0.25
+            }
+          },
+          "best": {
+            "IMELDA": "mordred",
+            "JOE": "merlin",
+            "CDOG": "percival",
+            "MAISIE": "morgana",
+            "LOZENGE": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.26820512901104376,
+              "merlin": 0.23179487098895635,
+              "percival": 0.23179487098895635,
+              "morgana": 0.26820512901104376
+            },
+            "JOE": {
+              "merlin": 0.28484052633081053,
+              "morgana": 0.21515947366918958,
+              "percival": 0.28484052633081053,
+              "mordred": 0.21515947366918958
+            },
+            "LOZENGE": {
+              "loyal_follower": 1.0
+            },
+            "MAISIE": {
+              "morgana": 0.28484052633081053,
+              "merlin": 0.21515947366918958,
+              "percival": 0.21515947366918958,
+              "mordred": 0.28484052633081053
+            },
+            "CDOG": {
+              "percival": 0.26820512901104376,
+              "merlin": 0.26820512901104376,
+              "morgana": 0.23179487098895635,
+              "mordred": 0.23179487098895635
+            }
+          },
+          "best": {
+            "IMELDA": "mordred",
+            "JOE": "merlin",
+            "CDOG": "percival",
+            "MAISIE": "morgana",
+            "LOZENGE": "loyal_follower"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.16666666666666666,
+              "percival": 0.3333333333333333,
+              "morgana": 0.16666666666666666,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 0.49999999999999994,
+              "mordred": 0.49999999999999994
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "morgana": 0.16666666666666666,
+              "mordred": 0.16666666666666666
+            },
+            "MAISIE": {
+              "merlin": 1.0
+            },
+            "CDOG": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "morgana": 0.16666666666666666,
+              "mordred": 0.16666666666666666
+            }
+          },
+          "best": {
+            "IMELDA": "mordred",
+            "MAISIE": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "mordred": 0.18045333466548955,
+              "percival": 0.3195466653345104,
+              "morgana": 0.18045333466548955,
+              "loyal_follower": 0.3195466653345104
+            },
+            "JOE": {
+              "morgana": 0.5,
+              "mordred": 0.5
+            },
+            "LOZENGE": {
+              "percival": 0.34712000133215626,
+              "loyal_follower": 0.34712000133215626,
+              "morgana": 0.15287999866784377,
+              "mordred": 0.15287999866784377
+            },
+            "MAISIE": {
+              "merlin": 1.0
+            },
+            "CDOG": {
+              "loyal_follower": 0.33333333333333326,
+              "percival": 0.33333333333333326,
+              "morgana": 0.1666666666666667,
+              "mordred": 0.1666666666666667
+            }
+          },
+          "best": {
+            "IMELDA": "mordred",
+            "MAISIE": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        }
+      },
+      "mordred": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 0.9999999999999999
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "mordred": 0.9999999999999999
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 1.0
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "mordred": 1.0
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        }
+      }
+    },
+    "5": {
+      "objective": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "mordred": 0.5,
+              "morgana": 0.5
+            },
+            "LOZENGE": {
+              "percival": 0.16666666666666666,
+              "morgana": 0.24999999999999997,
+              "loyal_follower": 0.16666666666666666,
+              "merlin": 0.16666666666666666,
+              "mordred": 0.24999999999999997
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "morgana": 0.24999999999999997,
+              "loyal_follower": 0.16666666666666666,
+              "percival": 0.16666666666666666,
+              "merlin": 0.16666666666666666,
+              "mordred": 0.24999999999999997
+            }
+          },
+          "best": {
+            "JOE": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "CDOG": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "mordred": 0.5,
+              "morgana": 0.5
+            },
+            "LOZENGE": {
+              "percival": 0.19047619047619047,
+              "morgana": 0.21428571428571433,
+              "loyal_follower": 0.19047619047619047,
+              "merlin": 0.19047619047619047,
+              "mordred": 0.21428571428571433
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "morgana": 0.2857142857142857,
+              "loyal_follower": 0.14285714285714288,
+              "percival": 0.14285714285714288,
+              "merlin": 0.14285714285714288,
+              "mordred": 0.2857142857142857
+            }
+          },
+          "best": {
+            "JOE": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "CDOG": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        }
+      },
+      "percival": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "percival": 1.0
+            },
+            "JOE": {
+              "morgana": 1.0
+            },
+            "LOZENGE": {
+              "mordred": 0.5,
+              "loyal_follower": 0.5
+            },
+            "MAISIE": {
+              "merlin": 1.0
+            },
+            "CDOG": {
+              "loyal_follower": 0.5,
+              "mordred": 0.5
+            }
+          },
+          "best": {
+            "LOZENGE": "mordred",
+            "MAISIE": "merlin",
+            "IMELDA": "percival",
+            "JOE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "percival": 1.0
+            },
+            "JOE": {
+              "morgana": 1.0
+            },
+            "LOZENGE": {
+              "mordred": 0.42857142857142866,
+              "loyal_follower": 0.5714285714285714
+            },
+            "MAISIE": {
+              "merlin": 1.0
+            },
+            "CDOG": {
+              "loyal_follower": 0.42857142857142866,
+              "mordred": 0.5714285714285714
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "MAISIE": "merlin",
+            "IMELDA": "percival",
+            "JOE": "morgana",
+            "LOZENGE": "loyal_follower"
+          }
+        }
+      },
+      "morgana": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 0.9999999999999999
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "mordred": 0.9999999999999999
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 1.0
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "mordred": 1.0
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        }
+      },
+      "loyal_follower": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.5,
+              "percival": 0.5
+            },
+            "JOE": {
+              "mordred": 0.5,
+              "morgana": 0.5
+            },
+            "LOZENGE": {
+              "loyal_follower": 1.0
+            },
+            "MAISIE": {
+              "percival": 0.5,
+              "merlin": 0.5
+            },
+            "CDOG": {
+              "morgana": 0.5,
+              "mordred": 0.5
+            }
+          },
+          "best": {
+            "JOE": "mordred",
+            "IMELDA": "merlin",
+            "MAISIE": "percival",
+            "CDOG": "morgana",
+            "LOZENGE": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.5,
+              "percival": 0.5
+            },
+            "JOE": {
+              "mordred": 0.5,
+              "morgana": 0.5
+            },
+            "LOZENGE": {
+              "loyal_follower": 1.0
+            },
+            "MAISIE": {
+              "percival": 0.5,
+              "merlin": 0.5
+            },
+            "CDOG": {
+              "morgana": 0.5,
+              "mordred": 0.5
+            }
+          },
+          "best": {
+            "JOE": "mordred",
+            "IMELDA": "merlin",
+            "MAISIE": "percival",
+            "CDOG": "morgana",
+            "LOZENGE": "loyal_follower"
+          }
+        }
+      },
+      "merlin": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "percival": 0.5,
+              "loyal_follower": 0.5
+            },
+            "JOE": {
+              "mordred": 0.5,
+              "morgana": 0.5
+            },
+            "LOZENGE": {
+              "morgana": 0.25,
+              "loyal_follower": 0.25,
+              "percival": 0.25,
+              "mordred": 0.25
+            },
+            "MAISIE": {
+              "merlin": 1.0
+            },
+            "CDOG": {
+              "loyal_follower": 0.25,
+              "morgana": 0.25,
+              "percival": 0.25,
+              "mordred": 0.25
+            }
+          },
+          "best": {
+            "JOE": "mordred",
+            "MAISIE": "merlin",
+            "IMELDA": "percival",
+            "LOZENGE": "morgana",
+            "CDOG": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "percival": 0.5,
+              "loyal_follower": 0.5
+            },
+            "JOE": {
+              "mordred": 0.5,
+              "morgana": 0.5
+            },
+            "LOZENGE": {
+              "morgana": 0.21428571428571433,
+              "loyal_follower": 0.2857142857142857,
+              "percival": 0.2857142857142857,
+              "mordred": 0.21428571428571433
+            },
+            "MAISIE": {
+              "merlin": 1.0
+            },
+            "CDOG": {
+              "loyal_follower": 0.21428571428571433,
+              "morgana": 0.2857142857142857,
+              "percival": 0.21428571428571433,
+              "mordred": 0.2857142857142857
+            }
+          },
+          "best": {
+            "JOE": "mordred",
+            "MAISIE": "merlin",
+            "IMELDA": "percival",
+            "CDOG": "morgana",
+            "LOZENGE": "loyal_follower"
+          }
+        }
+      },
+      "mordred": {
+        "Strict": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 0.9999999999999999
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "mordred": 0.9999999999999999
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        },
+        "+HypIG": {
+          "posterior": {
+            "IMELDA": {
+              "merlin": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333
+            },
+            "JOE": {
+              "morgana": 1.0
+            },
+            "LOZENGE": {
+              "percival": 0.3333333333333333,
+              "loyal_follower": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "MAISIE": {
+              "loyal_follower": 0.3333333333333333,
+              "percival": 0.3333333333333333,
+              "merlin": 0.3333333333333333
+            },
+            "CDOG": {
+              "mordred": 1.0
+            }
+          },
+          "best": {
+            "CDOG": "mordred",
+            "IMELDA": "merlin",
+            "LOZENGE": "percival",
+            "JOE": "morgana",
+            "MAISIE": "loyal_follower"
+          }
+        }
+      }
+    }
+  }
+}

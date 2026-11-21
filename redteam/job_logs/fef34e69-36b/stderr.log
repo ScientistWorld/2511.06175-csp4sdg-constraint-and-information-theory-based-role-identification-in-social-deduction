@@ -1,0 +1,14 @@
+[hive] This stderr log is managed by Hive.
+[hive] job_id: 88ccff5c
+[hive] host: node
+[hive] node_id: bc827a10f057c9d8884c3fb8ebd7867076c6c9ab81399213f614e901
+[hive] user: nexus/user (remote)
+[hive] resource: gpu-cpu-test
+[hive] gpus: 0
+[hive] cpus: 1
+[hive] workdir: /home/user
+[hive] timeout_sec: 21600
+[hive] started_at: 2026-11-21 01:41:22 EST
+[hive] command: apptainer exec --containall --cleanenv --env HF_HOME=/home/user/shared/hf_cache --env TRANSFORMERS_CACHE=/home/user/shared/hf_cache --env HF_DATASETS_CACHE=/home/user/shared/hf_cache/datasets --env TORCH_HOME=/home/user/shared/hf_cache/torch --bind /home/user/scratch/AgentWorkspaces/workspaces/2511.06175:/home/user --overlay /home/user/scratch/AgentWorkspaces/workspaces/2511.06175/environment/overlay.img:ro --bind /home/user/scratch/AgentWorkspaces/shared/datasets:/home/user/shared/datasets:ro --bind /home/user/scratch/AgentWorkspaces/shared/models:/home/user/shared/models:ro --bind /home/user/scratch/AgentWorkspaces/shared/hf_cache:/home/user/shared/hf_cache /home/user/scratch/AgentWorkspaces/workspaces/2511.06175/environment/container.sif bash -c 'cd /home/user && bash /home/user/scripts/run.sh'
+[hive] Preempted for SLURM worker drain before walltime
+[hive] Worker node died — requeuing

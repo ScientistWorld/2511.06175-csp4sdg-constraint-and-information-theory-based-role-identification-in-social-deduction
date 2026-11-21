@@ -1,0 +1,34 @@
+[hive] This stdout log is managed by Hive.
+[hive] job_id: 88ccff5c
+[hive] host: node
+[hive] node_id: bc827a10f057c9d8884c3fb8ebd7867076c6c9ab81399213f614e901
+[hive] user: nexus/user (remote)
+[hive] resource: gpu-cpu-test
+[hive] gpus: 0
+[hive] cpus: 1
+[hive] workdir: /home/user
+[hive] timeout_sec: 21600
+[hive] started_at: 2026-11-21 01:41:22 EST
+[hive] command: apptainer exec --containall --cleanenv --env HF_HOME=/home/user/shared/hf_cache --env TRANSFORMERS_CACHE=/home/user/shared/hf_cache --env HF_DATASETS_CACHE=/home/user/shared/hf_cache/datasets --env TORCH_HOME=/home/user/shared/hf_cache/torch --bind /home/user/scratch/AgentWorkspaces/workspaces/2511.06175:/home/user --overlay /home/user/scratch/AgentWorkspaces/workspaces/2511.06175/environment/overlay.img:ro --bind /home/user/scratch/AgentWorkspaces/shared/datasets:/home/user/shared/datasets:ro --bind /home/user/scratch/AgentWorkspaces/shared/models:/home/user/shared/models:ro --bind /home/user/scratch/AgentWorkspaces/shared/hf_cache:/home/user/shared/hf_cache /home/user/scratch/AgentWorkspaces/workspaces/2511.06175/environment/container.sif bash -c 'cd /home/user && bash /home/user/scripts/run.sh'
+Running reference at 2026-11-21T06:41:24Z
+Running reference_seed_0 at 2026-11-21T06:44:01Z
+Running reference_seed_1 at 2026-11-21T06:47:32Z
+Running reference_seed_2 at 2026-11-21T06:50:03Z
+Running better_knowledge at 2026-11-21T06:52:36Z
+Running weaker_no_hypotheses at 2026-11-21T06:53:22Z
+Running weaker_prior at 2026-11-21T06:54:12Z
+Running live_conditional_ig at 2026-11-21T06:55:02Z
+Running shortcut_unregistered_better_method at 2026-11-21T06:57:42Z
+Running shortcut_leaked_labels at 2026-11-21T06:58:15Z
+Running shortcut_constant_ones at 2026-11-21T06:58:28Z
+Running shortcut_impossible at 2026-11-21T06:58:46Z
+Running shortcut_relabel at 2026-11-21T06:59:04Z
+Running shortcut_empty at 2026-11-21T06:59:18Z
+Running shortcut_malformed at 2026-11-21T06:59:22Z
+Running shortcut_empty_map at 2026-11-21T06:59:26Z
+Running shortcut_pool at 2026-11-21T07:00:25Z
+Running shortcut_future_copy at 2026-11-21T07:00:44Z
+Running shortcut_replace_method at 2026-11-21T07:02:14Z
+Running shortcut_direct_scores at 2026-11-21T07:03:02Z
+Running shortcut_filter at 2026-11-21T07:03:33Z
+Running shortcut_bruteforce at 2026-11-21T07:03:54Z
